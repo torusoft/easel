@@ -1,25 +1,25 @@
  /** =screen.css
 ************************************************************
-@project      FusionaryFramework
-@colordef     #808080; dark gray (body copy)
-@colordef     #6aa000; lime green (link)
-@colordef     #517805; darker lime green (link hover)
-@colordef     #eafbd8; light green (link hover bg)
+@project    FusionaryFramework
+@colordef   #808080; dark gray (body copy)
+@colordef   #6aa000; lime green (link)
+@colordef   #517805; darker lime green (link hover)
+@colordef   #eafbd8; light green (link hover bg)
 ************************************************************
 ************************************************************/
 
 /** =import
 ************************************************************/
-@import url(reset.css);
+@import url(base.css);
 @import url(extras.css);
 @import url(forms.css);
 @import url(admin.css);
 
 /** =fonts
 ************************************************************
-@see   http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
-@see   http://www.sitepoint.com/article/eight-definitive-font-stacks/
-@see   http://stevecochrane.com/v3/2007/12/13/helvetica-neue-variants-for-use-on-the-web/
+@see  http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
+@see  http://www.sitepoint.com/article/eight-definitive-font-stacks/
+@see  http://stevecochrane.com/v3/2007/12/13/helvetica-neue-variants-for-use-on-the-web/
 ************************************************************/
 body,
 input, button, textarea{
