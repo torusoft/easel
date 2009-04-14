@@ -37,6 +37,9 @@ address { font-style: normal; }
 /* =images */
 img { max-width: 100%; }
 
+/* =pre */
+pre { overflow-x: auto; }
+
 /** =utility classes
 ************************************************************/
 .hide,
