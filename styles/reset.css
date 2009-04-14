@@ -70,6 +70,12 @@ a.img:hover{
   display: block;
 }
 
+.no-border { border: none; }
+.no-bullet li  {
+  padding: 0;
+  background: none;
+}
+
 /** =group (clearfix)
 ************************************************************
 @see  http://www.positioniseverything.net/easyclearing.html
