@@ -7,7 +7,7 @@
 /** =image replacement
 ************************************************************/
 .hform .error-message {
-  text-indent: -999em; display: block; font-size: 1px; overflow: hidden;
+  text-indent: -999em; display: block; font-size: 1px !important; overflow: hidden;
 }
 
 /** =inputs
@@ -270,14 +270,19 @@ form .overlay {
   background-color: #FBE3E4;
 }
 .error label,
-.error label span.mark  { color: #D12F19; }
+.error label span.required-mark  { color: #D12F19; }
 
 .vform .error-message{
   position: absolute;
   top: -2px;
   right: 0;
+}
+.error-message{
   font-size: 11px;
   color: #D12F19;
+}
+.error-summary .error-message{
+  margin-left: 5px;
 }
 .vform .text,
 .vform .select,
@@ -289,5 +294,5 @@ form .overlay {
 	width: 17px;
 	height: 16px;
   float: left;
-  margin: 6px 0 0 8px;
+  margin: 4px 0 0 8px;
 }

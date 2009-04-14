@@ -48,10 +48,13 @@ var submitOptions = {
   }
 };
 $ajaxForm.tinyvalidate({
-  wrapper: '<div></div>',
-  wrapperClass: 'error box',
   submitOverride: function() {
     $ajaxForm.ajaxSubmit(submitOptions);
+  },
+  summary: {
+    wrapper: '<div class="error-summary error box"></div>',
+    preMessage: '<p>There was a problem processing your request. <br>Please correct the {num} highlighted {field|fields} and try again.</p><ul class="reset">',
+    postMessage: '</ul>'
   }
 });
 }); // document.ready

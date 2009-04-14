@@ -57,7 +57,7 @@ dd { margin-bottom: .75em; }
 /* =margins */
 p, table, form, pre, ul, ol, dl, address, .box { margin-bottom: 1.5em; }
 ul, ol { margin-top: 1.5em; }
-ol { margin-left: 1.5em; }
+ol, pre { margin-left: 1.5em; }
 li { margin-bottom: .75em; line-height: 1.25; }
 li ol, li ul { margin-bottom: 0; margin-top: .75em; }
 
@@ -74,7 +74,7 @@ blockquote cite { font-style: normal; }
 /* =tables */
 table       { width:100%; border-collapse:separate; border-spacing:0; }
 th          { font-weight: bold; }
-th, td      { padding: 4px 10px; }
+th, td      { padding: 4px 10px; text-align: left; }
 tr.alt td,
 tr.alt th   { background: #F4F4F4; }
 tfoot       { font-style: italic; }
@@ -106,7 +106,7 @@ h6 { font-size: 12px; }
 
 /** =modules
 ************************************************************
-@note Modules are stackable blocks. Adjust margin bottom accordingly. Often equivilent to the bottom margin of block elements, but not always.
+@note Modules (.mod) are stackable blocks. Adjust margin bottom accordingly. Often equivilent to the bottom margin of block elements, but not always.
 ************************************************************/
 .mod{
   display: block;
@@ -116,8 +116,8 @@ a.mod img {
   display: block;
 }
 
-p img, img.left, a.left.img img { margin: 10px 10px 0 0; }
-img.right, a.right.img img      { margin: 10px 0 0 10px; }
+p img, img.left, a.img.left img { margin: 10px 10px 0 0; }
+img.right, a.img.right img      { margin: 10px 0 0 10px; }
 img.top, a.top.img              { margin-top: 0;}
 
 .no-margin     { margin-bottom: 0; }
@@ -147,6 +147,8 @@ img.top, a.top.img              { margin-top: 0;}
 /** =layout
 ************************************************************/
 body { background: #fff; }
+
+.container { margin: 0 auto; width: ; }
 
 .header   {  }
 .footer   {  }

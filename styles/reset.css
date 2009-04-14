@@ -70,10 +70,10 @@ a.img:hover{
   display: block;
 }
 
-.no-border { border: none; }
+.no-border { border: none !important; }
 .no-bullet li  {
-  padding: 0;
-  background: none;
+  padding: 0 !important;
+  background: none !important;
 }
 
 /** =group (clearfix)
@@ -81,6 +81,7 @@ a.img:hover{
 @see  http://www.positioniseverything.net/easyclearing.html
 ************************************************************/
 .group:after,
+.content:after,
 .mod:after,
 .hnav:after,
 .text:after,
@@ -88,12 +89,14 @@ a.img:hover{
 .file:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 
 .group,
+.content,
 .mod,
 .hnav,
 .text,
 .select,
 .file { display: inline-block; }
 * html .group,
+* html .content,
 * html .mod,
 * html .hnav,
 * html .text,
@@ -101,6 +104,7 @@ a.img:hover{
 * html .file  { height: 1%; }
 
 .group,
+.content,
 .mod,
 .hnav,
 .text,
