@@ -1,0 +1,146 @@
+h1. FusionaryFramework CSS Guide
+
+h2. Comments
+
+h3. File Header
+
+<notextile><pre><code>
+/** =screen.css
+************************************************************
+@project      FusionaryFramework
+@colordef     #808080; dark gray (body copy)
+@colordef     #6aa000; lime green (link)
+@colordef     #517805; darker lime green (link hover)
+@colordef     #eafbd8; light green (link hover bg)
+************************************************************
+************************************************************/
+</code></pre>
+
+h3. Comment heading 
+
+<pre><code>
+/** =fonts
+************************************************************/
+</code></pre></notextile>
+
+h3. Comment Heading (with notes)
+
+<pre><code>
+/** =fonts
+************************************************************
+@see   http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
+@see   http://www.sitepoint.com/article/eight-definitive-font-stacks/
+@see   http://stevecochrane.com/v3/2007/12/13/helvetica-neue-variants-for-use-on-the-web/
+************************************************************/
+</code></pre></notextile>
+
+h3. Comment Subheading
+
+<pre><code>
+/* =margins */
+</code></pre></notextile>
+
+h2. Classes
+
+h3. Layout
+
+* @.container@
+* @.header@
+* @.footer@
+* @.content@
+** @.content-main@
+** @.content-right@
+** @.content-left@
+
+h3. Navigation
+
+* @.nav-main@
+* @.nav-local@
+* @.nav-sub@
+* @.nav-user@
+* @.nav-admin@
+* @.nav-global@
+* @.nav@
+* @.hnav@
+* @.vnav@
+
+h3. Forms
+
+* @.text@
+* @.textarea@
+* @.select@
+* @.file@
+* @.checkbox@
+* @.radio@
+* @.hform@
+* @.vform@
+* @.multi-line@
+* @.fancy@
+* @.legend@
+* @.actions@
+
+h3. Validation/Flash Messages
+
+* @.box@
+** @.box.single-line@
+** @.box.error@
+** @.box.notice@
+** @.box.success@
+* @.overlay@
+* @.loading@
+* @.error-summary@
+* @.error-message@
+* @.required-mark@
+* @.error@
+* @.notice@
+* @.success@
+
+h3. Utility Classes
+
+* @.reset@
+* @.js@
+* @.js-hide@
+* @.js-show@
+* @.hide@
+* @.access@
+* @.right@
+* @.left@
+* @.clear@
+* @.center@
+* @.text-right@
+* @.text-left@
+* @.text-center@
+* @.no-border @
+* @.replace@
+* @.no-margin@
+* @.half-margin@
+* @.full-margin@
+* @.double-margin@
+* @.group@
+
+h3. Common classes
+
+* @.mod@
+* @.alt@
+* @.biglink@
+* @.note@
+* @.intro@
+* @.framed@
+* @.ruled@
+* @.rnd@
+* @.amp@
+* @.btn@
+* @.inner@
+
+h3. Common Prefixes
+
+* @btn-@
+* @icn-@
+* @pho-@
+
+h3. Common Suffixes
+
+* @-main@
+* @-sub@
+* @-inner@
+* @-outer@

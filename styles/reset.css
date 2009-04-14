@@ -86,7 +86,7 @@ a.img:hover{
 .hnav:after,
 .text:after,
 .select:after,
-.file:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.file:after { content: " "; display: block; font-size: 0; height: 0; clear: both; visibility: hidden; }
 
 .group,
 .content,
@@ -114,6 +114,7 @@ a.img:hover{
 /** =grid
 ************************************************************
 @see  http://blueprint-generator.kaizeku.com/
+@see  http://www.jdclayton.com/blueprints_compress_a_walkthrough.html
 ************************************************************/
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16, .col-17, .col-18, .col-19, .col-20, .col-21, .col-22, .col-23, .col-24 { float:left; margin-right:10px; }
 .col-1  {width:26px  !important;}

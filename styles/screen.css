@@ -5,6 +5,7 @@
 @colordef     #6aa000; lime green (link)
 @colordef     #517805; darker lime green (link hover)
 @colordef     #eafbd8; light green (link hover bg)
+************************************************************
 ************************************************************/
 
 /** =import
@@ -32,7 +33,7 @@ pre,code,kbd,tt,samp {
 /** =image replacement
 ************************************************************/
 .replace {
-  text-indent: -999em; display: block; font-size: 1px; overflow: hidden;
+  text-indent: -999em; display: block; font-size: 0; overflow: hidden;
 }
 
 /** =site specific baseline
@@ -91,7 +92,7 @@ a:hover { background-color: red; color: #fff; }
 }
 
 /* =headings */
-h1,h2,h3,h4,h5,h6 { margin-bottom: .5em; font-weight: bold; }
+h1,h2,h3,h4,h5,h6 { margin-bottom: .75em; font-weight: bold; }
 h1,h2,h3 { line-height: 1em; }
 h4,h5,h6 { line-height: 1.2em; }
 h1 { font-size: 30px; }
