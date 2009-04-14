@@ -24,7 +24,7 @@ a abbr[title]       { cursor: pointer; }
 ins                 { text-decoration: none; border-bottom: 1px dotted; }
 a ins               { border: 0; }
 del                 { text-decoration: line-through; }
-sup,sub             { font-size: 40%; }
+sup,sub             { font-size: 80%; }
 sup                 { vertical-align: super; }
 sub                 { vertical-align: sub; }
 
