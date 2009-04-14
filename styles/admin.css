@@ -1,0 +1,54 @@
+/** =admin.css
+************************************************************
+@project  FusionaryFramework
+@note     Styles for the control panel and front end administration
+************************************************************
+************************************************************/
+
+/** =admin bar
+************************************************************/
+.admin-bar{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: url(/assets/images/admin-bar-shadow.png) repeat-x;
+  z-index: 1000;
+  font-size: 11px;
+  text-align: right;
+  color: #ccc;
+  padding-top: 10px;
+}
+.admin-bar .inner{
+  padding: 3px 0;
+  height: 18px;
+  background: #000;
+  border-bottom: 2px #fff solid;
+}
+.admin-bar ul{
+  margin-right: 10px;
+}
+.admin-bar ul,
+.admin-bar .greeting{
+  display: inline;
+}
+.admin-bar li{
+  margin-left: 9px;
+  padding-left: 10px;
+  border-left: 1px solid #6c6759;
+}
+.admin-bar a,
+.admin-bar a:hover{
+  background: none;
+  color: #fff;
+}
+.admin-bar a:hover{
+  text-decoration: underline;
+}
+.admin-bar .greeting{
+  font-style: italic;
+}
+.admin-bar .edit a{
+  background: url(/assets/images/icons/edit-template.gif) no-repeat 0 50%;
+  padding-left: 15px;
+}

@@ -1,0 +1,163 @@
+ /** =screen.css
+************************************************************
+@project      FusionaryFramework
+@colordef     #808080; dark gray (body copy)
+@colordef     #6aa000; lime green (link)
+@colordef     #517805; darker lime green (link hover)
+@colordef     #eafbd8; light green (link hover bg)
+************************************************************/
+
+/** =import
+************************************************************/
+@import url(reset.css);
+@import url(extras.css);
+@import url(forms.css);
+@import url(admin.css);
+
+/** =fonts
+************************************************************
+@see   http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
+@see   http://www.sitepoint.com/article/eight-definitive-font-stacks/
+@see   http://stevecochrane.com/v3/2007/12/13/helvetica-neue-variants-for-use-on-the-web/
+************************************************************/
+body,
+input, button, textarea{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .025em;
+}
+pre,code,kbd,tt,samp {
+  font-family: "Andale Mono","Courier New",Courier,monospace;
+}
+
+/** =image replacement
+************************************************************/
+.replace {
+  text-indent: -999em; display: block; font-size: 1px; overflow: hidden;
+}
+
+/** =site specific baseline
+************************************************************/
+body{
+  font-size: 12px;
+  line-height: 1.5em; /* 18px */
+  color: #222;
+}
+
+/* =lists */
+ol li{ list-style: decimal; }
+ul li{ list-style: none; }
+dt { font-weight: bold; }
+ul li{
+  background: url(/assets/images/bullet-black.png) no-repeat 0 .5em;
+  padding-left: .75em;
+}
+dt { font-weight: bold; }
+dd { margin-bottom: .75em; }
+ 
+/* =margins */
+p, table, form, pre, ul, ol, dl, address, .box { margin-bottom: 1.5em; }
+ul, ol { margin-top: 1.5em; }
+ol { margin-left: 1.5em; }
+li { margin-bottom: .75em; line-height: 1.25; }
+li ol, li ul { margin-bottom: 0; margin-top: .75em; }
+
+li p, blockquote p { margin-bottom: .75em; }
+
+/* =blockquote */
+blockquote {
+	font-style: italic;
+	margin: 1.5em;
+}
+blockquote em,
+blockquote cite { font-style: normal; }
+
+/* =tables */
+table       { width:100%; border-collapse:separate; border-spacing:0; }
+th          { font-weight: bold; }
+th, td      { padding: 4px 10px; }
+tr.alt td,
+tr.alt th   { background: #F4F4F4; }
+tfoot       { font-style: italic; }
+caption     { font-weight: bold; }
+
+/* =links */
+a { text-decoration: none; color: red; }
+a:hover { background-color: red; color: #fff; }
+.biglink-hover * {
+  color: red;
+}
+.biglink {
+  cursor: pointer;
+}
+
+/* =headings */
+h1,h2,h3,h4,h5,h6 { margin-bottom: .5em; font-weight: bold; }
+h1,h2,h3 { line-height: 1em; }
+h4,h5,h6 { line-height: 1.2em; }
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+h6 { font-size: 12px; }
+
+/** =common
+************************************************************/
+
+/** =modules
+************************************************************
+@note Modules are stackable blocks. Adjust margin bottom accordingly. Often equivilent to the bottom margin of block elements, but not always.
+************************************************************/
+.mod{
+  display: block;
+  margin-bottom: 1.5em;
+}
+a.mod img {
+  display: block;
+}
+
+p img, img.left, a.left.img img { margin: 10px 10px 0 0; }
+img.right, a.right.img img      { margin: 10px 0 0 10px; }
+img.top, a.top.img              { margin-top: 0;}
+
+.no-margin     { margin-bottom: 0; }
+.half-margin   { margin-bottom: .75em; }
+.full-margin   { margin-bottom: 1.5em; }
+.double-margin { margin-bottom: 3em; }
+
+.no-border { border: none; }
+.no-bullet li  {
+  padding: 0;
+  background: none;
+}
+.note {
+  font-size: 11px;
+  font-weight: normal;
+}
+.intro {
+  color: #ccc;
+  font-size: 18px;
+  margin-bottom: 1em;
+}
+.framed { border: 2px solid #d9d5ca; }
+
+/** =layout
+************************************************************/
+body { background: #fff; }
+
+.header   {  }
+.footer   {  }
+.content  {  }
+
+.content-main   {  }
+.content-right  {  }
+.content-left   {  }
+
+/** =navigation
+************************************************************/
+
+/** =header
+************************************************************/
+
+/** =footer
+************************************************************/

@@ -1,0 +1,208 @@
+/** =reset.css
+************************************************************
+@project  FusionaryFramework
+@see      http://meyerweb.com/eric/thoughts/2008/01/15/resetting-again/
+@note     added .reset to element list and list-style: none to declaration
+************************************************************
+************************************************************/
+.reset, .reset li, .reset dt, .reset dd, html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	list-style: none;
+}
+
+/* =inline elements */
+strong              { font-weight: bold; }
+cite, em, var, dfn  { font-style: italic; }
+abbr[title]         { text-transform: lowercase; font-variant: small-caps; letter-spacing: 0.1em; cursor:help; }
+a abbr[title]       { cursor: pointer; }
+ins                 { text-decoration: none; border-bottom: 1px dotted; }
+a ins               { border: 0; }
+del                 { text-decoration: line-through; }
+sup,sub             { font-size: 40%; }
+sup                 { vertical-align: super; }
+sub                 { vertical-align: sub; }
+
+/* =quotes */
+blockquote, q { quotes: none; }
+
+/* =address */
+address { font-style: normal; }
+
+/* =images */
+img { max-width: 100%; }
+
+/** =utility classes
+************************************************************/
+.hide,
+.js .js-hide,
+.js-show      { display: none !important; }
+.js .js-show  { display: block !important; }
+.access       { position: absolute !important; left: -999em !important; }
+
+.right        { float: right !important; }
+.left	        { float: left !important; }
+.clear        { clear: both !important; }
+.center       { display: block !important; margin-left: auto !important; margin-right: auto !important; }
+
+.text-right  { text-align: right !important; }
+.text-left   { text-align: left !important; }
+.text-center { text-align: center !important; }
+
+.no-border    { border: none !important; }
+
+.hnav li      { float: left; display: inline; }
+.hnav a,
+.vnav a       { display: block; }
+.inav li      { display: inline; }
+
+a.img,
+a.img img,
+a.img:hover{
+  border: none;
+  background: none;
+  text-decoration: none;
+  display: block;
+}
+
+/** =group (clearfix)
+************************************************************
+@see  http://www.positioniseverything.net/easyclearing.html
+************************************************************/
+.group:after,
+.mod:after,
+.hnav:after,
+.text:after,
+.select:after,
+.file:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+.group,
+.mod,
+.hnav,
+.text,
+.select,
+.file { display: inline-block; }
+* html .group,
+* html .mod,
+* html .hnav,
+* html .text,
+* html .select,
+* html .file  { height: 1%; }
+
+.group,
+.mod,
+.hnav,
+.text,
+.select,
+.file{ display: block; }
+
+/** =grid
+************************************************************
+@see  http://blueprint-generator.kaizeku.com/
+************************************************************/
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16, .col-17, .col-18, .col-19, .col-20, .col-21, .col-22, .col-23, .col-24 { float:left; margin-right:10px; }
+.col-1  {width:26px  !important;}
+.col-2  {width:66px  !important;}
+.col-3  {width:106px !important;}
+.col-4  {width:146px !important;}
+.col-5  {width:186px !important;}
+.col-6  {width:226px !important;}
+.col-7  {width:266px !important;}
+.col-8  {width:306px !important;}
+.col-9  {width:346px !important;}
+.col-10 {width:386px !important;}
+.col-11 {width:426px !important;}
+.col-12 {width:466px !important;}
+.col-13 {width:506px !important;}
+.col-14 {width:546px !important;}
+.col-15 {width:586px !important;}
+.col-16 {width:626px !important;}
+.col-17 {width:666px !important;}
+.col-18 {width:706px !important;}
+.col-19 {width:746px !important;}
+.col-20 {width:786px !important;}
+.col-21 {width:826px !important;}
+.col-22 {width:866px !important;}
+.col-23 {width:906px !important;}
+.col-24 {width:946px !important; margin:0;}
+
+.col-last   { margin-right: 0; }
+.col-center { margin: 0 auto; float: none; }
+
+.append-1   {padding-right:40px  !important;}
+.append-2   {padding-right:80px  !important;}
+.append-3   {padding-right:120px !important;}
+.append-4   {padding-right:160px !important;}
+.append-5   {padding-right:200px !important;}
+.append-6   {padding-right:240px !important;}
+.append-7   {padding-right:280px !important;}
+.append-8   {padding-right:320px !important;}
+.append-9   {padding-right:360px !important;}
+.append-10  {padding-right:400px !important;}
+.append-11  {padding-right:440px !important;}
+.append-12  {padding-right:480px !important;}
+.append-13  {padding-right:520px !important;}
+.append-14  {padding-right:560px !important;}
+.append-15  {padding-right:600px !important;}
+.append-16  {padding-right:640px !important;}
+.append-17  {padding-right:680px !important;}
+.append-18  {padding-right:720px !important;}
+.append-19  {padding-right:760px !important;}
+.append-20  {padding-right:800px !important;}
+.append-21  {padding-right:840px !important;}
+.append-22  {padding-right:880px !important;}
+.append-23  {padding-right:920px !important;}
+
+.prepend-1  {padding-left:40px  !important;}
+.prepend-2  {padding-left:80px  !important;}
+.prepend-3  {padding-left:120px !important;}
+.prepend-4  {padding-left:160px !important;}
+.prepend-5  {padding-left:200px !important;}
+.prepend-6  {padding-left:240px !important;}
+.prepend-7  {padding-left:280px !important;}
+.prepend-8  {padding-left:320px !important;}
+.prepend-9  {padding-left:360px !important;}
+.prepend-10 {padding-left:400px !important;}
+.prepend-11 {padding-left:440px !important;}
+.prepend-12 {padding-left:480px !important;}
+.prepend-13 {padding-left:520px !important;}
+.prepend-14 {padding-left:560px !important;}
+.prepend-15 {padding-left:600px !important;}
+.prepend-16 {padding-left:640px !important;}
+.prepend-17 {padding-left:680px !important;}
+.prepend-18 {padding-left:720px !important;}
+.prepend-19 {padding-left:760px !important;}
+.prepend-20 {padding-left:800px !important;}
+.prepend-21 {padding-left:840px !important;}
+.prepend-22 {padding-left:880px !important;}
+.prepend-23 {padding-left:920px !important;}
+
+input.col-1,  .col-1  input, textarea.col-1,  .col-1  textarea {width:18px  !important;}
+input.col-2,  .col-2  input, textarea.col-2,  .col-2  textarea {width:58px  !important;}
+input.col-3,  .col-3  input, textarea.col-3,  .col-3  textarea {width:98px  !important;}
+input.col-4,  .col-4  input, textarea.col-4,  .col-4  textarea {width:138px !important;}
+input.col-5,  .col-5  input, textarea.col-5,  .col-5  textarea {width:178px !important;}
+input.col-6,  .col-6  input, textarea.col-6,  .col-6  textarea {width:218px !important;}
+input.col-7,  .col-7  input, textarea.col-7,  .col-7  textarea {width:258px !important;}
+input.col-8,  .col-8  input, textarea.col-8,  .col-8  textarea {width:298px !important;}
+input.col-9,  .col-9  input, textarea.col-9,  .col-9  textarea {width:338px !important;}
+input.col-10, .col-10 input, textarea.col-10, .col-10 textarea {width:378px !important;}
+input.col-11, .col-11 input, textarea.col-11, .col-11 textarea {width:418px !important;}
+input.col-12, .col-12 input, textarea.col-12, .col-12 textarea {width:458px !important;}
+input.col-13, .col-13 input, textarea.col-13, .col-13 textarea {width:498px !important;}
+input.col-14, .col-14 input, textarea.col-14, .col-14 textarea {width:538px !important;}
+input.col-15, .col-15 input, textarea.col-15, .col-15 textarea {width:578px !important;}
+input.col-16, .col-16 input, textarea.col-16, .col-16 textarea {width:618px !important;}
+input.col-17, .col-17 input, textarea.col-17, .col-17 textarea {width:658px !important;}
+input.col-18, .col-18 input, textarea.col-18, .col-18 textarea {width:698px !important;}
+input.col-19, .col-19 input, textarea.col-19, .col-19 textarea {width:738px !important;}
+input.col-20, .col-20 input, textarea.col-20, .col-20 textarea {width:778px !important;}
+input.col-21, .col-21 input, textarea.col-21, .col-21 textarea {width:818px !important;}
+input.col-22, .col-22 input, textarea.col-22, .col-22 textarea {width:858px !important;}
+input.col-23, .col-23 input, textarea.col-23, .col-23 textarea {width:898px !important;}
+input.col-24, .col-24 input, textarea.col-24, .col-24 textarea {width:938px !important; margin:0;}
