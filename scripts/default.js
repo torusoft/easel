@@ -53,7 +53,7 @@ $ajaxForm.tinyvalidate({
   },
   summary: {
     wrapper: '<div class="error-summary error box"></div>',
-    preMessage: '<p>There was a problem processing your request. <br>Please correct the {num} highlighted {field|fields} and try again.</p><ul class="reset">',
+    preMessage: '<p>There was a problem processing your request. <br>Please correct the {num} highlighted {field|fields} and try again.</p><ul>',
     postMessage: '</ul>'
   }
 });

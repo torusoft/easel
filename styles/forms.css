@@ -168,6 +168,9 @@ fieldset{ margin: 0 0 3em; }
   position: absolute;
   left: -999em;
 }
+.vform label{
+  margin-bottom: .25em;
+}
 
 /** =flash messages
 ************************************************************/
@@ -274,15 +277,22 @@ form .overlay {
 
 .vform .error-message{
   position: absolute;
-  top: -2px;
+  top: 0;
   right: 0;
 }
 .error-message{
   font-size: 11px;
   color: #D12F19;
+  font-weight: normal;
 }
 .error-summary .error-message{
   margin-left: 5px;
+}
+.error-summary li{
+  background: none;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
 }
 .vform .text,
 .vform .select,
