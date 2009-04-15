@@ -104,10 +104,7 @@ h6 { font-size: 12px; }
 /** =common
 ************************************************************/
 
-/** =modules
-************************************************************
-@note Modules (.mod) are stackable blocks. Adjust margin bottom accordingly. Often equivilent to the bottom margin of block elements, but not always.
-************************************************************/
+/* =modules */
 .mod{
   display: block;
   margin-bottom: 1.5em;
