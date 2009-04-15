@@ -156,6 +156,9 @@ fieldset{ margin: 0 0 3em; }
 .hform .actions{
   margin-top: .25em;
 }
+.hform input{
+  width: auto !important;
+}
 
 /** =vform
 ************************************************************

@@ -106,8 +106,8 @@ h6 { font-size: 12px; }
 
 /* =modules */
 .mod{
-  display: block;
-  margin-bottom: 1.5em;
+  display: block !important;
+  margin-bottom: 1.5em !important;
 }
 a.mod img {
   display: block;

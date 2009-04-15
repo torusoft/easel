@@ -44,6 +44,7 @@ h2. Classes
 h3. Layout
 
 * @.container@
+* @.wrapper@
 * @.header@
 * @.footer@
 * @.content@
