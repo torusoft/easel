@@ -3,7 +3,6 @@
 @project  FusionaryFramework
 @see      http://meyerweb.com/eric/thoughts/2008/01/15/resetting-again/
 @note     added .reset to element list and list-style: none to declaration
-************************************************************
 ************************************************************/
 .reset, .reset li, .reset dt, .reset dd, html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
 	margin: 0;
@@ -51,7 +50,7 @@ pre { overflow-x: auto; }
 .right        { float: right !important; }
 .left	        { float: left !important; }
 .clear        { clear: both !important; }
-.center       { display: block !important; margin-left: auto !important; margin-right: auto !important; }
+.center       { display: block !important; margin-left: auto !important; margin-right: auto !important; float: none !important; }
 
 .text-right  { text-align: right !important; }
 .text-left   { text-align: left !important; }
@@ -146,7 +145,6 @@ a.img:hover{
 .col-24 {width:946px !important; margin:0;}
 
 .col-last   { margin-right: 0; }
-.col-center { margin: 0 auto; float: none; }
 
 .append-1   {padding-right:40px  !important;}
 .append-2   {padding-right:80px  !important;}

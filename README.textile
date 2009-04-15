@@ -12,7 +12,6 @@ h3. File Header
 @colordef     #6aa000; lime green (link)
 @colordef     #517805; darker lime green (link hover)
 @colordef     #eafbd8; light green (link hover bg)
-************************************************************
 ************************************************************/
 </code></pre>
 
@@ -60,83 +59,86 @@ h3. Navigation
 * @.nav-user@
 * @.nav-admin@
 * @.nav-global@
-* @.nav@
-* @.hnav@
-* @.vnav@
+* @.nav@ -- no specific styles, but can be used to target nav by location (e.g. .header .nav)
+* @.hnav@ -- horizontal navigation (floats li's left)
+* @.vnav@ -- vertical navigation
 
 h3. Forms
 
-* @.text@
-* @.textarea@
+* @.text@ -- this class goes for input[type="text"],input[type="password"], textarea 
+* @.textarea@ -- include .text and .textarea
 * @.select@
 * @.file@
 * @.checkbox@
 * @.radio@
-* @.hform@
-* @.vform@
-* @.multi-line@
-* @.fancy@
-* @.legend@
-* @.actions@
+* @.checkboxes@ -- fieldset.checkboxes
+* @.radios@ -- fieldset.radios
+* @.hform@ -- horizontal form (labels are side by side/inline with inputs)
+* @.vform@ -- vertical form (labels are on top of inputs)
+* @.multi-line@ -- inputs close to gether sharing a common label (e.g. address/address line 2)
+* @.fancy@ -- makes input text bold and adjusts letterspacing for a beefier look
+* @.legend@ -- the legend element is a pain to style, so don't be afraid to just use a heading with the class legend.
+* @.actions@ -- div.actions, a container for submit, cancel, reset buttons at the end of the form
 
 h3. Validation/Flash Messages
 
-* @.box@
-** @.box.single-line@
+* @.box@ -- a padded gray box
+** @.box.single-line@ -- not neccessary, but if the text is only a single line, this will center it vertically.
 ** @.box.error@
 ** @.box.notice@
 ** @.box.success@
-* @.overlay@
-* @.loading@
-* @.error-summary@
-* @.error-message@
-* @.required-mark@
+* @.overlay@ -- transparent overlay for ajax form submission
+* @.loading@ -- wrapper for ajax spinner
+* @.error-summary@ -- error summary displayed before/after forms
+* @.error-message@ -- error indicator/description
+* @.required-mark@ -- indicator that a field is required (e.g. *)
 * @.error@
 * @.notice@
 * @.success@
 
 h3. Utility Classes
 
-* @.reset@
-* @.js@
-* @.js-hide@
-* @.js-show@
-* @.hide@
-* @.access@
-* @.right@
-* @.left@
+* @.reset@ -- removes most styling for elements
+* @.js@ -- attach to html element with JS
+* @.js-hide@ -- hide if JS is enabled
+* @.js-show@ -- show only if JS is enabled
+* @.hide@ -- hide element (display:none)
+* @.access@ -- hide element, but retain accessibility
+* @.right@ -- float right
+* @.left@ -- float left
 * @.clear@
-* @.center@
+* @.center@ -- no float, auto l/r margins (needs a width, or an implied width, like an image)
 * @.text-right@
 * @.text-left@
 * @.text-center@
 * @.no-border @
-* @.replace@
+* @.replace@ -- image replacement, useful to group selectors at top of stylsheet
 * @.no-margin@
-* @.half-margin@
-* @.full-margin@
-* @.double-margin@
-* @.group@
+* @.half-margin@ -- 1/2 standard bottom margin for block elements
+* @.full-margin@ -- standard bottom margin for block elements
+* @.double-margin@ -- 2X bottom margin for block elements
+* @.group@ -- clearfix
 
 h3. Common classes
 
-* @.mod@
-* @.alt@
-* @.biglink@
-* @.note@
-* @.intro@
-* @.framed@
-* @.ruled@
-* @.rnd@
-* @.amp@
-* @.btn@
+* @.mod@ -- module, a stackable block with a bottom margin. Margin amount may be equivalent to 
+* @.alt@ -- zebra row striping, other things alternating/alternate
+* @.biglink@ -- JS big links
+* @.note@ -- often lighter colors and smaller text
+* @.intro@ -- lead in parapraph
+* @.framed@ -- for images or linked images
+* @.captioned@ -- wrapper for image/caption combo
+* @.ruled@ -- ruled list, no bullets
+* @.rnd@ -- rounded corners
+* @.amp@ -- fancy ampersand
+* @.btn@ -- sliding doors buttons/link buttons
 * @.inner@
 
 h3. Common Prefixes
 
-* @btn-@
-* @icn-@
-* @pho-@
+* @btn-@ -- button
+* @icn-@ -- icon
+* @pho-@ -- photo
 
 h3. Common Suffixes
 
@@ -144,3 +146,4 @@ h3. Common Suffixes
 * @-sub@
 * @-inner@
 * @-outer@
+* @-alt@
