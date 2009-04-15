@@ -3,26 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>
-      Framework Redux
+      FusionaryFramework Redux
     </title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><!-- <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png"> -->
-    <link href="styles/screen.css" media="screen, projection" rel="stylesheet" type="text/css"><!--[if lt IE 8]>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <!-- <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png"> -->
+    <link href="styles/reset.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="styles/forms.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="styles/extras.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="styles/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="styles/admin.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <!--[if lt IE 8]>
     <link href="styles/ie.css" media="screen, projection" rel="stylesheet" type="text/css">
   <![endif]-->
-
-    <script src="/scripts/jquery-1.3.2.min.js" type="text/javascript">
-</script>
-    <script src="/scripts/default.js" type="text/javascript">
-</script>
-    <script src="/scripts/jquery.form.js" type="text/javascript">
-</script>
-<script src="/scripts/jquery.tinyvalidate.js" type="text/javascript"></script>
-<script src="/scripts/jquery.tinyvalidate.morerules.js" type="text/javascript"></script>
+    <script src="/scripts/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.form.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.tinyvalidate.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.tinyvalidate.morerules.js" type="text/javascript"></script>
+    <script src="/scripts/default.js" type="text/javascript"></script>
     <style type="text/css" media="screen">
-body{
+body {
       background: url(/assets/images/f.png) no-repeat 50% 20px;
     }
-    .toc{
+    .toc {
       position: fixed;
       width: 150px;
       background: DeepSkyBlue;
@@ -33,22 +35,22 @@ body{
       text-align: center;
       z-index: 1000;
     }
-    .toc a{
+    .toc a {
       color: #fff;
       font-weight: bold;
       padding: 10px;
       font-size: 14px;
     }
-    .toc a:hover{
+    .toc a:hover {
       background: #fff;
       color: DeepSkyBlue;
     }
-    .content{
+    .content {
       width: 950px;
       margin: 0 auto;
       
     }
-    .page-title{
+    .page-title {
       font-size: 40px;
       color: orange;
       padding: 0 0 20px;
@@ -56,18 +58,18 @@ body{
       margin-top: 120px;
       text-shadow: orange 0px 0px 6px;
     }
-    body{
+    body {
       margin-bottom: 6em;
     }
     </style>
   </head>
   <body>
-    <div class="admin-bar">
+    <div class="nav-admin">
       <div class="inner">
         <div class="greeting">
           Welcome Fusionary Super Admin
         </div>
-        <ul class="reset inav">
+        <ul class="inav">
           <li class="edit">
             <a href="/cp/index.php?&amp;C=edit&amp;M=edit_entry&amp;entry_id=143" target="_blank">Edit This Page</a>
           </li>
@@ -80,7 +82,7 @@ body{
         </ul>
       </div>
     </div><!-- .admin-bar -->
-    <ul class="toc vnav rnd reset">
+    <ul class="toc vnav rnd">
       <li>
         <a href="#toc-markup">Markup</a>
       </li>
@@ -91,7 +93,7 @@ body{
         <a href="#toc-forms">Forms</a>
       </li>
     </ul><!-- .toc -->
-    <div class="content mod">
+    <div class="content block">
       <h1 class="text-center page-title hn-light">
         FusionaryFramework<sup class="small">®</sup>
       </h1>
@@ -203,7 +205,7 @@ body{
         </address>
       </div>
     </div>
-    <div class="content mod">
+    <div class="content block">
       <div class="content-main col-16">
         <h2 id="toc-embed">
           Embedded Object
@@ -635,6 +637,49 @@ body{
           </tbody>
         </table>
       </div>
+    </div>
+    <div class="content">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <img src="assets/images/mugs.jpg" alt="Fusionary Mugs" class="framed">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <p>
+        <img src="assets/images/mugs.jpg" alt="Fusionary Mugs" class="framed top">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      
     </div>
   </body>
 </html>

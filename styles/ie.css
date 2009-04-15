@@ -10,7 +10,7 @@
 /** =min-height
 ************************************************************/
 * html .box { height: 32px; }
-* html .box.single-line{
+* html .box.single-line {
   min-height: 0;
 }
 

@@ -78,13 +78,12 @@ h3. Utility Classes
 * @.replace@ -- image replacement, useful to group selectors at top of stylsheet
 * @.no-margin@
 * @.half-margin@ -- 1/2 standard bottom margin for block elements
-* @.full-margin@ -- standard bottom margin for block elements
 * @.double-margin@ -- 2X bottom margin for block elements
 * @.group@ -- clearfix
 
 h3. Common classes
 
-* @.mod@ -- module, a stackable block with a bottom margin. Margin amount may be equivalent to 
+* @.block@ -- a stackable block with a bottom margin. Margin amount may be equivalent to 
 * @.alt@ -- zebra row striping, other things alternating/alternate
 * @.biglink@ -- JS big links
 * @.note@ -- often lighter colors and smaller text
@@ -149,3 +148,18 @@ h3. Comment Subheading
 <pre><code>
 /* =margins */
 </code></pre></notextile>
+
+h2. CSS formatting
+
+* use hyphens
+* all lowercase
+* 2 space soft tabs
+* observe spacing as below or karl will hurt you
+
+<pre><notextile>
+.class-name {
+  color: #fff;
+  text-decoration: none;
+}
+.class-name { color: #fff; }
+</pre></notextile>

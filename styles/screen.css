@@ -7,13 +7,6 @@
 @colordef   #eafbd8; light green (link hover bg)
 ************************************************************/
 
-/** =import
-************************************************************/
-@import url(reset.css);
-@import url(forms.css);
-@import url(admin.css);
-@import url(extras.css);
-
 /** =fonts
 ************************************************************
 @see  http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
@@ -21,7 +14,7 @@
 @see  http://stevecochrane.com/v3/2007/12/13/helvetica-neue-variants-for-use-on-the-web/
 ************************************************************/
 body,
-input, button, textarea{
+input, button, textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: .025em;
 }
@@ -37,17 +30,17 @@ pre,code,kbd,tt,samp {
 
 /** =site specific baseline
 ************************************************************/
-body{
+body {
   font-size: 12px;
   line-height: 1.5em; /* 18px */
   color: #222;
 }
 
 /* =lists */
-ol li{ list-style: decimal; }
-ul li{ list-style: none; }
+ol li { list-style: decimal; }
+ul li { list-style: none; }
 dt { font-weight: bold; }
-ul li{
+ul li {
   background: url(/assets/images/bullet-black.png) no-repeat 0 .5em;
   padding-left: .75em;
 }
@@ -104,38 +97,34 @@ h6 { font-size: 12px; }
 /** =common
 ************************************************************/
 
-/* =modules */
-.mod{
-  display: block !important;
-  margin-bottom: 1.5em !important;
+/* =block */
+.block {
+  display: block;
+  margin-bottom: 1.5em;
 }
-a.mod img {
+a.block img {
   display: block;
 }
 
-/* -images */
-p img, img.left, a.img.left img { margin: 10px 10px 0 0; }
-img.right, a.img.right img      { margin: 10px 0 0 10px; }
+/* =images */
+p img, img.left, a.img.left img { margin: .75em 1em .75em 0; float:left; }
+img.right, a.img.right img      { margin: .75em 0 .75em 1em; }
 img.top, a.top.img              { margin-top: 0;}
 
 /* =margins */
-.no-margin     { margin-bottom: 0 !important; }
-.half-margin   { margin-bottom: .75em !important; }
-.full-margin   { margin-bottom: 1.5em !important; }
-.double-margin { margin-bottom: 3em !important; }
-
-/* allcaps/number strings */
-.caps, .numbers { letter-spacing: 0.1em } 
+.no-margin     { margin-bottom: 0; }
+.half-margin   { margin-bottom: .75em; }
+.double-margin { margin-bottom: 3em; }
 
 /* =ruled list */
-.ruled li{
-  border-bottom: 1px dotted #ccc;
+.ruled li {
+  border-bottom: 1px solid #ccc;
   background: none;
   padding: 0 0 .75em;
   margin: 0 0 .66em;
 }
-.ruled{
-  border-top: 1px dotted #ccc;
+.ruled {
+  border-top: 1px solid #ccc;
   padding-top: .75em;
 }
 
@@ -144,13 +133,14 @@ img.top, a.top.img              { margin-top: 0;}
 a.framed img {
   border: 2px solid #d9d5ca;
 }
-a.framed:hover img{
+a.framed:hover img {
   border-color: orange;
 }
 
+/* =text */
 .small      { font-size: 11px; }
 .large      { font-size: 16px; }
-
+.caps, .numbers { letter-spacing: 0.1em } 
 .note {
   font-size: 11px;
   font-weight: normal;
