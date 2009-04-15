@@ -52,9 +52,14 @@ pre { overflow-x: auto; }
 .clear        { clear: both !important; }
 .center       { display: block !important; margin-left: auto !important; margin-right: auto !important; float: none !important; }
 
-.text-right  { text-align: right !important; }
-.text-left   { text-align: left !important; }
-.text-center { text-align: center !important; }
+.text-right   { text-align: right !important; }
+.text-left    { text-align: left !important; }
+.text-center  { text-align: center !important; }
+
+.uppercase    { text-transform: uppercase;}
+.lowercase    { text-transform: lowercase;}
+.capitalize   { text-transform: capitalize;}
+.smallcaps    { text-transform: small-caps;}
 
 .no-border    { border: none !important; }
 
