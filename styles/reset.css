@@ -118,7 +118,7 @@ a.img:hover{
 @see  http://blueprint-generator.kaizeku.com/
 @see  http://www.jdclayton.com/blueprints_compress_a_walkthrough.html
 ************************************************************/
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16, .col-17, .col-18, .col-19, .col-20, .col-21, .col-22, .col-23, .col-24 { float:left; margin-right:10px; }
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16, .col-17, .col-18, .col-19, .col-20, .col-21, .col-22, .col-23, .col-24 { float:left; margin-right:10px !important; }
 .col-1  {width:26px  !important;}
 .col-2  {width:66px  !important;}
 .col-3  {width:106px !important;}
@@ -144,7 +144,7 @@ a.img:hover{
 .col-23 {width:906px !important;}
 .col-24 {width:946px !important; margin:0;}
 
-.col-last   { margin-right: 0; }
+.col-last   { margin-right: 0 !important; }
 
 .append-1   {padding-right:40px  !important;}
 .append-2   {padding-right:80px  !important;}
@@ -194,27 +194,27 @@ a.img:hover{
 .prepend-22 {padding-left:880px !important;}
 .prepend-23 {padding-left:920px !important;}
 
-input.col-1,  .col-1  input, textarea.col-1,  .col-1  textarea {width:18px  !important;}
-input.col-2,  .col-2  input, textarea.col-2,  .col-2  textarea {width:58px  !important;}
-input.col-3,  .col-3  input, textarea.col-3,  .col-3  textarea {width:98px  !important;}
-input.col-4,  .col-4  input, textarea.col-4,  .col-4  textarea {width:138px !important;}
-input.col-5,  .col-5  input, textarea.col-5,  .col-5  textarea {width:178px !important;}
-input.col-6,  .col-6  input, textarea.col-6,  .col-6  textarea {width:218px !important;}
-input.col-7,  .col-7  input, textarea.col-7,  .col-7  textarea {width:258px !important;}
-input.col-8,  .col-8  input, textarea.col-8,  .col-8  textarea {width:298px !important;}
-input.col-9,  .col-9  input, textarea.col-9,  .col-9  textarea {width:338px !important;}
-input.col-10, .col-10 input, textarea.col-10, .col-10 textarea {width:378px !important;}
-input.col-11, .col-11 input, textarea.col-11, .col-11 textarea {width:418px !important;}
-input.col-12, .col-12 input, textarea.col-12, .col-12 textarea {width:458px !important;}
-input.col-13, .col-13 input, textarea.col-13, .col-13 textarea {width:498px !important;}
-input.col-14, .col-14 input, textarea.col-14, .col-14 textarea {width:538px !important;}
-input.col-15, .col-15 input, textarea.col-15, .col-15 textarea {width:578px !important;}
-input.col-16, .col-16 input, textarea.col-16, .col-16 textarea {width:618px !important;}
-input.col-17, .col-17 input, textarea.col-17, .col-17 textarea {width:658px !important;}
-input.col-18, .col-18 input, textarea.col-18, .col-18 textarea {width:698px !important;}
-input.col-19, .col-19 input, textarea.col-19, .col-19 textarea {width:738px !important;}
-input.col-20, .col-20 input, textarea.col-20, .col-20 textarea {width:778px !important;}
-input.col-21, .col-21 input, textarea.col-21, .col-21 textarea {width:818px !important;}
-input.col-22, .col-22 input, textarea.col-22, .col-22 textarea {width:858px !important;}
-input.col-23, .col-23 input, textarea.col-23, .col-23 textarea {width:898px !important;}
-input.col-24, .col-24 input, textarea.col-24, .col-24 textarea {width:938px !important; margin:0;}
+fieldset.col-1  input, fieldset.col-1  textarea,  input.col-1,  textarea.col-1  {width:18px  !important;}
+fieldset.col-2  input, fieldset.col-2  textarea,  input.col-2,  textarea.col-2  {width:58px  !important;}
+fieldset.col-3  input, fieldset.col-3  textarea,  input.col-3,  textarea.col-3  {width:98px  !important;}
+fieldset.col-4  input, fieldset.col-4  textarea,  input.col-4,  textarea.col-4  {width:138px !important;}
+fieldset.col-5  input, fieldset.col-5  textarea,  input.col-5,  textarea.col-5  {width:178px !important;}
+fieldset.col-6  input, fieldset.col-6  textarea,  input.col-6,  textarea.col-6  {width:218px !important;}
+fieldset.col-7  input, fieldset.col-7  textarea,  input.col-7,  textarea.col-7  {width:258px !important;}
+fieldset.col-8  input, fieldset.col-8  textarea,  input.col-8,  textarea.col-8  {width:298px !important;}
+fieldset.col-9  input, fieldset.col-9  textarea,  input.col-9,  textarea.col-9  {width:338px !important;}
+fieldset.col-10 input, fieldset.col-10 textarea,  input.col-10, textarea.col-10 {width:378px !important;}
+fieldset.col-11 input, fieldset.col-11 textarea,  input.col-11, textarea.col-11 {width:418px !important;}
+fieldset.col-12 input, fieldset.col-12 textarea,  input.col-12, textarea.col-12 {width:458px !important;}
+fieldset.col-13 input, fieldset.col-13 textarea,  input.col-13, textarea.col-13 {width:498px !important;}
+fieldset.col-14 input, fieldset.col-14 textarea,  input.col-14, textarea.col-14 {width:538px !important;}
+fieldset.col-15 input, fieldset.col-15 textarea,  input.col-15, textarea.col-15 {width:578px !important;}
+fieldset.col-16 input, fieldset.col-16 textarea,  input.col-16, textarea.col-16 {width:618px !important;}
+fieldset.col-17 input, fieldset.col-17 textarea,  input.col-17, textarea.col-17 {width:658px !important;}
+fieldset.col-18 input, fieldset.col-18 textarea,  input.col-18, textarea.col-18 {width:698px !important;}
+fieldset.col-19 input, fieldset.col-19 textarea,  input.col-19, textarea.col-19 {width:738px !important;}
+fieldset.col-20 input, fieldset.col-20 textarea,  input.col-20, textarea.col-20 {width:778px !important;}
+fieldset.col-21 input, fieldset.col-21 textarea,  input.col-21, textarea.col-21 {width:818px !important;}
+fieldset.col-22 input, fieldset.col-22 textarea,  input.col-22, textarea.col-22 {width:858px !important;}
+fieldset.col-23 input, fieldset.col-23 textarea,  input.col-23, textarea.col-23 {width:898px !important;}
+fieldset.col-24 input, fieldset.col-24 textarea,  input.col-24, textarea.col-24 {width:938px !important; margin:0;}

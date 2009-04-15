@@ -117,10 +117,10 @@ p img, img.left, a.img.left img { margin: 10px 10px 0 0; }
 img.right, a.img.right img      { margin: 10px 0 0 10px; }
 img.top, a.top.img              { margin-top: 0;}
 
-.no-margin     { margin-bottom: 0; }
-.half-margin   { margin-bottom: .75em; }
-.full-margin   { margin-bottom: 1.5em; }
-.double-margin { margin-bottom: 3em; }
+.no-margin     { margin-bottom: 0 !important; }
+.half-margin   { margin-bottom: .75em !important; }
+.full-margin   { margin-bottom: 1.5em !important; }
+.double-margin { margin-bottom: 3em !important; }
 
 .small      { font-size: 11px; }
 .large      { font-size: 16px; }

@@ -21,6 +21,13 @@ input, select, textarea, button, label { vertical-align: middle; }
 .textarea,
 .select,
 .file,
+fieldset{
+  position: relative;
+}
+.text,
+.textarea,
+.select,
+.file,
 fieldset.multi-line {
 	margin: 0 0 1em;
 }
@@ -107,7 +114,7 @@ label { cursor: pointer; }
 
 /** =fieldsets
 ************************************************************/
-fieldset{ margin: 0 0 3em; }
+fieldset{ margin: 0 0 1.5em; }
 
 /** =actions
 ************************************************************
@@ -140,7 +147,7 @@ fieldset{ margin: 0 0 3em; }
 }
 .hform label{
   width: 100px; /* @note set a default width */
-  margin-right: 6px;
+  margin-right: 6px; /* @note set a default width and margin, will be overridden if using grid */
   text-align: right;
 }
 .hform .text label{
@@ -155,9 +162,6 @@ fieldset{ margin: 0 0 3em; }
 }
 .hform .actions{
   margin-top: .25em;
-}
-.hform input{
-  width: auto !important;
 }
 
 /** =vform
@@ -277,7 +281,9 @@ form .overlay {
 .error label,
 .error label span.required-mark  { color: #D12F19; }
 
-.vform .error-message{
+.vform .error-message,
+.radios .error-message,
+.checkboxes .error-message{
   position: absolute;
   top: 0;
   right: 0;
@@ -305,6 +311,7 @@ form .overlay {
 	background: url(/assets/images/icons/caution-sign-sm.png) no-repeat;
 	width: 17px;
 	height: 16px;
-  float: left;
-  margin: 4px 0 0 8px;
+  position: absolute;
+  top: 6px;
+  right: -17px;
 }
