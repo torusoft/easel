@@ -24,10 +24,11 @@ h3. Navigation
 * @.nav@ -- no specific styles, but can be used to target nav by location (e.g. .header .nav)
 * @.hnav@ -- horizontal navigation (floats li's left)
 * @.vnav@ -- vertical navigation
+* @.inav@ -- inline navigation @TODO should we specify pipes and spacing by default?
 
 h3. Forms
 
-Forms can be set up using the @.hform@ or @.vform@ classes on any container of the input (e.g. form, fieldset, or div.text). @.col-x@ classes can be used on inputs, or if all inputs in a @fieldset@ need the same width, you can declare it on the @fieldset@.
+Forms can be set up using the @.hform@ or @.vform@ classes on any container of the input (e.g. @form@, @fieldset@, or @div.text@). @.col-x@ classes can be used on inputs, or if all inputs in a @fieldset@ need the same width, you can declare it on the @fieldset@.
 
 * @.text@ -- this class goes for input[type="text"],input[type="password"], textarea 
 * @.textarea@ -- include .text and .textarea
@@ -87,7 +88,7 @@ h3. Common classes
 
 * @.block@ -- a stackable block with a bottom margin. Margin amount may be equivalent to 
 * @.alt@ -- zebra row striping, other things alternating/alternate
-* @.biglink@ -- JS big links
+* @.biglink@ -- JS big links, place on any container with a link inside to link entire container
 * @.note@ -- often lighter colors and smaller text
 * @.intro@ -- lead in parapraph
 * @.framed@ -- for images or linked images
