@@ -120,8 +120,8 @@ img.top, a.top.img              { margin-top: 0;}
 .ruled li {
   border-bottom: 1px solid #ccc;
   background: none;
-  padding: 0 0 .75em;
-  margin: 0 0 .66em;
+  padding: 0 0 .66em; /* adjust for border pixel */
+  margin: 0 0 .75em;
 }
 .ruled {
   border-top: 1px solid #ccc;
