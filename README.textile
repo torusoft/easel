@@ -27,6 +27,8 @@ h3. Navigation
 
 h3. Forms
 
+Forms can be set up using the @.hform@ or @.vform@ classes on any container of the input (e.g. form, fieldset, or div.text). @.col-x@ classes can be used on inputs, or if all inputs in a @fieldset@ need the same width, you can declare it on the @fieldset@.
+
 * @.text@ -- this class goes for input[type="text"],input[type="password"], textarea 
 * @.textarea@ -- include .text and .textarea
 * @.select@
@@ -74,7 +76,7 @@ h3. Utility Classes
 * @.text-right@
 * @.text-left@
 * @.text-center@
-* @.no-border @
+* @.no-border@
 * @.replace@ -- image replacement, useful to group selectors at top of stylsheet
 * @.no-margin@
 * @.half-margin@ -- 1/2 standard bottom margin for block elements
