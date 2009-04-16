@@ -104,7 +104,7 @@ h3. Common Prefixes
 * @.btn-@ -- button
 * @.icn-@ -- icon
 * @.pho-@ -- photo
-* @.li-_n_@ -- if we need to specifically target list items, (e.g. horizontal image nav), use class @.li-1@, @.li-2@, etc.
+* @.li-n@ -- _n_ being sequential numbering of list items. If we need to specifically target list items, (e.g. horizontal image nav), use class @.li-1@, @.li-2@, etc.
 
 h3. Common Suffixes
 
