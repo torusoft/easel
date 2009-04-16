@@ -172,7 +172,7 @@ fieldset { margin: 0 0 1.5em; }
   left: -999em;
 }
 .vform label {
-  margin-bottom: .25em;
+  margin-bottom: .15em;
 }
 
 /** =flash messages
@@ -306,6 +306,6 @@ form .overlay {
 .vform .error-message,
 .radios .error-message,
 .checkboxes .error-message {
-  top: 0;
+  top: -1px;
   right: 0;
 }

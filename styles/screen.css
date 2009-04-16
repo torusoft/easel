@@ -106,10 +106,11 @@ a.block img {
   display: block;
 }
 
-/* =images */
-p img, img.left, a.img.left img { margin: .75em 1em .75em 0; float:left; }
-img.right, a.img.right img      { margin: .75em 0 .75em 1em; }
-img.top, a.top.img              { margin-top: 0;}
+/* =inline images */
+p img, img.left, a.img.left img { margin: 0 1em .75em 0; float:left; }
+img.right, a.img.right img      { margin: 0 0 .75em 1em; }
+p img { margin-top: .75em; }
+img.top, a.top.img  { margin-top: 0;}
 
 /* =margins */
 .no-margin     { margin-bottom: 0; }
