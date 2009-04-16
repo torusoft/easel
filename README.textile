@@ -1,5 +1,13 @@
 h1. FusionaryFramework CSS Guide
 
+h2 TODO
+
+* styles for captioned class
+* print stylesheet
+* recordset styles
+* rounded corner markup/classes
+* example markup!
+
 h2. Classes
 
 h3. Layout
@@ -86,7 +94,7 @@ h3. Utility Classes
 
 h3. Common classes
 
-* @.block@ -- a stackable block with a bottom margin. Margin amount may be equivalent to 
+* @.block@ -- a stackable block with a bottom margin. Margin amount may be equivalent to standard block elements (@p@, @ul@), but not always. Usually clear from site mockups.
 * @.alt@ -- zebra row striping, other things alternating/alternate
 * @.biglink@ -- JS big links, place on any container with a link inside to link entire container
 * @.note@ -- often lighter colors and smaller text

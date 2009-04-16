@@ -1,5 +1,3 @@
-$('html').addClass('js');
-
 $(document).ready(function() {
   
 // Animated Scrolling for Same-Page Links
