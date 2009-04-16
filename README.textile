@@ -158,7 +158,7 @@ h2. CSS formatting
 * 2 space soft tabs
 * observe spacing as below or karl will hurt you
 
-<pre><notextile>
+<notextile><pre>
 .class-name {
   color: #fff;
   text-decoration: none;
