@@ -34,7 +34,7 @@ var $ajaxForm =  $('form.validate');
 var submitOptions = {
   clearForm: true,
   beforeSubmit: function() {
-    $('<div class="loading">Processing<img src="/assets/images/ajax-loader.gif" alt="" /></div>').appendTo('div.actions');
+    $('<div class="loading">Processing<img src="../assets/images/ajax-loader.gif" alt="" /></div>').appendTo('div.actions');
     $('<div class="overlay"></div>').css({opacity: '.4'}).appendTo($ajaxForm);
   },
   success: function(responseText) {
