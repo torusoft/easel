@@ -101,9 +101,10 @@ h3. Common classes
 
 h3. Common Prefixes
 
-* @btn-@ -- button
-* @icn-@ -- icon
-* @pho-@ -- photo
+* @.btn-@ -- button
+* @.icn-@ -- icon
+* @.pho-@ -- photo
+* @.li-_n_@ -- if we need to specifically target list items, (e.g. horizontal image nav), use class @.li-1@, @.li-2@, etc.
 
 h3. Common Suffixes
 
