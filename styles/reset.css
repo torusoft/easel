@@ -26,7 +26,6 @@ del                 { text-decoration: line-through; }
 sup,sub             { font-size: 80%; }
 sup                 { vertical-align: super; }
 sub                 { vertical-align: sub; }
-code                { margin: 0 .25em;}
 
 /* =quotes */
 blockquote, q { quotes: none; }

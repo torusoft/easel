@@ -9,6 +9,7 @@ h2. TODO
 * example markup
 * ruled heading classes
 * default padding/borders for inav
+* do we need horizontal spacing on <code>?
 
 h2. Classes
 
