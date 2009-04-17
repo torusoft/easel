@@ -6,7 +6,9 @@ h2. TODO
 * print stylesheet
 * recordset styles
 * rounded corner markup/classes
-* example markup!
+* example markup
+* ruled heading classes
+* default padding/borders for inav
 
 h2. Classes
 
@@ -106,6 +108,8 @@ h3. Common classes
 * @.amp@ -- fancy ampersand
 * @.btn@ -- sliding doors buttons/link buttons
 * @.inner@
+* @.toc@ -- table of contents
+* @.slideshow@
 
 h3. Common Prefixes
 

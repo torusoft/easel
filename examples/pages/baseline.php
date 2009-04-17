@@ -1,48 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>
-      FusionaryFramework Redux
-    </title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <script src="/scripts/jquery-1.3.2.min.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <iframe src="/examples/includes.html" name="includes" id="includes"></iframe>
-    <div class="nav-admin">
-      <div class="inner">
-        <div class="greeting">
-          Welcome Fusionary Super Admin
-        </div>
-        <ul class="inav">
-          <li class="edit">
-            <a href="/cp/index.php?&amp;C=edit&amp;M=edit_entry&amp;entry_id=143" target="_blank">Edit This Page</a>
-          </li>
-          <li>
-            <a href="/cp" class="cp">Control Panel</a>
-          </li>
-          <li>
-            <a href="#" class="logout">Log Out</a>
-          </li>
-        </ul>
-      </div>
-    </div><!-- .admin-bar -->
-    <ul class="toc vnav rnd">
-      <li>
-        <a href="#toc-markup">Markup</a>
-      </li>
-      <li>
-        <a href="#toc-tables">Tables</a>
-      </li>
-      <li>
-        <a href="#toc-forms">Forms</a>
-      </li>
-    </ul><!-- .toc -->
-    <div class="content block">
-      <h1 class="text-center page-title hn-light">
-        FusionaryFramework<sup class="small">®</sup>
-      </h1>
+<?php include("../includes/header.php"); ?>
+    <h1 class="page-title">
+      Baseline Styles
+    </h1>
+    <div class="content">
       <h1 id="toc-markup">
         Test H1: Aliquam ut risus. Nam massa erat, ultrices eget, tempor vel, pretium ut, lacus. Curabitur laoreet, purus venenatis dignissim varius, leo mi sagittis lorem, id tristique lorem enim vel eros.
       </h1>
@@ -51,7 +11,7 @@
       </h2>
       <h3>
         Test H3: Pellentesque rhoncus mauris ut turpis. Aenean egestas. Donec commodo. Nulla id ante.
-      </h3><a href="#" class="framed right img"><img src="/assets/images/mugs.jpg" alt="Fusionary Mugs"></a>
+      </h3><a href="#" class="framed right img"><img src="/examples/assets/images/mugs.jpg" alt="Fusionary Mugs"></a>
       <h4>
         Test H4: Quisque eget eros. Sed mollis sem eu orci. Curabitur venenatis porta eros. Duis vehicula mi at augue. Cras adipiscing sem eget turpis? Aenean id tellus vel ipsum pharetra ultricies.
       </h4>
@@ -98,20 +58,22 @@
           Pre/Code
         </h2>
         <pre>
-                            <code>
-                      this is some code
-                      code, code, code, code
-                      all day long code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code,code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code
-                            </code>
+                        <code>
+                  this is some code
+                  code, code, code, code
+                  all day long code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code,code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code, code
+                        </code>
 
-                
+        
+  
 </pre>
         <pre>
-                            molten lava
-                            just oozing down the side
-                            volcano birthday cake
+                        molten lava
+                        just oozing down the side
+                        volcano birthday cake
 
-                
+        
+  
 </pre>
       </div>
       <div class="content-right col-12 col-last">
@@ -167,112 +129,13 @@
         <p>
           Aliquam ut risus. Nam massa erat, ultrices eget, tempor vel, pretium ut, lacus. Curabitur laoreet, purus venenatis dignissim varius, leo mi sagittis lorem, id tristique lorem enim vel eros. Integer id sem sed est lacinia eleifend. Maecenas eget nibh et sapien volutpat tempor. Morbi rhoncus, orci et vehicula vestibulum, pede diam tristique augue, sit amet scelerisque tellus nulla et elit. Pellentesque rhoncus mauris ut turpis. Aenean egestas. Donec commodo. Nulla id ante. Quisque eget eros. Sed mollis sem eu orci. Curabitur venenatis porta eros. Duis vehicula mi at augue. Cras adipiscing sem eget turpis? Aenean id tellus vel ipsum pharetra ultricies.
         </p>
-        <h2 id="toc-forms">
-          Forms
-        </h2>
-        <div class="box">
-          <p class="no-margin">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <a href="#">ullamco laboris nisi ut aliquip</a> ex ea commodo consequat.
-          </p>
-        </div>
-        <div class="box error">
-          <p class="no-margin">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <a href="#">ullamco laboris nisi ut aliquip</a> ex ea commodo consequat.
-          </p>
-        </div>
-        <div class="box success">
-          <p class="no-margin">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </div>
-        <div class="box notice">
-          <p class="no-margin">
-            Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </div>
-        <form action="/thankyou.html" method="post" class="validate col-10">
-          <fieldset class="hform">
-            <h3 class="legend">
-              hform
-            </h3>
-            <div class="hidden">
-              <input type="hidden" id="id0">
-            </div>
-            <div class="text fancy">
-              <label for="id1" class="col-4">Fancy input</label>
-              <input class="zip required col-6 col-last" type="text" id="id1">
-            </div>
-            <div class="text textarea">
-              <label for="id2" class="col-4">Textarea</label> 
-              <textarea class="col-6 col-last required" id="id2" class="col-6">Content</textarea>
-            </div>
-            <div class="select">
-              <label for="id3" class="col-4">Label3</label>
-              <select id="id3" class="col-6 col-last required">
-                <option>
-                  Option 1
-                </option>
-                <option>
-                  Option 2
-                </option>
-              </select>
-            </div>
-          </fieldset>
-          <fieldset class="radios choose-one">
-            <h3 class="legend">
-              Radio Buttons
-            </h3>
-            <div class="radio">
-              <input id="id4" name="4or5" type="radio"> <label for="id4">Label4</label>
-            </div>
-            <div class="radio">
-              <input id="id5" name="4or5" type="radio"> <label for="id5">Label5</label>
-            </div>
-          </fieldset>
-          <fieldset class="checkboxes">
-            <h3 class="legend">
-              Checkboxes
-            </h3>
-            <div class="checkbox">
-              <input id="id6" name="" value="" type="checkbox"> <label for="id6">Label6</label>
-            </div>
-            <div class="checkbox">
-              <input id="id7" name="" value="" type="checkbox"> <label for="id7">Label7</label>
-            </div>
-          </fieldset>
-          <fieldset class="vform col-6">
-            <h2 class="legend">
-              vform
-            </h2>
-            <div class="file">
-              <label for="id8">Label</label> <input type="file" id="id8">
-            </div>
-            <div class="password text">
-              <label for="id9">Label</label> <input type="password" id="id9">
-            </div>
-            <div class="text fancy">
-              <label for="id10">Other Label</label> <input class="required" type="text" id="id10">
-            </div>
-            <fieldset class="multi-line no-margin">
-              <div class="text">
-                <label for="id11">Label</label> <input type="text" id="id11">
-              </div>
-              <div class="text no-margin">
-                <label for="id12" class="replace">Label</label> <input type="text" id="id12">
-              </div>
-            </fieldset>
-          </fieldset>
-          <div class="actions">
-            <button type="submit" class="btn"><span>Submit</span></button>
-          </div>
-        </form>
       </div>
       <div class="content-right col-8 col-last">
         <h2>
           Lists - ul, ol, dl
         </h2>
         <p>
-          <img class="framed left top" src="/assets/images/mugs.jpg" alt="Fusionary Mugs">Aliquam ut risus. Nam massa erat, ultrices eget, tempor vel, pretium ut, lacus. Curabitur laoreet, purus venenatis dignissim varius, leo mi sagittis lorem, id tristique lorem enim vel eros. Integer id sem sed est lacinia eleifend. Maecenas eget nibh et sapien volutpat tempor. Morbi rhoncus, orci et vehicula vestibulum, pede diam tristique augue, sit amet scelerisque tellus nulla et elit. Pellentesque rhoncus mauris ut turpis. Aenean egestas.
+          <img class="framed left top" src="assets/images/mugs.jpg" alt="Fusionary Mugs">Aliquam ut risus. Nam massa erat, ultrices eget, tempor vel, pretium ut, lacus. Curabitur laoreet, purus venenatis dignissim varius, leo mi sagittis lorem, id tristique lorem enim vel eros. Integer id sem sed est lacinia eleifend. Maecenas eget nibh et sapien volutpat tempor. Morbi rhoncus, orci et vehicula vestibulum, pede diam tristique augue, sit amet scelerisque tellus nulla et elit. Pellentesque rhoncus mauris ut turpis. Aenean egestas.
         </p>
         <h3>
           Un-ordered list
@@ -583,41 +446,4 @@
           </tbody>
         </table>
       </div>
-    </div>
-    <div class="content">
-      <h2>Inline floating Images</h2>
-      <h3>TODO: define some basic captioned image classes</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        <img src="/assets/images/mugs.jpg" alt="Fusionary Mugs" class="framed">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-      <p>
-        <img src="/assets/images/mugs.jpg" alt="Fusionary Mugs" class="framed top right">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-    </div>
-  </body>
-</html>
+    </div><?php include("../includes/footer.php"); ?>

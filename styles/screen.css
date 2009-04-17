@@ -74,10 +74,10 @@ tfoot       { font-style: italic; }
 caption     { font-weight: bold; }
 
 /* =links */
-a { text-decoration: none; color: DeepSkyBlue ; }
-a:hover { background-color: DeepSkyBlue ; color: #fff; }
+a { text-decoration: none; color: #5ec2dd ; }
+a:hover { background-color: #5ec2dd ; color: #fff; }
 .biglink-hover * {
-  color: DeepSkyBlue ;
+  color: #5ec2dd ;
 }
 .biglink {
   cursor: pointer;
@@ -135,7 +135,7 @@ a.framed img {
   border: 2px solid #d9d5ca;
 }
 a.framed:hover img {
-  border-color: orange;
+  border-color: #5ec2dd;
 }
 
 /* =text */
@@ -150,6 +150,19 @@ a.framed:hover img {
   color: #ccc;
   font-size: 18px;
   margin-bottom: 1em;
+}
+
+/* inline nav */
+.inav li {
+  border-left: 1px solid #BBB;
+  margin-left: .75em;
+  padding-left: .66em;
+}
+.inav li:first-child,
+.inav .li-1{
+  padding-left: 0;
+  margin-left: 0;
+  border-left: 0;
 }
 
 /** =layout
