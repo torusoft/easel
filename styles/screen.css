@@ -32,7 +32,7 @@ pre,code,kbd,tt,samp {
 ************************************************************/
 body {
   font-size: 12px;
-  line-height: 1.5em; /* 18px */
+  line-height: 1.5; /* 18px */
   color: #222;
 }
 
@@ -41,7 +41,7 @@ ol li { list-style: decimal; }
 ul li { list-style: none; }
 dt { font-weight: bold; }
 ul li {
-  background: url(../assets/images/bullet-black.png) no-repeat 0 .5em;
+  background: url(/assets/images/bullet-black.png) no-repeat 0 .5em;
   padding-left: .75em;
 }
 dt { font-weight: bold; }
@@ -85,8 +85,8 @@ a:hover { background-color: DeepSkyBlue ; color: #fff; }
 
 /* =headings */
 h1,h2,h3,h4,h5,h6 { margin-bottom: .75em; font-weight: bold; }
-h1,h2,h3 { line-height: 1em; }
-h4,h5,h6 { line-height: 1.2em; }
+h1,h2,h3 { line-height: 1; }
+h4,h5,h6 { line-height: 1.2; }
 h1 { font-size: 30px; }
 h2 { font-size: 24px; }
 h3 { font-size: 18px; }

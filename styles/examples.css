@@ -6,7 +6,7 @@
 ************************************************************/
 
 body {
-  background: url(assets/images/f.png) no-repeat 50% 20px;
+  background: url(/assets/images/f.png) no-repeat 50% 20px;
   margin-bottom: 6em;
 }
 .toc {

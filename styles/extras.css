@@ -71,7 +71,7 @@ button::-moz-focus-inner { border: none; padding: 0;}
 /* using a sprite instead of four separate images... */
 button.btn,
 button.btn span {
-  background-image: url(../assets/images/buttons/sprite-gray.png);
+  background-image: url(/assets/images/buttons/sprite-gray.png);
   background-repeat: no-repeat;
 }
 button.btn {background-position:  100% 0;}
