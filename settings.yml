@@ -1,8 +1,0 @@
-# refer to http://www.yaml.org/spec/1.1/ for clarification on YAML collections
-custom_layout:
-  column_count: 24
-  column_width: 30
-  gutter_width: 10
-form_inputs:
-  total_padding_width:  4
-  total_border_width:   2
