@@ -1,6 +1,6 @@
 h1. FusionaryFramework CSS Guide
 
-h2 TODO
+h2. TODO
 
 * styles for captioned class
 * print stylesheet
