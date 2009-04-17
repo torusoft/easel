@@ -1,3 +1,7 @@
+if (document.documentElement) {
+  document.documentElement.className = 'js';
+}
+
 $(document).ready(function() {
   
 // Animated Scrolling for Same-Page Links
