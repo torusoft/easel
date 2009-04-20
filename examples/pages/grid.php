@@ -49,4 +49,63 @@
     </div>
   </div>
 </div>
+<div class="content">
+  <div class="col-12">
+    <h2><code>class="col-12"</code></h2>
+    <p class="note">If you put a <code>col-x</code> class on a <code>fieldset</code>, all containing <code>input</code>s will inherit the proper width.</p>
+    <form action="#">
+      <fieldset class="col-8 vform">
+        <div class="text">
+          <label for="id1">Text Input</label> <input type="text" id="id1">
+        </div>
+        <div class="text textarea">
+          <label for="id2">Textarea</label> 
+          <textarea id="id2">Content</textarea>
+        </div>
+        <div class="select">
+          <label for="id3">Select</label>
+          <select id="id3">
+            <option>
+              Option 1
+            </option>
+            <option>
+              Option 2
+            </option>
+          </select>
+        </div>
+      </fieldset>
+      <div class="actions">
+        <button class="btn" type="submit"><span>&lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;&lt;span&gt;Send&lt;/span&gt;&lt;/button&gt;</span></button>
+      </div>
+    </form>
+  </div>
+  <div class="col-12 col-last">
+    <h2><code>class="col-12 col-last"</code></h2>
+    <p class="note">&hellip; or you can specify widths per <code>input</code>. This is necessary for the <code>hform</code> class, as the <code>label</code> width and <code>input</code> width both need to be specified.</p>
+    <form action="#">
+      <fieldset class="hform">
+        <div class="text">
+          <label for="id1" class="col-4">Text Input</label> <input class="col-4 col-last" type="text" id="id1">
+        </div>
+        <div class="text textarea">
+          <label for="id2" class="col-4">Textarea</label> 
+          <textarea id="id2" class="col-8 col-last">Content</textarea>
+        </div>
+        <div class="select">
+          <label for="id3" class="col-4">Select</label> <select id="id3" class="col-6 col-last">
+            <option>
+              Option 1
+            </option>
+            <option>
+              Option 2
+            </option>
+          </select>
+        </div>
+      </fieldset>
+      <div class="actions">
+        <button class="btn" type="submit"><span class="col-4 col-last">.col-4.col-last</span></button>
+      </div>
+    </form>
+  </div>
+</div>
 <?php include("../includes/footer.php"); ?>
