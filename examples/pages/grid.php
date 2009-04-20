@@ -28,8 +28,8 @@
 <div class="content">
   <div class="col-12">
     <h2><code>class="col-12"</code></h2>
-    <div class="col-6">
-      <h3><code>class="col-6"</code></h3>
+    <div class="col-6 highlight">
+      <h3><code>class="col-6 highlight"</code></h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div class="col-6 col-last">
@@ -37,8 +37,8 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
-  <div class="col-12 col-last">
-    <h2><code>class="col-12 col-last"</code></h2>
+  <div class="col-12 col-last highlight block">
+    <h2><code>class="col-12 col-last highlight block"</code></h2>
     <div class="col-8">
       <h3><code>class="col-8"</code></h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
