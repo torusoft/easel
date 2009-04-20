@@ -51,3 +51,9 @@
   background: url(/assets/images/icons/edit-template.gif) no-repeat 0 50%;
   padding-left: 15px;
 }
+
+/** =content entry callouts
+************************************************************/
+.highlight {
+  background-color: #FDFFCB;
+}

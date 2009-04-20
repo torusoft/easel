@@ -5,6 +5,28 @@
 @colordef   #ff8b1b; orange
 @note       Styles for navigating examples. Not to be included in projects.
 ************************************************************/
+
+/** =fonts
+************************************************************/
+.tagline{
+  font-size: 10px;
+  letter-spacing: .35em;
+  margin-top: -2em;
+  color: #999;
+  text-transform: uppercase;
+}
+
+/** =colors
+************************************************************/
+.orange{
+  color: #ff8b1b;
+}
+.turquoise{
+  color: #5ec2dd;
+}
+
+/** =layout
+************************************************************/
 body {
   background: url(/examples/assets/images/f.png) 0 -80px;
 }
@@ -16,6 +38,9 @@ body {
   margin: 0 auto;
   padding: 6em 0;
 }
+
+/** =page-title
+************************************************************/
 .page-title {
   text-align: center;
   font-size: 45px;

@@ -1,5 +1,9 @@
 h1. FusionaryFramework CSS Guide
 
+ <div class="notice single-line">
+  Currently all asset paths are absolute to the site root, so we're assuming that you're running a virtualhost. See <a href="http://code.google.com/p/virtualhost-sh/">http://code.google.com/p/virtualhost-sh/</a> or use MAMP.
+ </div>
+
 h2. TODO
 
 * styles for captioned class
@@ -9,7 +13,8 @@ h2. TODO
 * example markup
 * ruled heading classes
 * default padding/borders for inav
-* do we need horizontal spacing on <code>?
+* do we need horizontal spacing on code?
+* more margin classes?
 
 h2. Classes
 
@@ -111,6 +116,11 @@ h3. Common classes
 * @.inner@
 * @.toc@ -- table of contents
 * @.slideshow@
+* @.branding@
+* @.logo@
+* @.meta@
+* @.callout@
+* @.hdg@ -- heading
 
 h3. Common Prefixes
 
@@ -118,6 +128,10 @@ h3. Common Prefixes
 * @.icn-@ -- icon
 * @.pho-@ -- photo
 * @.li-n@ -- _n_ being sequential numbering of list items. If we need to specifically target list items, (e.g. horizontal image nav), use class @.li-1@, @.li-2@, etc.
+* @.logo-@
+* @.txt-@ -- images/classes being replaced
+* @.hdg-@ -- heading
+
 
 h3. Common Suffixes
 
