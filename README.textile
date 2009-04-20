@@ -1,8 +1,6 @@
 h1. FusionaryFramework CSS Guide
 
- <div class="notice single-line">
-  Currently all asset paths are absolute to the site root, so we're assuming that you're running a virtualhost. See <a href="http://code.google.com/p/virtualhost-sh/">http://code.google.com/p/virtualhost-sh/</a> or use MAMP.
- </div>
+_Currently all asset paths are absolute to the site root, so we're assuming that you're running a virtualhost. See <a href="http://code.google.com/p/virtualhost-sh/">http://code.google.com/p/virtualhost-sh/</a> or use MAMP._
 
 h2. TODO
 
