@@ -54,6 +54,7 @@
     <h2><code>class="col-12"</code></h2>
     <p class="note">If you put a <code>col-x</code> class on a <code>fieldset</code>, all containing <code>input</code>s will inherit the proper width.</p>
     <form action="#">
+      <h3><code>class="col-8 vform"</code></h3>
       <fieldset class="col-8 vform">
         <div class="text">
           <label for="id1">Text Input</label> <input type="text" id="id1">
@@ -85,14 +86,14 @@
     <form action="#">
       <fieldset class="hform">
         <div class="text">
-          <label for="id1" class="col-4">Text Input</label> <input class="col-4 col-last" type="text" id="id1">
+          <label for="id4" class="col-4">Text Input</label> <input class="col-4 col-last" type="text" id="id4">
         </div>
         <div class="text textarea">
-          <label for="id2" class="col-4">Textarea</label> 
-          <textarea id="id2" class="col-8 col-last">Content</textarea>
+          <label for="id5" class="col-4">Textarea</label> 
+          <textarea id="id5" class="col-8 col-last">Content</textarea>
         </div>
         <div class="select">
-          <label for="id3" class="col-4">Select</label> <select id="id3" class="col-6 col-last">
+          <label for="id6" class="col-4">Select</label> <select id="id6" class="col-6 col-last">
             <option>
               Option 1
             </option>
