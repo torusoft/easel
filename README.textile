@@ -60,7 +60,7 @@ Forms can be set up using the @.hform@ or @.vform@ classes on any container of t
 * @.fancy@ -- makes input text bold and adjusts letterspacing for a beefier look
 * @.legend@ -- the legend element is a pain to style, so don't be afraid to just use a heading with the class legend.
 * @.actions@ -- div.actions, a container for submit, cancel, reset buttons at the end of the form
-* @.validate@ -- class to trigger JS validation (e.g. form.validate)
+* @.validate@ -- class to trigger JS validation (e.g. @form.validate@)
 
 h3. Validation/Flash Messages
 
