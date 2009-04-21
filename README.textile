@@ -1,4 +1,4 @@
-h1. FusionaryFramework CSS Guide
+h1. Easel Guide
 
 _Currently all asset paths are absolute to the site root, so we're assuming that you're running a virtualhost. See <a href="http://code.google.com/p/virtualhost-sh/">http://code.google.com/p/virtualhost-sh/</a> or use MAMP._
 
@@ -13,6 +13,8 @@ h2. TODO
 * default padding/borders for inav
 * do we need horizontal spacing on code?
 * more margin classes?
+* padding classes?
+* review lineheights on li's, possibly move to a class instead of baseline
 
 h2. Classes
 
@@ -38,7 +40,7 @@ h3. Navigation
 * @.nav@ -- no specific styles, but can be used to target nav by location (e.g. .header .nav)
 * @.hnav@ -- horizontal navigation (floats li's left)
 * @.vnav@ -- vertical navigation
-* @.inav@ -- inline navigation @TODO should we specify pipes and spacing by default?
+* @.inav@ -- inline navigation
 
 h3. Forms
 
