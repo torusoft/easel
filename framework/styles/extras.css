@@ -13,6 +13,7 @@
   border-radius: 1em;
 	-moz-border-radius: 1em;
 	-webkit-border-radius: 1em;
+	padding: 1em;
 }
 
 /** =Safari 3 and 4 fix for light on dark text

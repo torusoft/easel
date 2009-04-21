@@ -46,6 +46,7 @@
 }
 .nav-admin .greeting {
   font-style: italic;
+  margin-right: 1.5em;
 }
 .nav-admin .edit a {
   background: url(../assets/images/icons/edit-template.gif) no-repeat 0 50%;

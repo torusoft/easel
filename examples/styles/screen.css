@@ -102,3 +102,22 @@ body {
   background: #fff;
   color: #5ec2dd;
 }
+
+/** =extras
+************************************************************/
+.rnd-test{
+  background: #5ec2dd;
+  color: #fff;
+  padding: 1em;
+}
+.safari-txt-test{
+  background: #000;
+  color: #fff;
+  font-size: 18px;
+}
+.amp-test{
+  font-size: 80px;
+}
+.hn-light-test{
+  font-size: 18px;
+}
