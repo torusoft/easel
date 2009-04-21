@@ -39,8 +39,8 @@ h3. Navigation
 * @.nav-global@
 * @.nav@ -- no specific styles, but can be used to target nav by location (e.g. .header .nav)
 * @.hnav@ -- horizontal navigation (floats li's left)
-* @.vnav@ -- vertical navigation
-* @.inav@ -- inline navigation
+* @.vnav@ -- vertical navigation (stacked vertical nav, links have block display)
+* @.inav@ -- inline navigation (e.g. pipe separated text navs)
 
 h3. Forms
 
@@ -185,7 +185,7 @@ h2. CSS formatting
 * use hyphens
 * all lowercase
 * 2 space soft tabs
-* observe spacing as below or karl will hurt you
+* observe spacing as below or Karl will hurt you
 
 <notextile><pre>
 .class-name {
