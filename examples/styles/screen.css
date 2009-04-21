@@ -28,10 +28,10 @@
 /** =layout
 ************************************************************/
 body {
-  background: url(/examples/assets/images/f.png) 0 -80px;
+  background: url(../assets/images/f.png) 0 -80px;
 }
 .wrapper {
-  background: url(/examples/assets/images/color-bar.png) repeat-x;
+  background: url(../assets/images/color-bar.png) repeat-x;
 }
 .container {
   width: 950px;

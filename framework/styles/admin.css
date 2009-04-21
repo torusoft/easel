@@ -11,7 +11,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: url(/assets/images/nav-admin-shadow.png) repeat-x;
+  background: url(../assets/images/nav-admin-shadow.png) repeat-x;
   z-index: 1000;
   font-size: 11px;
   text-align: right;
@@ -48,7 +48,7 @@
   font-style: italic;
 }
 .nav-admin .edit a {
-  background: url(/assets/images/icons/edit-template.gif) no-repeat 0 50%;
+  background: url(../assets/images/icons/edit-template.gif) no-repeat 0 50%;
   padding-left: 15px;
 }
 
