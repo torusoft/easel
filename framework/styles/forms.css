@@ -64,7 +64,8 @@ textarea,
 	display: block;
 }
 textarea {
-  height: 80px;
+  min-height: 80px;
+  line-height: 1.2em; /* for jquery.autogrow */
 }
 textarea:focus,
 .text input:focus	{

@@ -40,7 +40,7 @@
         <label for="id1" class="col-4">Fancy input <span class="required-mark">*</span></label> <input class="zip required col-6 col-last" type="text" id="id1">
       </div>
       <div class="text textarea">
-        <label for="id2" class="col-4">Textarea</label> 
+        <label for="id2" class="col-4">Auto-Growing Textarea</label> 
         <textarea id="id2" class="col-6 col-last">Content</textarea>
       </div>
       <div class="select">

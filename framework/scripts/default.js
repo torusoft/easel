@@ -59,4 +59,8 @@ $ajaxForm.tinyvalidate({
     postMessage: '</ul>'
   }
 });
+
+// Autogrowing textareas
+$('textarea').autogrow();
+
 }); // document.ready
