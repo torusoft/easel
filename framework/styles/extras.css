@@ -84,7 +84,19 @@ button::-moz-focus-inner { border: none; padding: 0;}
 .btn:active {
   top:1px;
 }
-a.btn  {
-  float: left;
-  background-color: transparent;
+a.btn {
+  background-color: transparent !important;
+}
+
+/** =cross browser inline-block
+************************************************************
+http://blog.hedgerwow.com/2007/11/14/item-list-grid-real-world-practice-with-displayinline-block-across-browsers/
+************************************************************/
+.btn,
+.inline-block{
+  display:-moz-inline-stack; /* Firefox need this to simulate display:inline-block */
+  display:inline-block; /* IE does not apply this to Block Element, and Firefox does not render this, too */
+  _overflow:hidden; /* fix IE6 to expanded content */
+  zoom:1; /* trigger hasLayout */
+  *display:inline; /* once hasLayout is true, set display:inline to block element will make display:inline behave like display:inline-block */
 }

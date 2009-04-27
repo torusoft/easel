@@ -16,7 +16,8 @@
   <div class="block">
     <h3><code>&lt;button&gt;</code> element</h3>
     
-    <button class="btn"><span>&lt;button class=&quot;btn&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/button&gt;</span></button>
+    <button class="btn"><span>&lt;button class=&quot;btn&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/button&gt;</span></button> or <button class="btn"><span>&lt;button class=&quot;btn&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/button&gt;</span></button>
+    
     
   </div>
   <div class="block">
