@@ -2,6 +2,8 @@
 ************************************************************
 @project    Easel
 @colordef   #222222; dark gray (body copy)
+@colordef   #5ec2dd; turquoise blue (links)
+@colordef   #ff8b1b; orange
 ************************************************************/
 
 /** =fonts
@@ -43,6 +45,7 @@ ul li {
 }
 dt { font-weight: bold; }
 dd { margin-bottom: .75em; }
+.reset dt { font-weight: normal; }
  
 /* =margins */
 p, table, form, pre, ul, ol, dl, address, .box { margin-bottom: 1.5em; }
@@ -124,6 +127,17 @@ p .top, p .top img { margin-top: 0 !important; }
   border-top: 1px solid #ccc;
   padding-top: .75em;
 }
+.ruled.links {
+  padding-top: 0;
+}
+.ruled.links li {
+  margin: 0;
+  padding: 0;
+}
+.ruled.links a{
+  display: block;
+  padding: .75em 0 .66em;
+}
 
 /* =image frame */
 .framed,
@@ -150,9 +164,8 @@ a.framed:hover img {
 
 /* inline nav */
 .inav li {
-  border-left: 1px solid #BBB;
   margin-left: .75em;
-  padding-left: .66em;
+  padding-left: .75em;
 }
 .inav li:first-child,
 .inav .li-1 {

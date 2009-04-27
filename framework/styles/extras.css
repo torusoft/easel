@@ -47,7 +47,7 @@
 @see    http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 @see    http://git.fusionary.com/?p=fusionary/build_tools.git
 ************************************************************/
-button.btn { 
+.btn { 
   border:0;
   cursor:pointer; 
   font-weight:bold; 
@@ -57,7 +57,7 @@ button.btn {
   background: none;
   position: relative;
 }
-button.btn span { 
+.btn span { 
   position:relative; 
   display:block; 
   white-space:nowrap;
@@ -71,16 +71,20 @@ button.btn span {
 button::-moz-focus-inner { border: none; padding: 0;} 
 
 /* using a sprite instead of four separate images... */
-button.btn,
-button.btn span {
+.btn,
+.btn span {
   background-image: url(../assets/images/buttons/sprite-gray.png);
   background-repeat: no-repeat;
 }
-button.btn {background-position:  100% 0;}
-button.btn span { background-position: 0 -50px; }
-button.btn:hover { background-position: 100% -100px; }
-button.btn:hover span { background-position: 0 -150px; }
+.btn {background-position:  100% 0;}
+.btn span { background-position: 0 -50px; }
+.btn:hover { background-position: 100% -100px; }
+.btn:hover span { background-position: 0 -150px; }
 
-button.btn:active {
+.btn:active {
   top:1px;
+}
+a.btn  {
+  float: left;
+  background-color: transparent;
 }

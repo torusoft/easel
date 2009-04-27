@@ -15,6 +15,8 @@ h2. TODO
 * more margin classes?
 * padding classes?
 * review lineheights on li's, possibly move to a class instead of baseline
+* should we extract ruled, and other really specific stuff to extras or elsewhere?
+* fixed width dl? class
 
 h2. Classes
 
@@ -121,6 +123,7 @@ h3. Common classes
 * @.meta@
 * @.callout@
 * @.hdg@ -- heading
+* @.fixed@ -- fixed width
 
 h3. Common Prefixes
 

@@ -5,6 +5,7 @@
   <title>Welcome to Easel</title>
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link href="/framework/styles/grid.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/framework/styles/reset.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/framework/styles/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/framework/styles/forms.css" media="screen, projection" rel="stylesheet" type="text/css">
