@@ -40,7 +40,7 @@ var submitOptions = {
     $('<div class="overlay"></div>').css({opacity: '.4'}).appendTo($ajaxForm);
   },
   success: function(responseText) {
-    $ajaxForm.slideUp(200, function() {        
+    $ajaxForm.slideUp(200, function() {
       var response = $('<div>' + responseText + '</div>').find('p:first').html();
       $('.loading').insertAfter(this).addClass('box success single-line').html(response).removeClass('loading');
     });
