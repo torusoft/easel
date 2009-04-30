@@ -61,6 +61,12 @@ $ajaxForm.tinyvalidate({
 });
 
 // Autogrowing textareas
-$('textarea').autogrow();
+  $('textarea').expandable({
+    init: true,
+    duration: 100,
+    interval: 400,
+    by: 1
+  });
+
 
 }); // document.ready
