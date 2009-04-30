@@ -1,1 +1,0 @@
-../../submodules/jquery.expandable/jquery.expandable.js

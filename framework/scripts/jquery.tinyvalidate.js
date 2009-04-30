@@ -1,1 +1,0 @@
-../../submodules/jquery.tinyvalidate/jquery.tinyvalidate.js
