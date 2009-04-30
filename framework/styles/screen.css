@@ -40,7 +40,7 @@ ol li { list-style: decimal; }
 ul li { list-style: none; }
 dt { font-weight: bold; }
 ul li {
-  background: url(../assets/images/bullet-black.png) no-repeat 0 .5em;
+  background: url(images/bullet-black.png) no-repeat 0 .5em;
   padding-left: .75em;
 }
 dt { font-weight: bold; }
