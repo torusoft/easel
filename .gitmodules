@@ -10,3 +10,6 @@
 [submodule "submodules/jquery.autogrow"]
 	path = submodules/jquery.autogrow
 	url = git://github.com/akaihola/jquery-autogrow.git
+[submodule "submodules/jquery-expandable"]
+	path = submodules/jquery-expandable
+	url = git@github.com:kswedberg/jquery-expandable.git

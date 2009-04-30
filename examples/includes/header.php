@@ -25,7 +25,7 @@
   <script src="/framework/scripts/jquery.form.js" type="text/javascript"></script>
   <script src="/framework/scripts/jquery.tinyvalidate.js" type="text/javascript"></script>
   <script src="/framework/scripts/jquery.tinyvalidate.rules.js" type="text/javascript"></script>
-  <script src="/framework/scripts/jquery.autogrow.js" type="text/javascript"></script>
+  <script src="/framework/scripts/jquery.expandable.js" type="text/javascript"></script>
   <script src="/framework/scripts/extras.js" type="text/javascript"></script>
   <script src="/framework/scripts/default.js" type="text/javascript"></script>
 </head>
