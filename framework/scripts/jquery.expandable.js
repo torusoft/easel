@@ -1,1 +1,1 @@
-../../submodules/jquery-expandable/jquery.expandable.js
+../../submodules/jquery.expandable/jquery.expandable.js

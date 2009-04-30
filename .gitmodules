@@ -7,6 +7,6 @@
 [submodule "submodules/jquery.tinyvalidate"]
 	path = submodules/jquery.tinyvalidate
 	url = git://github.com/kswedberg/jquery-tinyvalidate.git
-[submodule "submodules/jquery-expandable"]
-	path = submodules/jquery-expandable
+[submodule "submodules/jquery.expandable"]
+	path = submodules/jquery.expandable
 	url = git://github.com/kswedberg/jquery-expandable.git
