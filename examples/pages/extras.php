@@ -26,4 +26,12 @@
     
   </div>
 </div>
+
+<div class="pagination">
+  <span class="disabled prev_page">&laquo; Previous</span>
+  <span class="current">1</span>
+  <a href="/watchtower?page=2" rel="next">2</a><a href="/watchtower?page=3">3</a>
+  <a href="/watchtower?page=4">4</a> <a href="/watchtower?page=2" class="next_page" rel="next">Next &raquo;</a>
+</div>
+
 <?php include("../includes/footer.php"); ?>

@@ -29,3 +29,7 @@ button.btn {
 button.btn {
   zoom: 1;
 }
+
+/** =ie image scaling
+************************************************************/
+img { -ms-interpolation-mode:bicubic; }

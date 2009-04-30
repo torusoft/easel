@@ -4,7 +4,6 @@ _Currently all asset paths are absolute to the site root, so we're assuming that
 
 h2. TODO
 
-* styles for captioned class
 * print stylesheet
 * recordset styles
 * rounded corner markup/classes
@@ -17,6 +16,19 @@ h2. TODO
 * review lineheights on li's, possibly move to a class instead of baseline
 * should we extract ruled, and other really specific stuff to extras or elsewhere?
 * fixed width dl? class
+* dev.css stylesheet
+* pagination classes/styles
+* slideshow
+<div class="slideshow">
+  <div class="slides">
+    
+  </div>
+  <div class="controls">
+    <a class="prev"></a>
+    <a class="next"></a>
+  </div>
+</div>
+
 
 h2. Classes
 
