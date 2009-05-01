@@ -1,4 +1,5 @@
-<?php include("../includes/header.php"); ?>
+<?php include("../includes/header_top.php"); ?>
+<?php include("../includes/header_bottom.php"); ?>
 <h1 class="page-title">Extras</h1>
 <div class="content">
   <h2>CSS3 rounded corners</h2>
@@ -25,13 +26,6 @@
     <a class="btn"><span>&lt;span class=&quot;btn&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span></a>
     
   </div>
-</div>
-
-<div class="pagination">
-  <span class="disabled prev_page">&laquo; Previous</span>
-  <span class="current">1</span>
-  <a href="/watchtower?page=2" rel="next">2</a><a href="/watchtower?page=3">3</a>
-  <a href="/watchtower?page=4">4</a> <a href="/watchtower?page=2" class="next_page" rel="next">Next &raquo;</a>
 </div>
 
 <?php include("../includes/footer.php"); ?>

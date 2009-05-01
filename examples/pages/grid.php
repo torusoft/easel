@@ -1,4 +1,5 @@
-<?php include("../includes/header.php"); ?>
+<?php include("../includes/header_top.php"); ?>
+<?php include("../includes/header_bottom.php"); ?>
 <h1 class="page-title">Grid <span class="amp">&amp;</span> Layout</h1>
 <div class="content block">
   <h2><code>class="content block"</code></h2>

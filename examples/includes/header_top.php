@@ -28,8 +28,3 @@
   <script src="/submodules/jquery.expandable/jquery.expandable.js" type="text/javascript"></script>
   <script src="/framework/scripts/extras.js" type="text/javascript"></script>
   <script src="/framework/scripts/default.js" type="text/javascript"></script>
-</head>
-<body>
-<?php include("nav.php"); ?>
-<div class="wrapper">
-  <div class="container">

@@ -29,7 +29,6 @@ h2. TODO
   </div>
 </div>
 
-
 h2. Classes
 
 h3. Layout

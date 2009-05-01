@@ -1,4 +1,5 @@
-<?php include("../includes/header.php"); ?>
+<?php include("../includes/header_top.php"); ?>
+<?php include("../includes/header_bottom.php"); ?>
 <h1 class="page-title">Images <span class="amp">&amp;</span> Captions</h1>
 <div class="content">
   <h2>

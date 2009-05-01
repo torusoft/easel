@@ -6,4 +6,5 @@
   <li><a href="/examples/pages/images.php">Images &amp; Captions</a></li>
   <li><a href="/examples/pages/admin.php">Admin Tools &amp; Styles</a></li>
   <li><a href="/examples/pages/extras.php">Extras</a></li>
+  <li><a href="/examples/pages/dev.php">Dev Styles</a></li>
 </ul><!-- .toc -->

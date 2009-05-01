@@ -1,4 +1,5 @@
-<?php include("../includes/header.php"); ?>
+<?php include("../includes/header_top.php"); ?>
+<?php include("../includes/header_bottom.php"); ?>
 <h1 class="page-title">Class Reference <span class="amp">&amp;</span> Examples</h1>
 <div class="content block">
   <h2>Reset</h2>

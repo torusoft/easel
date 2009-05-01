@@ -1,4 +1,5 @@
-<?php include("../includes/header.php"); ?>
+<?php include("../includes/header_top.php"); ?>
+<?php include("../includes/header_bottom.php"); ?>
 <h1 class="page-title">Admin Tools <span class="amp">&amp;</span> Styles</h1>
 <div class="nav-admin">
   <div class="inner">
