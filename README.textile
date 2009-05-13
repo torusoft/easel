@@ -18,6 +18,7 @@ h2. TODO
 * fixed width dl? class
 * dev.css stylesheet
 * pagination classes/styles
+* nowrap class
 * slideshow
 <div class="slideshow">
   <div class="slides">

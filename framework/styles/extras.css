@@ -5,6 +5,8 @@
 @note     Import into screen.css or just copy/paste as needed
 @note     Stick anything that may be able to be reused in here
 @fontdef  "Bradley Hand ITC", "Apple Chancery", "URW Chancery L", cursive; script/cursive
+@fontdef  Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman"; serif (body copy)
+@fontdef  Palatino, "Palatino Linotype", "Hoefler Text", Times, "Times New Roman"; serif (headings)
 ************************************************************/
 
 /** =css3 rounded corners for nice browsers
