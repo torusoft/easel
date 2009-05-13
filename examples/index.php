@@ -1,4 +1,5 @@
-<?php include("includes/header.php"); ?>
+<?php include("includes/header_top.php"); ?>
+<?php include("includes/header_bottom.php"); ?>
 <div class="content">
   <h1 class="page-title">
     Welcome to Easel<sup class="small">®</sup>
