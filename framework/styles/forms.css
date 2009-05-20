@@ -234,6 +234,7 @@ form .overlay {
 }
 .actions {
   position: relative;
+  clear: both;
 }
 .loading {
   position: absolute;
