@@ -197,6 +197,19 @@ a.framed:hover img {
   display: block;
 }
 
+/* numbers */
+.number input,
+td.number,
+th.number {
+  text-align: right;
+}
+.neg {
+  color: #000;
+}
+.neg:before { content: "(";}
+.neg:after { content: ")";}
+.pos { color: #ff0000; }
+
 /** =layout
 ************************************************************/
 body { background: #fff; }

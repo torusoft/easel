@@ -31,14 +31,6 @@ fieldset {
 fieldset.multi-line {
 	margin: 0 0 1em;
 }
-.text,
-.textarea,
-.select,
-.file,
-fieldset,
-.actions {
-  clear: both;
-}
 textarea,
 .text input {
 	background: #f3f3f3;
@@ -140,11 +132,6 @@ fieldset { margin: 0 0 1.5em; }
 .hform textarea {
   float: left
 }
-.hform .text,
-.hform .select,
-.hform .file {
-  clear: left;
-}
 .hform label {
   text-align: right;
 }
@@ -160,6 +147,9 @@ fieldset { margin: 0 0 1.5em; }
 }
 .hform .actions {
   margin-top: .25em;
+}
+.label-space {
+  margin-top: 1.35em;
 }
 
 /** =vform
