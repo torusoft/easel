@@ -59,17 +59,17 @@
     <input id="product_template_disable_installation_guide_validation" name="product_template[disable_installation_guide_validation]" type="hidden">
   </div>
 </fieldset>
-<fieldset class="col-last col-12"><h3 class="legend">Product Dimensions</h3>
-  <div class="text col-2 vform">
+<fieldset class="col-last col-12 vform"><h3 class="legend">Product Dimensions</h3>
+  <div class="text col-2">
     <label for="product_template_width">Width</label>
     <input class="col-2" id="product_template_width" name="product_template[width]" size="30" type="text">
   </div>
-  <div class="checkbox col-2 label-space">
+  <div class="checkbox col-2">
     <input type="checkbox">
     <label for="product_template_width">Active</label>
   </div>
   
-  <div class="text col-4 vform">
+  <div class="text col-4">
     <label for="product_template_height">Height</label>
     <input class="col-4" id="product_template_height" name="product_template[height]" size="30" type="text">
   </div>

@@ -149,7 +149,8 @@ fieldset { margin: 0 0 1.5em; }
   margin-top: .25em;
 }
 .label-space,
-.vform.checkbox {
+.vform.checkbox,
+.vform .checkbox {
   margin-top: 1.35em;
 }
 
