@@ -148,7 +148,8 @@ fieldset { margin: 0 0 1.5em; }
 .hform .actions {
   margin-top: .25em;
 }
-.label-space {
+.label-space,
+.vform.checkbox {
   margin-top: 1.35em;
 }
 
