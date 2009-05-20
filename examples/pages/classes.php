@@ -97,6 +97,25 @@
     <li><a href="#"><code>class="inav"</code></a></li>
   </ul>
   </div>
+  <div class="content">
+    <h2>Numbers</h2>
+    <span class="pos">5 class="pos"</span>
+    <span class="neg">5 class="pos"</span>
+    <table class="recordset" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="number">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lorem ipsum dolor sit amet</td>
+          <td class="number">$100,000,000.89</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <ul>
     <li>one</li>
     <li>two</li>

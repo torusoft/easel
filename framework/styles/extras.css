@@ -102,3 +102,8 @@ http://blog.hedgerwow.com/2007/11/14/item-list-grid-real-world-practice-with-dis
   zoom:1; /* trigger hasLayout */
   *display:inline; /* once hasLayout is true, set display:inline to block element will make display:inline behave like display:inline-block */
 }
+
+/** =change text highlight
+************************************************************/
+::selection         { background:#c3effd; color:#000; /* Safari and Opera */ }
+::-moz-selection  { background:#c3effd; color:#000; /* Firefox */ }

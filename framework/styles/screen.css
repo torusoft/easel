@@ -197,7 +197,7 @@ a.framed:hover img {
   display: block;
 }
 
-/* numbers */
+/* =numbers */
 .number input,
 td.number,
 th.number {
@@ -209,6 +209,14 @@ th.number {
 .neg:before { content: "(";}
 .neg:after { content: ")";}
 .pos { color: #ff0000; }
+
+/* =cursors */
+label,
+button,
+input[type=submit],
+.pointer,
+button,
+ { cursor: pointer; }
 
 /** =layout
 ************************************************************/

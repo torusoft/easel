@@ -79,7 +79,6 @@ fieldset.multi-line .text {
 
 /** =labels
 ************************************************************/
-label { cursor: pointer; }
 .text label,
 .select label,
 .file label {
