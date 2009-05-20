@@ -43,12 +43,11 @@
 <form action="/admin/products/product_templates" class="new_product_template" enctype="multipart/form-data" id="new_product_template" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="GZ4G5zYeNDKcUaS/rfpV8c1jwTE5ldTcFdGRqqeOi4E="></div>
   
 <fieldset class="col-12">
-  <h3 class="legend">Product Info</h3>
-    <div class="select col-6 hform label-space">
+    <div class="select col-6 hform">
       <label class="col-2" for="product_template_product_mounting_method_id">Mounting Method</label>
       <select class="col-4 col-last" id="product_template_product_mounting_method_id" name="product_template[product_mounting_method_id]"></select>
     </div>
-    <div class="select col-last col-6 hform label-space">
+    <div class="select col-last col-6 hform">
       <label class="col-2" for="product_template_customer_id">Customer</label>
       <select class="col-4 col-last" id="product_template_customer_id" name="product_template[customer_id]"><option value="1">Meijer</option></select>
     </div>
