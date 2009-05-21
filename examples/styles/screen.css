@@ -121,3 +121,16 @@ body {
 .hn-light-test{
   font-size: 18px;
 }
+
+/** =fusionary intranet buttons
+************************************************************/
+.f-btn {
+  background-color: #6fbcd0;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}

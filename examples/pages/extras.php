@@ -28,4 +28,7 @@
   </div>
 </div>
 
+<a class="f-btn"><span>Test Button</span></a>
+
+
 <?php include("../includes/footer.php"); ?>
