@@ -4,7 +4,7 @@
 @see      http://blueprint-generator.kaizeku.com/
 @see      http://www.jdclayton.com/blueprints_compress_a_walkthrough.html
 ************************************************************/
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16, .col-17, .col-18, .col-19, .col-20, .col-21, .col-22, .col-23, .col-24 { float:left; margin-right:10px; }
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16, .col-17, .col-18, .col-19, .col-20, .col-21, .col-22, .col-23, .col-24 { float:left; margin-right:10px; clear: none !important; }
 .col-1  { width:30px; }
 .col-2  { width:70px; }
 .col-3  { width:110px; }
@@ -109,4 +109,5 @@ input.col-22, textarea.col-22 { width:864px; }
 input.col-23, textarea.col-23 { width:904px; }
 input.col-24, textarea.col-24 { width:944px; margin:0; }
 input.col-1, input.col-2, input.col-3, input.col-4, input.col-5, input.col-6, input.col-7, input.col-8, input.col-9, input.col-10, input.col-11, input.col-12, input.col-13, input.col-14, input.col-15, input.col-16, input.col-17, input.col-18, input.col-19, input.col-20, input.col-21, input.col-22, input.col-23, input.col-24,
-textarea.col-1, textarea.col-2, textarea.col-3, textarea.col-4, textarea.col-5, textarea.col-6, textarea.col-7, textarea.col-8, textarea.col-9, textarea.col-10, textarea.col-11, textarea.col-12, textarea.col-13, textarea.col-14, textarea.col-15, textarea.col-16, textarea.col-17, textarea.col-18, textarea.col-19, textarea.col-20, textarea.col-21, textarea.col-22, textarea.col-23, textarea.col-24 { margin-right:0; }
+textarea.col-1, textarea.col-2, textarea.col-3, textarea.col-4, textarea.col-5, textarea.col-6, textarea.col-7, textarea.col-8, textarea.col-9, textarea.col-10, textarea.col-11, textarea.col-12, textarea.col-13, textarea.col-14, textarea.col-15, textarea.col-16, textarea.col-17, textarea.col-18, textarea.col-19, textarea.col-20, textarea.col-21, textarea.col-22, textarea.col-23, textarea.col-24,
+select.col-1, select.col-2, select.col-3, select.col-4, select.col-5, select.col-6, select.col-7, select.col-8, select.col-9, select.col-10, select.col-11, select.col-12, select.col-13, select.col-14, select.col-15, select.col-16, select.col-17, select.col-18, select.col-19, select.col-20, select.col-21, select.col-22, select.col-23, select.col-24 { margin-right:0; }

@@ -76,6 +76,13 @@ fieldset.multi-line .text {
 .file input {
   width: auto !important; /* ensures widths do not get set with grid classes */
 }
+.text,
+.textarea,
+.select,
+.file,
+fieldset {
+  clear: left;
+}
 
 /** =labels
 ************************************************************/
