@@ -66,6 +66,7 @@ body {
   color: #fff;
   padding: 3px 1.5em;
   font-weight: bold;
+  z-index: 1;
 }
 .nav-global a{
   color: #fff;
