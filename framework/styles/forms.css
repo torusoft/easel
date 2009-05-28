@@ -89,7 +89,7 @@ fieldset {
 .text label,
 .select label,
 .file label,
-.label {
+form .label {
 	display: block;
 	font-size: 14px;
 	font-weight: bold;
@@ -189,18 +189,20 @@ fieldset { margin: 0 0 1.5em; }
   min-height: 0;
   background-position: 10px 50% !important;
 }
-.box.error    { background-color: #FBE3E4; border-color: #FBC2C4; }
+.box.error,
+.box.failure  { background-color: #FBE3E4; border-color: #FBC2C4; }
 .box.notice   { background-color: #FFF6BF; border-color: #FFD324; }
 .box.success  { background-color: #E6EFC2; border-color: #C6D880; }
 
 .box.error,
+.box.failure,
 .box.notice,
 .box.success {
   background-repeat: no-repeat;
   background-position: 10px 13px;
   padding-left: 50px;
 }
-
+.box.failure,
 .box.error    { background-image: url(images/icons/caution-sign-red.png) }
 .box.notice   { background-image: url(images/icons/caution-sign.png) }
 .box.success  { background-image: url(images/icons/success-badge.png) }
@@ -211,7 +213,8 @@ fieldset { margin: 0 0 1.5em; }
   border: 0;
   color: #555;
 }
-.box.error, .box.error a      { color: #D12F19; }
+.box.error, .box.error a,
+.box.failure, .box.failure a  { color: #D12F19; }
 .box.notice, .box.notice a    { color: #695E52; }
 .box.success, .box.success a  { color: #3D6C10; }
 .box a { text-decoration: underline; }

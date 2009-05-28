@@ -107,3 +107,10 @@ http://blog.hedgerwow.com/2007/11/14/item-list-grid-real-world-practice-with-dis
 ************************************************************/
 ::selection         { background:#c3effd; color:#000; /* Safari and Opera */ }
 ::-moz-selection  { background:#c3effd; color:#000; /* Firefox */ }
+
+/** =embedding fonts
+************************************************************/
+@font-face {
+	  font-family: "Fertigo";
+	  src: url(http://www.taptaptap.com/Fertigo.otf) format("opentype");
+}
