@@ -198,7 +198,9 @@ a.framed:hover img {
 }
 
 /* =numbers */
-.number input,
+input.number,
+label.number,
+.label.number,
 td.number,
 th.number {
   text-align: right;
