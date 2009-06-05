@@ -29,18 +29,18 @@ fieldset {
 .select,
 .file,
 fieldset.multi-line {
-	margin: 0 0 1em;
+  margin: 0 0 1em;
 }
 textarea,
 .text input {
-	background: #f3f3f3;
-	border:1px solid #bbb;
-	border-top-width: 2px;
-	border-bottom-color: #e2e1dd;
-	color: #525252;
-	padding: 2px;
-	font-size: 14px;
-	overflow-y: auto;
+  background: #f3f3f3;
+  border:1px solid #bbb;
+  border-top-width: 2px;
+  border-bottom-color: #e2e1dd;
+  color: #525252;
+  padding: 2px;
+  font-size: 14px;
+  overflow-y: auto;
 }
 textarea,
 .text input,
@@ -53,20 +53,20 @@ select,
 textarea,
 .text input,
 .file input {
-	display: block;
+  display: block;
 }
 textarea {
   min-height: 80px;
   line-height: 1.2em; /* for jquery.autogrow */
 }
 textarea:focus,
-.text input:focus	{
-	background-color: #fdffed;
+.text input:focus {
+  background-color: #fdffed;
 }
 .fancy input {
   font-weight: bold;
-	letter-spacing: -.015em;
-	font-size: 16px;
+  letter-spacing: -.015em;
+  font-size: 16px;
 }
 fieldset.multi-line .text {
   margin-bottom: .25em;
@@ -90,10 +90,10 @@ fieldset {
 .select label,
 .file label,
 form .label {
-	display: block;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 1;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
 }
 .checkbox label,
 .radio label {
@@ -301,9 +301,9 @@ form .overlay {
   position: absolute;
 }
 .hform .error-message {
-	background: url(images/icons/caution-sign-sm.png) no-repeat;
-	width: 17px;
-	height: 16px;
+  background: url(images/icons/caution-sign-sm.png) no-repeat;
+  width: 17px;
+  height: 16px;
   top: 6px;
   right: -22px;
 }

@@ -25,10 +25,10 @@
 @see    http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 @see    http://git.fusionary.com/?p=fusionary/build_tools.git
 ************************************************************/
-button.btn { 
-  width:auto; 
-  overflow:visible; 
-} 
+button.btn {
+  width:auto;
+  overflow:visible;
+}
 button.btn {
   zoom: 1;
 }

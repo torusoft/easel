@@ -13,9 +13,9 @@
 ************************************************************/
 .rnd {
   border-radius: 1em;
-	-moz-border-radius: 1em;
-	-webkit-border-radius: 1em;
-	padding: 1em;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  padding: 1em;
 }
 
 /** =Safari 3 and 4 fix for light on dark text
@@ -49,19 +49,19 @@
 @see    http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 @see    http://git.fusionary.com/?p=fusionary/build_tools.git
 ************************************************************/
-.btn { 
+.btn {
   border:0;
-  cursor:pointer; 
-  font-weight:bold; 
-  padding:0 10px 0 0; 
+  cursor:pointer;
+  font-weight:bold;
+  padding:0 10px 0 0;
   text-align:center;
   font-size: 1em;
   background: none;
   position: relative;
 }
-.btn span { 
-  position:relative; 
-  display:block; 
+.btn span {
+  position:relative;
+  display:block;
   white-space:nowrap;
   padding:0 0 0 10px;
   height:26px;
@@ -70,7 +70,7 @@
 }
 
 /* removes 1px border in FF */
-button::-moz-focus-inner { border: none; padding: 0;} 
+button::-moz-focus-inner { border: none; padding: 0;}
 
 /* using a sprite instead of four separate images... */
 .btn,
@@ -111,6 +111,6 @@ http://blog.hedgerwow.com/2007/11/14/item-list-grid-real-world-practice-with-dis
 /** =embedding fonts
 ************************************************************/
 @font-face {
-	  font-family: "Fertigo";
-	  src: url(http://www.taptaptap.com/Fertigo.otf) format("opentype");
+    font-family: "Fertigo";
+    src: url(http://www.taptaptap.com/Fertigo.otf) format("opentype");
 }
