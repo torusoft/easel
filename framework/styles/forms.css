@@ -15,7 +15,7 @@
 @note Textareas and password input should get a text class as well as a textarea/password class as need for styling
 ************************************************************/
 input, select, textarea, button { margin: 0; }
-input, select, textarea, button, label { vertical-align: middle; }
+input, select, textarea, button, label, .label { vertical-align: middle; }
 
 .text,
 .textarea,
@@ -96,7 +96,9 @@ form .label {
   line-height: 1;
 }
 .checkbox label,
-.radio label {
+.radio label,
+.checkbox .label,
+.radio .label {
   margin-left: .25em;
 }
 
@@ -132,6 +134,9 @@ fieldset { margin: 0 0 1.5em; }
 .hform .text label,
 .hform .select label,
 .hform .file label,
+.hform .text .label,
+.hform .select .label,
+.hform .file .label,
 .hform .text input,
 .hform .select input,
 .hform .file input,
@@ -139,17 +144,19 @@ fieldset { margin: 0 0 1.5em; }
 .hform textarea {
   float: left
 }
-.hform label {
+.hform label, .hform .label {
   text-align: right;
 }
-.hform .text label {
+.hform .text label, .hform .text .label {
   padding: 6px 0 0;
 }
-.hform .fancy label {
+.hform .fancy label, .hform .fancy .label {
   padding: 8px 0 0;
 }
 .hform .file label,
-.hform .select label {
+.hform .select label,
+.hform .file .label,
+.hform .select .label {
   line-height: 1.4; /* align label in Firefox */
 }
 .hform .actions {
@@ -167,11 +174,11 @@ fieldset { margin: 0 0 1.5em; }
 ************************************************************/
 
 /* @note  for easy switching between vform and hform, othewise just use the 'access' class */
-.vform label.replace {
+.vform label.replace, .vform .label.replace {
   position: absolute;
   left: -999em;
 }
-.vform label {
+.vform label, .vform .label {
   margin-bottom: .15em;
 }
 
@@ -279,8 +286,9 @@ form .overlay {
   border-bottom-color: #efcaca;
   background-color: #FBE3E4;
 }
-.error label,
-.error label span.required-mark { color: #D12F19; }
+.error label, .error label span.required-mark,
+.error .label,
+.error .label span.required-mark { color: #D12F19; }
 .error-message {
   font-size: 11px;
   color: #D12F19;

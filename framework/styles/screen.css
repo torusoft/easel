@@ -226,6 +226,7 @@ th.number {
 
 /* =cursors */
 label,
+.label,
 button,
 input[type=submit],
 .pointer,
