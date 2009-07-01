@@ -92,10 +92,10 @@ form .disabled textarea,
 	background-color: #fbfbfb;
 	border-color: #ebebeb;
 	border-bottom-color: #f5f5f5;
-	color: #c2c2c2;
+	color: #e3e3e3;
 }
 form .disabled .defaulttext {
-	color: #c2c2c2;
+	color: #e3e3e3;
 }
 form .disabled label {
 	color: #c2c2c2;
