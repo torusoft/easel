@@ -83,6 +83,24 @@ fieldset.multi-line .text {
 fieldset {
   clear: left;
 }
+form .disabled input,
+.text input:disabled,
+.text input[disabled=disabled],
+form .disabled textarea,
+.text textarea:disabled,
+.text textarea[disabled=disabled] {
+	background-color: #fbfbfb;
+	border-color: #ebebeb;
+	border-bottom-color: #f5f5f5;
+	color: #c2c2c2;
+}
+form .disabled .defaulttext {
+	color: #c2c2c2;
+}
+form .disabled label {
+	color: #c2c2c2;
+	cursor: default;
+}
 
 /** =labels
 ************************************************************/

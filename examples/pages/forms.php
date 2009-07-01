@@ -98,6 +98,17 @@
           <label for="id12" class="replace">Label</label> <input type="text" id="id12">
         </div>
       </fieldset>
+      <fieldset>
+        <div class="text disabled">
+          <label for="id13">Disabled input</label> <input disabled="disabled" type="text" id="id13">
+        </div>
+        <div class="text textarea disabled">
+          <label for="id14" class="col-4">Disabled Textarea</label> 
+          <textarea id="id14" class="col-6 col-last" disabled="disabled">Content</textarea>
+        </div>
+
+        
+      </fieldset>
     </fieldset>
     <div class="actions">
       <button type="submit" class="btn"><span>Submit</span></button>
