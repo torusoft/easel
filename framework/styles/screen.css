@@ -107,9 +107,21 @@ a.block img {
 }
 
 /* =inline images */
-p img, p img.left, p a.img.left img, p .captioned   { margin: .75em 1.25em .75em 0; float:left; display: inline; }
-p img.right, p a.img.right img, p .captioned.right  { margin: .75em 0 .75em 1.25em; }
-p .top, p .top img { margin-top: 0 !important; }
+p img, p img.left, p a.img.left img, p .captioned {
+  margin: .75em 1.25em .75em 0; 
+  float:left;
+  display: inline;
+}
+p img.right,
+p a.img.right img,
+p .captioned.right {
+  margin: .75em 0 .75em 1.25em;
+}
+p img.top, 
+p a.img.top img,
+p .captioned.top {
+  margin-top: 0;
+}
 
 /* =margins */
 .no-margin     { margin-bottom: 0; }
@@ -214,10 +226,11 @@ th.number {
 
 /* =cursors */
 label,
+.label,
 button,
 input[type=submit],
 .pointer,
-button,
+button
  { cursor: pointer; }
 
 /** =layout
