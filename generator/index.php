@@ -70,11 +70,11 @@
               </div>
               <div class="text">
                 <label for="input_padding">Input Padding Width:</label>
-                <input type="text" id="input_padding" name="generator[padding_width]" value="2" maxlength="4">
+                <input type="text" id="input_padding" name="generator[padding_width]" value="<?= $padding_width; ?>" maxlength="4">
               </div>
               <div class="text">
                 <label for="input_border">Input Border Width:</label>
-                <input type="text" id="input_border" name="generator[border_width]" value="1" maxlength="4">
+                <input type="text" id="input_border" name="generator[border_width]" value="<?= $border_width; ?>" maxlength="4">
               </div>
               
               <fieldset>

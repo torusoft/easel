@@ -117,6 +117,8 @@
     $number_of_columns = ($number_of_columns != '') ? intval($number_of_columns) : '14';
     # make sure we have a margin numbers, defaults to 20px
     $margin_width = ($margin_width != '') ? intval($margin_width) : '20';
+    $padding_width = ($padding_width != '') ? intval($padding_width) : '2';
+    $border_width = ($border_width != '') ? intval($border_width) : '1';
     # check that we have a page_width supplied
     $page_width = ($desired_page_width != '') ? intval($desired_page_width) : calc_page_width($column_width,$margin_width,$number_of_columns);
     # make sure we have a col_width
@@ -147,7 +149,7 @@
     $grid_css = file_get_contents('tmpl/reset.css');
     $project_name = $_POST['project_name'] ? $_POST['project_name'] : $project_name;
     $gen_date = @strftime('%Y-%m-%d');
-    $gen_time = @strftime('%H-%M-%S');
+    $gen_time = @strftime('%H:%M:%S');
     $gen_url = 'http://'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     
     # now replace the variables within grid.css.
@@ -210,7 +212,7 @@
     
     # set the heigth of the baseline to the default: 18px
     $baseline_height = '18';
-    # create the grid image filename. Saving it with it's specifics just so that we can can cache & reuse it.
+    # create the grid image filename. Saving it with it's specifics just so the we can can cache & reuse it.
     $filename = 'blueprint_grid_' . $column_width . '+' . $margin_width .'x' . $baseline_height . '.png';
     
     # now look for the file first of all, does it exist?
@@ -255,6 +257,8 @@
     # page width (defaults to [empty])
     $page_width = '950';
     # other default values
+    $padding_width = '2';
+    $border_width = '1';
     $grid_css = file_get_contents('cache/reset.css');
 
         
