@@ -38,10 +38,10 @@
     function cols_margin($margin_width, $number_of_columns) {
       $col_list = array();
       for ($i=1; $i < $number_of_columns; $i++) { 
-        $col_list[$i-1] = 'div.col-' . $i;
+        $col_list[$i-1] = '.col-' . $i;
       }
       $cols_not_last = implode(',', $col_list) . ' {float: left; margin-right: ' . $margin_width . 'px}' . "\n";
-      $cols_last = 'div.col-' . $i . ' {float: left; margin-right: 0;}';
+      $cols_last = '.col-' . $i . ' {float: left; margin-right: 0;}';
       return $cols_not_last . $cols_last;
       
     }
@@ -50,7 +50,7 @@
       $out = '';
       for ($i=1; $i <= $number_of_columns; $i++) { 
         $n = ($i <= 9) ? " " : '';
-        $out .= "div.col-$i $n{ width: " . ((($column_width + $margin_width) * $i) - $margin_width) ."px; }\n";
+        $out .= ".col-$i $n{ width: " . ((($column_width + $margin_width) * $i) - $margin_width) ."px; }\n";
       }
       // return substr($out, 0,strlen($out)-2) . " float: left; smargin: 0; }\n";
       return $out . "\n";
