@@ -1,0 +1,137 @@
+/** =screen.css
+************************************************************
+@project    Easel
+@colordef   #5ec2dd; turquoise blue (links)
+@colordef   #ff8b1b; orange
+@note       Styles for navigating examples. Not to be included in projects.
+************************************************************/
+
+/** =fonts
+************************************************************/
+.tagline{
+  font-size: 10px;
+  letter-spacing: .35em;
+  margin-top: -2em;
+  color: #999;
+  text-transform: uppercase;
+}
+
+/** =colors
+************************************************************/
+.orange{
+  color: #ff8b1b;
+}
+.turquoise{
+  color: #5ec2dd;
+}
+
+/** =layout
+************************************************************/
+body {
+  background: url(../assets/images/f.png) 0 -80px;
+}
+.wrapper {
+  background: url(../assets/images/color-bar.png) repeat-x;
+}
+.container {
+  width: 950px;
+  margin: 0 auto;
+  padding: 6em 0;
+}
+
+/** =page-title
+************************************************************/
+.page-title {
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: -.08em;
+}
+.page-title .amp {
+  font-size: 2em;
+  vertical-align: middle;
+  margin: 0 -.02em 0 -.10em;
+  color: #555;
+}
+.page-title .small {
+  margin-left: .2em;
+}
+
+/** =nav-global
+************************************************************/
+.nav-global {
+  position: absolute;
+  right: 12px;
+  top: 15px;
+  background: #CBCBCB;
+  color: #fff;
+  padding: 3px 1.5em;
+  font-weight: bold;
+  z-index: 1;
+}
+.nav-global a{
+  color: #fff;
+}
+.nav-global a:hover{
+  color: #222222;
+  background: none;
+}
+.nav-global li{
+  border:none;
+}
+
+/** =toc
+************************************************************/
+.toc {
+  position: fixed;
+  width: 120px;
+  background: #5ec2dd;
+  right: -1em;
+  top: -1em;
+  margin: 0;
+  text-align: center;
+  z-index: 900;
+  height: 100%;
+  padding: 10px 0;
+}
+.toc a {
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 5px;
+  font-size: 14px;
+}
+.toc a:hover {
+  background: #fff;
+  color: #5ec2dd;
+}
+
+/** =extras
+************************************************************/
+.rnd-test{
+  background: #5ec2dd;
+  color: #fff;
+  padding: 1em;
+}
+.safari-txt-test{
+  background: #000;
+  color: #fff;
+  font-size: 18px;
+}
+.amp-test{
+  font-size: 80px;
+}
+.hn-light-test{
+  font-size: 18px;
+}
+
+/** =fusionary intranet buttons
+************************************************************/
+.f-btn {
+  background-color: #6fbcd0;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
