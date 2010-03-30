@@ -392,6 +392,7 @@
       just oozing down the side
       volcano birthday cake
                   </pre>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <code>Ut enim   ad minim veniam</code>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>    
           <div class="content">
               <h2 id="toc-embed">

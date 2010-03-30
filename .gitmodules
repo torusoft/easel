@@ -1,6 +1,3 @@
-[submodule "submodules/jquery-form"]
-	path = submodules/jquery-form
-	url = git://github.com/malsup/form.git
 [submodule "submodules/fusionary.tmbundle"]
 	path = submodules/fusionary.tmbundle
 	url = git://github.com/kswedberg/fusionary-tmbundle.git
