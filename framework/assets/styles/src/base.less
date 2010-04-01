@@ -20,7 +20,7 @@ constants » reset » mixins » base » main
 
 /** =baseline typography
 ************************************************************/
-body 		{ .text; }
+body 		{ .copy; }
 a 	 		{ .link; }
 h1 	 		{ .h1; }
 h2 	 		{ .h2; }
@@ -30,10 +30,12 @@ h5 	 		{ .h5; }
 h6 	 		{ .h6; }
 p 	 		{ margin-bottom: @base_vmargin; }
 
-strong {
+strong,
+strong > em {
 	font-weight: bold;
 }
-em {
+em,
+em > strong {
 	font-style: italic;
 }
 small {
@@ -52,10 +54,12 @@ ins, abbr, acronym {
 abbr, acronym {
 	cursor:help;
 }
+
 /* eliminate unwanted space beneath linked images */
 a img {
 	.inline-block;
 }
+
 /* prevent images from breaking out of containing box */
 img {
 	max-width: 100%;
@@ -73,6 +77,8 @@ dl { .dl; }
 form { .form; }
 table { .table; }
 blockquote { .bq; }
+address { .address; }
+pre { .pre; }
 
 /** =sliding doors buttons (with hover)
 ************************************************************

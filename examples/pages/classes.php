@@ -71,7 +71,7 @@
   <p class="right"><code>class="right"</code></p>
   <p class="clear"><code>class="clear"</code></p>
   <p class="left"><code>class="left"</code></p>
-  <p class="center clear col-6 col-last"><code>class="center" <em class="note">Also needs a defined width, here I'm using a col-6 class for this. Since images have an implicit width, they don't need a width defined.</em></code></p>
+  <p class="center clear col-6 last"><code>class="center" <em class="note">Also needs a defined width, here I'm using a col-6 class for this. Since images have an implicit width, they don't need a width defined.</em></code></p>
   <p class="text-right"><code>class="text-right"</code> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   <p class="text-left"><code>class="text-left"</code> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   <p class="text-center"><code>class="text-center"</code> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>

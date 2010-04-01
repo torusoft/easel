@@ -60,7 +60,7 @@
         </address>
         
       </div>
-        <div class="col-12 col-last">
+        <div class="col-12 last">
             <h2>
               strong, cite, em, a
             </h2>
@@ -163,7 +163,7 @@
         </p>
         
       </div>
-      <div class="col-12 col-last">
+      <div class="col-12 last">
         <h2>
           Nested Lists
         </h2>

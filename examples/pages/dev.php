@@ -37,7 +37,7 @@
 </div>
 <div class="example block">
   <h2>Vertical Navigation</h2>
-  <ul class="vnav col-4 col-last">
+  <ul class="vnav col-4 last">
     <li><a href="#">Home</a></li>
     <li><a href="#">About</a></li>
     <li><a class="active" href="#">Services</a></li>

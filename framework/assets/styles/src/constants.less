@@ -14,43 +14,54 @@ Contants, colors, @font-face Definitions
 
 /** =grid
 ************************************************************/
-@column_width: 50px;
+@column_width: 20px;
 @gutter_width: 20px;
 @input_padding_width: 5px; /* padding (per side) */
 @input_border_width: 1px; /* border width (per side) */
 
 /** =baseline
 ************************************************************/
-@base_line_height: 1.538em; /* 20px */
 @base_font_size: 12px;
+@base_line_height: 1.538em; /* 20px */
 @base_vmargin: 20px; /* vertical margin */
 @base_hmargin: 20px; /* horizontal margin */
 
 /** =colors
 ************************************************************/
-@base_text: #333;
-@base_text_light: #acacac;
-@base_border: #dddddd;
+@aqua: #5ec2dd;
 
-@link_text: @orange;
-@link_text_hover: (@orange - #666);
+@text: #565656;
+@text_light: #acacac;
+@text_dark: #222;
+@border: #dddddd;
 
-@box_text: #949494;
-@box_bg: #f3f3f3;
-@box_border: #dddddd;
+@link_text: @aqua;
+@link_bg_hover: @aqua;
 
-@box_error_text: #a63333;
-@box_error_bg: #ffdfdf;
-@box_error_border: #efcaca;
- 
-@box_notice_text: #695e52;
-@box_notice_bg: #fff6bf;
-@box_notice_border: #ffd324;
- 
-@box_success_text: #3d6c10;
-@box_success_bg: #e6efc2;
-@box_success_border: #c6d880;
- 
-@box_info_text: #2b638d;
-@box_info_bg: #e8F5ff;
-@box_info_border: #d4ecff;
+/** =box colors
+************************************************************/
+
+/** =gray **/
+@box_blue_text: #949494;
+@box_blue_bg: #f3f3f3;
+@box_blue_border: #dddddd;
+
+/** =red **/
+@box_red_text: #a63333;
+@box_red_bg: #ffdfdf;
+@box_red_border: #efcaca;
+
+/** =yellow **/
+@box_yellow_text: #695e52;
+@box_yellow_bg: #fff6bf;
+@box_yellow_border: #ffd324;
+
+/** =green **/
+@box_green_text: #3d6c10;
+@box_green_bg: #e6efc2;
+@box_green_border: #c6d880;
+
+/** =blue **/
+@box_blue_text: #2b638d;
+@box_blue_bg: #e8F5ff;
+@box_blue_border: #d4ecff;

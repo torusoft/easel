@@ -17,7 +17,7 @@
     <div class="container content">
       <div class="header group">
         <h1 class="col-12">Jarob Centrifics</h1>
-        <div class="col-12 col-last nav-authentication">
+        <div class="col-12 last nav-authentication">
           
   <p>
     You are currently logged in as <em>Admin User</em>. 
@@ -45,13 +45,13 @@
 <fieldset class="col-12">
     <div class="select col-6 hform">
       <label class="col-2" for="product_template_product_mounting_method_id">Mounting Method</label>
-      <select class="col-4 col-last" id="product_template_product_mounting_method_id" name="product_template[product_mounting_method_id]"></select>
+      <select class="col-4 last" id="product_template_product_mounting_method_id" name="product_template[product_mounting_method_id]"></select>
     </div>
-    <div class="select col-last col-6 hform">
+    <div class="select last col-6 hform">
       <label class="col-2" for="product_template_customer_id">Customer</label>
-      <select class="col-4 col-last" id="product_template_customer_id" name="product_template[customer_id]"><option value="1">Meijer</option></select>
+      <select class="col-4 last" id="product_template_customer_id" name="product_template[customer_id]"><option value="1">Meijer</option></select>
     </div>
-  <div class="file vform clear col-12 col-last">
+  <div class="file vform clear col-12 last">
     <label for="product_template_installation_guide">Installation guide</label>
     <input id="product_template_installation_guide" name="product_template[installation_guide]" size="30" type="file">
   </div>
@@ -59,7 +59,7 @@
     <input id="product_template_disable_installation_guide_validation" name="product_template[disable_installation_guide_validation]" type="hidden">
   </div>
 </fieldset>
-<fieldset class="col-last col-12 vform"><h3 class="legend">Product Dimensions</h3>
+<fieldset class="last col-12 vform"><h3 class="legend">Product Dimensions</h3>
   <div class="text col-2">
     <label for="product_template_width">Width</label>
     <input class="col-2" id="product_template_width" name="product_template[width]" size="30" type="text">
@@ -73,7 +73,7 @@
     <label for="product_template_height">Height</label>
     <input class="col-4" id="product_template_height" name="product_template[height]" size="30" type="text">
   </div>
-  <div class="text col-last col-4 vform">
+  <div class="text last col-4 vform">
     <label for="product_template_depth">Depth</label>
     <input class="col-4" id="product_template_depth" name="product_template[depth]" size="30" type="text">
   </div>

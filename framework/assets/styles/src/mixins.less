@@ -31,7 +31,7 @@ constants » reset » mixins » base » main
 .serif()					{ font-family: Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif; }
 .mono()						{ font-family: Consolas, "Lucida Console", Monaco, monospace; }
 
-.text(@color: @text) {
+.copy(@color: @text) {
 	color: @color;
 	.sans;
 	font-size: @base_font_size;
@@ -39,7 +39,7 @@ constants » reset » mixins » base » main
 }
 
 /** =reset **/
-.text-reset() {
+.copy-reset() {
 	.copy;
 	font-style: normal;
 	font-variant: normal;
@@ -60,7 +60,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 ************************************************************/
 .section {
 	display: block;
-	margin-bottom: @base_hmargin;
+	margin-bottom: @base_vmargin;
 	.clearfix;
 	> *:last-child, > .last {
 		margin-bottom: 0;
@@ -73,9 +73,10 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 /** =baseline links
 ************************************************************/
 .link() {
-	color: @text_link;
+	color: @link_text;
 	:hover { 
-		color: @text_link_hover;
+		color: #fff;
+		background-color: @link_bg_hover;
 	}
 }
 
@@ -84,6 +85,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 	color: inherit;
 	:hover {
 		color: inherit; 
+		background: none;
 	}
 }
 
@@ -94,6 +96,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 	.sans;
 	font-weight: bold;
 	font-size: 30px;
+	.lh-tightest;
 	margin: 0 0 1em;
 }
 .h2() {
@@ -101,6 +104,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 	.sans;
 	font-weight: bold;
 	font-size: 24px;
+	.lh-tighter;
 	margin: 0 0 1em;
 }
 .h3() {
@@ -108,6 +112,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 	.sans;
 	font-weight: bold;
 	font-size: 18px;
+	.lh-tight;
 	margin: 0 0 .5em;
 }
 .h4() {
@@ -115,6 +120,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 	.sans;
 	font-weight: bold;
 	font-size: 16px;
+	.lh-tight;
 	margin: 0 0 .5em;
 }
 .h5() {
@@ -133,7 +139,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 
 /** =reset **/
 .hn-reset {
-	.text-reset;
+	.copy-reset;
 	margin: 0;
 }
 
@@ -146,11 +152,12 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 	li {
 		.lh-tighter;
 		margin-top: @base_vmargin / 2;
-		li:first-child {
+		:first-child {
 			margin-top: 0;
 		}
 		ul, ol {
-			margin-bottom: @base_vmargin / 2;
+			margin-top: @base_vmargin / 2;
+			margin-bottom: 0;
 		}
 	}
 }
@@ -201,7 +208,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 		background: none;
 	}
 	ul, ol {
-		margin-bottom: 0;
+		margin-top: 0;
 	}
 	> dt {
 		font-weight: normal;
@@ -327,7 +334,7 @@ Additional mixins for use in your main stylesheets
 
 /** =horizontal nav **/
 .hnav() {
-	.reset-list;
+	.list-reset;
 	.clearfix;
 	> li {
 		.left;
@@ -339,7 +346,7 @@ Additional mixins for use in your main stylesheets
 
 /** =vertical nav **/
 .vnav() {
-	.reset-list;
+	.list-reset;
 	a {
 		display: block;
 	}
@@ -347,7 +354,7 @@ Additional mixins for use in your main stylesheets
 
 /** =inline horizontal nav **/
 .inav() {
-	.reset-list;
+	.list-reset;
 	> li {
 		display: inline;
 	}
@@ -362,7 +369,7 @@ Additional mixins for use in your main stylesheets
 
 /** =indented list with no bullets/numbers **/
 .list-indented() {
-	.reset-list;
+	.list-reset;
 	.list;
 	> li li {
 		margin-left: 1.5em;		

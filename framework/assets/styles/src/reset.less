@@ -22,7 +22,7 @@ constants » reset » mixins » base » main
 ************************************************************
 YUI3 reset with at few tweaks: 
 -reset button, select
--reset link text decoration
+-reset text decoration on a, ins
 -reset small
 ************************************************************/
 html {
@@ -102,6 +102,7 @@ button {
 	border: 0;
 	background: none;
 }
+ins,
 a {
 	text-decoration: none;
 }
@@ -330,7 +331,7 @@ but you can't can't next selectors withing dynamic mixins **/
 .prepend-23 { padding-left: @col_23 + @gutter_width; }
 
 /** =grid for form inputs **/
-@input_offset: (@input_padding * 2) + (@input_border * 2);
+@input_offset: (@input_padding_width * 2 + @input_border_width * 2);
 .text.col-1	 input, .text.col-1	 textarea, .text input.col-1,  .text textarea.col-1  { width: @col_1 -  @input_offset; }
 .text.col-2	 input, .text.col-2	 textarea, .text input.col-2,  .text textarea.col-2  { width: @col_2 -  @input_offset; }
 .text.col-3	 input, .text.col-3	 textarea, .text input.col-3,  .text textarea.col-3  { width: @col_3 -  @input_offset; }

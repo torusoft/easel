@@ -9,20 +9,20 @@
     <h2><code>class="col-12"</code></h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
-  <div class="col-12 col-last">
-    <h2><code>class="col-12 col-last"</code></h2>
+  <div class="col-12 last">
+    <h2><code>class="col-12 last"</code></h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
 </div>
 <div class="content">
-  <div class="prepend-4 col-20 col-last">
-    <h2><code>class="prepend-4 col-20 col-last"</code></h2>
+  <div class="prepend-4 col-20 last">
+    <h2><code>class="prepend-4 col-20 last"</code></h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
 </div>
 <div class="content">
-  <div class="append-16 col-8 col-last">
-    <h2><code>class="append-12 col-12 col-last"</code></h2>
+  <div class="append-16 col-8 last">
+    <h2><code>class="append-12 col-12 last"</code></h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
 </div>
@@ -33,19 +33,19 @@
       <h3><code>class="col-6 highlight"</code></h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
-    <div class="col-6 col-last">
-      <h3><code>class="col-6 col-last"</code></h3>
+    <div class="col-6 last">
+      <h3><code>class="col-6 last"</code></h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
-  <div class="col-12 col-last highlight block">
-    <h2><code>class="col-12 col-last highlight block"</code></h2>
+  <div class="col-12 last highlight block">
+    <h2><code>class="col-12 last highlight block"</code></h2>
     <div class="col-8">
       <h3><code>class="col-8"</code></h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
-    <div class="col-4 col-last">
-      <h3><code>class="col-4 col-last"</code></h3>
+    <div class="col-4 last">
+      <h3><code>class="col-4 last"</code></h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
@@ -81,20 +81,20 @@
       </div>
     </form>
   </div>
-  <div class="col-12 col-last">
-    <h2><code>class="col-12 col-last"</code></h2>
+  <div class="col-12 last">
+    <h2><code>class="col-12 last"</code></h2>
     <p class="note">&hellip; or you can specify widths per <code>input</code>. This is necessary for the <code>hform</code> class, as the <code>label</code> width and <code>input</code> width both need to be specified.</p>
     <form action="#">
       <fieldset class="hform">
         <div class="text">
-          <label for="id4" class="col-4">Text Input</label> <input class="col-4 col-last" type="text" id="id4">
+          <label for="id4" class="col-4">Text Input</label> <input class="col-4 last" type="text" id="id4">
         </div>
         <div class="text textarea">
           <label for="id5" class="col-4">Textarea</label> 
-          <textarea id="id5" class="col-8 col-last">Content</textarea>
+          <textarea id="id5" class="col-8 last">Content</textarea>
         </div>
         <div class="select">
-          <label for="id6" class="col-4">Select</label> <select id="id6" class="col-6 col-last">
+          <label for="id6" class="col-4">Select</label> <select id="id6" class="col-6 last">
             <option>
               Option 1
             </option>
@@ -105,7 +105,7 @@
         </div>
       </fieldset>
       <div class="actions">
-        <button class="btn" type="submit"><span class="col-4 col-last">.col-4.col-last</span></button>
+        <button class="btn" type="submit"><span class="col-4 last">.col-4.last</span></button>
       </div>
     </form>
   </div>
