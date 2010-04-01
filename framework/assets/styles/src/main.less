@@ -1,0 +1,41 @@
+/*
+$$$$$$$$\                              $$\ 
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2.0b
+The main stylin' 
+*/
+
+/** =import order
+************************************************************
+constants » reset » mixins » base » main
+************************************************************/
+@import url(base);
+
+/** =sticky footer
+************************************************************/
+html, body {
+	height: 100%;
+	position: relative;
+}
+.wrapper {
+	.min-height(100%);
+	overflow: hidden;
+	position: relative;
+}
+.footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+}
+.body {
+	padding-bottom: 100px;
+}

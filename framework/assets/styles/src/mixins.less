@@ -1,0 +1,279 @@
+/*
+$$$$$$$$\                              $$\ 
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2.0
+Site Specific Reusable Mixins
+*/
+
+/** =import order
+************************************************************
+constants » reset » mixins » base » main
+************************************************************/
+@import url(reset);
+
+/** =typography
+************************************************************/
+
+/** =line-heights **/
+.lh-tight() 		{ line-height: 1.45em; }
+.lh-tighter() 	{ line-height: 1.25em; }
+.lh-tightest() 	{ line-height: 1em; }
+
+/** =font-family **/
+.sans()						{ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.serif()					{ font-family: Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif; }
+.mono()						{ font-family: Consolas, "Lucida Console", Monaco, monospace; }
+
+/** =fancy ampersands **/
+.amp {
+  font-family: Baskerville, Palatino, Constantia, "Book Antiqua", "URW Palladio L", serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/** =links
+************************************************************/
+.link-reset() {
+	border-bottom: 0;
+}
+.link-default() {
+	color: @text_link;
+	:hover { 
+		color: @text_link_hover;
+	}
+}
+
+/** =lists
+************************************************************/
+.list-reset() {
+	margin-bottom: 0;
+	li {
+		padding-left: 0;
+		background: none;
+		margin-bottom: 0;
+		list-style: none;
+		line-height: @base_line_height;
+		ul, ol {
+			margin-top: 0;
+		}
+	}
+}
+
+/** =default list **/
+.list-default() {
+	li {
+		.lh-tighter;
+		margin-top: @base_margin / 2;
+		ul, ol {
+			margin-bottom: @base_margin / 2;
+		}
+		li:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+/** =ul **/
+.ul-default() {
+	.list-default;
+	li {
+		background: url(images/bullets/square-black.png) no-repeat .4em .4em;
+		padding-left: 1.5em;
+	}
+}
+
+/** =ol **/
+.ol-default() {
+	.list-default;	
+	li {
+		list-style: decimal outside;
+		margin-left: 1.5em;
+		*margin-left: 2em; /* ie6/7 */
+	}
+}
+.list-indented() {
+	.list-default;
+	li {
+		background: none;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		li {
+			margin-left: 1.5em;
+		}
+	}
+}
+
+/** =block list **/
+.list-block() {
+	.list-reset;
+	li {
+		margin-bottom: @base_margin;
+	}
+}
+
+/** =piped **/
+.list-piped() {
+	.list-reset;
+	> li {
+		display: inline;
+		border-left: 1px dotted @border;
+		margin-left: .25em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+			border-left: 0;
+		}
+	}
+}
+
+/** =horizontal nav **/
+.hnav() {
+	.list-reset;
+	.clearfix;
+	li {
+		.left;
+	}
+	a {
+		display: block;
+	}
+}
+
+/** =vertical nav **/
+.vnav() {
+	.list-reset;
+	a {
+		display: block;
+	}
+}
+
+/* =dropdowns */
+.superfish() {
+	.hnav;
+	ul {
+		position: absolute;
+		top: -999em;
+		width: 15em;
+		li {
+			width: 100%;
+			:hover {
+				visibility: inherit; /* fixes IE7 'sticky bug' */
+			}
+		}
+	}
+	li {
+		position: relative;
+	}
+	li li:hover ul,
+	li li.sfHover ul,
+	li li li:hover ul,
+	li li li.sfHover ul {
+		left: 15em; /* match ul width */
+		top: 0;
+	}
+	a {
+		display: block;
+		position: relative;
+	}
+	li:hover ul,
+	li.sfHover ul {
+		left: 0;
+		top: 41px; /* match top ul list item height */
+		z-index: 99;
+		ul,
+		ul ul {
+			top: -999em;
+		}
+	}
+}
+
+/** =hnav piped **/
+.hnav-piped() {
+	.hnav;
+	> li {
+		border-left: 1px solid @border;
+		margin-left: .6em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+			border-left: 0;
+		}
+	}
+}
+
+/** =vertical nav **/
+.hnav-spaced() {
+	.hnav;
+	li {
+		margin-left: .6em;
+		padding-left: .6em;
+	}
+	li:first-child {
+		margin-left: 0;
+		padding-left: 0;
+	}
+}
+
+/** =tables
+************************************************************/
+.table-reset() {
+	width: auto;
+	th, td {
+		border: 0;
+		padding: 0;
+		font-weight: normal;
+	}
+	thead th,
+	caption {
+		text-align: left;
+	}
+	caption {
+		margin: 0;
+	}
+}
+.table-default() {
+	width: 100%;
+	th, td {
+		border: 1px solid;
+		padding: .5em;
+		text-align: left;
+	}
+	th {
+		font-weight: bold;
+	}
+	thead th {
+		text-align: center;
+	}
+	caption {
+		margin-bottom: .5em;
+		text-align: center;
+	}	
+}
+
+/** =headings
+************************************************************/
+.h1 {
+	font-size: 30px;
+	margin: 0 0 1em;
+}
+.h2 {
+	font-size: 24px;
+	margin: 0 0 1em;
+}
+.h3 {
+	font-size: 18px;
+	margin: 0 0 .5em;
+}
+.h4 {
+	font-size: 14px;
+	margin: 0 0 .5em;
+}
