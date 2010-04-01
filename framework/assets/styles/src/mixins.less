@@ -18,7 +18,7 @@ constants » reset » mixins » base » main
 ************************************************************/
 @import url(reset);
 
-/** =typography
+/** =baseline typography
 ************************************************************/
 
 /** =line-heights **/
@@ -31,6 +31,290 @@ constants » reset » mixins » base » main
 .serif()					{ font-family: Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif; }
 .mono()						{ font-family: Consolas, "Lucida Console", Monaco, monospace; }
 
+.text(@color: @text) {
+	color: @color;
+	.sans;
+	font-size: @base_font_size;
+	line-height: @base_line_height;
+}
+
+/** =reset **/
+.text-reset() {
+	.copy;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-align: left;
+	text-decoration: none;
+	text-indent: none;
+	text-transform: none;
+	word-spacing: normal;
+	white-space: normal;
+	vertical-align: baseline;
+}
+
+/** =section
+************************************************************
+Sections are block elements with bottom margins and a clearfix applied.
+Ideally, their last child should get get no bottom margin to prevent double margins.
+************************************************************/
+.section {
+	display: block;
+	margin-bottom: @base_hmargin;
+	.clearfix;
+	> *:last-child, > .last {
+		margin-bottom: 0;
+	}
+}
+.last {
+	margin-bottom: 0;
+}
+
+/** =baseline links
+************************************************************/
+.link() {
+	color: @text_link;
+	:hover { 
+		color: @text_link_hover;
+	}
+}
+
+/** =reset **/
+.link-reset() {
+	color: inherit;
+	:hover {
+		color: inherit; 
+	}
+}
+
+/** =baseline headings
+************************************************************/
+.h1() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 30px;
+	margin: 0 0 1em;
+}
+.h2() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 24px;
+	margin: 0 0 1em;
+}
+.h3() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 0 0 .5em;
+}
+.h4() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 16px;
+	margin: 0 0 .5em;
+}
+.h5() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0 0 .5em;
+}
+.h6() {
+	color: @text_dark;
+	.sans;
+	font-size: 14px;
+	margin: 0 0 .5em;
+}
+
+/** =reset **/
+.hn-reset {
+	.text-reset;
+	margin: 0;
+}
+
+/** =baseline lists
+************************************************************/
+
+/** =ul/ol default **/
+.list() {
+	margin-bottom: @base_vmargin;
+	li {
+		.lh-tighter;
+		margin-top: @base_vmargin / 2;
+		li:first-child {
+			margin-top: 0;
+		}
+		ul, ol {
+			margin-bottom: @base_vmargin / 2;
+		}
+	}
+}
+
+/** =ul **/
+.ul() {
+	.list;
+	> li,
+	ul > li {
+		background: url(images/bullets/square-black.png) no-repeat .4em .4em;
+		padding-left: 1.5em;
+	}
+}
+
+/** =ol **/
+.ol() {
+	.list;	
+	> li,
+	ol > li {
+		list-style: decimal outside;
+		margin-left: 1.5em;
+		*margin-left: 2em; /* ie6/7 */
+	}
+}
+
+/** =dl **/
+.dl() {
+	.section;
+	> dt {
+		font-weight: bold;
+	}
+	> dd {
+		margin-bottom: @base_vmargin / 2;
+	}
+}
+
+/** =reset **/
+.list-reset() {
+	margin-bottom: 0;
+	> li,
+	ul > li,
+	ol > li {
+		line-height: @base_line_height;
+		margin-top: 0;
+		margin-left: 0;
+		padding-left: 0;
+		list-style: none;
+		background: none;
+	}
+	ul, ol {
+		margin-bottom: 0;
+	}
+	> dt {
+		font-weight: normal;
+	}
+	> dd {
+		margin-bottom: 0;
+	}
+}
+
+/** =base tables
+************************************************************/
+.table() {
+	margin-bottom: @base_vmargin;
+	width: 100%;
+	th, td {
+		border: 1px solid;
+		padding: .5em;
+		text-align: left;
+	}
+	th {
+		font-weight: bold;
+	}
+	thead th {
+		text-align: center;
+	}
+	caption {
+		margin-bottom: .5em;
+		text-align: center;
+	}	
+}
+
+/** =reset **/
+.table-reset {
+	margin-bottom: 0;
+	width: auto;
+	th, td {
+		border: 0;
+		padding: 0;
+		text-align: left;
+	}
+	th {
+		font-weight: normal;
+	}
+	thead th {
+		text-align: left;
+	}
+	caption {
+		margin-bottom: 0;
+		text-align: left;
+	}
+}
+
+/** =base blockquote
+************************************************************/
+.bq() {
+	.section;
+	margin-left: @base_hmargin;
+	margin-right: @base_hmargin;
+	font-style: italic;
+}
+.bq-reset() {
+	margin: 0;
+	font-style: normal;
+}
+
+/** =base pre
+************************************************************/
+.pre() {
+	.section;
+	line-height: 1em;
+}
+.pre-reset() {
+	margin-bottom: 0;
+	line-height: @base_line_height;
+}
+
+/** =base address
+************************************************************/
+.address() {
+	.section;
+}
+.address-reset() {
+	margin-bottom: 0;
+}
+
+/** =base form
+************************************************************/
+.form() {
+	> fieldset {
+		.section;
+	}
+}
+.form-reset() {
+	> fieldset {
+		margin-bottom: 0;
+	}
+}
+
+/** =mixin library
+************************************************************
+Additional mixins for use in your main stylesheets
+************************************************************/
+
+/** =font groups
+************************************************************/
+.upper(@size: 10px, @weight: bold) {
+	.sans;
+	font-weight: @weight;
+	font-size: @size;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+}
+
 /** =fancy ampersands **/
 .amp {
   font-family: Baskerville, Palatino, Constantia, "Book Antiqua", "URW Palladio L", serif;
@@ -38,90 +322,84 @@ constants » reset » mixins » base » main
   font-weight: normal;
 }
 
-/** =links
-************************************************************/
-.link-reset() {
-	border-bottom: 0;
-}
-.link-default() {
-	color: @text_link;
-	:hover { 
-		color: @text_link_hover;
-	}
-}
-
 /** =lists
 ************************************************************/
-.list-reset() {
-	margin-bottom: 0;
-	li {
-		padding-left: 0;
-		background: none;
-		margin-bottom: 0;
-		list-style: none;
-		line-height: @base_line_height;
-		ul, ol {
-			margin-top: 0;
+
+/** =horizontal nav **/
+.hnav() {
+	.reset-list;
+	.clearfix;
+	> li {
+		.left;
+		a {
+			display: block;
 		}
 	}
 }
 
-/** =default list **/
-.list-default() {
-	li {
-		.lh-tighter;
-		margin-top: @base_margin / 2;
-		ul, ol {
-			margin-bottom: @base_margin / 2;
-		}
-		li:first-child {
-			margin-top: 0;
-		}
+/** =vertical nav **/
+.vnav() {
+	.reset-list;
+	a {
+		display: block;
 	}
 }
 
-/** =ul **/
-.ul-default() {
-	.list-default;
-	li {
-		background: url(images/bullets/square-black.png) no-repeat .4em .4em;
-		padding-left: 1.5em;
+/** =inline horizontal nav **/
+.inav() {
+	.reset-list;
+	> li {
+		display: inline;
 	}
 }
 
-/** =ol **/
-.ol-default() {
-	.list-default;	
-	li {
-		list-style: decimal outside;
-		margin-left: 1.5em;
-		*margin-left: 2em; /* ie6/7 */
-	}
-}
-.list-indented() {
-	.list-default;
-	li {
-		background: none;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		li {
-			margin-left: 1.5em;
-		}
-	}
-}
-
-/** =block list **/
+/** =list items as sections **/
 .list-block() {
-	.list-reset;
-	li {
-		margin-bottom: @base_margin;
+	> li {
+		.section;
 	}
 }
 
-/** =piped **/
-.list-piped() {
-	.list-reset;
+/** =indented list with no bullets/numbers **/
+.list-indented() {
+	.reset-list;
+	.list;
+	> li li {
+		margin-left: 1.5em;		
+	}
+}
+
+/** =piped horizontal nav **/
+.hnav-piped() {
+	.hnav;
+	> li {
+		border-left: 1px solid @border;
+		margin-left: .6em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+			border-left: 0;
+		}
+	}
+}
+
+/** =spaced horizontal nav **/
+.hnav-spaced() {
+	.hnav;
+	li {
+		margin-left: .6em;
+		padding-left: .6em;
+	}
+	li:first-child {
+		margin-left: 0;
+		padding-left: 0;
+	}
+}
+
+/** =piped horizontal inline nav **/
+.inav-piped() {
+	.inav;
 	> li {
 		display: inline;
 		border-left: 1px dotted @border;
@@ -135,27 +413,22 @@ constants » reset » mixins » base » main
 	}
 }
 
-/** =horizontal nav **/
-.hnav() {
-	.list-reset;
-	.clearfix;
-	li {
-		.left;
-	}
-	a {
-		display: block;
-	}
-}
-
-/** =vertical nav **/
-.vnav() {
-	.list-reset;
-	a {
-		display: block;
+/** =spaced horizontal inline nav **/
+.inav-spaced() {
+	.inav;
+	> li {
+		display: inline;
+		margin-left: .25em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+		}
 	}
 }
 
-/* =dropdowns */
+/** =superfish dropdowns mixin
+************************************************************/
 .superfish() {
 	.hnav;
 	ul {
@@ -195,85 +468,30 @@ constants » reset » mixins » base » main
 	}
 }
 
-/** =hnav piped **/
-.hnav-piped() {
-	.hnav;
-	> li {
-		border-left: 1px solid @border;
-		margin-left: .6em;
-		padding-left: .6em;
-		:first-child {
-			margin-left: 0;
-			padding-left: 0;
-			border-left: 0;
-		}
-	}
-}
-
-/** =vertical nav **/
-.hnav-spaced() {
-	.hnav;
-	li {
-		margin-left: .6em;
-		padding-left: .6em;
-	}
-	li:first-child {
-		margin-left: 0;
-		padding-left: 0;
-	}
-}
-
-/** =tables
+/** =sticky footer mixin
+************************************************************
+To be applied to the html element
 ************************************************************/
-.table-reset() {
-	width: auto;
-	th, td {
-		border: 0;
-		padding: 0;
-		font-weight: normal;
+.sticky-footer(@footer_height: 100px) {
+	height: 100%;
+	position: relative;
+	body {
+		height: 100%;
+		position: relative;
 	}
-	thead th,
-	caption {
-		text-align: left;
+	.wrapper {
+		.min-height(100%);
+		overflow: hidden;
+		position: relative;
 	}
-	caption {
-		margin: 0;
+	.footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: @footer_height;
 	}
-}
-.table-default() {
-	width: 100%;
-	th, td {
-		border: 1px solid;
-		padding: .5em;
-		text-align: left;
+	.body {
+		padding-bottom: @footer_height;
 	}
-	th {
-		font-weight: bold;
-	}
-	thead th {
-		text-align: center;
-	}
-	caption {
-		margin-bottom: .5em;
-		text-align: center;
-	}	
-}
-
-/** =headings
-************************************************************/
-.h1 {
-	font-size: 30px;
-	margin: 0 0 1em;
-}
-.h2 {
-	font-size: 24px;
-	margin: 0 0 1em;
-}
-.h3 {
-	font-size: 18px;
-	margin: 0 0 .5em;
-}
-.h4 {
-	font-size: 14px;
-	margin: 0 0 .5em;
 }

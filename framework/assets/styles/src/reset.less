@@ -8,7 +8,7 @@ $$ |     $$  __$$ | \____$$\ $$   ____|$$ |
 $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 \________|\_______|\_______/  \_______|\__|
 
-Fusionary Easel v2
+Fusionary Easel v2.0
 Reset, Tools, Grid, Section Definition, Reset Mixin
 */
 
@@ -20,10 +20,10 @@ constants » reset » mixins » base » main
 
 /** =reset
 ************************************************************
-YUI3 reset with at few tweaks:
-	- reset button, select
-	- reset link text decoration
-	- reset small
+YUI3 reset with at few tweaks: 
+-reset button, select
+-reset link text decoration
+-reset small
 ************************************************************/
 html {
 	color: #000;
@@ -355,34 +355,3 @@ but you can't can't next selectors withing dynamic mixins **/
 .text.col-22 input, .text.col-22 textarea, .text input.col-22, .text textarea.col-22 { width: @col_22 - @input_offset; }
 .text.col-23 input, .text.col-23 textarea, .text input.col-23, .text textarea.col-23 { width: @col_23 - @input_offset; }
 .text.col-24 input, .text.col-24 textarea, .text input.col-24, .text textarea.col-24 { width: @col_24 - @input_offset; }
-
-/** =sections
-************************************************************
-Sections are block elements with bottom margins and a clearfix applied.
-Their last child should get get no bottom margin by default.
-************************************************************/
-.section {
-	display: block;
-	margin-bottom: @base_margin;
-	.clearfix;
-	> *:last-child, > .last {
-		margin-bottom: 0;
-	}
-}
-
-/** =global reset mixin
-************************************************************/
-.reset() {
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
-	font-style: normal;
-	font-variant: normal;
-	text-decoration: none;
-	list-style: none;
-	border: 0;
-	text-align: left;
-	background: none;
-	font-size: 100%;
-	color: inherit;
-}
