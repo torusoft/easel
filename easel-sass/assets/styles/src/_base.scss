@@ -1,0 +1,137 @@
+/*
+$$$$$$$$\                              $$\
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2.0
+Baseline Styles, Global Classes
+*/
+
+/** =inline elements
+************************************************************/
+strong,
+strong > em {
+	font-weight: bold;
+}
+em,
+em > strong {
+	font-style: italic;
+}
+small {
+	font-style: italic;
+	color: $text_light;
+}
+del {
+	text-decoration: line-through;
+}
+sup, sub {
+	font-size: 60%;
+}
+ins, abbr, acronym {
+	border-bottom: 1px dotted;
+}
+abbr, acronym {
+	cursor:help;
+}
+
+/* prevent images/objects from breaking out of containing box
+and eliminate unwanted space beneath images/objects */
+img,
+object {
+	@include inline-block;
+	max-width: 100%;
+	height: auto;
+} 
+
+/** =paragraph
+************************************************************/
+p {
+	margin-bottom: $base_vmargin;
+}
+
+/** =load from mixins
+************************************************************/
+body 			 { @include body-copy; }
+a  				 { @include link; }
+h1 				 { @include h1; }
+h2 				 { @include h2; }
+h3 				 { @include h3; }
+h4 				 { @include h4; }
+h5 				 { @include h5; }
+h6 				 { @include h6; }
+ul 				 { @include ul; }
+ol 				 { @include ol; }
+dl 				 { @include dl; }
+table 		 { @include table; }
+blockquote { @include bq; }
+pre 			 { @include pre; }
+address 	 { @include address; }
+form 			 { @include form; }
+
+/** =buttons
+************************************************************/
+.btn {
+	@include btn;
+	padding: 0 20px 0 0;
+  & > span {
+	  padding: 0 0 0 20px;
+	  height: 32px;
+	  line-height: 31px;
+		color: #fff;
+		font-size: 15px;
+	}
+}
+.btn,
+.btn > span {
+  background-image: url(images/buttons/default.png);
+}
+
+/** =easel icons
+************************************************************/
+.icn {
+	@include easel-icon;
+	&.calendar {
+		background-image: url(images/easel/icons/20x20/calendar.png);
+	}
+	&.external {
+		background-image: url(images/easel/icons/20x20/external-a.png);
+	}
+}
+
+/** =message boxes
+************************************************************/
+.box {
+	@include box;
+}
+.box {
+	&.info {
+		@include box(#e8F5ff, saturate(darken(#e8F5ff, 8%), 20%), saturate(darken(#e8F5ff, 60%), 60%));
+		background-image: url(images/easel/icons/large/info.png);
+	}
+	&.warning {
+		@include box(#fff6bf, saturate(darken(#fff6bf, 30%), 10%), saturate(darken(#fff6bf, 60%), 60%));
+		
+		background-image: url(images/easel/icons/large/warning.png);
+	}
+	&.error {
+		@include box(#ffdfdf, saturate(darken(#ffdfdf, 10%), 20%), saturate(darken(#ffdfdf, 60%), 60%));
+		
+		background-image: url(images/easel/icons/large/error.png);
+	}
+	&.success {
+		@include box(#e6efc2, saturate(darken(#e6efc2, 30%), 20%), saturate(darken(#e6efc2, 65%), 60%));
+		background-image: url(images/easel/icons/large/success.png);
+	}
+	&.info,
+	&.warning,
+	&.error,
+	&.success {
+		padding-left: $base_hmargin * 2 + 34px;
+	}
+	
+}

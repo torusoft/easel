@@ -1,0 +1,40 @@
+/*
+$$$$$$$$\                              $$\ 
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2.0
+Contants, colors, $font-face Definitions
+*/
+
+/** =grid
+************************************************************/
+$column_width: 20px;
+$gutter_width: 20px;
+$input_padding_width: 5px; /* padding (per side) */
+$input_border_width: 1px; /* border width (per side) */
+
+/** =baseline
+************************************************************/
+$base_font_size: 12px;
+$base_line_height: 1.538em; /* 20px */
+$base_vmargin: 20px; /* vertical margin */
+$base_hmargin: 20px; /* horizontal margin */
+$base_rnd: 5px; /* rounded corner base */
+
+/** =colors
+************************************************************/
+$aqua: #5ec2dd;
+
+$text: #565656;
+$text_light: lighten($text, 20%);
+$text_dark: darken($text, 20%);
+$border: #dddddd;
+
+$link_text: $aqua;
+$link_text_hover: darken($aqua, 20%);

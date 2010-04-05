@@ -1,0 +1,68 @@
+/*
+$$$$$$$$\                              $$\ 
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2
+Print Styles
+*/
+
+/** =hide from print
+************************************************************/
+.header,
+.footer {
+	display:none;
+}
+
+/** =reset
+************************************************************/
+body {
+  color: #000000;
+  background: #ffffff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12pt;
+}
+
+/** =images
+************************************************************/
+img {
+	float: left;
+	margin: 1.5em 1.5em 1.5em 0;
+}
+a img { border: none; }
+
+/** =links
+************************************************************/
+a {
+  background: transparent;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:after {
+  content: " (" attr(href) ")";
+  font-size: 90%;
+}
+
+/** =tables
+************************************************************/
+table {
+	text-align:left;
+}
+th {
+	font-weight: bold;
+}
+th, td {
+	padding: 4px 10px;
+	border-bottom: 1px solid #333;
+}
+thead th {
+	border-bottom-width: 3px;
+}
+caption, tfoot {
+	font-style: italic;
+}

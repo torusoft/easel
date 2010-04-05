@@ -1,6 +1,9 @@
 </div><!-- .body -->
 <div class="footer">
-  <p>this is the footer</p>
+  <div class="inner">
+    <p>this is the footer</p>
+    
+  </div>
 </div>
 </div><!-- .wrapper -->
 <!--[if lte IE 8]></div><![endif]-->
