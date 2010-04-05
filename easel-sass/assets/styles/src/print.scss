@@ -11,53 +11,59 @@ $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 Fusionary Easel v2.0
 Print Styles
 */
+
 /** =hide from print
 ************************************************************/
 .header,
 .footer {
-  display: none; }
+	display:none;
+}
 
 /** =reset
 ************************************************************/
 body {
-  color: black;
-  background: white;
+  color: #000000;
+  background: #ffffff;
   font-family: "Times New Roman", Times, serif;
-  font-size: 12pt; }
+  font-size: 12pt;
+}
 
 /** =images
 ************************************************************/
 img {
-  float: left;
-  margin: 1.5em 1.5em 1.5em 0; }
-
-a img {
-  border: none; }
+	float: left;
+	margin: 1.5em 1.5em 1.5em 0;
+}
+a img { border: none; }
 
 /** =links
 ************************************************************/
 a {
   background: transparent;
   font-weight: bold;
-  text-decoration: underline; }
-  a:after {
-    content: " (" attr(href) ")";
-    font-size: 90%; }
+  text-decoration: underline;
+	&:after {
+		content: " (" attr(href) ")";
+	  font-size: 90%;
+	  
+	}
+}
 
 /** =tables
 ************************************************************/
 table {
-  text-align: left; }
-
+	text-align:left;
+}
 th {
-  font-weight: bold; }
-
+	font-weight: bold;
+}
 th, td {
-  padding: 4px 10px;
-  border-bottom: 1px solid #333333; }
-
+	padding: 4px 10px;
+	border-bottom: 1px solid #333;
+}
 thead th {
-  border-bottom-width: 3px; }
-
+	border-bottom-width: 3px;
+}
 caption, tfoot {
-  font-style: italic; }
+	font-style: italic;
+}

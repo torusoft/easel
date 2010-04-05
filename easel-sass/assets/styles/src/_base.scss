@@ -73,6 +73,10 @@ pre 			 { @include pre; }
 address 	 { @include address; }
 form 			 { @include form; }
 
+/** =clearfix alternative
+************************************************************/
+.group { @include clearfix; }
+
 /** =buttons
 ************************************************************/
 .btn {
@@ -94,13 +98,7 @@ form 			 { @include form; }
 /** =easel icons
 ************************************************************/
 .icn {
-	@include easel-icon;
-	&.calendar {
-		background-image: url(images/easel/icons/20x20/calendar.png);
-	}
-	&.external {
-		background-image: url(images/easel/icons/20x20/external-a.png);
-	}
+	&.calendar { @include easel-icon("calendar", 20px); }
 }
 
 /** =message boxes

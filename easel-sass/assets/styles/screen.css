@@ -50,6 +50,10 @@ $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 
 Fusionary Easel v2.0
 Reset, Tools, Grid, Section Definition, Reset Mixin
+
+To target IE6/7 within a mixin, use the following hacks
+_property targets ie7 only
+*property targets ie6/7 only
 */
 /** =reset
 ************************************************************
@@ -163,17 +167,6 @@ a {
   border: 0; }
 
 /** =clearfix **/
-.group {
-  display: block;
-  zoom: 1; }
-  .group:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-    overflow: hidden; }
-
 /** =min height/width in ie6 **/
 /** =cross-browser inline-block **/
 /** =css3
@@ -191,10 +184,6 @@ $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 Fusionary Easel v2.0
 Site Specific Reusable Mixins
 */
-/** =variables
-************************************************************/
-/** =column widths
-************************************************************/
 /** =container
 ************************************************************/
 /** =columns
@@ -204,340 +193,648 @@ Site Specific Reusable Mixins
   margin-right: 20px;
   width: 20px; }
 
+.append-1 {
+  padding-right: 40px; }
+
+.prepend-1 {
+  padding-left: 40px; }
+
+.pull-1 {
+  margin-left: -40px; }
+
+.push-1 {
+  margin-right: -40px 0 0; }
+
+.text.col-1	 input,
+.text.col-1	 textarea,
+.text input.col-1,
+.text textarea.col-1 {
+  width: 8px; }
+
+.col-24,
+.col-1.last {
+  margin-right: 0; }
+
 .col-2 {
   float: left;
   margin-right: 20px;
   width: 60px; }
+
+.append-2 {
+  padding-right: 80px; }
+
+.prepend-2 {
+  padding-left: 80px; }
+
+.pull-2 {
+  margin-left: -80px; }
+
+.push-2 {
+  margin-right: -80px 0 0; }
+
+.text.col-2	 input,
+.text.col-2	 textarea,
+.text input.col-2,
+.text textarea.col-2 {
+  width: 48px; }
+
+.col-24,
+.col-2.last {
+  margin-right: 0; }
 
 .col-3 {
   float: left;
   margin-right: 20px;
   width: 100px; }
 
+.append-3 {
+  padding-right: 120px; }
+
+.prepend-3 {
+  padding-left: 120px; }
+
+.pull-3 {
+  margin-left: -120px; }
+
+.push-3 {
+  margin-right: -120px 0 0; }
+
+.text.col-3	 input,
+.text.col-3	 textarea,
+.text input.col-3,
+.text textarea.col-3 {
+  width: 88px; }
+
+.col-24,
+.col-3.last {
+  margin-right: 0; }
+
 .col-4 {
   float: left;
   margin-right: 20px;
   width: 140px; }
+
+.append-4 {
+  padding-right: 160px; }
+
+.prepend-4 {
+  padding-left: 160px; }
+
+.pull-4 {
+  margin-left: -160px; }
+
+.push-4 {
+  margin-right: -160px 0 0; }
+
+.text.col-4	 input,
+.text.col-4	 textarea,
+.text input.col-4,
+.text textarea.col-4 {
+  width: 128px; }
+
+.col-24,
+.col-4.last {
+  margin-right: 0; }
 
 .col-5 {
   float: left;
   margin-right: 20px;
   width: 180px; }
 
+.append-5 {
+  padding-right: 200px; }
+
+.prepend-5 {
+  padding-left: 200px; }
+
+.pull-5 {
+  margin-left: -200px; }
+
+.push-5 {
+  margin-right: -200px 0 0; }
+
+.text.col-5	 input,
+.text.col-5	 textarea,
+.text input.col-5,
+.text textarea.col-5 {
+  width: 168px; }
+
+.col-24,
+.col-5.last {
+  margin-right: 0; }
+
 .col-6 {
   float: left;
   margin-right: 20px;
   width: 220px; }
+
+.append-6 {
+  padding-right: 240px; }
+
+.prepend-6 {
+  padding-left: 240px; }
+
+.pull-6 {
+  margin-left: -240px; }
+
+.push-6 {
+  margin-right: -240px 0 0; }
+
+.text.col-6	 input,
+.text.col-6	 textarea,
+.text input.col-6,
+.text textarea.col-6 {
+  width: 208px; }
+
+.col-24,
+.col-6.last {
+  margin-right: 0; }
 
 .col-7 {
   float: left;
   margin-right: 20px;
   width: 260px; }
 
+.append-7 {
+  padding-right: 280px; }
+
+.prepend-7 {
+  padding-left: 280px; }
+
+.pull-7 {
+  margin-left: -280px; }
+
+.push-7 {
+  margin-right: -280px 0 0; }
+
+.text.col-7	 input,
+.text.col-7	 textarea,
+.text input.col-7,
+.text textarea.col-7 {
+  width: 248px; }
+
+.col-24,
+.col-7.last {
+  margin-right: 0; }
+
 .col-8 {
   float: left;
   margin-right: 20px;
   width: 300px; }
+
+.append-8 {
+  padding-right: 320px; }
+
+.prepend-8 {
+  padding-left: 320px; }
+
+.pull-8 {
+  margin-left: -320px; }
+
+.push-8 {
+  margin-right: -320px 0 0; }
+
+.text.col-8	 input,
+.text.col-8	 textarea,
+.text input.col-8,
+.text textarea.col-8 {
+  width: 288px; }
+
+.col-24,
+.col-8.last {
+  margin-right: 0; }
 
 .col-9 {
   float: left;
   margin-right: 20px;
   width: 340px; }
 
+.append-9 {
+  padding-right: 360px; }
+
+.prepend-9 {
+  padding-left: 360px; }
+
+.pull-9 {
+  margin-left: -360px; }
+
+.push-9 {
+  margin-right: -360px 0 0; }
+
+.text.col-9	 input,
+.text.col-9	 textarea,
+.text input.col-9,
+.text textarea.col-9 {
+  width: 328px; }
+
+.col-24,
+.col-9.last {
+  margin-right: 0; }
+
 .col-10 {
   float: left;
   margin-right: 20px;
   width: 380px; }
+
+.append-10 {
+  padding-right: 400px; }
+
+.prepend-10 {
+  padding-left: 400px; }
+
+.pull-10 {
+  margin-left: -400px; }
+
+.push-10 {
+  margin-right: -400px 0 0; }
+
+.text.col-10	 input,
+.text.col-10	 textarea,
+.text input.col-10,
+.text textarea.col-10 {
+  width: 368px; }
+
+.col-24,
+.col-10.last {
+  margin-right: 0; }
 
 .col-11 {
   float: left;
   margin-right: 20px;
   width: 420px; }
 
+.append-11 {
+  padding-right: 440px; }
+
+.prepend-11 {
+  padding-left: 440px; }
+
+.pull-11 {
+  margin-left: -440px; }
+
+.push-11 {
+  margin-right: -440px 0 0; }
+
+.text.col-11	 input,
+.text.col-11	 textarea,
+.text input.col-11,
+.text textarea.col-11 {
+  width: 408px; }
+
+.col-24,
+.col-11.last {
+  margin-right: 0; }
+
 .col-12 {
   float: left;
   margin-right: 20px;
   width: 460px; }
+
+.append-12 {
+  padding-right: 480px; }
+
+.prepend-12 {
+  padding-left: 480px; }
+
+.pull-12 {
+  margin-left: -480px; }
+
+.push-12 {
+  margin-right: -480px 0 0; }
+
+.text.col-12	 input,
+.text.col-12	 textarea,
+.text input.col-12,
+.text textarea.col-12 {
+  width: 448px; }
+
+.col-24,
+.col-12.last {
+  margin-right: 0; }
 
 .col-13 {
   float: left;
   margin-right: 20px;
   width: 500px; }
 
+.append-13 {
+  padding-right: 520px; }
+
+.prepend-13 {
+  padding-left: 520px; }
+
+.pull-13 {
+  margin-left: -520px; }
+
+.push-13 {
+  margin-right: -520px 0 0; }
+
+.text.col-13	 input,
+.text.col-13	 textarea,
+.text input.col-13,
+.text textarea.col-13 {
+  width: 488px; }
+
+.col-24,
+.col-13.last {
+  margin-right: 0; }
+
 .col-14 {
   float: left;
   margin-right: 20px;
   width: 540px; }
+
+.append-14 {
+  padding-right: 560px; }
+
+.prepend-14 {
+  padding-left: 560px; }
+
+.pull-14 {
+  margin-left: -560px; }
+
+.push-14 {
+  margin-right: -560px 0 0; }
+
+.text.col-14	 input,
+.text.col-14	 textarea,
+.text input.col-14,
+.text textarea.col-14 {
+  width: 528px; }
+
+.col-24,
+.col-14.last {
+  margin-right: 0; }
 
 .col-15 {
   float: left;
   margin-right: 20px;
   width: 580px; }
 
+.append-15 {
+  padding-right: 600px; }
+
+.prepend-15 {
+  padding-left: 600px; }
+
+.pull-15 {
+  margin-left: -600px; }
+
+.push-15 {
+  margin-right: -600px 0 0; }
+
+.text.col-15	 input,
+.text.col-15	 textarea,
+.text input.col-15,
+.text textarea.col-15 {
+  width: 568px; }
+
+.col-24,
+.col-15.last {
+  margin-right: 0; }
+
 .col-16 {
   float: left;
   margin-right: 20px;
   width: 620px; }
+
+.append-16 {
+  padding-right: 640px; }
+
+.prepend-16 {
+  padding-left: 640px; }
+
+.pull-16 {
+  margin-left: -640px; }
+
+.push-16 {
+  margin-right: -640px 0 0; }
+
+.text.col-16	 input,
+.text.col-16	 textarea,
+.text input.col-16,
+.text textarea.col-16 {
+  width: 608px; }
+
+.col-24,
+.col-16.last {
+  margin-right: 0; }
 
 .col-17 {
   float: left;
   margin-right: 20px;
   width: 660px; }
 
+.append-17 {
+  padding-right: 680px; }
+
+.prepend-17 {
+  padding-left: 680px; }
+
+.pull-17 {
+  margin-left: -680px; }
+
+.push-17 {
+  margin-right: -680px 0 0; }
+
+.text.col-17	 input,
+.text.col-17	 textarea,
+.text input.col-17,
+.text textarea.col-17 {
+  width: 648px; }
+
+.col-24,
+.col-17.last {
+  margin-right: 0; }
+
 .col-18 {
   float: left;
   margin-right: 20px;
   width: 700px; }
+
+.append-18 {
+  padding-right: 720px; }
+
+.prepend-18 {
+  padding-left: 720px; }
+
+.pull-18 {
+  margin-left: -720px; }
+
+.push-18 {
+  margin-right: -720px 0 0; }
+
+.text.col-18	 input,
+.text.col-18	 textarea,
+.text input.col-18,
+.text textarea.col-18 {
+  width: 688px; }
+
+.col-24,
+.col-18.last {
+  margin-right: 0; }
 
 .col-19 {
   float: left;
   margin-right: 20px;
   width: 740px; }
 
+.append-19 {
+  padding-right: 760px; }
+
+.prepend-19 {
+  padding-left: 760px; }
+
+.pull-19 {
+  margin-left: -760px; }
+
+.push-19 {
+  margin-right: -760px 0 0; }
+
+.text.col-19	 input,
+.text.col-19	 textarea,
+.text input.col-19,
+.text textarea.col-19 {
+  width: 728px; }
+
+.col-24,
+.col-19.last {
+  margin-right: 0; }
+
 .col-20 {
   float: left;
   margin-right: 20px;
   width: 780px; }
+
+.append-20 {
+  padding-right: 800px; }
+
+.prepend-20 {
+  padding-left: 800px; }
+
+.pull-20 {
+  margin-left: -800px; }
+
+.push-20 {
+  margin-right: -800px 0 0; }
+
+.text.col-20	 input,
+.text.col-20	 textarea,
+.text input.col-20,
+.text textarea.col-20 {
+  width: 768px; }
+
+.col-24,
+.col-20.last {
+  margin-right: 0; }
 
 .col-21 {
   float: left;
   margin-right: 20px;
   width: 820px; }
 
+.append-21 {
+  padding-right: 840px; }
+
+.prepend-21 {
+  padding-left: 840px; }
+
+.pull-21 {
+  margin-left: -840px; }
+
+.push-21 {
+  margin-right: -840px 0 0; }
+
+.text.col-21	 input,
+.text.col-21	 textarea,
+.text input.col-21,
+.text textarea.col-21 {
+  width: 808px; }
+
+.col-24,
+.col-21.last {
+  margin-right: 0; }
+
 .col-22 {
   float: left;
   margin-right: 20px;
   width: 860px; }
+
+.append-22 {
+  padding-right: 880px; }
+
+.prepend-22 {
+  padding-left: 880px; }
+
+.pull-22 {
+  margin-left: -880px; }
+
+.push-22 {
+  margin-right: -880px 0 0; }
+
+.text.col-22	 input,
+.text.col-22	 textarea,
+.text input.col-22,
+.text textarea.col-22 {
+  width: 848px; }
+
+.col-24,
+.col-22.last {
+  margin-right: 0; }
 
 .col-23 {
   float: left;
   margin-right: 20px;
   width: 900px; }
 
-.col-24 {
-  float: left;
-  margin-right: 20px;
-  width: 940px;
-  margin-right: 0; }
-
-.last {
-  margin-right: 0; }
-
-/** =append
-************************************************************/
-.append-1 {
-  padding-right: 40px; }
-
-.append-2 {
-  padding-right: 80px; }
-
-.append-3 {
-  padding-right: 120px; }
-
-.append-4 {
-  padding-right: 160px; }
-
-.append-5 {
-  padding-right: 200px; }
-
-.append-6 {
-  padding-right: 240px; }
-
-.append-7 {
-  padding-right: 280px; }
-
-.append-8 {
-  padding-right: 320px; }
-
-.append-9 {
-  padding-right: 360px; }
-
-.append-10 {
-  padding-right: 400px; }
-
-.append-11 {
-  padding-right: 440px; }
-
-.append-12 {
-  padding-right: 480px; }
-
-.append-13 {
-  padding-right: 520px; }
-
-.append-14 {
-  padding-right: 560px; }
-
-.append-15 {
-  padding-right: 600px; }
-
-.append-16 {
-  padding-right: 640px; }
-
-.append-17 {
-  padding-right: 680px; }
-
-.append-18 {
-  padding-right: 720px; }
-
-.append-19 {
-  padding-right: 760px; }
-
-.append-20 {
-  padding-right: 800px; }
-
-.append-21 {
-  padding-right: 840px; }
-
-.append-22 {
-  padding-right: 880px; }
-
 .append-23 {
   padding-right: 920px; }
-
-/** =prepend columns
-************************************************************/
-.prepend-1 {
-  padding-left: 40px; }
-
-.prepend-2 {
-  padding-left: 80px; }
-
-.prepend-3 {
-  padding-left: 120px; }
-
-.prepend-4 {
-  padding-left: 160px; }
-
-.prepend-5 {
-  padding-left: 200px; }
-
-.prepend-6 {
-  padding-left: 240px; }
-
-.prepend-7 {
-  padding-left: 280px; }
-
-.prepend-8 {
-  padding-left: 320px; }
-
-.prepend-9 {
-  padding-left: 360px; }
-
-.prepend-10 {
-  padding-left: 400px; }
-
-.prepend-11 {
-  padding-left: 440px; }
-
-.prepend-12 {
-  padding-left: 480px; }
-
-.prepend-13 {
-  padding-left: 520px; }
-
-.prepend-14 {
-  padding-left: 560px; }
-
-.prepend-15 {
-  padding-left: 600px; }
-
-.prepend-16 {
-  padding-left: 640px; }
-
-.prepend-17 {
-  padding-left: 680px; }
-
-.prepend-18 {
-  padding-left: 720px; }
-
-.prepend-19 {
-  padding-left: 760px; }
-
-.prepend-20 {
-  padding-left: 800px; }
-
-.prepend-21 {
-  padding-left: 840px; }
-
-.prepend-22 {
-  padding-left: 880px; }
 
 .prepend-23 {
   padding-left: 920px; }
 
-/** =form inputs
-************************************************************/
-.text.col-1	 input, .text.col-1	 textarea, .text input.col-1, .text textarea.col-1 {
-  width: 8px; }
+.pull-23 {
+  margin-left: -920px; }
 
-.text.col-2	 input, .text.col-2	 textarea, .text input.col-2, .text textarea.col-2 {
-  width: 48px; }
+.push-23 {
+  margin-right: -920px 0 0; }
 
-.text.col-3	 input, .text.col-3	 textarea, .text input.col-3, .text textarea.col-3 {
-  width: 88px; }
-
-.text.col-4	 input, .text.col-4	 textarea, .text input.col-4, .text textarea.col-4 {
-  width: 128px; }
-
-.text.col-5	 input, .text.col-5	 textarea, .text input.col-5, .text textarea.col-5 {
-  width: 168px; }
-
-.text.col-6	 input, .text.col-6	 textarea, .text input.col-6, .text textarea.col-6 {
-  width: 208px; }
-
-.text.col-7	 input, .text.col-7	 textarea, .text input.col-7, .text textarea.col-7 {
-  width: 248px; }
-
-.text.col-8	 input, .text.col-8	 textarea, .text input.col-8, .text textarea.col-8 {
-  width: 288px; }
-
-.text.col-9	 input, .text.col-9	 textarea, .text input.col-9, .text textarea.col-9 {
-  width: 328px; }
-
-.text.col-10 input, .text.col-10 textarea, .text input.col-10, .text textarea.col-10 {
-  width: 368px; }
-
-.text.col-11 input, .text.col-11 textarea, .text input.col-11, .text textarea.col-11 {
-  width: 408px; }
-
-.text.col-12 input, .text.col-12 textarea, .text input.col-12, .text textarea.col-12 {
-  width: 448px; }
-
-.text.col-13 input, .text.col-13 textarea, .text input.col-13, .text textarea.col-13 {
-  width: 488px; }
-
-.text.col-14 input, .text.col-14 textarea, .text input.col-14, .text textarea.col-14 {
-  width: 528px; }
-
-.text.col-15 input, .text.col-15 textarea, .text input.col-15, .text textarea.col-15 {
-  width: 568px; }
-
-.text.col-16 input, .text.col-16 textarea, .text input.col-16, .text textarea.col-16 {
-  width: 608px; }
-
-.text.col-17 input, .text.col-17 textarea, .text input.col-17, .text textarea.col-17 {
-  width: 648px; }
-
-.text.col-18 input, .text.col-18 textarea, .text input.col-18, .text textarea.col-18 {
-  width: 688px; }
-
-.text.col-19 input, .text.col-19 textarea, .text input.col-19, .text textarea.col-19 {
-  width: 728px; }
-
-.text.col-20 input, .text.col-20 textarea, .text input.col-20, .text textarea.col-20 {
-  width: 768px; }
-
-.text.col-21 input, .text.col-21 textarea, .text input.col-21, .text textarea.col-21 {
-  width: 808px; }
-
-.text.col-22 input, .text.col-22 textarea, .text input.col-22, .text textarea.col-22 {
-  width: 848px; }
-
-.text.col-23 input, .text.col-23 textarea, .text input.col-23, .text textarea.col-23 {
+.text.col-23	 input,
+.text.col-23	 textarea,
+.text input.col-23,
+.text textarea.col-23 {
   width: 888px; }
 
-.text.col-24 input, .text.col-24 textarea, .text input.col-24, .text textarea.col-24 {
+.col-24,
+.col-23.last {
+  margin-right: 0; }
+
+.col-24 {
+  float: left;
+  margin-right: 20px;
+  width: 940px; }
+
+.append-24 {
+  padding-right: 960px; }
+
+.prepend-24 {
+  padding-left: 960px; }
+
+.pull-24 {
+  margin-left: -960px; }
+
+.push-24 {
+  margin-right: -960px 0 0; }
+
+.text.col-24	 input,
+.text.col-24	 textarea,
+.text input.col-24,
+.text textarea.col-24 {
   width: 928px; }
+
+.col-24,
+.col-24.last {
+  margin-right: 0; }
 
 /*
 $$$$$$$$\                              $$\ 
@@ -558,6 +855,7 @@ _property targets ie7 only
 */
 /** =typography mixins
 ************************************************************/
+/** =line-heights **/
 /** =line-heights **/
 /** =font-family **/
 /** =baseline body copy
@@ -894,6 +1192,19 @@ form > fieldset {
   form > fieldset.last {
     margin-bottom: 0; }
 
+/** =clearfix alternative
+************************************************************/
+.group {
+  display: block;
+  zoom: 1; }
+  .group:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
+
 /** =buttons
 ************************************************************/
 .btn {
@@ -949,7 +1260,7 @@ form > fieldset {
 
 /** =easel icons
 ************************************************************/
-.icn {
+.icn.calendar {
   display: inline-block;
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -957,14 +1268,10 @@ form > fieldset {
   zoom: 1;
   *display: inline;
   padding: 0 0 0 20px;
-  background: no-repeat 0 50%; }
-  .icn.alt {
+  background: url("images/easel/icons/default/calendar.png") no-repeat 0 50%; }
+  .icn.calendar.alt {
     padding: 0 20px 0 0;
     background-position: 100% 50%; }
-  .icn.calendar {
-    background-image: url(images/easel/icons/20x20/calendar.png); }
-  .icn.external {
-    background-image: url(images/easel/icons/20x20/external-a.png); }
 
 /** =message boxes
 ************************************************************/
@@ -1127,7 +1434,7 @@ body {
 
 .body,
 .footer > .inner {
-  width: 940px;
+  width: 960px;
   margin: 0 auto;
   display: block;
   zoom: 1; }
@@ -1139,3 +1446,8 @@ body {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
+
+.test {
+  background-color: red;
+  background-color: rgba(255, 0, 0, 0.5);
+  /* FF3+, Saf3+, Opera 10.10+, Chrome */ }

@@ -10,6 +10,10 @@ $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 
 Fusionary Easel v2.0
 Reset, Tools, Grid, Section Definition, Reset Mixin
+
+To target IE6/7 within a mixin, use the following hacks
+_property targets ie7 only
+*property targets ie6/7 only
 */
 
 /** =reset
@@ -127,20 +131,19 @@ a {
 	display:block;
 	zoom: 1;
 }
-.group { @include clearfix; }
 
 /** =min height/width in ie6 **/
-@mixin min-height($h: auto) {
+@mixin min_height($h: auto) {
   min-height: $h;
   _height: $h;
 }
-@mixin min-width($w: auto) {
+@mixin min_width($w: auto) {
   min-width: $w;
   _width: $w;
 }
 
 /** =cross-browser inline-block **/
-@mixin inline-block {
+@mixin inline_block {
 	display: inline-block;
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -151,47 +154,51 @@ a {
 
 /** =css3
 ************************************************************/
-@mixin text-shadow ($x: 1px, $y: 1px, $size: 1px, $color: #000) {
-	text-shadow: $x $y $size $color;
-	-moz-text-shadow: $x $y $size $color;
-	-webkit-text-shadow: $x $y $size $color;
-}
 @mixin rnd ($radius: $base_rnd){
 	border-radius: $radius;
 	-moz-border-radius: $radius;
 	-webkit-border-radius: $radius;
 }
-@mixin rnd-tl ($radius: $base_rnd){
+@mixin rnd_tl ($radius: $base_rnd){
 	border-top-left-radius: $radius;
 	-moz-border-radius-topleft: $radius;
 	-webkit-border-top-left-radius: $radius;
 }
-@mixin rnd-tr ($radius: $base_rnd){
+@mixin rnd_tr ($radius: $base_rnd){
 	border-top-right-radius: $radius;
 	-moz-border-radius-topright: $radius;
 	-webkit-border-top-right-radius: $radius;
 }
-@mixin rnd-bl ($radius: $base_rnd){
+@mixin rnd_bl ($radius: $base_rnd){
 	border-bottom-left-radius: $radius;
 	-moz-border-radius-bottomleft: $radius;
 	-webkit-border-bottom-left-radius: $radius;
 }
-@mixin rnd-br ($radius: $base_rnd){
+@mixin rnd_br ($radius: $base_rnd){
 	border-bottom-right-radius: $radius;
 	-moz-border-radius-bottomright: $radius;
 	-webkit-border-bottom-right-radius: $radius;
+}
+@mixin text_shadow ($x: 1px, $y: 1px, $size: 1px, $color: #000) {
+	text-shadow: $x $y $size $color;
+	-moz-text-shadow: $x $y $size $color;
+	-webkit-text-shadow: $x $y $size $color;
+}
+@mixin box_shadow($x: 0px, $y: 0px, $b: 0px, $c: #000) {
+	box-shadow: $x $y $b $c;
+	-moz-box-shadow: $x $y $b $c;
+	-webkit-box-shadow: $x $y $b $c;
+	filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=$x, OffY=$y, Color='$c');
+	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=$x, OffY=$y, Color='$c')";
 }
 @mixin opacity($o: .5) {
 	opacity: $o;
 	-khtml-opacity: $o;
 	-moz-opacity: $o;
 }
-@mixin box-shadow($x: 0px, $y: 0px, $b: 0px, $c: #000) {
-	box-shadow: $x $y $b $c;
-	-moz-box-shadow: $x $y $b $c;
-	-webkit-box-shadow: $x $y $b $c;
-	filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=$x, OffY=$y, Color='$c');
-	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=$x, OffY=$y, Color='$c')";
+@mixin rgba($hex, $alpha, $property: "background-color") {
+  #{$property}: $hex;
+  #{$property}: rgba($hex, $alpha);  /* FF3+, Saf3+, Opera 10.10+, Chrome */
 }
 @mixin rotate($d: -5deg) {
 	-moz-transform: rotate($d);
@@ -203,8 +210,4 @@ a {
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $start),color-stop(1, $end));
       filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end'); /* IE6,IE7 */
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end')"; /* IE8 */
-}
-@mixin box_rgba($hex, $alpha) {
-  background-color: $color;
-  background-color: rgba($hex, $alpha);  /* FF3+, Saf3+, Opera 10.10+, Chrome */
 }

@@ -20,6 +20,9 @@ Reset, Tools, Grid, Section Definition, Reset Mixin
 @import "mixins";
 @import "base";
 
-@include sticky-footer;
+@include sticky_footer;
 .body,
 .footer > .inner { @include container; }
+.test {
+	@include rgba(#ff0000, .5);
+}

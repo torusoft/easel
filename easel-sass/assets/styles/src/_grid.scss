@@ -12,40 +12,10 @@ Fusionary Easel v2.0
 Site Specific Reusable Mixins
 */
 
-/** =variables
-************************************************************/
-$input_offset: ($input_padding_width * 2 + $input_border_width * 2);
-
-/** =column widths
-************************************************************/
-$col_1:  ($column_width + $gutter_width) * 1  - $gutter_width;
-$col_2:  ($column_width + $gutter_width) * 2  - $gutter_width;
-$col_3:  ($column_width + $gutter_width) * 3  - $gutter_width;
-$col_4:  ($column_width + $gutter_width) * 4  - $gutter_width;
-$col_5:  ($column_width + $gutter_width) * 5  - $gutter_width;
-$col_6:  ($column_width + $gutter_width) * 6  - $gutter_width;
-$col_7:  ($column_width + $gutter_width) * 7  - $gutter_width;
-$col_8:  ($column_width + $gutter_width) * 8  - $gutter_width;
-$col_9:  ($column_width + $gutter_width) * 9  - $gutter_width;
-$col_10: ($column_width + $gutter_width) * 10 - $gutter_width;
-$col_11: ($column_width + $gutter_width) * 11 - $gutter_width;
-$col_12: ($column_width + $gutter_width) * 12 - $gutter_width;
-$col_13: ($column_width + $gutter_width) * 13 - $gutter_width;
-$col_14: ($column_width + $gutter_width) * 14 - $gutter_width;
-$col_15: ($column_width + $gutter_width) * 15 - $gutter_width;
-$col_16: ($column_width + $gutter_width) * 16 - $gutter_width;
-$col_17: ($column_width + $gutter_width) * 17 - $gutter_width;
-$col_18: ($column_width + $gutter_width) * 18 - $gutter_width;
-$col_19: ($column_width + $gutter_width) * 19 - $gutter_width;
-$col_20: ($column_width + $gutter_width) * 20 - $gutter_width;
-$col_21: ($column_width + $gutter_width) * 21 - $gutter_width;
-$col_22: ($column_width + $gutter_width) * 22 - $gutter_width;
-$col_23: ($column_width + $gutter_width) * 23 - $gutter_width;
-$col_24: ($column_width + $gutter_width) * 24 - $gutter_width;
 
 /** =container
 ************************************************************/
-@mixin container($width: $col_24) {
+@mixin container($width: ($column_width + $gutter_width) * 24) {
   width: $width;
   margin: 0 auto;
 	@include clearfix;
@@ -53,115 +23,37 @@ $col_24: ($column_width + $gutter_width) * 24 - $gutter_width;
 
 /** =columns
 ************************************************************/
-@mixin col {
+@mixin column {
 	float: left;
 	margin-right: $gutter_width;
 }
-
-.col-1  { @include col; width: $col_1;  }
-.col-2  { @include col; width: $col_2;  }
-.col-3  { @include col; width: $col_3;  }
-.col-4  { @include col; width: $col_4;  }
-.col-5  { @include col; width: $col_5;  }
-.col-6  { @include col; width: $col_6;  }
-.col-7  { @include col; width: $col_7;  }
-.col-8  { @include col; width: $col_8;  }
-.col-9  { @include col; width: $col_9;  }
-.col-10 { @include col; width: $col_10; }
-.col-11 { @include col; width: $col_11; }
-.col-12 { @include col; width: $col_12; }
-.col-13 { @include col; width: $col_13; }
-.col-14 { @include col; width: $col_14; }
-.col-15 { @include col; width: $col_15; }
-.col-16 { @include col; width: $col_16; }
-.col-17 { @include col; width: $col_17; }
-.col-18 { @include col; width: $col_18; }
-.col-19 { @include col; width: $col_19; }
-.col-20 { @include col; width: $col_20; }
-.col-21 { @include col; width: $col_21; }
-.col-22 { @include col; width: $col_22; }
-.col-23 { @include col; width: $col_23; }
-.col-24 { @include col; width: $col_24; margin-right: 0; }
-
-.last {
-	margin-right: 0;
+@for $i from 1 through $column_count {
+	$this_column_width: ($column_width + $gutter_width) * $i  - $gutter_width;
+	.col-#{$i} {
+		@include column;
+		width: $this_column_width;
+	}
+	.append-#{$i} {
+		padding-right: $this_column_width + $gutter_width;
+	}
+	.prepend-#{$i} {
+		padding-left: $this_column_width + $gutter_width;
+	}
+	.pull-#{$i} {
+		margin-left: -($this_column_width + $gutter_width);
+	}
+	.push-#{$i} {
+		margin-right: 0 -($this_column_width + $gutter_width) 0 0;
+	}
+	.text.col-#{$i}	 input,
+	.text.col-#{$i}	 textarea,
+	.text input.col-#{$i}, 
+	.text textarea.col-#{$i} {
+		width: $this_column_width - ($input_padding_width * 2 + $input_border_width * 2);
+	}
+	.col-#{$column_count},
+	.col-#{$i}.last {
+		margin-right: 0;
+	}
 }
 
-/** =append
-************************************************************/
-.append-1  { padding-right: $col_1  + $gutter_width; }
-.append-2  { padding-right: $col_2  + $gutter_width; }
-.append-3  { padding-right: $col_3  + $gutter_width; }
-.append-4  { padding-right: $col_4  + $gutter_width; }
-.append-5  { padding-right: $col_5  + $gutter_width; }
-.append-6  { padding-right: $col_6  + $gutter_width; }
-.append-7  { padding-right: $col_7  + $gutter_width; }
-.append-8  { padding-right: $col_8  + $gutter_width; }
-.append-9  { padding-right: $col_9  + $gutter_width; }
-.append-10 { padding-right: $col_10 + $gutter_width; }
-.append-11 { padding-right: $col_11 + $gutter_width; }
-.append-12 { padding-right: $col_12 + $gutter_width; }
-.append-13 { padding-right: $col_13 + $gutter_width; }
-.append-14 { padding-right: $col_14 + $gutter_width; }
-.append-15 { padding-right: $col_15 + $gutter_width; }
-.append-16 { padding-right: $col_16 + $gutter_width; }
-.append-17 { padding-right: $col_17 + $gutter_width; }
-.append-18 { padding-right: $col_18 + $gutter_width; }
-.append-19 { padding-right: $col_19 + $gutter_width; }
-.append-20 { padding-right: $col_20 + $gutter_width; }
-.append-21 { padding-right: $col_21 + $gutter_width; }
-.append-22 { padding-right: $col_22 + $gutter_width; }
-.append-23 { padding-right: $col_23 + $gutter_width; }
- 
-/** =prepend columns
-************************************************************/
-.prepend-1  { padding-left: $col_1  + $gutter_width; }
-.prepend-2  { padding-left: $col_2  + $gutter_width; }
-.prepend-3  { padding-left: $col_3  + $gutter_width; }
-.prepend-4  { padding-left: $col_4  + $gutter_width; }
-.prepend-5  { padding-left: $col_5  + $gutter_width; }
-.prepend-6  { padding-left: $col_6  + $gutter_width; }
-.prepend-7  { padding-left: $col_7  + $gutter_width; }
-.prepend-8  { padding-left: $col_8  + $gutter_width; }
-.prepend-9  { padding-left: $col_9  + $gutter_width; }
-.prepend-10 { padding-left: $col_10 + $gutter_width; }
-.prepend-11 { padding-left: $col_11 + $gutter_width; }
-.prepend-12 { padding-left: $col_12 + $gutter_width; }
-.prepend-13 { padding-left: $col_13 + $gutter_width; }
-.prepend-14 { padding-left: $col_14 + $gutter_width; }
-.prepend-15 { padding-left: $col_15 + $gutter_width; }
-.prepend-16 { padding-left: $col_16 + $gutter_width; }
-.prepend-17 { padding-left: $col_17 + $gutter_width; }
-.prepend-18 { padding-left: $col_18 + $gutter_width; }
-.prepend-19 { padding-left: $col_19 + $gutter_width; }
-.prepend-20 { padding-left: $col_20 + $gutter_width; }
-.prepend-21 { padding-left: $col_21 + $gutter_width; }
-.prepend-22 { padding-left: $col_22 + $gutter_width; }
-.prepend-23 { padding-left: $col_23 + $gutter_width; }
-
-/** =form inputs
-************************************************************/
-.text.col-1	 input, .text.col-1	 textarea, .text input.col-1,  .text textarea.col-1  { width: $col_1 -  $input_offset; }
-.text.col-2	 input, .text.col-2	 textarea, .text input.col-2,  .text textarea.col-2  { width: $col_2 -  $input_offset; }
-.text.col-3	 input, .text.col-3	 textarea, .text input.col-3,  .text textarea.col-3  { width: $col_3 -  $input_offset; }
-.text.col-4	 input, .text.col-4	 textarea, .text input.col-4,  .text textarea.col-4  { width: $col_4 -  $input_offset; }
-.text.col-5	 input, .text.col-5	 textarea, .text input.col-5,  .text textarea.col-5  { width: $col_5 -  $input_offset; }
-.text.col-6	 input, .text.col-6	 textarea, .text input.col-6,  .text textarea.col-6  { width: $col_6 -  $input_offset; }
-.text.col-7	 input, .text.col-7	 textarea, .text input.col-7,  .text textarea.col-7  { width: $col_7 -  $input_offset; }
-.text.col-8	 input, .text.col-8	 textarea, .text input.col-8,  .text textarea.col-8  { width: $col_8 -  $input_offset; }
-.text.col-9	 input, .text.col-9	 textarea, .text input.col-9,  .text textarea.col-9  { width: $col_9 -  $input_offset; }
-.text.col-10 input, .text.col-10 textarea, .text input.col-10, .text textarea.col-10 { width: $col_10 - $input_offset; }
-.text.col-11 input, .text.col-11 textarea, .text input.col-11, .text textarea.col-11 { width: $col_11 - $input_offset; }
-.text.col-12 input, .text.col-12 textarea, .text input.col-12, .text textarea.col-12 { width: $col_12 - $input_offset; }
-.text.col-13 input, .text.col-13 textarea, .text input.col-13, .text textarea.col-13 { width: $col_13 - $input_offset; }
-.text.col-14 input, .text.col-14 textarea, .text input.col-14, .text textarea.col-14 { width: $col_14 - $input_offset; }
-.text.col-15 input, .text.col-15 textarea, .text input.col-15, .text textarea.col-15 { width: $col_15 - $input_offset; }
-.text.col-16 input, .text.col-16 textarea, .text input.col-16, .text textarea.col-16 { width: $col_16 - $input_offset; }
-.text.col-17 input, .text.col-17 textarea, .text input.col-17, .text textarea.col-17 { width: $col_17 - $input_offset; }
-.text.col-18 input, .text.col-18 textarea, .text input.col-18, .text textarea.col-18 { width: $col_18 - $input_offset; }
-.text.col-19 input, .text.col-19 textarea, .text input.col-19, .text textarea.col-19 { width: $col_19 - $input_offset; }
-.text.col-20 input, .text.col-20 textarea, .text input.col-20, .text textarea.col-20 { width: $col_20 - $input_offset; }
-.text.col-21 input, .text.col-21 textarea, .text input.col-21, .text textarea.col-21 { width: $col_21 - $input_offset; }
-.text.col-22 input, .text.col-22 textarea, .text input.col-22, .text textarea.col-22 { width: $col_22 - $input_offset; }
-.text.col-23 input, .text.col-23 textarea, .text input.col-23, .text textarea.col-23 { width: $col_23 - $input_offset; }
-.text.col-24 input, .text.col-24 textarea, .text input.col-24, .text textarea.col-24 { width: $col_24 - $input_offset; }
