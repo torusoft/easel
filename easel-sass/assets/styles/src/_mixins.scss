@@ -311,9 +311,25 @@ http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
 		@include section;
 	}
 }
+
+/** =reset **/
 @mixin form_reset {
 	> fieldset {
 		margin-bottom: 0;
+	}
+}
+.text {
+	label {
+		display: block;
+	}
+	input {
+		@include rnd;
+		padding: 3px $input_padding_width;
+		background-color: $default_bg;
+		border: 1px solid $default_border;
+		color: $default_text;
+		border-top-color: darken($default_border, 20%);
+		border-left-color: darken($default_border, 20%);
 	}
 }
 
@@ -569,7 +585,7 @@ To be applied to the html element
 
 /** =border box
 ************************************************************/
-@mixin box($bg: $default_border, $border: $default_border, $text: $default_text) {
+@mixin box($bg: $default_bg, $border: $default_border, $text: $default_text) {
 	@include section;
 	@include rnd(5px);
 	padding: $margin_y $margin_x;

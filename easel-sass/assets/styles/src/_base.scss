@@ -73,9 +73,10 @@ pre 			 { @include pre; }
 address 	 { @include address; }
 form 			 { @include form; }
 
-/** =clearfix alternative
+/** =groups and sections
 ************************************************************/
 .group { @include clearfix; }
+.section { @include section; }
 
 /** =buttons
 ************************************************************/

@@ -197,21 +197,22 @@ Site Specific Reusable Mixins
   width: 20px; }
 
 .append-1 {
-  padding-right: 40px; }
+  padding-right: 60px; }
 
 .prepend-1 {
-  padding-left: 40px; }
+  padding-left: 60px; }
 
 .pull-1 {
   margin-left: -40px; }
 
 .push-1 {
-  margin-right: -40px 0 0; }
+  margin-left: 60px; }
 
-.text.col-1	 input,
-.text.col-1	 textarea,
-.text input.col-1,
-.text textarea.col-1 {
+.text > input.col-1,
+.text > textarea.col-1,
+.text.col-1 > input,
+.text.col-1 > textarea,
+.fieldset.col-1 > .text > input {
   width: 8px; }
 
 .col-24,
@@ -224,21 +225,22 @@ Site Specific Reusable Mixins
   width: 60px; }
 
 .append-2 {
-  padding-right: 80px; }
+  padding-right: 100px; }
 
 .prepend-2 {
-  padding-left: 80px; }
+  padding-left: 100px; }
 
 .pull-2 {
   margin-left: -80px; }
 
 .push-2 {
-  margin-right: -80px 0 0; }
+  margin-left: 100px; }
 
-.text.col-2	 input,
-.text.col-2	 textarea,
-.text input.col-2,
-.text textarea.col-2 {
+.text > input.col-2,
+.text > textarea.col-2,
+.text.col-2 > input,
+.text.col-2 > textarea,
+.fieldset.col-2 > .text > input {
   width: 48px; }
 
 .col-24,
@@ -251,21 +253,22 @@ Site Specific Reusable Mixins
   width: 100px; }
 
 .append-3 {
-  padding-right: 120px; }
+  padding-right: 140px; }
 
 .prepend-3 {
-  padding-left: 120px; }
+  padding-left: 140px; }
 
 .pull-3 {
   margin-left: -120px; }
 
 .push-3 {
-  margin-right: -120px 0 0; }
+  margin-left: 140px; }
 
-.text.col-3	 input,
-.text.col-3	 textarea,
-.text input.col-3,
-.text textarea.col-3 {
+.text > input.col-3,
+.text > textarea.col-3,
+.text.col-3 > input,
+.text.col-3 > textarea,
+.fieldset.col-3 > .text > input {
   width: 88px; }
 
 .col-24,
@@ -278,21 +281,22 @@ Site Specific Reusable Mixins
   width: 140px; }
 
 .append-4 {
-  padding-right: 160px; }
+  padding-right: 180px; }
 
 .prepend-4 {
-  padding-left: 160px; }
+  padding-left: 180px; }
 
 .pull-4 {
   margin-left: -160px; }
 
 .push-4 {
-  margin-right: -160px 0 0; }
+  margin-left: 180px; }
 
-.text.col-4	 input,
-.text.col-4	 textarea,
-.text input.col-4,
-.text textarea.col-4 {
+.text > input.col-4,
+.text > textarea.col-4,
+.text.col-4 > input,
+.text.col-4 > textarea,
+.fieldset.col-4 > .text > input {
   width: 128px; }
 
 .col-24,
@@ -305,21 +309,22 @@ Site Specific Reusable Mixins
   width: 180px; }
 
 .append-5 {
-  padding-right: 200px; }
+  padding-right: 220px; }
 
 .prepend-5 {
-  padding-left: 200px; }
+  padding-left: 220px; }
 
 .pull-5 {
   margin-left: -200px; }
 
 .push-5 {
-  margin-right: -200px 0 0; }
+  margin-left: 220px; }
 
-.text.col-5	 input,
-.text.col-5	 textarea,
-.text input.col-5,
-.text textarea.col-5 {
+.text > input.col-5,
+.text > textarea.col-5,
+.text.col-5 > input,
+.text.col-5 > textarea,
+.fieldset.col-5 > .text > input {
   width: 168px; }
 
 .col-24,
@@ -332,21 +337,22 @@ Site Specific Reusable Mixins
   width: 220px; }
 
 .append-6 {
-  padding-right: 240px; }
+  padding-right: 260px; }
 
 .prepend-6 {
-  padding-left: 240px; }
+  padding-left: 260px; }
 
 .pull-6 {
   margin-left: -240px; }
 
 .push-6 {
-  margin-right: -240px 0 0; }
+  margin-left: 260px; }
 
-.text.col-6	 input,
-.text.col-6	 textarea,
-.text input.col-6,
-.text textarea.col-6 {
+.text > input.col-6,
+.text > textarea.col-6,
+.text.col-6 > input,
+.text.col-6 > textarea,
+.fieldset.col-6 > .text > input {
   width: 208px; }
 
 .col-24,
@@ -359,21 +365,22 @@ Site Specific Reusable Mixins
   width: 260px; }
 
 .append-7 {
-  padding-right: 280px; }
+  padding-right: 300px; }
 
 .prepend-7 {
-  padding-left: 280px; }
+  padding-left: 300px; }
 
 .pull-7 {
   margin-left: -280px; }
 
 .push-7 {
-  margin-right: -280px 0 0; }
+  margin-left: 300px; }
 
-.text.col-7	 input,
-.text.col-7	 textarea,
-.text input.col-7,
-.text textarea.col-7 {
+.text > input.col-7,
+.text > textarea.col-7,
+.text.col-7 > input,
+.text.col-7 > textarea,
+.fieldset.col-7 > .text > input {
   width: 248px; }
 
 .col-24,
@@ -386,21 +393,22 @@ Site Specific Reusable Mixins
   width: 300px; }
 
 .append-8 {
-  padding-right: 320px; }
+  padding-right: 340px; }
 
 .prepend-8 {
-  padding-left: 320px; }
+  padding-left: 340px; }
 
 .pull-8 {
   margin-left: -320px; }
 
 .push-8 {
-  margin-right: -320px 0 0; }
+  margin-left: 340px; }
 
-.text.col-8	 input,
-.text.col-8	 textarea,
-.text input.col-8,
-.text textarea.col-8 {
+.text > input.col-8,
+.text > textarea.col-8,
+.text.col-8 > input,
+.text.col-8 > textarea,
+.fieldset.col-8 > .text > input {
   width: 288px; }
 
 .col-24,
@@ -413,21 +421,22 @@ Site Specific Reusable Mixins
   width: 340px; }
 
 .append-9 {
-  padding-right: 360px; }
+  padding-right: 380px; }
 
 .prepend-9 {
-  padding-left: 360px; }
+  padding-left: 380px; }
 
 .pull-9 {
   margin-left: -360px; }
 
 .push-9 {
-  margin-right: -360px 0 0; }
+  margin-left: 380px; }
 
-.text.col-9	 input,
-.text.col-9	 textarea,
-.text input.col-9,
-.text textarea.col-9 {
+.text > input.col-9,
+.text > textarea.col-9,
+.text.col-9 > input,
+.text.col-9 > textarea,
+.fieldset.col-9 > .text > input {
   width: 328px; }
 
 .col-24,
@@ -440,21 +449,22 @@ Site Specific Reusable Mixins
   width: 380px; }
 
 .append-10 {
-  padding-right: 400px; }
+  padding-right: 420px; }
 
 .prepend-10 {
-  padding-left: 400px; }
+  padding-left: 420px; }
 
 .pull-10 {
   margin-left: -400px; }
 
 .push-10 {
-  margin-right: -400px 0 0; }
+  margin-left: 420px; }
 
-.text.col-10	 input,
-.text.col-10	 textarea,
-.text input.col-10,
-.text textarea.col-10 {
+.text > input.col-10,
+.text > textarea.col-10,
+.text.col-10 > input,
+.text.col-10 > textarea,
+.fieldset.col-10 > .text > input {
   width: 368px; }
 
 .col-24,
@@ -467,21 +477,22 @@ Site Specific Reusable Mixins
   width: 420px; }
 
 .append-11 {
-  padding-right: 440px; }
+  padding-right: 460px; }
 
 .prepend-11 {
-  padding-left: 440px; }
+  padding-left: 460px; }
 
 .pull-11 {
   margin-left: -440px; }
 
 .push-11 {
-  margin-right: -440px 0 0; }
+  margin-left: 460px; }
 
-.text.col-11	 input,
-.text.col-11	 textarea,
-.text input.col-11,
-.text textarea.col-11 {
+.text > input.col-11,
+.text > textarea.col-11,
+.text.col-11 > input,
+.text.col-11 > textarea,
+.fieldset.col-11 > .text > input {
   width: 408px; }
 
 .col-24,
@@ -494,21 +505,22 @@ Site Specific Reusable Mixins
   width: 460px; }
 
 .append-12 {
-  padding-right: 480px; }
+  padding-right: 500px; }
 
 .prepend-12 {
-  padding-left: 480px; }
+  padding-left: 500px; }
 
 .pull-12 {
   margin-left: -480px; }
 
 .push-12 {
-  margin-right: -480px 0 0; }
+  margin-left: 500px; }
 
-.text.col-12	 input,
-.text.col-12	 textarea,
-.text input.col-12,
-.text textarea.col-12 {
+.text > input.col-12,
+.text > textarea.col-12,
+.text.col-12 > input,
+.text.col-12 > textarea,
+.fieldset.col-12 > .text > input {
   width: 448px; }
 
 .col-24,
@@ -521,21 +533,22 @@ Site Specific Reusable Mixins
   width: 500px; }
 
 .append-13 {
-  padding-right: 520px; }
+  padding-right: 540px; }
 
 .prepend-13 {
-  padding-left: 520px; }
+  padding-left: 540px; }
 
 .pull-13 {
   margin-left: -520px; }
 
 .push-13 {
-  margin-right: -520px 0 0; }
+  margin-left: 540px; }
 
-.text.col-13	 input,
-.text.col-13	 textarea,
-.text input.col-13,
-.text textarea.col-13 {
+.text > input.col-13,
+.text > textarea.col-13,
+.text.col-13 > input,
+.text.col-13 > textarea,
+.fieldset.col-13 > .text > input {
   width: 488px; }
 
 .col-24,
@@ -548,21 +561,22 @@ Site Specific Reusable Mixins
   width: 540px; }
 
 .append-14 {
-  padding-right: 560px; }
+  padding-right: 580px; }
 
 .prepend-14 {
-  padding-left: 560px; }
+  padding-left: 580px; }
 
 .pull-14 {
   margin-left: -560px; }
 
 .push-14 {
-  margin-right: -560px 0 0; }
+  margin-left: 580px; }
 
-.text.col-14	 input,
-.text.col-14	 textarea,
-.text input.col-14,
-.text textarea.col-14 {
+.text > input.col-14,
+.text > textarea.col-14,
+.text.col-14 > input,
+.text.col-14 > textarea,
+.fieldset.col-14 > .text > input {
   width: 528px; }
 
 .col-24,
@@ -575,21 +589,22 @@ Site Specific Reusable Mixins
   width: 580px; }
 
 .append-15 {
-  padding-right: 600px; }
+  padding-right: 620px; }
 
 .prepend-15 {
-  padding-left: 600px; }
+  padding-left: 620px; }
 
 .pull-15 {
   margin-left: -600px; }
 
 .push-15 {
-  margin-right: -600px 0 0; }
+  margin-left: 620px; }
 
-.text.col-15	 input,
-.text.col-15	 textarea,
-.text input.col-15,
-.text textarea.col-15 {
+.text > input.col-15,
+.text > textarea.col-15,
+.text.col-15 > input,
+.text.col-15 > textarea,
+.fieldset.col-15 > .text > input {
   width: 568px; }
 
 .col-24,
@@ -602,21 +617,22 @@ Site Specific Reusable Mixins
   width: 620px; }
 
 .append-16 {
-  padding-right: 640px; }
+  padding-right: 660px; }
 
 .prepend-16 {
-  padding-left: 640px; }
+  padding-left: 660px; }
 
 .pull-16 {
   margin-left: -640px; }
 
 .push-16 {
-  margin-right: -640px 0 0; }
+  margin-left: 660px; }
 
-.text.col-16	 input,
-.text.col-16	 textarea,
-.text input.col-16,
-.text textarea.col-16 {
+.text > input.col-16,
+.text > textarea.col-16,
+.text.col-16 > input,
+.text.col-16 > textarea,
+.fieldset.col-16 > .text > input {
   width: 608px; }
 
 .col-24,
@@ -629,21 +645,22 @@ Site Specific Reusable Mixins
   width: 660px; }
 
 .append-17 {
-  padding-right: 680px; }
+  padding-right: 700px; }
 
 .prepend-17 {
-  padding-left: 680px; }
+  padding-left: 700px; }
 
 .pull-17 {
   margin-left: -680px; }
 
 .push-17 {
-  margin-right: -680px 0 0; }
+  margin-left: 700px; }
 
-.text.col-17	 input,
-.text.col-17	 textarea,
-.text input.col-17,
-.text textarea.col-17 {
+.text > input.col-17,
+.text > textarea.col-17,
+.text.col-17 > input,
+.text.col-17 > textarea,
+.fieldset.col-17 > .text > input {
   width: 648px; }
 
 .col-24,
@@ -656,21 +673,22 @@ Site Specific Reusable Mixins
   width: 700px; }
 
 .append-18 {
-  padding-right: 720px; }
+  padding-right: 740px; }
 
 .prepend-18 {
-  padding-left: 720px; }
+  padding-left: 740px; }
 
 .pull-18 {
   margin-left: -720px; }
 
 .push-18 {
-  margin-right: -720px 0 0; }
+  margin-left: 740px; }
 
-.text.col-18	 input,
-.text.col-18	 textarea,
-.text input.col-18,
-.text textarea.col-18 {
+.text > input.col-18,
+.text > textarea.col-18,
+.text.col-18 > input,
+.text.col-18 > textarea,
+.fieldset.col-18 > .text > input {
   width: 688px; }
 
 .col-24,
@@ -683,21 +701,22 @@ Site Specific Reusable Mixins
   width: 740px; }
 
 .append-19 {
-  padding-right: 760px; }
+  padding-right: 780px; }
 
 .prepend-19 {
-  padding-left: 760px; }
+  padding-left: 780px; }
 
 .pull-19 {
   margin-left: -760px; }
 
 .push-19 {
-  margin-right: -760px 0 0; }
+  margin-left: 780px; }
 
-.text.col-19	 input,
-.text.col-19	 textarea,
-.text input.col-19,
-.text textarea.col-19 {
+.text > input.col-19,
+.text > textarea.col-19,
+.text.col-19 > input,
+.text.col-19 > textarea,
+.fieldset.col-19 > .text > input {
   width: 728px; }
 
 .col-24,
@@ -710,21 +729,22 @@ Site Specific Reusable Mixins
   width: 780px; }
 
 .append-20 {
-  padding-right: 800px; }
+  padding-right: 820px; }
 
 .prepend-20 {
-  padding-left: 800px; }
+  padding-left: 820px; }
 
 .pull-20 {
   margin-left: -800px; }
 
 .push-20 {
-  margin-right: -800px 0 0; }
+  margin-left: 820px; }
 
-.text.col-20	 input,
-.text.col-20	 textarea,
-.text input.col-20,
-.text textarea.col-20 {
+.text > input.col-20,
+.text > textarea.col-20,
+.text.col-20 > input,
+.text.col-20 > textarea,
+.fieldset.col-20 > .text > input {
   width: 768px; }
 
 .col-24,
@@ -737,21 +757,22 @@ Site Specific Reusable Mixins
   width: 820px; }
 
 .append-21 {
-  padding-right: 840px; }
+  padding-right: 860px; }
 
 .prepend-21 {
-  padding-left: 840px; }
+  padding-left: 860px; }
 
 .pull-21 {
   margin-left: -840px; }
 
 .push-21 {
-  margin-right: -840px 0 0; }
+  margin-left: 860px; }
 
-.text.col-21	 input,
-.text.col-21	 textarea,
-.text input.col-21,
-.text textarea.col-21 {
+.text > input.col-21,
+.text > textarea.col-21,
+.text.col-21 > input,
+.text.col-21 > textarea,
+.fieldset.col-21 > .text > input {
   width: 808px; }
 
 .col-24,
@@ -764,21 +785,22 @@ Site Specific Reusable Mixins
   width: 860px; }
 
 .append-22 {
-  padding-right: 880px; }
+  padding-right: 900px; }
 
 .prepend-22 {
-  padding-left: 880px; }
+  padding-left: 900px; }
 
 .pull-22 {
   margin-left: -880px; }
 
 .push-22 {
-  margin-right: -880px 0 0; }
+  margin-left: 900px; }
 
-.text.col-22	 input,
-.text.col-22	 textarea,
-.text input.col-22,
-.text textarea.col-22 {
+.text > input.col-22,
+.text > textarea.col-22,
+.text.col-22 > input,
+.text.col-22 > textarea,
+.fieldset.col-22 > .text > input {
   width: 848px; }
 
 .col-24,
@@ -791,21 +813,22 @@ Site Specific Reusable Mixins
   width: 900px; }
 
 .append-23 {
-  padding-right: 920px; }
+  padding-right: 940px; }
 
 .prepend-23 {
-  padding-left: 920px; }
+  padding-left: 940px; }
 
 .pull-23 {
   margin-left: -920px; }
 
 .push-23 {
-  margin-right: -920px 0 0; }
+  margin-left: 940px; }
 
-.text.col-23	 input,
-.text.col-23	 textarea,
-.text input.col-23,
-.text textarea.col-23 {
+.text > input.col-23,
+.text > textarea.col-23,
+.text.col-23 > input,
+.text.col-23 > textarea,
+.fieldset.col-23 > .text > input {
   width: 888px; }
 
 .col-24,
@@ -818,21 +841,22 @@ Site Specific Reusable Mixins
   width: 940px; }
 
 .append-24 {
-  padding-right: 960px; }
+  padding-right: 980px; }
 
 .prepend-24 {
-  padding-left: 960px; }
+  padding-left: 980px; }
 
 .pull-24 {
   margin-left: -960px; }
 
 .push-24 {
-  margin-right: -960px 0 0; }
+  margin-left: 980px; }
 
-.text.col-24	 input,
-.text.col-24	 textarea,
-.text input.col-24,
-.text textarea.col-24 {
+.text > input.col-24,
+.text > textarea.col-24,
+.text.col-24 > input,
+.text.col-24 > textarea,
+.fieldset.col-24 > .text > input {
   width: 928px; }
 
 .col-24,
@@ -890,6 +914,20 @@ http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
 ************************************************************/
 /** =base form
 ************************************************************/
+/** =reset **/
+.text label {
+  display: block; }
+.text input {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 3px 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #e6e6e6;
+  color: gray;
+  border-top-color: #b3b3b3;
+  border-left-color: #b3b3b3; }
+
 /** =section
 ************************************************************
 Sections are block elements with bottom margins and a clearfix applied.
@@ -1095,7 +1133,7 @@ table {
   width: 100%;
   margin-bottom: 20px; }
   table th, table td {
-    border: 1px solid #d9d9d9;
+    border: 1px solid #e6e6e6;
     padding: 5px 10px;
     text-align: left; }
   table th {
@@ -1110,7 +1148,7 @@ table {
     text-align: center;
     font-weight: bold; }
   table tr.alt th, table tr.alt td {
-    background-color: #d9d9d9; }
+    background-color: #e6e6e6; }
 
 blockquote {
   display: block;
@@ -1195,7 +1233,7 @@ form > fieldset {
   form > fieldset.last {
     margin-bottom: 0; }
 
-/** =clearfix alternative
+/** =groups and sections
 ************************************************************/
 .group {
   display: block;
@@ -1207,6 +1245,23 @@ form > fieldset {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
+
+.section {
+  display: block;
+  margin-bottom: 20px;
+  display: block;
+  zoom: 1; }
+  .section:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
+  .section > *:last-child, .section > .last {
+    margin-bottom: 0; }
+  .section.last {
+    margin-bottom: 0; }
 
 /** =buttons
 ************************************************************/
@@ -1301,9 +1356,9 @@ form > fieldset {
   padding: 20px 20px;
   border: 2px solid;
   background: no-repeat 10px 50%;
-  background-color: #d9d9d9;
-  color: #d9d9d9;
-  border-color: #d9d9d9; }
+  background-color: #f2f2f2;
+  color: gray;
+  border-color: #e6e6e6; }
   .box:after {
     content: ".";
     display: block;

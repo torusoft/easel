@@ -34,21 +34,22 @@ Site Specific Reusable Mixins
 		width: $this_column_width;
 	}
 	.append-#{$i} {
-		padding-right: $this_column_width + $gutter_width;
+		padding-right: $this_column_width + $gutter_width * 2;
 	}
 	.prepend-#{$i} {
-		padding-left: $this_column_width + $gutter_width;
+		padding-left: $this_column_width + $gutter_width * 2;
 	}
 	.pull-#{$i} {
 		margin-left: -($this_column_width + $gutter_width);
 	}
 	.push-#{$i} {
-		margin-right: 0 -($this_column_width + $gutter_width) 0 0;
+		margin-left: ($this_column_width + $gutter_width * 2);
 	}
-	.text.col-#{$i}	 input,
-	.text.col-#{$i}	 textarea,
-	.text input.col-#{$i}, 
-	.text textarea.col-#{$i} {
+	.text > input.col-#{$i}, 
+	.text > textarea.col-#{$i},
+	.text.col-#{$i} > input,
+	.text.col-#{$i} > textarea,
+	.fieldset.col-#{$i} > .text > input {
 		width: $this_column_width - ($input_padding_width * 2 + $input_border_width * 2);
 	}
 	.col-#{$column_count},
