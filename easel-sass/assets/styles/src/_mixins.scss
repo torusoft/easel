@@ -203,22 +203,33 @@ _property targets ie7 only
 /** =base tables
 ************************************************************/
 @mixin table {
+	width: 100%;
 	margin-bottom: $base_vmargin;
 	th, td {
-		border: 1px solid $border;
-		padding: .5em;
+		border: 1px solid $border_gray;
+		padding: $base_vmargin / 4 $base_vmargin / 2;
 		text-align: left;
 	}
 	th {
 		font-weight: bold;
 	}
-	thead th {
-		text-align: center;
+	thead,
+	tfoot {
+		th, td {
+			text-align: center;
+			border: 0;
+		}
 	}
 	caption {
-		margin-bottom: .5em;
+		margin-bottom: $base_vmargin / 2;
 		text-align: center;
-	}	
+		font-weight: bold;
+	}
+	tr.alt {
+		th, td {
+			background-color: $bg_gray;
+		}
+	}
 }
 
 /** =reset **/
@@ -549,12 +560,12 @@ To be applied to the html element
 
 /** =border box
 ************************************************************/
-@mixin box($bg: #f3f3f3, $border: #dddddd, $text: #777) {
+@mixin box($bg: $bg_gray, $border: $border_gray, $text: $text) {
 	@include section;
 	@include rnd(5px);
 	padding: $base_vmargin $base_hmargin;
-	border: 1px solid;
-	background: no-repeat $base_hmargin 50%;
+	border: 2px solid;
+	background: no-repeat $base_hmargin / 2 50%;
 	background-color: $bg;	
 	color: $text;
 	border-color: $border;

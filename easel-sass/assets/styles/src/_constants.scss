@@ -34,7 +34,9 @@ $aqua: #5ec2dd;
 $text: #565656;
 $text_light: lighten($text, 20%);
 $text_dark: darken($text, 20%);
-$border: #dddddd;
+
+$border_gray: darken(#fff, 15%);
+$bg_gray: darken(#fff, 5%);
 
 $link_text: $aqua;
 $link_text_hover: darken($aqua, 20%);

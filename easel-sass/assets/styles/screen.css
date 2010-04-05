@@ -166,7 +166,7 @@ a {
 .group {
   display: block;
   zoom: 1; }
-  .group :after {
+  .group:after {
     content: ".";
     display: block;
     height: 0;
@@ -774,7 +774,7 @@ dl {
   margin-bottom: 20px;
   display: block;
   zoom: 1; }
-  dl :after {
+  dl:after {
     content: ".";
     display: block;
     height: 0;
@@ -791,18 +791,25 @@ dl {
     margin-bottom: 10px; }
 
 table {
+  width: 100%;
   margin-bottom: 20px; }
   table th, table td {
-    border: 1px solid #dddddd;
-    padding: 0.5em;
+    border: 1px solid #d9d9d9;
+    padding: 5px 10px;
     text-align: left; }
   table th {
     font-weight: bold; }
-  table thead th {
-    text-align: center; }
+  table thead th, table thead td,
+  table tfoot th,
+  table tfoot td {
+    text-align: center;
+    border: 0; }
   table caption {
-    margin-bottom: 0.5em;
-    text-align: center; }
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold; }
+  table tr.alt th, table tr.alt td {
+    background-color: #f2f2f2; }
 
 blockquote {
   display: block;
@@ -812,7 +819,7 @@ blockquote {
   margin-left: 20px;
   margin-right: 20px;
   font-style: italic; }
-  blockquote :after {
+  blockquote:after {
     content: ".";
     display: block;
     height: 0;
@@ -841,7 +848,7 @@ pre {
   /* Opera 7 and up */
   word-wrap: break-word;
   /* IE 5.5+ and up */ }
-  pre :after {
+  pre:after {
     content: ".";
     display: block;
     height: 0;
@@ -858,7 +865,7 @@ address {
   margin-bottom: 20px;
   display: block;
   zoom: 1; }
-  address :after {
+  address:after {
     content: ".";
     display: block;
     height: 0;
@@ -875,7 +882,7 @@ form > fieldset {
   margin-bottom: 20px;
   display: block;
   zoom: 1; }
-  form > fieldset :after {
+  form > fieldset:after {
     content: ".";
     display: block;
     height: 0;
@@ -970,12 +977,12 @@ form > fieldset {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 20px 20px;
-  border: 1px solid;
-  background: no-repeat 20px 50%;
-  background-color: #f3f3f3;
-  color: #777777;
-  border-color: #dddddd; }
-  .box :after {
+  border: 2px solid;
+  background: no-repeat 10px 50%;
+  background-color: #f2f2f2;
+  color: #565656;
+  border-color: #d9d9d9; }
+  .box:after {
     content: ".";
     display: block;
     height: 0;
@@ -996,13 +1003,13 @@ form > fieldset {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 20px 20px;
-  border: 1px solid;
-  background: no-repeat 20px 50%;
+  border: 2px solid;
+  background: no-repeat 10px 50%;
   background-color: #e8f5ff;
   color: #0066b5;
   border-color: #bfe3ff;
   background-image: url(images/easel/icons/large/info.png); }
-  .box.info :after {
+  .box.info:after {
     content: ".";
     display: block;
     height: 0;
@@ -1022,13 +1029,13 @@ form > fieldset {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 20px 20px;
-  border: 1px solid;
-  background: no-repeat 20px 50%;
+  border: 2px solid;
+  background: no-repeat 10px 50%;
   background-color: #fff6bf;
   color: #8c7800;
   border-color: #ffe026;
   background-image: url(images/easel/icons/large/warning.png); }
-  .box.warning :after {
+  .box.warning:after {
     content: ".";
     display: block;
     height: 0;
@@ -1048,13 +1055,13 @@ form > fieldset {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 20px 20px;
-  border: 1px solid;
-  background: no-repeat 20px 50%;
+  border: 2px solid;
+  background: no-repeat 10px 50%;
   background-color: #ffdfdf;
   color: #ac0000;
   border-color: #ffacac;
   background-image: url(images/easel/icons/large/error.png); }
-  .box.error :after {
+  .box.error:after {
     content: ".";
     display: block;
     height: 0;
@@ -1074,13 +1081,13 @@ form > fieldset {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 20px 20px;
-  border: 1px solid;
-  background: no-repeat 20px 50%;
+  border: 2px solid;
+  background: no-repeat 10px 50%;
   background-color: #e6efc2;
   color: #516600;
   border-color: #c2e632;
   background-image: url(images/easel/icons/large/success.png); }
-  .box.success :after {
+  .box.success:after {
     content: ".";
     display: block;
     height: 0;
@@ -1092,7 +1099,7 @@ form > fieldset {
   .box.success.last {
     margin-bottom: 0; }
 .box.info, .box.warning, .box.error, .box.success {
-  padding-left: 74px; }
+  padding-left: 54px; }
 
 html {
   height: 100%;
@@ -1124,8 +1131,8 @@ body {
   margin: 0 auto;
   display: block;
   zoom: 1; }
-  .body :after,
-  .footer > .inner :after {
+  .body:after,
+  .footer > .inner:after {
     content: ".";
     display: block;
     height: 0;

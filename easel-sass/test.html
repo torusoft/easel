@@ -332,33 +332,42 @@
         <p>
           Aliquam ut risus. Nam massa erat, ultrices eget, tempor vel, pretium ut, lacus. Curabitur laoreet, purus venenatis dignissim varius, leo mi sagittis lorem, id tristique lorem enim vel eros. Integer id sem sed est lacinia eleifend. Maecenas eget nibh et sapien volutpat tempor. Morbi rhoncus, orci et vehicula vestibulum, pede diam tristique augue, sit amet scelerisque tellus nulla et elit. Pellentesque rhoncus mauris ut turpis. Aenean egestas. Donec commodo. Nulla id ante. Quisque eget eros. Sed mollis sem eu orci. Curabitur venenatis porta eros. Duis vehicula mi at augue. Cras adipiscing sem eget turpis? Aenean id tellus vel ipsum pharetra ultricies.
         </p>
-        <table cellspacing="0">
+        <table cellpadding="0" summary="Table Summary">
+          <caption>Table Caption</caption>
           <thead>
             <tr>
-              <th>Table Header Cell</th>
-              <th>Table Header Cell</th>
-              <th>Table Header Cell</th>
-              <th>Table Header Cell</th>
+              <th scope="col">Table Header Cell</th>
+              <th scope="col">Table Header Cell</th>
+              <th scope="col">Table Header Cell</th>
+              <th scope="col">Table Header Cell</th>
             </tr>
           </thead>
+          <tfoot>
+            <tr>
+              <th scope="col">Table Footer Cell</th>
+              <th scope="col">Table Footer Cell</th>
+              <th scope="col">Table Footer Cell</th>
+              <th scope="col">Table Footer Cell</th>
+            </tr>
+          </tfoot>
           <tbody>
             <tr>
+              <td class="first">Data</td>
               <td>Data</td>
               <td>Data</td>
-              <td>Data</td>
-              <td>Data</td>
+              <td class="last">Data</td>
             </tr>
             <tr class="alt">
+              <td class="first">Data</td>
               <td>Data</td>
               <td>Data</td>
-              <td>Data</td>
-              <td>Data</td>
+              <td class="last">Data</td>
             </tr>
             <tr>
+              <td class="first">Data</td>
               <td>Data</td>
               <td>Data</td>
-              <td>Data</td>
-              <td>Data</td>
+              <td class="last">Data</td>
             </tr>
           </tbody>
         </table>

@@ -131,7 +131,7 @@ form 			 { @include form; }
 	&.warning,
 	&.error,
 	&.success {
-		padding-left: $base_hmargin * 2 + 34px;
+		padding-left: $base_hmargin + 34px;
 	}
 	
 }
