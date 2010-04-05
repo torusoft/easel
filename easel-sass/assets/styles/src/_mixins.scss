@@ -42,8 +42,8 @@ _property targets ie7 only
 @mixin body_copy($color: $text) {
 	color: $color;
 	@include sans;
-	font-size: $base_font_size;
-	line-height: $base_line_height;
+	font-size: $font_size;
+	line-height: $line_height;
 }
 
 /** =reset **/
@@ -138,15 +138,15 @@ _property targets ie7 only
 
 /** =ul/ol default **/
 @mixin list {
-	margin-bottom: $base_vmargin;
+	margin-bottom: $margin_y;
 	li {
 		@include lh_tighter;
-		margin-top: $base_vmargin / 2;
+		margin-top: $margin_y / 2;
 		&:first-child {
 			margin-top: 0;
 		}
 		ul, ol {
-			margin-top: $base_vmargin / 2;
+			margin-top: $margin_y / 2;
 			margin-bottom: 0;
 		}
 	}
@@ -180,7 +180,7 @@ _property targets ie7 only
 		font-weight: bold;
 	}
 	& > dd {
-		margin-bottom: $base_vmargin / 2;
+		margin-bottom: $margin_y / 2;
 	}
 }
 
@@ -190,7 +190,7 @@ _property targets ie7 only
 	& > li,
 	ul > li,
 	ol > li {
-		line-height: $base_line_height;
+		line-height: $line_height;
 		margin-top: 0;
 		margin-left: 0;
 		padding-left: 0;
@@ -212,10 +212,10 @@ _property targets ie7 only
 ************************************************************/
 @mixin table {
 	width: 100%;
-	margin-bottom: $base_vmargin;
+	margin-bottom: $margin_y;
 	th, td {
-		border: 1px solid $border_gray;
-		padding: $base_vmargin / 4 $base_vmargin / 2;
+		border: 1px solid $default_border;
+		padding: $margin_y / 4 $margin_y / 2;
 		text-align: left;
 	}
 	th {
@@ -229,13 +229,13 @@ _property targets ie7 only
 		}
 	}
 	caption {
-		margin-bottom: $base_vmargin / 2;
+		margin-bottom: $margin_y / 2;
 		text-align: center;
 		font-weight: bold;
 	}
 	tr.alt {
 		th, td {
-			background-color: $bg_gray;
+			background-color: $default_border;
 		}
 	}
 }
@@ -265,8 +265,8 @@ _property targets ie7 only
 ************************************************************/
 @mixin bq {
 	@include section;
-	margin-left: $base_hmargin;
-	margin-right: $base_hmargin;
+	margin-left: $margin_x;
+	margin-right: $margin_x;
 	font-style: italic;
 }
 @mixin bq-reset {
@@ -290,7 +290,7 @@ http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
 }
 @mixin pre_reset {
 	margin-bottom: 0;
-	line-height: $base_line_height;
+	line-height: $line_height;
 	width: auto;
 	white-space: normal;
 }
@@ -324,7 +324,7 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 ************************************************************/
 @mixin section {
 	display: block;
-	margin-bottom: $base_vmargin;
+	margin-bottom: $margin_y;
 	@include clearfix;
 	& > *:last-child,
 	& > .last {
@@ -569,12 +569,12 @@ To be applied to the html element
 
 /** =border box
 ************************************************************/
-@mixin box($bg: $bg_gray, $border: $border_gray, $text: $text) {
+@mixin box($bg: $default_border, $border: $default_border, $text: $default_text) {
 	@include section;
 	@include rnd(5px);
-	padding: $base_vmargin $base_hmargin;
+	padding: $margin_y $margin_x;
 	border: 2px solid;
-	background: no-repeat $base_hmargin / 2 50%;
+	background: no-repeat $margin_x / 2 50%;
 	background-color: $bg;	
 	color: $text;
 	border-color: $border;

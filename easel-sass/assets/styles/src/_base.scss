@@ -51,7 +51,7 @@ object {
 /** =paragraph
 ************************************************************/
 p {
-	margin-bottom: $base_vmargin;
+	margin-bottom: $margin_y;
 }
 
 /** =load from mixins
@@ -92,16 +92,17 @@ form 			 { @include form; }
 }
 .btn,
 .btn > span {
-  background-image: url(images/buttons/default.png);
+  background-image: url(images/sprites/btn-default-white.png);
 }
 
 /** =easel icons
 ************************************************************/
 .icn {
-	&.calendar { @include easel-icon("calendar", 20px); }
+	&.external { @include easel-icon("external-a"); }
+	&.calendar { @include easel-icon("calendar"); }
 }
 
-/** =message boxes
+/** =status boxes
 ************************************************************/
 .box {
 	@include box;
@@ -109,27 +110,25 @@ form 			 { @include form; }
 .box {
 	&.info {
 		@include box(#e8F5ff, saturate(darken(#e8F5ff, 8%), 20%), saturate(darken(#e8F5ff, 60%), 60%));
-		background-image: url(images/easel/icons/large/info.png);
+		background-image: url(images/easel/icons/status/info.png);
 	}
 	&.warning {
 		@include box(#fff6bf, saturate(darken(#fff6bf, 30%), 10%), saturate(darken(#fff6bf, 60%), 60%));
-		
-		background-image: url(images/easel/icons/large/warning.png);
+		background-image: url(images/easel/icons/status/warning.png);
 	}
 	&.error {
 		@include box(#ffdfdf, saturate(darken(#ffdfdf, 10%), 20%), saturate(darken(#ffdfdf, 60%), 60%));
 		
-		background-image: url(images/easel/icons/large/error.png);
+		background-image: url(images/easel/icons/status/error.png);
 	}
 	&.success {
 		@include box(#e6efc2, saturate(darken(#e6efc2, 30%), 20%), saturate(darken(#e6efc2, 65%), 60%));
-		background-image: url(images/easel/icons/large/success.png);
+		background-image: url(images/easel/icons/status/success.png);
 	}
 	&.info,
 	&.warning,
 	&.error,
 	&.success {
-		padding-left: $base_hmargin + 34px;
+		padding-left: $margin_x + 34px;
 	}
-	
 }

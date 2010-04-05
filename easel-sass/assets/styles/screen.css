@@ -33,11 +33,14 @@ Contants, colors, $font-face Definitions
 /** =baseline
 ************************************************************/
 /* 20px */
-/* vertical margin */
-/* horizontal margin */
-/* rounded corner base */
+/* base vertical margin */
+/* base horizontal margin */
+/* base rounded corner radius */
 /** =colors
 ************************************************************/
+/** =grayscale defaults **/
+/** =body copy **/
+/** =links **/
 /*
 $$$$$$$$\                              $$\ 
 $$  _____|                             $$ |
@@ -1107,7 +1110,7 @@ table {
     text-align: center;
     font-weight: bold; }
   table tr.alt th, table tr.alt td {
-    background-color: #f2f2f2; }
+    background-color: #d9d9d9; }
 
 blockquote {
   display: block;
@@ -1256,10 +1259,22 @@ form > fieldset {
 
 .btn,
 .btn > span {
-  background-image: url(images/buttons/default.png); }
+  background-image: url(images/sprites/btn-default-white.png); }
 
 /** =easel icons
 ************************************************************/
+.icn.external {
+  display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+  padding: 0 0 0 20px;
+  background: url("images/easel/icons/default/external-a.png") no-repeat 0 50%; }
+  .icn.external.alt {
+    padding: 0 20px 0 0;
+    background-position: 100% 50%; }
 .icn.calendar {
   display: inline-block;
   display: -moz-inline-box;
@@ -1273,7 +1288,7 @@ form > fieldset {
     padding: 0 20px 0 0;
     background-position: 100% 50%; }
 
-/** =message boxes
+/** =status boxes
 ************************************************************/
 .box {
   display: block;
@@ -1286,8 +1301,8 @@ form > fieldset {
   padding: 20px 20px;
   border: 2px solid;
   background: no-repeat 10px 50%;
-  background-color: #f2f2f2;
-  color: #565656;
+  background-color: #d9d9d9;
+  color: #d9d9d9;
   border-color: #d9d9d9; }
   .box:after {
     content: ".";
@@ -1315,7 +1330,7 @@ form > fieldset {
   background-color: #e8f5ff;
   color: #0066b5;
   border-color: #bfe3ff;
-  background-image: url(images/easel/icons/large/info.png); }
+  background-image: url(images/easel/icons/status/info.png); }
   .box.info:after {
     content: ".";
     display: block;
@@ -1341,7 +1356,7 @@ form > fieldset {
   background-color: #fff6bf;
   color: #8c7800;
   border-color: #ffe026;
-  background-image: url(images/easel/icons/large/warning.png); }
+  background-image: url(images/easel/icons/status/warning.png); }
   .box.warning:after {
     content: ".";
     display: block;
@@ -1367,7 +1382,7 @@ form > fieldset {
   background-color: #ffdfdf;
   color: #ac0000;
   border-color: #ffacac;
-  background-image: url(images/easel/icons/large/error.png); }
+  background-image: url(images/easel/icons/status/error.png); }
   .box.error:after {
     content: ".";
     display: block;
@@ -1393,7 +1408,7 @@ form > fieldset {
   background-color: #e6efc2;
   color: #516600;
   border-color: #c2e632;
-  background-image: url(images/easel/icons/large/success.png); }
+  background-image: url(images/easel/icons/status/success.png); }
   .box.success:after {
     content: ".";
     display: block;
@@ -1408,6 +1423,8 @@ form > fieldset {
 .box.info, .box.warning, .box.error, .box.success {
   padding-left: 54px; }
 
+/** =layout
+************************************************************/
 html {
   height: 100%;
   position: relative; }
@@ -1446,8 +1463,3 @@ body {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-
-.test {
-  background-color: red;
-  background-color: rgba(255, 0, 0, 0.5);
-  /* FF3+, Saf3+, Opera 10.10+, Chrome */ }

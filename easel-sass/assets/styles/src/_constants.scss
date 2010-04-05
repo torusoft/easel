@@ -22,22 +22,26 @@ $input_border_width: 1px; /* border width (per side) */
 
 /** =baseline
 ************************************************************/
-$base_font_size: 12px;
-$base_line_height: 1.538em; /* 20px */
-$base_vmargin: 20px; /* vertical margin */
-$base_hmargin: 20px; /* horizontal margin */
-$base_rnd: 5px; /* rounded corner base */
+$font_size: 12px;
+$line_height: 1.538em; /* 20px */
+$margin_x: 20px; /* base vertical margin */
+$margin_y: 20px; /* base horizontal margin */
+$radius: 5px; /* base rounded corner radius */
 
 /** =colors
 ************************************************************/
 $aqua: #5ec2dd;
 
+/** =grayscale defaults **/
+$default_border: darken(#fff, 15%);
+$default_text: darken(#fff, 15%);
+$default_bg: darken(#fff, 5%);
+
+/** =body copy **/
 $text: #565656;
 $text_light: lighten($text, 20%);
 $text_dark: darken($text, 20%);
 
-$border_gray: darken(#fff, 15%);
-$bg_gray: darken(#fff, 5%);
-
+/** =links **/
 $link_text: $aqua;
 $link_text_hover: darken($aqua, 20%);
