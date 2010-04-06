@@ -1,0 +1,93 @@
+/*
+$$$$$$$$\                              $$\ 
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2.0
+Site Specific Reusable Mixins
+*/
+
+
+/** =container
+************************************************************/
+@mixin container($width: ($column_width + $gutter_width) * 24) {
+  width: $width;
+  margin: 0 auto;
+	@include clearfix;
+}
+@mixin col_calc($col_number, $property: "width", $offset: 0, $before: "") {
+	#{$property}: #{$before}(($column_width + $gutter_width) * $col_number - $gutter_width + $offset);
+}
+
+/** =default widths
+************************************************************/
+.text {
+	input,
+	textarea {
+		@include col_calc(6, "width", $input_offset);
+	}
+	textarea {
+		height: $line_height * 6;
+	}
+}
+.select {
+	select {
+		@include col_calc(6, "width");
+	}
+}
+
+/** =columns
+************************************************************/
+@mixin column {
+	float: left;
+	margin-right: $gutter_width;
+}
+@for $i from 1 through $column_count {
+	.col-#{$i} {
+		@include column;
+		@include col_calc($i);
+	}
+	.append-#{$i} {
+		@include col_calc($i, "padding-right", $gutter_width * 2);
+	}
+	.prepend-#{$i} {
+		@include col_calc($i, "padding-left", $gutter_width * 2);
+	}
+	.pull-#{$i} {
+		@include col_calc($i, "margin-left", $gutter_width, "-");
+	}
+	.push-#{$i} {
+		@include col_calc($i, "margin-left", $gutter_width * 2);
+	}
+	.text {
+		fieldset.col-#{$i} &,
+		html body &.col-#{$i},
+		html body fieldset & {
+			input,
+			input.col-#{$i},
+			textarea,
+			textarea.col-#{$i} {
+				@include col_calc($i, "width", -$input_offset);
+			}
+		}
+	}
+	.select {
+		fieldset.col-#{$i} &,
+		html body &.col-#{$i},
+		html body fieldset & {
+			select {
+				@include col_calc($i);
+			}
+		}
+	}
+	.col-#{$column_count},
+	.col-last {
+		margin-right: 0;
+	}
+}
+

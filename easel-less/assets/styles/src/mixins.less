@@ -1,0 +1,504 @@
+/*
+$$$$$$$$\                              $$\ 
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2.0
+Site Specific Reusable Mixins
+*/
+
+/** =import order
+************************************************************
+constants » reset » mixins » base » main
+************************************************************/
+@import url(reset);
+
+/** =baseline typography
+************************************************************/
+
+/** =line-heights **/
+.lh-tight() 		{ line-height: 1.45em; }
+.lh-tighter() 	{ line-height: 1.25em; }
+.lh-tightest() 	{ line-height: 1em; }
+
+/** =font-family **/
+.sans()						{ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.serif()					{ font-family: Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif; }
+.mono()						{ font-family: Consolas, "Lucida Console", Monaco, monospace; }
+
+.copy(@color: @text) {
+	color: @color;
+	.sans;
+	font-size: @base_font_size;
+	line-height: @base_line_height;
+}
+
+/** =reset **/
+.copy-reset() {
+	.copy;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-align: left;
+	text-decoration: none;
+	text-indent: none;
+	text-transform: none;
+	word-spacing: normal;
+	white-space: normal;
+	vertical-align: baseline;
+}
+
+/** =section
+************************************************************
+Sections are block elements with bottom margins and a clearfix applied.
+Ideally, their last child should get get no bottom margin to prevent double margins.
+************************************************************/
+.section {
+	display: block;
+	margin-bottom: @base_vmargin;
+	.clearfix;
+	> *:last-child, > .last {
+		margin-bottom: 0;
+	}
+}
+.last {
+	margin-bottom: 0;
+}
+
+/** =baseline links
+************************************************************/
+.link() {
+	color: @link_text;
+	:hover { 
+		color: #fff;
+		background-color: @link_bg_hover;
+	}
+}
+
+/** =reset **/
+.link-reset() {
+	color: inherit;
+	:hover {
+		color: inherit; 
+		background: none;
+	}
+}
+
+/** =baseline headings
+************************************************************/
+.h1() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 30px;
+	.lh-tightest;
+	margin: 0 0 1em;
+}
+.h2() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 24px;
+	.lh-tighter;
+	margin: 0 0 1em;
+}
+.h3() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 18px;
+	.lh-tight;
+	margin: 0 0 .5em;
+}
+.h4() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 16px;
+	.lh-tight;
+	margin: 0 0 .5em;
+}
+.h5() {
+	color: @text_dark;
+	.sans;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0 0 .5em;
+}
+.h6() {
+	color: @text_dark;
+	.sans;
+	font-size: 14px;
+	margin: 0 0 .5em;
+}
+
+/** =reset **/
+.hn-reset {
+	.copy-reset;
+	margin: 0;
+}
+
+/** =baseline lists
+************************************************************/
+
+/** =ul/ol default **/
+.list() {
+	margin-bottom: @base_vmargin;
+	li {
+		.lh-tighter;
+		margin-top: @base_vmargin / 2;
+		:first-child {
+			margin-top: 0;
+		}
+		ul, ol {
+			margin-top: @base_vmargin / 2;
+			margin-bottom: 0;
+		}
+	}
+}
+
+/** =ul **/
+.ul() {
+	.list;
+	> li,
+	ul > li {
+		background: url(images/bullets/square-black.png) no-repeat .4em .4em;
+		padding-left: 1.5em;
+	}
+}
+
+/** =ol **/
+.ol() {
+	.list;	
+	> li,
+	ol > li {
+		list-style: decimal outside;
+		margin-left: 1.5em;
+		*margin-left: 2em; /* ie6/7 */
+	}
+}
+
+/** =dl **/
+.dl() {
+	.section;
+	> dt {
+		font-weight: bold;
+	}
+	> dd {
+		margin-bottom: @base_vmargin / 2;
+	}
+}
+
+/** =reset **/
+.list-reset() {
+	margin-bottom: 0;
+	> li,
+	ul > li,
+	ol > li {
+		line-height: @base_line_height;
+		margin-top: 0;
+		margin-left: 0;
+		padding-left: 0;
+		list-style: none;
+		background: none;
+	}
+	ul, ol {
+		margin-top: 0;
+	}
+	> dt {
+		font-weight: normal;
+	}
+	> dd {
+		margin-bottom: 0;
+	}
+}
+
+/** =base tables
+************************************************************/
+.table() {
+	margin-bottom: @base_vmargin;
+	width: 100%;
+	th, td {
+		border: 1px solid;
+		padding: .5em;
+		text-align: left;
+	}
+	th {
+		font-weight: bold;
+	}
+	thead th {
+		text-align: center;
+	}
+	caption {
+		margin-bottom: .5em;
+		text-align: center;
+	}	
+}
+
+/** =reset **/
+.table-reset {
+	margin-bottom: 0;
+	width: auto;
+	th, td {
+		border: 0;
+		padding: 0;
+		text-align: left;
+	}
+	th {
+		font-weight: normal;
+	}
+	thead th {
+		text-align: left;
+	}
+	caption {
+		margin-bottom: 0;
+		text-align: left;
+	}
+}
+
+/** =base blockquote
+************************************************************/
+.bq() {
+	.section;
+	margin-left: @base_hmargin;
+	margin-right: @base_hmargin;
+	font-style: italic;
+}
+.bq-reset() {
+	margin: 0;
+	font-style: normal;
+}
+
+/** =base pre
+************************************************************/
+.pre() {
+	.section;
+	line-height: 1em;
+}
+.pre-reset() {
+	margin-bottom: 0;
+	line-height: @base_line_height;
+}
+
+/** =base address
+************************************************************/
+.address() {
+	.section;
+}
+.address-reset() {
+	margin-bottom: 0;
+}
+
+/** =base form
+************************************************************/
+.form() {
+	> fieldset {
+		.section;
+	}
+}
+.form-reset() {
+	> fieldset {
+		margin-bottom: 0;
+	}
+}
+
+/** =mixin library
+************************************************************
+Additional mixins for use in your main stylesheets
+************************************************************/
+
+/** =font groups
+************************************************************/
+.upper(@size: 10px, @weight: bold) {
+	.sans;
+	font-weight: @weight;
+	font-size: @size;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+}
+
+/** =fancy ampersands **/
+.amp {
+  font-family: Baskerville, Palatino, Constantia, "Book Antiqua", "URW Palladio L", serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/** =lists
+************************************************************/
+
+/** =horizontal nav **/
+.hnav() {
+	.list-reset;
+	.clearfix;
+	> li {
+		.left;
+		a {
+			display: block;
+		}
+	}
+}
+
+/** =vertical nav **/
+.vnav() {
+	.list-reset;
+	a {
+		display: block;
+	}
+}
+
+/** =inline horizontal nav **/
+.inav() {
+	.list-reset;
+	> li {
+		display: inline;
+	}
+}
+
+/** =list items as sections **/
+.list-block() {
+	> li {
+		.section;
+	}
+}
+
+/** =indented list with no bullets/numbers **/
+.list-indented() {
+	.list-reset;
+	.list;
+	> li li {
+		margin-left: 1.5em;		
+	}
+}
+
+/** =piped horizontal nav **/
+.hnav-piped() {
+	.hnav;
+	> li {
+		border-left: 1px solid @border;
+		margin-left: .6em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+			border-left: 0;
+		}
+	}
+}
+
+/** =spaced horizontal nav **/
+.hnav-spaced() {
+	.hnav;
+	li {
+		margin-left: .6em;
+		padding-left: .6em;
+	}
+	li:first-child {
+		margin-left: 0;
+		padding-left: 0;
+	}
+}
+
+/** =piped horizontal inline nav **/
+.inav-piped() {
+	.inav;
+	> li {
+		display: inline;
+		border-left: 1px dotted @border;
+		margin-left: .25em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+			border-left: 0;
+		}
+	}
+}
+
+/** =spaced horizontal inline nav **/
+.inav-spaced() {
+	.inav;
+	> li {
+		display: inline;
+		margin-left: .25em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+		}
+	}
+}
+
+/** =superfish dropdowns mixin
+************************************************************/
+.superfish() {
+	.hnav;
+	ul {
+		position: absolute;
+		top: -999em;
+		width: 15em;
+		li {
+			width: 100%;
+			:hover {
+				visibility: inherit; /* fixes IE7 'sticky bug' */
+			}
+		}
+	}
+	li {
+		position: relative;
+	}
+	li li:hover ul,
+	li li.sfHover ul,
+	li li li:hover ul,
+	li li li.sfHover ul {
+		left: 15em; /* match ul width */
+		top: 0;
+	}
+	a {
+		display: block;
+		position: relative;
+	}
+	li:hover ul,
+	li.sfHover ul {
+		left: 0;
+		top: 41px; /* match top ul list item height */
+		z-index: 99;
+		ul,
+		ul ul {
+			top: -999em;
+		}
+	}
+}
+
+/** =sticky footer mixin
+************************************************************
+To be applied to the html element
+************************************************************/
+.sticky-footer(@footer_height: 100px) {
+	height: 100%;
+	position: relative;
+	body {
+		height: 100%;
+		position: relative;
+	}
+	.wrapper {
+		.min-height(100%);
+		overflow: hidden;
+		position: relative;
+	}
+	.footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: @footer_height;
+	}
+	.body {
+		padding-bottom: @footer_height;
+	}
+}

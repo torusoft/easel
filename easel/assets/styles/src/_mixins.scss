@@ -1,0 +1,627 @@
+/*
+$$$$$$$$\                              $$\ 
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2.0
+Site Specific Reusable Mixins
+
+*/
+
+/** =typography mixins
+************************************************************/
+
+/** =line-heights **/
+@mixin lh_tight 		{ line-height: 1.45em; }
+@mixin lh_tighter 	{ line-height: 1.25em; }
+@mixin lh_tightest 	{ line-height: 1em; }
+
+/** =letter spacing **/
+@mixin ls_loosest  { letter-spacing: .1em; }
+@mixin ls_looser 	 { letter-spacing: .05em; }
+@mixin ls_loose 	 { letter-spacing: .025em; }
+@mixin ls_tight 	 { letter-spacing: -.025em; }
+@mixin ls_tighter  { letter-spacing: -.05em; }
+@mixin ls_tightest { letter-spacing: -.1em; }
+
+/** =font-family **/
+@mixin sans						{ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+@mixin serif					{ font-family: Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif; }
+@mixin mono						{ font-family: Consolas, "Lucida Console", Monaco, monospace; }
+
+/** =font-reset **/
+@mixin font_reset {
+	@include body-copy;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-align: left;
+	text-decoration: none;
+	text-indent: none;
+	text-transform: none;
+	word-spacing: normal;
+	white-space: normal;
+	vertical-align: baseline;
+}
+
+/** =baseline body copy
+************************************************************/
+@mixin body_copy($color: $text) {
+	color: $color;
+	@include sans;
+	font-size: $font_size;
+	line-height: $line_height;
+}
+
+/** =baseline links
+************************************************************/
+@mixin link {
+	color: $link_text;
+	&:hover { 
+		color: $link_text_hover;
+	}
+}
+
+/** =reset **/
+@mixin link_reset {
+	color: inherit;
+	&:hover {
+		color: inherit; 
+		background: none;
+	}
+}
+
+/** =baseline headings
+************************************************************/
+@mixin h1 {
+	color: $text_dark;
+	@include sans;
+	font-weight: bold;
+	font-size: 30px;
+	@include lh-tightest;
+	margin: 0 0 1em;
+}
+@mixin h2 {
+	color: $text_dark;
+	@include sans;
+	font-weight: bold;
+	font-size: 24px;
+	@include lh-tighter;
+	margin: 0 0 1em;
+}
+@mixin h3 {
+	color: $text_dark;
+	@include sans;
+	font-weight: bold;
+	font-size: 18px;
+	@include lh-tight;
+	margin: 0 0 .5em;
+}
+@mixin h4 {
+	color: $text_dark;
+	@include sans;
+	font-weight: bold;
+	font-size: 16px;
+	@include lh-tight;
+	margin: 0 0 .5em;
+}
+@mixin h5 {
+	color: $text_dark;
+	@include sans;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0 0 .5em;
+}
+@mixin h6 {
+	color: $text_dark;
+	@include sans;
+	font-size: 14px;
+	margin: 0 0 .5em;
+}
+
+/** =reset **/
+@mixin hn_reset {
+	@include font_reset;
+	margin: 0;
+}
+
+/** =baseline lists
+************************************************************/
+
+/** =ul/ol default **/
+@mixin list {
+	margin-bottom: $margin_y;
+	li {
+		@include lh_tighter;
+		margin-top: $margin_y / 2;
+		&:first-child {
+			margin-top: 0;
+		}
+		ul, ol {
+			margin-top: $margin_y / 2;
+			margin-bottom: 0;
+		}
+	}
+}
+
+/** =ul **/
+@mixin ul {
+	@include list;
+	& > li,
+	ul > li {
+		background: url(images/easel/bullets/square-black.png) no-repeat .4em .4em;
+		padding-left: 1.5em;
+	}
+}
+
+/** =ol **/
+@mixin ol {
+	@include list;	
+	& > li,
+	ol > li {
+		list-style: decimal outside;
+		margin-left: 1.5em;
+		.ie6 &,
+		.ie7 & {
+			margin-left: 2em;
+		}
+	}
+}
+
+/** =dl **/
+@mixin dl {
+	@include section;
+	& > dt {
+		font-weight: bold;
+	}
+	& > dd {
+		margin-bottom: $margin_y / 2;
+	}
+}
+
+/** =reset **/
+@mixin list_reset {
+	margin-bottom: 0;
+	& > li,
+	ul > li,
+	ol > li {
+		line-height: $line_height;
+		margin-top: 0;
+		margin-left: 0;
+		padding-left: 0;
+		list-style: none;
+		background: none;
+	}
+	ul, ol {
+		margin-top: 0;
+	}
+	& > dt {
+		font-weight: normal;
+	}
+	& > dd {
+		margin-bottom: 0;
+	}
+}
+
+/** =base tables
+************************************************************/
+@mixin table {
+	width: 100%;
+	margin-bottom: $margin_y;
+	th, td {
+		border: 1px solid $default_border;
+		padding: $margin_y / 4 $margin_y / 2;
+		text-align: left;
+	}
+	th {
+		font-weight: bold;
+	}
+	thead,
+	tfoot {
+		th, td {
+			text-align: center;
+			border: 0;
+		}
+	}
+	caption {
+		margin-bottom: $margin_y / 2;
+		text-align: center;
+		font-weight: bold;
+	}
+	tr.alt {
+		th, td {
+			background-color: $default_border;
+		}
+	}
+}
+
+/** =reset **/
+@mixin table_reset {
+	margin-bottom: 0;
+	width: auto;
+	th, td {
+		border: 0;
+		padding: 0;
+		text-align: left;
+	}
+	th {
+		font-weight: normal;
+	}
+	thead th {
+		text-align: left;
+	}
+	caption {
+		margin-bottom: 0;
+		text-align: left;
+	}
+}
+
+/** =base blockquote
+************************************************************/
+@mixin bq {
+	@include section;
+	margin-left: $margin_x;
+	margin-right: $margin_x;
+	font-style: italic;
+}
+@mixin bq-reset {
+	margin: 0;
+	font-style: normal;
+}
+
+/** =base pre
+************************************************************
+http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
+************************************************************/
+@mixin pre($width: 99%) {
+	@include section;	
+	line-height: 1em;
+	width: $width;
+	white-space: pre-wrap;      /* CSS3 browsers  */
+	white-space: -moz-pre-wrap; /* 1999+ Mozilla  */
+	white-space: -pre-wrap;     /* Opera 4 thru 6 */
+	white-space: -o-pre-wrap;   /* Opera 7 and up */
+	word-wrap: break-word;      /* IE 5.5+ and up */
+}
+@mixin pre_reset {
+	margin-bottom: 0;
+	line-height: $line_height;
+	width: auto;
+	white-space: normal;
+}
+
+/** =base address
+************************************************************/
+@mixin address {
+	@include section;
+}
+@mixin address_reset {
+	margin-bottom: 0;
+}
+
+/** =base form
+************************************************************/
+@mixin form {
+	fieldset {
+		@include section;
+	}
+	fieldset > fieldset {
+		margin-top: $margin_y;
+	}
+}
+@mixin label {
+	display: block;
+	margin: 0;
+	font-weight: bold;
+	font-size: 14px;
+	color: $text_dark;
+	small {
+		font-size: 12px;
+		margin-left: 5px;
+	}
+}
+@mixin legend {
+	@include hn_reset;
+	border-bottom: 1px solid $default_border;
+	@include upper(11px);
+	margin: 0 0 $margin_y / 2;
+}
+
+/** =reset **/
+@mixin form_reset {
+	> fieldset {
+		margin-bottom: 0;
+	}
+}
+@mixin legend_reset {
+	@include font_reset;
+	border-bottom: 0;
+	color: inherit;
+}
+
+
+/** =section
+************************************************************
+Sections are block elements with bottom margins and a clearfix applied.
+Ideally, their last child should get get no bottom margin to prevent double margins.
+************************************************************/
+@mixin section($margin: $margin_y) {
+	display: block;
+	margin-bottom: $margin;
+	@include clearfix;
+	& > :last-child,
+	& > .last {
+		margin-bottom: 0;
+	}
+}
+
+/** =sliding doors buttons (with hover)
+************************************************************
+http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
+************************************************************/
+@mixin btn {
+	@include link_reset;
+	@include inline_block;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+	zoom: 1; /* ie */
+	width: auto; /* ie */
+  overflow: visible; /* ie */
+	& > span {
+		position: relative;
+	  display: block;
+	  white-space: nowrap;
+	}
+	&::-moz-focus-inner { border: none; padding: 0;} /* removes 1px border in FF */
+}
+
+/** =easel icons (20x20)
+************************************************************/
+@mixin easel_icon($icon, $padding: 25px) {
+	@include inline-block;
+	padding: 0 0 0 $padding;
+	background: url('images/easel/icons/default/'#{$icon}'.png') no-repeat 0 50%;
+	&.alt {
+		padding: 0 $padding 0 0;
+		background-position: 100% 50%;
+	}
+}
+
+/** =font groups
+************************************************************/
+@mixin upper($size: 10px, $weight: bold) {
+	@include sans;
+	font-weight: $weight;
+	font-size: $size;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+}
+
+/** =fancy ampersands **/
+@mixin amp {
+  font-family: Baskerville, Palatino, Constantia, "Book Antiqua", "URW Palladio L", serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/** =nav lists
+************************************************************/
+
+/** =horizontal nav **/
+@mixin hnav {
+	@include list_reset;
+	@include clearfix;
+	& > li {
+		@include left;
+		a {
+			display: block;
+		}
+	}
+}
+
+/** =vertical nav **/
+@mixin vnav {
+	@include list_reset;
+	a {
+		display: block;
+	}
+}
+
+/** =inline horizontal nav **/
+@mixin inav {
+	@include list_reset;
+	& > li {
+		display: inline;
+	}
+}
+
+/** =list items as sections **/
+@mixin list_block($m: $margin_y) {
+	@include list_reset;
+	& > li {
+		@include section($m);
+	}
+}
+
+/** =indented list with no bullets/numbers **/
+@mixin list_indented {
+	@include list_reset;
+	@include list;
+	& > li li {
+		margin-left: 1.5em;		
+	}
+}
+
+/** =piped horizontal nav **/
+@mixin hnav_piped {
+	@include hnav;
+	& > li {
+		border-left: 1px solid $border;
+		margin-left: .6em;
+		padding-left: .6em;
+		&:first-child {
+			margin-left: 0;
+			padding-left: 0;
+			border-left: 0;
+		}
+	}
+}
+
+/** =spaced horizontal nav **/
+@mixin hnav_spaced {
+	@include hnav;
+	li {
+		margin-left: .6em;
+		padding-left: .6em;
+	}
+	li:first-child {
+		margin-left: 0;
+		padding-left: 0;
+	}
+}
+
+/** =piped horizontal inline nav **/
+@mixin inav_piped {
+	@include inav;
+	& > li {
+		display: inline;
+		border-left: 1px dotted $border;
+		margin-left: .25em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+			border-left: 0;
+		}
+	}
+}
+
+/** =spaced horizontal inline nav **/
+@mixin inav_spaced {
+	@include inav;
+	& > li {
+		display: inline;
+		margin-left: .25em;
+		padding-left: .6em;
+		:first-child {
+			margin-left: 0;
+			padding-left: 0;
+		}
+	}
+}
+
+/** =ruled list **/
+@mixin vnav_ruled($color: $default_border, $style: solid, $width: 1px) {
+	@include vnav;
+	& > li {
+		border-top: $width $style $color;
+		> a,
+		> a.icn {
+			display: block; /* reset icon links from inline-block */
+		}
+	}
+	border-bottom: $width $style $color;
+}
+
+/** =superfish dropdowns mixin
+************************************************************/
+@mixin superfish {
+	@include hnav;
+	ul {
+		position: absolute;
+		top: -999em;
+		width: 15em;
+		li {
+			width: 100%;
+			:hover {
+				visibility: inherit; /* fixes IE7 'sticky bug' */
+			}
+		}
+	}
+	li {
+		position: relative;
+	}
+	li li:hover ul,
+	li li.sfHover ul,
+	li li li:hover ul,
+	li li li.sfHover ul {
+		left: 15em; /* match ul width */
+		top: 0;
+	}
+	a {
+		display: block;
+		position: relative;
+	}
+	li:hover ul,
+	li.sfHover ul {
+		left: 0;
+		top: 41px; /* match top ul list item height */
+		z-index: 99;
+		ul,
+		ul ul {
+			top: -999em;
+		}
+	}
+}
+
+/** =sticky footer mixin
+************************************************************
+To be applied to the html element
+************************************************************/
+@mixin sticky_footer($footer_height: 100px, $extra_padding: 0) {
+	html {
+		height: 100%;
+		position: relative;
+	}
+	body {
+		height: 100%;
+		position: relative;
+	}
+	.wrapper {
+		@include min_height(100%);
+		overflow: hidden;
+		position: relative;
+	}
+	.footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: $footer_height;
+	}
+	.body {
+		padding-bottom: $extra_padding + $footer_height;
+	}
+}
+
+/** =border box
+************************************************************/
+@mixin box($bg: $default_bg, $border: $default_border, $text: $default_text) {
+	@include section;
+	@include rnd(5px);
+	padding: $margin_y $margin_x;
+	border: 2px solid;
+	background: no-repeat $margin_x / 2 50%;
+	background-color: $bg;	
+	color: $text;
+	border-color: $border;
+	a {
+		color: $text;
+		font-weight: bold;
+		&:hover {
+			color: darken($text, 20%)
+		}
+	}
+	ul {
+		@include list_reset;
+	}
+	p {
+		margin-bottom: $margin_y / 2;
+	}
+}

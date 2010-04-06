@@ -1,0 +1,223 @@
+/*
+$$$$$$$$\                              $$\ 
+$$  _____|                             $$ |
+$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+\________|\_______|\_______/  \_______|\__|
+
+Fusionary Easel v2.0
+Reset, Tools, Grid, Section Definition, Reset Mixin
+
+*/
+
+/** =reset
+************************************************************
+YUI3 reset with at few tweaks: 
+-reset button, select
+-reset text decoration on a, ins
+-reset small
+************************************************************/
+html {
+	color: #000;
+	background: #fff;
+}
+
+body, div, p, blockquote,
+dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+pre, code,
+form, fieldset, legend,
+input, textarea, select, button,
+th, td {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset, img {
+	border: 0;
+}
+
+address, caption, cite, code,
+dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+li {
+	list-style: none;
+}
+
+caption,
+th {
+	text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6, small {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+q:before,
+q:after {
+	content:'';
+}
+
+abbr, acronym {
+	border: 0;
+	font-variant: normal;
+}
+
+/** =super/subscript 
+text-align: super/sub creates line height issues, so we'll do it this way **/
+sup {
+	vertical-align: text-top;
+}
+sub {
+	vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select,
+button {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+}
+button {
+	border: 0;
+	background: none;
+}
+ins,
+a {
+	text-decoration: none;
+}
+
+/** =tools
+************************************************************/
+.hide,
+.js .js-hide,
+.js-show      	 { display: none; }
+.js .js-show  	 { display: block; }
+.hide-alt,
+.js .js-hide-alt { position: absolute; left: -9999em; }
+.right        	 { float: right; display: inline; }
+.left         	 { float: left; display: inline; }
+.clear        	 { clear: both; }
+.replace 				 { background-repeat: no-repeat; text-indent: -999em; display: block; overflow: hidden; font-size: 1px; border: 0; }
+
+/** =clearfix **/
+@mixin clearfix {
+	&:after {
+		content: ".";
+	  display: block;
+	  height: 0;
+	  clear: both;
+	  visibility: hidden;
+	  overflow:hidden;
+	}
+	display:block;
+	zoom: 1;
+}
+
+/** =min height/width in ie6 **/
+@mixin min_height($h: auto) {
+  min-height: $h;
+  .ie6 & {
+		height: $h;
+	}
+}
+@mixin min_width($w: auto) {
+  min-width: $w;
+  .ie6 & {
+		width: $w;
+	}
+}
+
+/** =cross-browser inline-block **/
+@mixin inline_block {
+	display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+  zoom: 1;
+	.ie6 &,
+	.ie7 & {
+		display: inline;
+	}
+}
+
+/** =css3
+************************************************************/
+@mixin rnd ($radius: $radius){
+	border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
+@mixin rnd_tl ($radius: $radius){
+	border-top-left-radius: $radius;
+	-moz-border-radius-topleft: $radius;
+	-webkit-border-top-left-radius: $radius;
+}
+@mixin rnd_tr ($radius: $radius){
+	border-top-right-radius: $radius;
+	-moz-border-radius-topright: $radius;
+	-webkit-border-top-right-radius: $radius;
+}
+@mixin rnd_bl ($radius: $radius){
+	border-bottom-left-radius: $radius;
+	-moz-border-radius-bottomleft: $radius;
+	-webkit-border-bottom-left-radius: $radius;
+}
+@mixin rnd_br ($radius: $radius){
+	border-bottom-right-radius: $radius;
+	-moz-border-radius-bottomright: $radius;
+	-webkit-border-bottom-right-radius: $radius;
+}
+@mixin text_shadow ($x: 1px, $y: 1px, $size: 1px, $color: #000) {
+	text-shadow: $x $y $size $color;
+	-moz-text-shadow: $x $y $size $color;
+	-webkit-text-shadow: $x $y $size $color;
+}
+@mixin box_shadow($x: 0px, $y: 0px, $b: 0px, $c: #000) {
+	box-shadow: $x $y $b $c;
+	-moz-box-shadow: $x $y $b $c;
+	-webkit-box-shadow: $x $y $b $c;
+	filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=$x, OffY=$y, Color='$c');
+	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=$x, OffY=$y, Color='$c')";
+}
+@mixin opacity($o: .5) {
+	opacity: $o;
+	-khtml-opacity: $o;
+	-moz-opacity: $o;
+}
+@mixin rgba($hex, $alpha, $property: "background-color") {
+  #{$property}: $hex;
+  #{$property}: rgba($hex, $alpha);  /* FF3+, Saf3+, Opera 10.10+, Chrome */
+}
+@mixin rotate($d: -5deg) {
+	-moz-transform: rotate($d);
+	-o-transform: rotate($d);
+	-webkit-transform: rotate($d);
+}
+@mixin gradient($start: #fff, $end: #000) {	
+  background-image: -moz-linear-gradient(top, $start, $end);
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $start),color-stop(1, $end));
+      filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end'); /* IE6,IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end')"; /* IE8 */
+}
+
+/** =eliminate chunky text in webkit	
+************************************************************/
+@mixin slim_webkit {
+	-webkit-text-stroke: 1px transparent;
+}
