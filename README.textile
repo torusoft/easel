@@ -86,3 +86,7 @@ Easel allows you to target IE6/7/8 without CSS hacks. Using a set of IE conditio
 }
 </code>
 </pre>
+
+h2. Forms
+
+* Due to the @legend@ element being stubborn to style, use a @hn@ tag with a @class="legend"@
