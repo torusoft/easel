@@ -3,6 +3,7 @@ h1. Easel Guide
 Easel v2 runs on "SASS 3":http://beta.sass-lang.com/docs/yardoc/file.SASS_CHANGELOG.html
 
 To install: @gem install haml --pre@
+Once installed: @sass --watch assets/styles/src:assets/styles@
 
 h2. Naming Conventions, formatting
 
