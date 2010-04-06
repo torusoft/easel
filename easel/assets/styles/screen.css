@@ -1680,6 +1680,30 @@ textarea[disabled] {
     overflow: hidden; }
   .box > :last-child, .box > .last {
     margin-bottom: 0; }
+  .box a {
+    color: #666666;
+    font-weight: bold; }
+    .box a:hover {
+      color: #333333; }
+  .box ul {
+    margin-bottom: 0; }
+    .box ul > li,
+    .box ul ul > li,
+    .box ul ol > li {
+      line-height: 1.538em;
+      margin-top: 0;
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+      background: none; }
+    .box ul ul, .box ul ol {
+      margin-top: 0; }
+    .box ul > dt {
+      font-weight: normal; }
+    .box ul > dd {
+      margin-bottom: 0; }
+  .box p {
+    margin-bottom: 10px; }
 
 .box.info {
   display: block;
@@ -1705,6 +1729,30 @@ textarea[disabled] {
     overflow: hidden; }
   .box.info > :last-child, .box.info > .last {
     margin-bottom: 0; }
+  .box.info a {
+    color: #0066b5;
+    font-weight: bold; }
+    .box.info a:hover {
+      color: #002d4f; }
+  .box.info ul {
+    margin-bottom: 0; }
+    .box.info ul > li,
+    .box.info ul ul > li,
+    .box.info ul ol > li {
+      line-height: 1.538em;
+      margin-top: 0;
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+      background: none; }
+    .box.info ul ul, .box.info ul ol {
+      margin-top: 0; }
+    .box.info ul > dt {
+      font-weight: normal; }
+    .box.info ul > dd {
+      margin-bottom: 0; }
+  .box.info p {
+    margin-bottom: 10px; }
 .box.warning {
   display: block;
   margin-bottom: 20px;
@@ -1729,6 +1777,30 @@ textarea[disabled] {
     overflow: hidden; }
   .box.warning > :last-child, .box.warning > .last {
     margin-bottom: 0; }
+  .box.warning a {
+    color: #8c7800;
+    font-weight: bold; }
+    .box.warning a:hover {
+      color: #262100; }
+  .box.warning ul {
+    margin-bottom: 0; }
+    .box.warning ul > li,
+    .box.warning ul ul > li,
+    .box.warning ul ol > li {
+      line-height: 1.538em;
+      margin-top: 0;
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+      background: none; }
+    .box.warning ul ul, .box.warning ul ol {
+      margin-top: 0; }
+    .box.warning ul > dt {
+      font-weight: normal; }
+    .box.warning ul > dd {
+      margin-bottom: 0; }
+  .box.warning p {
+    margin-bottom: 10px; }
 .box.error {
   display: block;
   margin-bottom: 20px;
@@ -1753,6 +1825,30 @@ textarea[disabled] {
     overflow: hidden; }
   .box.error > :last-child, .box.error > .last {
     margin-bottom: 0; }
+  .box.error a {
+    color: #ac0000;
+    font-weight: bold; }
+    .box.error a:hover {
+      color: #460000; }
+  .box.error ul {
+    margin-bottom: 0; }
+    .box.error ul > li,
+    .box.error ul ul > li,
+    .box.error ul ol > li {
+      line-height: 1.538em;
+      margin-top: 0;
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+      background: none; }
+    .box.error ul ul, .box.error ul ol {
+      margin-top: 0; }
+    .box.error ul > dt {
+      font-weight: normal; }
+    .box.error ul > dd {
+      margin-bottom: 0; }
+  .box.error p {
+    margin-bottom: 10px; }
 .box.success {
   display: block;
   margin-bottom: 20px;
@@ -1777,6 +1873,30 @@ textarea[disabled] {
     overflow: hidden; }
   .box.success > :last-child, .box.success > .last {
     margin-bottom: 0; }
+  .box.success a {
+    color: #5d710e;
+    font-weight: bold; }
+    .box.success a:hover {
+      color: #121603; }
+  .box.success ul {
+    margin-bottom: 0; }
+    .box.success ul > li,
+    .box.success ul ul > li,
+    .box.success ul ol > li {
+      line-height: 1.538em;
+      margin-top: 0;
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+      background: none; }
+    .box.success ul ul, .box.success ul ol {
+      margin-top: 0; }
+    .box.success ul > dt {
+      font-weight: normal; }
+    .box.success ul > dd {
+      margin-bottom: 0; }
+  .box.success p {
+    margin-bottom: 10px; }
 .box.info, .box.warning, .box.error, .box.success {
   padding-left: 54px; }
 
@@ -1872,7 +1992,7 @@ body {
 .nav {
   margin-bottom: 0;
   border-bottom: 1px solid #ebebeb;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   letter-spacing: -0.025em; }
   .nav > li,

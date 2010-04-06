@@ -72,7 +72,7 @@ body {
 }
 .nav {
 	@include vnav_ruled;
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: bold;
 	@include ls_tight;
 	a:hover {

@@ -27,7 +27,10 @@ $(document).ready(function() {
 			  inline: {
 			    errorElement: '<div class="error-message"></div>'
 			  },
-				summary: false				
+				summary: {
+					preMessage: '<p>Please correct the {num} highlighted {field|fields} and try again.</p><ul>',
+					wrapper: '<div class="box error"></div>'
+				}				
 			});
 		});
 	}

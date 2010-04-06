@@ -442,9 +442,10 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 }
 
 /** =list items as sections **/
-@mixin list_block {
+@mixin list_block($m: $margin_y) {
+	@include list_reset;
 	& > li {
-		@include section;
+		@include section($m);
 	}
 }
 
@@ -610,4 +611,17 @@ To be applied to the html element
 	background-color: $bg;	
 	color: $text;
 	border-color: $border;
+	a {
+		color: $text;
+		font-weight: bold;
+		&:hover {
+			color: darken($text, 20%)
+		}
+	}
+	ul {
+		@include list_reset;
+	}
+	p {
+		margin-bottom: $margin_y / 2;
+	}
 }
