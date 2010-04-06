@@ -133,10 +133,15 @@ label[for] {
 	}
 }
 .text {
-	.placeholder {
+	.placeholder{
 		color: $text_light;
 		font-size: 14px;
 		font-weight: bold;
+	}
+	::-webkit-input-placeholder {
+		color: $text_light;
+	}
+	.placeholder {
 		margin: $input_offset / 2 0 0 $input_offset / 2;
 	}
 }
@@ -201,6 +206,9 @@ textarea[disabled] {
 			text-align: right;
 		}
 		.placeholder {
+			color: desaturate(lighten($error_text, 40%), 40%);
+		}
+		::-webkit-input-placeholder {
 			color: desaturate(lighten($error_text, 40%), 40%);
 		}
 	}

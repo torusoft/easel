@@ -1397,7 +1397,10 @@ label[for] {
 .text .placeholder {
   color: #bcbcbc;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: bold; }
+.text ::-webkit-input-placeholder {
+  color: #bcbcbc; }
+.text .placeholder {
   margin: 6px 0 0 6px; }
 
 /** =radios, checkboxes **/
@@ -1494,6 +1497,9 @@ textarea[disabled] {
   text-align: right; }
 .text.error .placeholder,
 .select.error .placeholder {
+  color: #e49494; }
+.text.error ::-webkit-input-placeholder,
+.select.error ::-webkit-input-placeholder {
   color: #e49494; }
 
 /** =buttons
