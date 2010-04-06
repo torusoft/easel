@@ -11,9 +11,6 @@ $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 Fusionary Easel v2.0
 Site Specific Reusable Mixins
 
-To target IE6/7 within a mixin, use the following hacks
-_property targets ie7 only
-*property targets ie6/7 only
 */
 
 /** =typography mixins
@@ -24,7 +21,7 @@ _property targets ie7 only
 @mixin lh_tighter 	{ line-height: 1.25em; }
 @mixin lh_tightest 	{ line-height: 1em; }
 
-/** =line-heights **/
+/** =letter spacing **/
 @mixin ls_loosest  { letter-spacing: .1em; }
 @mixin ls_looser 	 { letter-spacing: .05em; }
 @mixin ls_loose 	 { letter-spacing: .025em; }
@@ -37,17 +34,8 @@ _property targets ie7 only
 @mixin serif					{ font-family: Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif; }
 @mixin mono						{ font-family: Consolas, "Lucida Console", Monaco, monospace; }
 
-/** =baseline body copy
-************************************************************/
-@mixin body_copy($color: $text) {
-	color: $color;
-	@include sans;
-	font-size: $font_size;
-	line-height: $line_height;
-}
-
-/** =reset **/
-@mixin body_copy_reset {
+/** =font-reset **/
+@mixin font_reset {
 	@include body-copy;
 	font-style: normal;
 	font-variant: normal;
@@ -59,6 +47,15 @@ _property targets ie7 only
 	word-spacing: normal;
 	white-space: normal;
 	vertical-align: baseline;
+}
+
+/** =baseline body copy
+************************************************************/
+@mixin body_copy($color: $text) {
+	color: $color;
+	@include sans;
+	font-size: $font_size;
+	line-height: $line_height;
 }
 
 /** =baseline links
@@ -129,7 +126,7 @@ _property targets ie7 only
 
 /** =reset **/
 @mixin hn_reset {
-	@include body_copy_reset;
+	@include font_reset;
 	margin: 0;
 }
 
@@ -169,7 +166,10 @@ _property targets ie7 only
 	ol > li {
 		list-style: decimal outside;
 		margin-left: 1.5em;
-		*margin-left: 2em; /* ie6/7 */
+		.ie6 &,
+		.ie7 & {
+			margin-left: 2em;
+		}
 	}
 }
 
@@ -307,9 +307,29 @@ http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
 /** =base form
 ************************************************************/
 @mixin form {
-	& > fieldset {
+	fieldset {
 		@include section;
 	}
+	fieldset > fieldset {
+		margin-top: $margin_y;
+	}
+}
+@mixin label {
+	display: block;
+	margin: 0;
+	font-weight: bold;
+	font-size: 14px;
+	color: $text_dark;
+	small {
+		font-size: 12px;
+		margin-left: 5px;
+	}
+}
+@mixin legend {
+	@include hn_reset;
+	border-bottom: 1px solid $default_border;
+	@include upper(11px);
+	margin: 0 0 $margin_y / 2;
 }
 
 /** =reset **/
@@ -318,35 +338,24 @@ http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
 		margin-bottom: 0;
 	}
 }
-.text {
-	label {
-		display: block;
-	}
-	input {
-		@include rnd;
-		padding: 3px $input_padding_width;
-		background-color: $default_bg;
-		border: 1px solid $default_border;
-		color: $default_text;
-		border-top-color: darken($default_border, 20%);
-		border-left-color: darken($default_border, 20%);
-	}
+@mixin legend_reset {
+	@include font_reset;
+	border-bottom: 0;
+	color: inherit;
 }
+
 
 /** =section
 ************************************************************
 Sections are block elements with bottom margins and a clearfix applied.
 Ideally, their last child should get get no bottom margin to prevent double margins.
 ************************************************************/
-@mixin section {
+@mixin section($margin: $margin_y) {
 	display: block;
-	margin-bottom: $margin_y;
+	margin-bottom: $margin;
 	@include clearfix;
-	& > *:last-child,
+	& > :last-child,
 	& > .last {
-		margin-bottom: 0;
-	}
-	&.last {
 		margin-bottom: 0;
 	}
 }
@@ -369,12 +378,6 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 	  display: block;
 	  white-space: nowrap;
 	}
-	background-position:  100% 0;
-	span { background-position: 0 -100px; }
-	&:hover { background-position: 100% -200px; }
-	&:hover span { background-position: 0 -300px; }
-	&:active { background-position: 100% -400px; }
-	&:active span { background-position: 0 -500px; }
 	&::-moz-focus-inner { border: none; padding: 0;} /* removes 1px border in FF */
 }
 

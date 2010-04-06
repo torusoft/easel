@@ -1,0 +1,6 @@
+[submodule "submodules/jquery-defaulttext"]
+	path = submodules/jquery-defaulttext
+	url = git://github.com/kswedberg/jquery-defaulttext.git
+[submodule "submodules/jquery-tinyvalidate"]
+	path = submodules/jquery-tinyvalidate
+	url = git://github.com/kswedberg/jquery-tinyvalidate.git

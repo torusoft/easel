@@ -11,9 +11,6 @@ $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 Fusionary Easel v2.0
 Reset, Tools, Grid, Section Definition, Reset Mixin
 
-To target IE6/7 within a mixin, use the following hacks
-_property targets ie7 only
-*property targets ie6/7 only
 */
 
 /** =reset
@@ -135,11 +132,15 @@ a {
 /** =min height/width in ie6 **/
 @mixin min_height($h: auto) {
   min-height: $h;
-  _height: $h;
+  .ie6 & {
+		height: $h;
+	}
 }
 @mixin min_width($w: auto) {
   min-width: $w;
-  _width: $w;
+  .ie6 & {
+		width: $w;
+	}
 }
 
 /** =cross-browser inline-block **/
@@ -149,7 +150,10 @@ a {
   -moz-box-orient: vertical;
   vertical-align: top;
   zoom: 1;
-  *display: inline;
+	.ie6 &,
+	.ie7 & {
+		display: inline;
+	}
 }
 
 /** =css3

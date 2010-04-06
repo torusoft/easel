@@ -41,6 +41,7 @@ Contants, colors, $font-face Definitions
 /** =grayscale defaults **/
 /** =body copy **/
 /** =links **/
+/** =status colors **/
 /*
 $$$$$$$$\                              $$\ 
 $$  _____|                             $$ |
@@ -54,9 +55,6 @@ $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 Fusionary Easel v2.0
 Reset, Tools, Grid, Section Definition, Reset Mixin
 
-To target IE6/7 within a mixin, use the following hacks
-_property targets ie7 only
-*property targets ie6/7 only
 */
 /** =reset
 ************************************************************
@@ -189,6 +187,17 @@ Site Specific Reusable Mixins
 */
 /** =container
 ************************************************************/
+/** =default widths
+************************************************************/
+.text input,
+.text textarea {
+  width: 232px; }
+.text textarea {
+  height: 9.228em; }
+
+.select select {
+  width: 220px; }
+
 /** =columns
 ************************************************************/
 .col-1 {
@@ -208,15 +217,17 @@ Site Specific Reusable Mixins
 .push-1 {
   margin-left: 60px; }
 
-.text > input.col-1,
-.text > textarea.col-1,
-.text.col-1 > input,
-.text.col-1 > textarea,
-.fieldset.col-1 > .text > input {
+fieldset.col-1 .text input,
+fieldset.col-1 .text input.col-1,
+fieldset.col-1 .text textarea,
+fieldset.col-1 .text textarea.col-1, html body .text.col-1 input, html body .text.col-1 input.col-1, html body .text.col-1 textarea, html body .text.col-1 textarea.col-1, html body fieldset .text input, html body fieldset .text input.col-1, html body fieldset .text textarea, html body fieldset .text textarea.col-1 {
   width: 8px; }
 
+fieldset.col-1 .select select, html body .select.col-1 select, html body fieldset .select select {
+  width: 20px; }
+
 .col-24,
-.col-1.last {
+.col-last {
   margin-right: 0; }
 
 .col-2 {
@@ -236,15 +247,17 @@ Site Specific Reusable Mixins
 .push-2 {
   margin-left: 100px; }
 
-.text > input.col-2,
-.text > textarea.col-2,
-.text.col-2 > input,
-.text.col-2 > textarea,
-.fieldset.col-2 > .text > input {
+fieldset.col-2 .text input,
+fieldset.col-2 .text input.col-2,
+fieldset.col-2 .text textarea,
+fieldset.col-2 .text textarea.col-2, html body .text.col-2 input, html body .text.col-2 input.col-2, html body .text.col-2 textarea, html body .text.col-2 textarea.col-2, html body fieldset .text input, html body fieldset .text input.col-2, html body fieldset .text textarea, html body fieldset .text textarea.col-2 {
   width: 48px; }
 
+fieldset.col-2 .select select, html body .select.col-2 select, html body fieldset .select select {
+  width: 60px; }
+
 .col-24,
-.col-2.last {
+.col-last {
   margin-right: 0; }
 
 .col-3 {
@@ -264,15 +277,17 @@ Site Specific Reusable Mixins
 .push-3 {
   margin-left: 140px; }
 
-.text > input.col-3,
-.text > textarea.col-3,
-.text.col-3 > input,
-.text.col-3 > textarea,
-.fieldset.col-3 > .text > input {
+fieldset.col-3 .text input,
+fieldset.col-3 .text input.col-3,
+fieldset.col-3 .text textarea,
+fieldset.col-3 .text textarea.col-3, html body .text.col-3 input, html body .text.col-3 input.col-3, html body .text.col-3 textarea, html body .text.col-3 textarea.col-3, html body fieldset .text input, html body fieldset .text input.col-3, html body fieldset .text textarea, html body fieldset .text textarea.col-3 {
   width: 88px; }
 
+fieldset.col-3 .select select, html body .select.col-3 select, html body fieldset .select select {
+  width: 100px; }
+
 .col-24,
-.col-3.last {
+.col-last {
   margin-right: 0; }
 
 .col-4 {
@@ -292,15 +307,17 @@ Site Specific Reusable Mixins
 .push-4 {
   margin-left: 180px; }
 
-.text > input.col-4,
-.text > textarea.col-4,
-.text.col-4 > input,
-.text.col-4 > textarea,
-.fieldset.col-4 > .text > input {
+fieldset.col-4 .text input,
+fieldset.col-4 .text input.col-4,
+fieldset.col-4 .text textarea,
+fieldset.col-4 .text textarea.col-4, html body .text.col-4 input, html body .text.col-4 input.col-4, html body .text.col-4 textarea, html body .text.col-4 textarea.col-4, html body fieldset .text input, html body fieldset .text input.col-4, html body fieldset .text textarea, html body fieldset .text textarea.col-4 {
   width: 128px; }
 
+fieldset.col-4 .select select, html body .select.col-4 select, html body fieldset .select select {
+  width: 140px; }
+
 .col-24,
-.col-4.last {
+.col-last {
   margin-right: 0; }
 
 .col-5 {
@@ -320,15 +337,17 @@ Site Specific Reusable Mixins
 .push-5 {
   margin-left: 220px; }
 
-.text > input.col-5,
-.text > textarea.col-5,
-.text.col-5 > input,
-.text.col-5 > textarea,
-.fieldset.col-5 > .text > input {
+fieldset.col-5 .text input,
+fieldset.col-5 .text input.col-5,
+fieldset.col-5 .text textarea,
+fieldset.col-5 .text textarea.col-5, html body .text.col-5 input, html body .text.col-5 input.col-5, html body .text.col-5 textarea, html body .text.col-5 textarea.col-5, html body fieldset .text input, html body fieldset .text input.col-5, html body fieldset .text textarea, html body fieldset .text textarea.col-5 {
   width: 168px; }
 
+fieldset.col-5 .select select, html body .select.col-5 select, html body fieldset .select select {
+  width: 180px; }
+
 .col-24,
-.col-5.last {
+.col-last {
   margin-right: 0; }
 
 .col-6 {
@@ -348,15 +367,17 @@ Site Specific Reusable Mixins
 .push-6 {
   margin-left: 260px; }
 
-.text > input.col-6,
-.text > textarea.col-6,
-.text.col-6 > input,
-.text.col-6 > textarea,
-.fieldset.col-6 > .text > input {
+fieldset.col-6 .text input,
+fieldset.col-6 .text input.col-6,
+fieldset.col-6 .text textarea,
+fieldset.col-6 .text textarea.col-6, html body .text.col-6 input, html body .text.col-6 input.col-6, html body .text.col-6 textarea, html body .text.col-6 textarea.col-6, html body fieldset .text input, html body fieldset .text input.col-6, html body fieldset .text textarea, html body fieldset .text textarea.col-6 {
   width: 208px; }
 
+fieldset.col-6 .select select, html body .select.col-6 select, html body fieldset .select select {
+  width: 220px; }
+
 .col-24,
-.col-6.last {
+.col-last {
   margin-right: 0; }
 
 .col-7 {
@@ -376,15 +397,17 @@ Site Specific Reusable Mixins
 .push-7 {
   margin-left: 300px; }
 
-.text > input.col-7,
-.text > textarea.col-7,
-.text.col-7 > input,
-.text.col-7 > textarea,
-.fieldset.col-7 > .text > input {
+fieldset.col-7 .text input,
+fieldset.col-7 .text input.col-7,
+fieldset.col-7 .text textarea,
+fieldset.col-7 .text textarea.col-7, html body .text.col-7 input, html body .text.col-7 input.col-7, html body .text.col-7 textarea, html body .text.col-7 textarea.col-7, html body fieldset .text input, html body fieldset .text input.col-7, html body fieldset .text textarea, html body fieldset .text textarea.col-7 {
   width: 248px; }
 
+fieldset.col-7 .select select, html body .select.col-7 select, html body fieldset .select select {
+  width: 260px; }
+
 .col-24,
-.col-7.last {
+.col-last {
   margin-right: 0; }
 
 .col-8 {
@@ -404,15 +427,17 @@ Site Specific Reusable Mixins
 .push-8 {
   margin-left: 340px; }
 
-.text > input.col-8,
-.text > textarea.col-8,
-.text.col-8 > input,
-.text.col-8 > textarea,
-.fieldset.col-8 > .text > input {
+fieldset.col-8 .text input,
+fieldset.col-8 .text input.col-8,
+fieldset.col-8 .text textarea,
+fieldset.col-8 .text textarea.col-8, html body .text.col-8 input, html body .text.col-8 input.col-8, html body .text.col-8 textarea, html body .text.col-8 textarea.col-8, html body fieldset .text input, html body fieldset .text input.col-8, html body fieldset .text textarea, html body fieldset .text textarea.col-8 {
   width: 288px; }
 
+fieldset.col-8 .select select, html body .select.col-8 select, html body fieldset .select select {
+  width: 300px; }
+
 .col-24,
-.col-8.last {
+.col-last {
   margin-right: 0; }
 
 .col-9 {
@@ -432,15 +457,17 @@ Site Specific Reusable Mixins
 .push-9 {
   margin-left: 380px; }
 
-.text > input.col-9,
-.text > textarea.col-9,
-.text.col-9 > input,
-.text.col-9 > textarea,
-.fieldset.col-9 > .text > input {
+fieldset.col-9 .text input,
+fieldset.col-9 .text input.col-9,
+fieldset.col-9 .text textarea,
+fieldset.col-9 .text textarea.col-9, html body .text.col-9 input, html body .text.col-9 input.col-9, html body .text.col-9 textarea, html body .text.col-9 textarea.col-9, html body fieldset .text input, html body fieldset .text input.col-9, html body fieldset .text textarea, html body fieldset .text textarea.col-9 {
   width: 328px; }
 
+fieldset.col-9 .select select, html body .select.col-9 select, html body fieldset .select select {
+  width: 340px; }
+
 .col-24,
-.col-9.last {
+.col-last {
   margin-right: 0; }
 
 .col-10 {
@@ -460,15 +487,17 @@ Site Specific Reusable Mixins
 .push-10 {
   margin-left: 420px; }
 
-.text > input.col-10,
-.text > textarea.col-10,
-.text.col-10 > input,
-.text.col-10 > textarea,
-.fieldset.col-10 > .text > input {
+fieldset.col-10 .text input,
+fieldset.col-10 .text input.col-10,
+fieldset.col-10 .text textarea,
+fieldset.col-10 .text textarea.col-10, html body .text.col-10 input, html body .text.col-10 input.col-10, html body .text.col-10 textarea, html body .text.col-10 textarea.col-10, html body fieldset .text input, html body fieldset .text input.col-10, html body fieldset .text textarea, html body fieldset .text textarea.col-10 {
   width: 368px; }
 
+fieldset.col-10 .select select, html body .select.col-10 select, html body fieldset .select select {
+  width: 380px; }
+
 .col-24,
-.col-10.last {
+.col-last {
   margin-right: 0; }
 
 .col-11 {
@@ -488,15 +517,17 @@ Site Specific Reusable Mixins
 .push-11 {
   margin-left: 460px; }
 
-.text > input.col-11,
-.text > textarea.col-11,
-.text.col-11 > input,
-.text.col-11 > textarea,
-.fieldset.col-11 > .text > input {
+fieldset.col-11 .text input,
+fieldset.col-11 .text input.col-11,
+fieldset.col-11 .text textarea,
+fieldset.col-11 .text textarea.col-11, html body .text.col-11 input, html body .text.col-11 input.col-11, html body .text.col-11 textarea, html body .text.col-11 textarea.col-11, html body fieldset .text input, html body fieldset .text input.col-11, html body fieldset .text textarea, html body fieldset .text textarea.col-11 {
   width: 408px; }
 
+fieldset.col-11 .select select, html body .select.col-11 select, html body fieldset .select select {
+  width: 420px; }
+
 .col-24,
-.col-11.last {
+.col-last {
   margin-right: 0; }
 
 .col-12 {
@@ -516,15 +547,17 @@ Site Specific Reusable Mixins
 .push-12 {
   margin-left: 500px; }
 
-.text > input.col-12,
-.text > textarea.col-12,
-.text.col-12 > input,
-.text.col-12 > textarea,
-.fieldset.col-12 > .text > input {
+fieldset.col-12 .text input,
+fieldset.col-12 .text input.col-12,
+fieldset.col-12 .text textarea,
+fieldset.col-12 .text textarea.col-12, html body .text.col-12 input, html body .text.col-12 input.col-12, html body .text.col-12 textarea, html body .text.col-12 textarea.col-12, html body fieldset .text input, html body fieldset .text input.col-12, html body fieldset .text textarea, html body fieldset .text textarea.col-12 {
   width: 448px; }
 
+fieldset.col-12 .select select, html body .select.col-12 select, html body fieldset .select select {
+  width: 460px; }
+
 .col-24,
-.col-12.last {
+.col-last {
   margin-right: 0; }
 
 .col-13 {
@@ -544,15 +577,17 @@ Site Specific Reusable Mixins
 .push-13 {
   margin-left: 540px; }
 
-.text > input.col-13,
-.text > textarea.col-13,
-.text.col-13 > input,
-.text.col-13 > textarea,
-.fieldset.col-13 > .text > input {
+fieldset.col-13 .text input,
+fieldset.col-13 .text input.col-13,
+fieldset.col-13 .text textarea,
+fieldset.col-13 .text textarea.col-13, html body .text.col-13 input, html body .text.col-13 input.col-13, html body .text.col-13 textarea, html body .text.col-13 textarea.col-13, html body fieldset .text input, html body fieldset .text input.col-13, html body fieldset .text textarea, html body fieldset .text textarea.col-13 {
   width: 488px; }
 
+fieldset.col-13 .select select, html body .select.col-13 select, html body fieldset .select select {
+  width: 500px; }
+
 .col-24,
-.col-13.last {
+.col-last {
   margin-right: 0; }
 
 .col-14 {
@@ -572,15 +607,17 @@ Site Specific Reusable Mixins
 .push-14 {
   margin-left: 580px; }
 
-.text > input.col-14,
-.text > textarea.col-14,
-.text.col-14 > input,
-.text.col-14 > textarea,
-.fieldset.col-14 > .text > input {
+fieldset.col-14 .text input,
+fieldset.col-14 .text input.col-14,
+fieldset.col-14 .text textarea,
+fieldset.col-14 .text textarea.col-14, html body .text.col-14 input, html body .text.col-14 input.col-14, html body .text.col-14 textarea, html body .text.col-14 textarea.col-14, html body fieldset .text input, html body fieldset .text input.col-14, html body fieldset .text textarea, html body fieldset .text textarea.col-14 {
   width: 528px; }
 
+fieldset.col-14 .select select, html body .select.col-14 select, html body fieldset .select select {
+  width: 540px; }
+
 .col-24,
-.col-14.last {
+.col-last {
   margin-right: 0; }
 
 .col-15 {
@@ -600,15 +637,17 @@ Site Specific Reusable Mixins
 .push-15 {
   margin-left: 620px; }
 
-.text > input.col-15,
-.text > textarea.col-15,
-.text.col-15 > input,
-.text.col-15 > textarea,
-.fieldset.col-15 > .text > input {
+fieldset.col-15 .text input,
+fieldset.col-15 .text input.col-15,
+fieldset.col-15 .text textarea,
+fieldset.col-15 .text textarea.col-15, html body .text.col-15 input, html body .text.col-15 input.col-15, html body .text.col-15 textarea, html body .text.col-15 textarea.col-15, html body fieldset .text input, html body fieldset .text input.col-15, html body fieldset .text textarea, html body fieldset .text textarea.col-15 {
   width: 568px; }
 
+fieldset.col-15 .select select, html body .select.col-15 select, html body fieldset .select select {
+  width: 580px; }
+
 .col-24,
-.col-15.last {
+.col-last {
   margin-right: 0; }
 
 .col-16 {
@@ -628,15 +667,17 @@ Site Specific Reusable Mixins
 .push-16 {
   margin-left: 660px; }
 
-.text > input.col-16,
-.text > textarea.col-16,
-.text.col-16 > input,
-.text.col-16 > textarea,
-.fieldset.col-16 > .text > input {
+fieldset.col-16 .text input,
+fieldset.col-16 .text input.col-16,
+fieldset.col-16 .text textarea,
+fieldset.col-16 .text textarea.col-16, html body .text.col-16 input, html body .text.col-16 input.col-16, html body .text.col-16 textarea, html body .text.col-16 textarea.col-16, html body fieldset .text input, html body fieldset .text input.col-16, html body fieldset .text textarea, html body fieldset .text textarea.col-16 {
   width: 608px; }
 
+fieldset.col-16 .select select, html body .select.col-16 select, html body fieldset .select select {
+  width: 620px; }
+
 .col-24,
-.col-16.last {
+.col-last {
   margin-right: 0; }
 
 .col-17 {
@@ -656,15 +697,17 @@ Site Specific Reusable Mixins
 .push-17 {
   margin-left: 700px; }
 
-.text > input.col-17,
-.text > textarea.col-17,
-.text.col-17 > input,
-.text.col-17 > textarea,
-.fieldset.col-17 > .text > input {
+fieldset.col-17 .text input,
+fieldset.col-17 .text input.col-17,
+fieldset.col-17 .text textarea,
+fieldset.col-17 .text textarea.col-17, html body .text.col-17 input, html body .text.col-17 input.col-17, html body .text.col-17 textarea, html body .text.col-17 textarea.col-17, html body fieldset .text input, html body fieldset .text input.col-17, html body fieldset .text textarea, html body fieldset .text textarea.col-17 {
   width: 648px; }
 
+fieldset.col-17 .select select, html body .select.col-17 select, html body fieldset .select select {
+  width: 660px; }
+
 .col-24,
-.col-17.last {
+.col-last {
   margin-right: 0; }
 
 .col-18 {
@@ -684,15 +727,17 @@ Site Specific Reusable Mixins
 .push-18 {
   margin-left: 740px; }
 
-.text > input.col-18,
-.text > textarea.col-18,
-.text.col-18 > input,
-.text.col-18 > textarea,
-.fieldset.col-18 > .text > input {
+fieldset.col-18 .text input,
+fieldset.col-18 .text input.col-18,
+fieldset.col-18 .text textarea,
+fieldset.col-18 .text textarea.col-18, html body .text.col-18 input, html body .text.col-18 input.col-18, html body .text.col-18 textarea, html body .text.col-18 textarea.col-18, html body fieldset .text input, html body fieldset .text input.col-18, html body fieldset .text textarea, html body fieldset .text textarea.col-18 {
   width: 688px; }
 
+fieldset.col-18 .select select, html body .select.col-18 select, html body fieldset .select select {
+  width: 700px; }
+
 .col-24,
-.col-18.last {
+.col-last {
   margin-right: 0; }
 
 .col-19 {
@@ -712,15 +757,17 @@ Site Specific Reusable Mixins
 .push-19 {
   margin-left: 780px; }
 
-.text > input.col-19,
-.text > textarea.col-19,
-.text.col-19 > input,
-.text.col-19 > textarea,
-.fieldset.col-19 > .text > input {
+fieldset.col-19 .text input,
+fieldset.col-19 .text input.col-19,
+fieldset.col-19 .text textarea,
+fieldset.col-19 .text textarea.col-19, html body .text.col-19 input, html body .text.col-19 input.col-19, html body .text.col-19 textarea, html body .text.col-19 textarea.col-19, html body fieldset .text input, html body fieldset .text input.col-19, html body fieldset .text textarea, html body fieldset .text textarea.col-19 {
   width: 728px; }
 
+fieldset.col-19 .select select, html body .select.col-19 select, html body fieldset .select select {
+  width: 740px; }
+
 .col-24,
-.col-19.last {
+.col-last {
   margin-right: 0; }
 
 .col-20 {
@@ -740,15 +787,17 @@ Site Specific Reusable Mixins
 .push-20 {
   margin-left: 820px; }
 
-.text > input.col-20,
-.text > textarea.col-20,
-.text.col-20 > input,
-.text.col-20 > textarea,
-.fieldset.col-20 > .text > input {
+fieldset.col-20 .text input,
+fieldset.col-20 .text input.col-20,
+fieldset.col-20 .text textarea,
+fieldset.col-20 .text textarea.col-20, html body .text.col-20 input, html body .text.col-20 input.col-20, html body .text.col-20 textarea, html body .text.col-20 textarea.col-20, html body fieldset .text input, html body fieldset .text input.col-20, html body fieldset .text textarea, html body fieldset .text textarea.col-20 {
   width: 768px; }
 
+fieldset.col-20 .select select, html body .select.col-20 select, html body fieldset .select select {
+  width: 780px; }
+
 .col-24,
-.col-20.last {
+.col-last {
   margin-right: 0; }
 
 .col-21 {
@@ -768,15 +817,17 @@ Site Specific Reusable Mixins
 .push-21 {
   margin-left: 860px; }
 
-.text > input.col-21,
-.text > textarea.col-21,
-.text.col-21 > input,
-.text.col-21 > textarea,
-.fieldset.col-21 > .text > input {
+fieldset.col-21 .text input,
+fieldset.col-21 .text input.col-21,
+fieldset.col-21 .text textarea,
+fieldset.col-21 .text textarea.col-21, html body .text.col-21 input, html body .text.col-21 input.col-21, html body .text.col-21 textarea, html body .text.col-21 textarea.col-21, html body fieldset .text input, html body fieldset .text input.col-21, html body fieldset .text textarea, html body fieldset .text textarea.col-21 {
   width: 808px; }
 
+fieldset.col-21 .select select, html body .select.col-21 select, html body fieldset .select select {
+  width: 820px; }
+
 .col-24,
-.col-21.last {
+.col-last {
   margin-right: 0; }
 
 .col-22 {
@@ -796,15 +847,17 @@ Site Specific Reusable Mixins
 .push-22 {
   margin-left: 900px; }
 
-.text > input.col-22,
-.text > textarea.col-22,
-.text.col-22 > input,
-.text.col-22 > textarea,
-.fieldset.col-22 > .text > input {
+fieldset.col-22 .text input,
+fieldset.col-22 .text input.col-22,
+fieldset.col-22 .text textarea,
+fieldset.col-22 .text textarea.col-22, html body .text.col-22 input, html body .text.col-22 input.col-22, html body .text.col-22 textarea, html body .text.col-22 textarea.col-22, html body fieldset .text input, html body fieldset .text input.col-22, html body fieldset .text textarea, html body fieldset .text textarea.col-22 {
   width: 848px; }
 
+fieldset.col-22 .select select, html body .select.col-22 select, html body fieldset .select select {
+  width: 860px; }
+
 .col-24,
-.col-22.last {
+.col-last {
   margin-right: 0; }
 
 .col-23 {
@@ -824,15 +877,17 @@ Site Specific Reusable Mixins
 .push-23 {
   margin-left: 940px; }
 
-.text > input.col-23,
-.text > textarea.col-23,
-.text.col-23 > input,
-.text.col-23 > textarea,
-.fieldset.col-23 > .text > input {
+fieldset.col-23 .text input,
+fieldset.col-23 .text input.col-23,
+fieldset.col-23 .text textarea,
+fieldset.col-23 .text textarea.col-23, html body .text.col-23 input, html body .text.col-23 input.col-23, html body .text.col-23 textarea, html body .text.col-23 textarea.col-23, html body fieldset .text input, html body fieldset .text input.col-23, html body fieldset .text textarea, html body fieldset .text textarea.col-23 {
   width: 888px; }
 
+fieldset.col-23 .select select, html body .select.col-23 select, html body fieldset .select select {
+  width: 900px; }
+
 .col-24,
-.col-23.last {
+.col-last {
   margin-right: 0; }
 
 .col-24 {
@@ -852,15 +907,17 @@ Site Specific Reusable Mixins
 .push-24 {
   margin-left: 980px; }
 
-.text > input.col-24,
-.text > textarea.col-24,
-.text.col-24 > input,
-.text.col-24 > textarea,
-.fieldset.col-24 > .text > input {
+fieldset.col-24 .text input,
+fieldset.col-24 .text input.col-24,
+fieldset.col-24 .text textarea,
+fieldset.col-24 .text textarea.col-24, html body .text.col-24 input, html body .text.col-24 input.col-24, html body .text.col-24 textarea, html body .text.col-24 textarea.col-24, html body fieldset .text input, html body fieldset .text input.col-24, html body fieldset .text textarea, html body fieldset .text textarea.col-24 {
   width: 928px; }
 
+fieldset.col-24 .select select, html body .select.col-24 select, html body fieldset .select select {
+  width: 940px; }
+
 .col-24,
-.col-24.last {
+.col-last {
   margin-right: 0; }
 
 /*
@@ -876,18 +933,15 @@ $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 Fusionary Easel v2.0
 Site Specific Reusable Mixins
 
-To target IE6/7 within a mixin, use the following hacks
-_property targets ie7 only
-*property targets ie6/7 only
 */
 /** =typography mixins
 ************************************************************/
 /** =line-heights **/
-/** =line-heights **/
+/** =letter spacing **/
 /** =font-family **/
+/** =font-reset **/
 /** =baseline body copy
 ************************************************************/
-/** =reset **/
 /** =baseline links
 ************************************************************/
 /** =reset **/
@@ -915,19 +969,6 @@ http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
 /** =base form
 ************************************************************/
 /** =reset **/
-.text label {
-  display: block; }
-.text input {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  padding: 3px 5px;
-  background-color: #f2f2f2;
-  border: 1px solid #e6e6e6;
-  color: gray;
-  border-top-color: #b3b3b3;
-  border-left-color: #b3b3b3; }
-
 /** =section
 ************************************************************
 Sections are block elements with bottom margins and a clearfix applied.
@@ -986,7 +1027,7 @@ em > strong {
 
 small {
   font-style: italic;
-  color: #898989; }
+  color: #bcbcbc; }
 
 del {
   text-decoration: line-through; }
@@ -1009,9 +1050,12 @@ object {
   -moz-box-orient: vertical;
   vertical-align: top;
   zoom: 1;
-  *display: inline;
   max-width: 100%;
   height: auto; }
+  .ie6 img, .ie7 img, .ie6
+  object, .ie7
+  object {
+    display: inline; }
 
 /** =paragraph
 ************************************************************/
@@ -1104,9 +1148,11 @@ ol {
   ol > li,
   ol ol > li {
     list-style: decimal outside;
-    margin-left: 1.5em;
-    *margin-left: 2em;
-    /* ie6/7 */ }
+    margin-left: 1.5em; }
+    .ie6 ol > li, .ie7 ol > li, .ie6
+    ol ol > li, .ie7
+    ol ol > li {
+      margin-left: 2em; }
 
 dl {
   display: block;
@@ -1120,9 +1166,7 @@ dl {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  dl > *:last-child, dl > .last {
-    margin-bottom: 0; }
-  dl.last {
+  dl > :last-child, dl > .last {
     margin-bottom: 0; }
   dl > dt {
     font-weight: bold; }
@@ -1133,7 +1177,7 @@ table {
   width: 100%;
   margin-bottom: 20px; }
   table th, table td {
-    border: 1px solid #e6e6e6;
+    border: 1px solid #ebebeb;
     padding: 5px 10px;
     text-align: left; }
   table th {
@@ -1148,7 +1192,7 @@ table {
     text-align: center;
     font-weight: bold; }
   table tr.alt th, table tr.alt td {
-    background-color: #e6e6e6; }
+    background-color: #ebebeb; }
 
 blockquote {
   display: block;
@@ -1165,9 +1209,7 @@ blockquote {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  blockquote > *:last-child, blockquote > .last {
-    margin-bottom: 0; }
-  blockquote.last {
+  blockquote > :last-child, blockquote > .last {
     margin-bottom: 0; }
 
 pre {
@@ -1194,9 +1236,7 @@ pre {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  pre > *:last-child, pre > .last {
-    margin-bottom: 0; }
-  pre.last {
+  pre > :last-child, pre > .last {
     margin-bottom: 0; }
 
 address {
@@ -1211,26 +1251,7 @@ address {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  address > *:last-child, address > .last {
-    margin-bottom: 0; }
-  address.last {
-    margin-bottom: 0; }
-
-form > fieldset {
-  display: block;
-  margin-bottom: 20px;
-  display: block;
-  zoom: 1; }
-  form > fieldset:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-    overflow: hidden; }
-  form > fieldset > *:last-child, form > fieldset > .last {
-    margin-bottom: 0; }
-  form > fieldset.last {
+  address > :last-child, address > .last {
     margin-bottom: 0; }
 
 /** =groups and sections
@@ -1258,10 +1279,211 @@ form > fieldset {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  .section > *:last-child, .section > .last {
+  .section > :last-child, .section > .last {
     margin-bottom: 0; }
-  .section.last {
+
+.last {
+  margin-bottom: 0; }
+
+/** =forms
+************************************************************/
+form fieldset {
+  display: block;
+  margin-bottom: 20px;
+  display: block;
+  zoom: 1; }
+  form fieldset:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
+  form fieldset > :last-child, form fieldset > .last {
     margin-bottom: 0; }
+form fieldset > fieldset {
+  margin-top: 20px; }
+form .actions {
+  border-top: 1px solid #ebebeb;
+  padding: 10px 0 0; }
+
+label[for] {
+  cursor: pointer; }
+
+.legend {
+  color: #565656;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.538em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+  text-indent: none;
+  text-transform: none;
+  word-spacing: normal;
+  white-space: normal;
+  vertical-align: baseline;
+  margin: 0;
+  border-bottom: 1px solid #ebebeb;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 10px; }
+
+/** =text, select, textarea **/
+.text,
+.select {
+  display: block;
+  zoom: 1;
+  margin-bottom: 10px; }
+  .text:after,
+  .select:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
+  .text label,
+  .select label {
+    display: block;
+    margin: 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: #232323; }
+    .text label small,
+    .select label small {
+      font-size: 12px;
+      margin-left: 5px; }
+  .text input,
+  .text select,
+  .text textarea,
+  .select input,
+  .select select,
+  .select textarea {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 5px;
+    background-color: #f7f7f7;
+    border: 1px solid #b8b8b8;
+    color: #666666;
+    border-bottom-color: #ebebeb; }
+    .text input:focus,
+    .text select:focus,
+    .text textarea:focus,
+    .select input:focus,
+    .select select:focus,
+    .select textarea:focus {
+      background-color: white;
+      color: #4d4d4d; }
+
+.text .placeholder {
+  color: #bcbcbc;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 6px 0 0 6px; }
+
+/** =radios, checkboxes **/
+.radio,
+.checkbox {
+  display: block;
+  zoom: 1;
+  margin-bottom: 5px; }
+  .radio:after,
+  .checkbox:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
+  .radio input,
+  .checkbox input {
+    float: left; }
+  .radio label,
+  .checkbox label {
+    display: block;
+    margin-left: 20px;
+    line-height: 1.25em; }
+
+.radio-group > .legend,
+.checkbox-group > .legend {
+  color: #565656;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.538em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+  text-indent: none;
+  text-transform: none;
+  word-spacing: normal;
+  white-space: normal;
+  vertical-align: baseline;
+  border-bottom: 0;
+  color: inherit;
+  display: block;
+  margin: 0;
+  font-weight: bold;
+  font-size: 14px;
+  color: #232323;
+  margin-bottom: 5px; }
+  .radio-group > .legend small,
+  .checkbox-group > .legend small {
+    font-size: 12px;
+    margin-left: 5px; }
+
+/** =disabled inputs **/
+input[disabled],
+button[disabled],
+select[disabled],
+textarea[disabled] {
+  opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -moz-opacity: 0.5; }
+
+.disabled,
+.disabled label {
+  opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -moz-opacity: 0.5;
+  cursor: default; }
+  .disabled *,
+  .disabled label * {
+    opacity: 1;
+    -khtml-opacity: 1;
+    -moz-opacity: 1; }
+
+/** =validation **/
+.required-mark {
+  color: #ac0000;
+  font-weight: bold; }
+
+.text.error *,
+.select.error * {
+  color: #ac0000; }
+.text.error input,
+.text.error textarea,
+.text.error select,
+.select.error input,
+.select.error textarea,
+.select.error select {
+  background-color: #ffdfdf;
+  border-color: #ffacac; }
+.text.error .error-message,
+.select.error .error-message {
+  text-align: right; }
+.text.error .placeholder,
+.select.error .placeholder {
+  color: #e49494; }
 
 /** =buttons
 ************************************************************/
@@ -1272,7 +1494,6 @@ form > fieldset {
   -moz-box-orient: vertical;
   vertical-align: top;
   zoom: 1;
-  *display: inline;
   cursor: pointer;
   text-align: center;
   position: relative;
@@ -1282,39 +1503,39 @@ form > fieldset {
   /* ie */
   overflow: visible;
   /* ie */
-  background-position: 100% 0;
   /* removes 1px border in FF */
-  padding: 0 20px 0 0; }
+  padding: 0 18px 0 0;
+  background-position: 100% 0; }
   .btn:hover {
     color: inherit;
     background: none; }
+  .ie6 .btn, .ie7 .btn {
+    display: inline; }
   .btn > span {
     position: relative;
     display: block;
     white-space: nowrap; }
-  .btn span {
-    background-position: 0 -100px; }
-  .btn:hover {
-    background-position: 100% -200px; }
-  .btn:hover span {
-    background-position: 0 -300px; }
-  .btn:active {
-    background-position: 100% -400px; }
-  .btn:active span {
-    background-position: 0 -500px; }
   .btn::-moz-focus-inner {
     border: none;
     padding: 0; }
   .btn > span {
-    padding: 0 0 0 20px;
+    padding: 0 0 0 18px;
     height: 32px;
     line-height: 31px;
-    color: white;
+    color: #232323;
     font-size: 15px; }
-
-.btn,
-.btn > span {
-  background-image: url(images/sprites/btn-default-white.png); }
+  .btn, .btn:hover, .btn:active, .btn > span {
+    background-image: url(images/easel/sprites/btn-default-white.png); }
+  .btn > span {
+    background-position: 0 -100px; }
+  .btn:hover {
+    background-position: 100% -200px; }
+  .btn:hover > span {
+    background-position: 0 -300px; }
+  .btn:active {
+    background-position: 100% -400px; }
+  .btn:active > span {
+    background-position: 0 -500px; }
 
 /** =easel icons
 ************************************************************/
@@ -1324,9 +1545,10 @@ form > fieldset {
   -moz-box-orient: vertical;
   vertical-align: top;
   zoom: 1;
-  *display: inline;
   padding: 0 0 0 20px;
   background: url("images/easel/icons/default/external-a.png") no-repeat 0 50%; }
+  .ie6 .icn.external, .ie7 .icn.external {
+    display: inline; }
   .icn.external.alt {
     padding: 0 20px 0 0;
     background-position: 100% 50%; }
@@ -1336,9 +1558,10 @@ form > fieldset {
   -moz-box-orient: vertical;
   vertical-align: top;
   zoom: 1;
-  *display: inline;
   padding: 0 0 0 20px;
   background: url("images/easel/icons/default/calendar.png") no-repeat 0 50%; }
+  .ie6 .icn.calendar, .ie7 .icn.calendar {
+    display: inline; }
   .icn.calendar.alt {
     padding: 0 20px 0 0;
     background-position: 100% 50%; }
@@ -1356,9 +1579,9 @@ form > fieldset {
   padding: 20px 20px;
   border: 2px solid;
   background: no-repeat 10px 50%;
-  background-color: #f2f2f2;
-  color: gray;
-  border-color: #e6e6e6; }
+  background-color: #f7f7f7;
+  color: #666666;
+  border-color: #ebebeb; }
   .box:after {
     content: ".";
     display: block;
@@ -1366,9 +1589,7 @@ form > fieldset {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  .box > *:last-child, .box > .last {
-    margin-bottom: 0; }
-  .box.last {
+  .box > :last-child, .box > .last {
     margin-bottom: 0; }
 
 .box.info {
@@ -1393,9 +1614,7 @@ form > fieldset {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  .box.info > *:last-child, .box.info > .last {
-    margin-bottom: 0; }
-  .box.info.last {
+  .box.info > :last-child, .box.info > .last {
     margin-bottom: 0; }
 .box.warning {
   display: block;
@@ -1419,9 +1638,7 @@ form > fieldset {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  .box.warning > *:last-child, .box.warning > .last {
-    margin-bottom: 0; }
-  .box.warning.last {
+  .box.warning > :last-child, .box.warning > .last {
     margin-bottom: 0; }
 .box.error {
   display: block;
@@ -1445,9 +1662,7 @@ form > fieldset {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  .box.error > *:last-child, .box.error > .last {
-    margin-bottom: 0; }
-  .box.error.last {
+  .box.error > :last-child, .box.error > .last {
     margin-bottom: 0; }
 .box.success {
   display: block;
@@ -1461,7 +1676,7 @@ form > fieldset {
   border: 2px solid;
   background: no-repeat 10px 50%;
   background-color: #e6efc2;
-  color: #516600;
+  color: #5d710e;
   border-color: #c2e632;
   background-image: url(images/easel/icons/status/success.png); }
   .box.success:after {
@@ -1471,15 +1686,13 @@ form > fieldset {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
-  .box.success > *:last-child, .box.success > .last {
-    margin-bottom: 0; }
-  .box.success.last {
+  .box.success > :last-child, .box.success > .last {
     margin-bottom: 0; }
 .box.info, .box.warning, .box.error, .box.success {
   padding-left: 54px; }
 
 /** =layout
-************************************************************/
+***********************************************	*************/
 html {
   height: 100%;
   position: relative; }
@@ -1490,9 +1703,10 @@ body {
 
 .wrapper {
   min-height: 100%;
-  _height: 100%;
   overflow: hidden;
   position: relative; }
+  .ie6 .wrapper {
+    height: 100%; }
 
 .footer {
   position: absolute;
@@ -1505,12 +1719,14 @@ body {
   padding-bottom: 100px; }
 
 .body,
+.header,
 .footer > .inner {
   width: 960px;
   margin: 0 auto;
   display: block;
   zoom: 1; }
   .body:after,
+  .header:after,
   .footer > .inner:after {
     content: ".";
     display: block;

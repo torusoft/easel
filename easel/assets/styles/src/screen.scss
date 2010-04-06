@@ -21,7 +21,11 @@ Reset, Tools, Grid, Section Definition, Reset Mixin
 @import "base";
 
 /** =layout
-************************************************************/
+***********************************************	*************/
 @include sticky_footer;
+
 .body,
-.footer > .inner { @include container; }
+.header,
+.footer > .inner {
+	@include container;
+}
