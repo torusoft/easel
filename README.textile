@@ -69,3 +69,20 @@ h2. Commonly Used Classes
 * @.aside@
 * @.icn@
 * @.btn@
+
+h2. Targetting IE
+
+Easel allows you to target IE6/7/8 without CSS hacks. Using a set of IE conditional comment wrapper divs, you may target a specific version of IE like so:
+<pre>
+<code>
+.body {
+	width: 100px;
+}
+.ie6 .body {
+	width: 200px;
+}
+.ie7 textarea {
+	overflow: auto;
+}
+</code>
+</pre>
