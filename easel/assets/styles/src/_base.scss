@@ -112,11 +112,23 @@ label[for] {
 		padding: 5px $input_padding_width;
 		background-color: $default_bg;
 		border: 1px solid darken($default_border, 20%);
+		border-bottom-color: $default_border;	
 		color: $default_text;
-		border-bottom-color: $default_border;
 		&:focus {
 			background-color: lighten($default_bg, 10%);
 			color: darken($default_text, 10%);
+		}
+	}
+	&.error {
+		input,
+		select,
+		textarea {
+			&:focus {
+				border-color: darken($default_border, 20%);
+				border-bottom-color: $default_border;	
+				background-color: lighten($default_bg, 10%);
+				color: darken($default_text, 10%);
+			}
 		}
 	}
 }
@@ -224,8 +236,14 @@ textarea[disabled] {
 /** =easel icons
 ************************************************************/
 .icn {
-	&.external { @include easel-icon("external-a"); }
+	&.external { @include easel-icon("external-a", 18px); }
 	&.calendar { @include easel-icon("calendar"); }
+	&.home 		 { @include easel-icon("home"); }
+	&.paper 	 { @include easel-icon("paper"); }
+	&.cog 	 	 { @include easel-icon("cog"); }
+	&.error 	 { @include easel-icon("error"); }
+	&.eye 	   { @include easel-icon("eye"); }
+	&.pencil 	 { @include easel-icon("pencil"); }
 }
 
 /** =status boxes

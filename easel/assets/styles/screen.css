@@ -994,6 +994,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 /** =spaced horizontal nav **/
 /** =piped horizontal inline nav **/
 /** =spaced horizontal inline nav **/
+/** =ruled list **/
 /** =superfish dropdowns mixin
 ************************************************************/
 /** =sticky footer mixin
@@ -1132,7 +1133,7 @@ ul {
       margin-bottom: 0; }
   ul > li,
   ul ul > li {
-    background: url(images/bullets/square-black.png) no-repeat 0.4em 0.4em;
+    background: url(images/easel/bullets/square-black.png) no-repeat 0.4em 0.4em;
     padding-left: 1.5em; }
 
 ol {
@@ -1372,8 +1373,8 @@ label[for] {
     padding: 5px 5px;
     background-color: #f7f7f7;
     border: 1px solid #b8b8b8;
-    color: #666666;
-    border-bottom-color: #ebebeb; }
+    border-bottom-color: #ebebeb;
+    color: #666666; }
     .text input:focus,
     .text select:focus,
     .text textarea:focus,
@@ -1382,6 +1383,16 @@ label[for] {
     .select textarea:focus {
       background-color: white;
       color: #4d4d4d; }
+  .text.error input:focus,
+  .text.error select:focus,
+  .text.error textarea:focus,
+  .select.error input:focus,
+  .select.error select:focus,
+  .select.error textarea:focus {
+    border-color: #b8b8b8;
+    border-bottom-color: #ebebeb;
+    background-color: white;
+    color: #4d4d4d; }
 
 .text .placeholder {
   color: #bcbcbc;
@@ -1545,12 +1556,12 @@ textarea[disabled] {
   -moz-box-orient: vertical;
   vertical-align: top;
   zoom: 1;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 18px;
   background: url("images/easel/icons/default/external-a.png") no-repeat 0 50%; }
   .ie6 .icn.external, .ie7 .icn.external {
     display: inline; }
   .icn.external.alt {
-    padding: 0 20px 0 0;
+    padding: 0 18px 0 0;
     background-position: 100% 50%; }
 .icn.calendar {
   display: inline-block;
@@ -1558,12 +1569,90 @@ textarea[disabled] {
   -moz-box-orient: vertical;
   vertical-align: top;
   zoom: 1;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 25px;
   background: url("images/easel/icons/default/calendar.png") no-repeat 0 50%; }
   .ie6 .icn.calendar, .ie7 .icn.calendar {
     display: inline; }
   .icn.calendar.alt {
-    padding: 0 20px 0 0;
+    padding: 0 25px 0 0;
+    background-position: 100% 50%; }
+.icn.home {
+  display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+  zoom: 1;
+  padding: 0 0 0 25px;
+  background: url("images/easel/icons/default/home.png") no-repeat 0 50%; }
+  .ie6 .icn.home, .ie7 .icn.home {
+    display: inline; }
+  .icn.home.alt {
+    padding: 0 25px 0 0;
+    background-position: 100% 50%; }
+.icn.paper {
+  display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+  zoom: 1;
+  padding: 0 0 0 25px;
+  background: url("images/easel/icons/default/paper.png") no-repeat 0 50%; }
+  .ie6 .icn.paper, .ie7 .icn.paper {
+    display: inline; }
+  .icn.paper.alt {
+    padding: 0 25px 0 0;
+    background-position: 100% 50%; }
+.icn.cog {
+  display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+  zoom: 1;
+  padding: 0 0 0 25px;
+  background: url("images/easel/icons/default/cog.png") no-repeat 0 50%; }
+  .ie6 .icn.cog, .ie7 .icn.cog {
+    display: inline; }
+  .icn.cog.alt {
+    padding: 0 25px 0 0;
+    background-position: 100% 50%; }
+.icn.error {
+  display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+  zoom: 1;
+  padding: 0 0 0 25px;
+  background: url("images/easel/icons/default/error.png") no-repeat 0 50%; }
+  .ie6 .icn.error, .ie7 .icn.error {
+    display: inline; }
+  .icn.error.alt {
+    padding: 0 25px 0 0;
+    background-position: 100% 50%; }
+.icn.eye {
+  display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+  zoom: 1;
+  padding: 0 0 0 25px;
+  background: url("images/easel/icons/default/eye.png") no-repeat 0 50%; }
+  .ie6 .icn.eye, .ie7 .icn.eye {
+    display: inline; }
+  .icn.eye.alt {
+    padding: 0 25px 0 0;
+    background-position: 100% 50%; }
+.icn.pencil {
+  display: inline-block;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  vertical-align: top;
+  zoom: 1;
+  padding: 0 0 0 25px;
+  background: url("images/easel/icons/default/pencil.png") no-repeat 0 50%; }
+  .ie6 .icn.pencil, .ie7 .icn.pencil {
+    display: inline; }
+  .icn.pencil.alt {
+    padding: 0 25px 0 0;
     background-position: 100% 50%; }
 
 /** =status boxes
@@ -1691,8 +1780,8 @@ textarea[disabled] {
 .box.info, .box.warning, .box.error, .box.success {
   padding-left: 54px; }
 
-/** =layout
-***********************************************	*************/
+/** =example pages
+************************************************************/
 html {
   height: 100%;
   position: relative; }
@@ -1716,7 +1805,7 @@ body {
   height: 100px; }
 
 .body {
-  padding-bottom: 100px; }
+  padding-bottom: 150px; }
 
 .body,
 .header,
@@ -1734,3 +1823,80 @@ body {
     clear: both;
     visibility: hidden;
     overflow: hidden; }
+
+body {
+  background: url(../../../examples/assets/styles/images/f.png) 0 -80px; }
+
+.wrapper {
+  background: url(../../../examples/assets/styles/images/color-bar.png) repeat-x; }
+
+.header {
+  padding-top: 30px;
+  text-align: center; }
+
+.header > h1,
+.body > h1 {
+  font-size: 60px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin: 0 0 20px; }
+
+.body {
+  padding-top: 20px; }
+
+.footer > .inner {
+  border-top: 1px solid #ebebeb;
+  text-align: right; }
+
+.header .icn.home {
+  position: absolute;
+  top: 10px;
+  right: 10px; }
+
+.p-thin .body {
+  width: 960px;
+  margin: 0 auto;
+  display: block;
+  zoom: 1;
+  width: 460px; }
+  .p-thin .body h2 {
+    text-align: center; }
+  .p-thin .body:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
+
+.nav {
+  margin-bottom: 0;
+  border-bottom: 1px solid #ebebeb;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -0.025em; }
+  .nav > li,
+  .nav ul > li,
+  .nav ol > li {
+    line-height: 1.538em;
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    background: none; }
+  .nav ul, .nav ol {
+    margin-top: 0; }
+  .nav > dt {
+    font-weight: normal; }
+  .nav > dd {
+    margin-bottom: 0; }
+  .nav a {
+    display: block; }
+  .nav > li {
+    border-top: 1px solid #ebebeb; }
+    .nav > li > a,
+    .nav > li > a.icn {
+      display: block;
+      /* reset icon links from inline-block */ }
+  .nav a:hover {
+    background-color: #f7f7f7; }

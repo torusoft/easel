@@ -154,7 +154,7 @@ Site Specific Reusable Mixins
 	@include list;
 	& > li,
 	ul > li {
-		background: url(images/bullets/square-black.png) no-repeat .4em .4em;
+		background: url(images/easel/bullets/square-black.png) no-repeat .4em .4em;
 		padding-left: 1.5em;
 	}
 }
@@ -383,7 +383,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 
 /** =easel icons (20x20)
 ************************************************************/
-@mixin easel_icon($icon, $padding: 20px) {
+@mixin easel_icon($icon, $padding: 25px) {
 	@include inline-block;
 	padding: 0 0 0 $padding;
 	background: url('images/easel/icons/default/'#{$icon}'.png') no-repeat 0 50%;
@@ -515,6 +515,19 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 	}
 }
 
+/** =ruled list **/
+@mixin vnav_ruled($color: $default_border, $style: solid, $width: 1px) {
+	@include vnav;
+	& > li {
+		border-top: $width $style $color;
+		> a,
+		> a.icn {
+			display: block; /* reset icon links from inline-block */
+		}
+	}
+	border-bottom: $width $style $color;
+}
+
 /** =superfish dropdowns mixin
 ************************************************************/
 @mixin superfish {
@@ -560,7 +573,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 ************************************************************
 To be applied to the html element
 ************************************************************/
-@mixin sticky_footer($footer_height: 100px) {
+@mixin sticky_footer($footer_height: 100px, $extra_padding: 0) {
 	html {
 		height: 100%;
 		position: relative;
@@ -582,7 +595,7 @@ To be applied to the html element
 		height: $footer_height;
 	}
 	.body {
-		padding-bottom: $footer_height;
+		padding-bottom: $extra_padding + $footer_height;
 	}
 }
 
