@@ -1,211 +1,65 @@
 h1. Easel Guide
 
-_Currently all asset paths are absolute to the site root, so we're assuming that you're running a virtualhost. See <a href="http://code.google.com/p/virtualhost-sh/">http://code.google.com/p/virtualhost-sh/</a> or use MAMP._
+Easel v2 runs on "SASS 3":http://beta.sass-lang.com/docs/yardoc/file.SASS_CHANGELOG.html
 
-h2. TODO
+To install: @gem install haml --pre@
 
-* print stylesheet
-* recordset styles
-* rounded corner markup/classes
-* example markup
-* ruled heading classes
-* default padding/borders for inav
-* do we need horizontal spacing on code?
-* more margin classes?
-* padding classes?
-* review lineheights on li's, possibly move to a class instead of baseline
-* should we extract ruled, and other really specific stuff to extras or elsewhere?
-* fixed width dl? class
-* dev.css stylesheet
-* pagination classes/styles
-* nowrap class
-* slideshow
-<div class="slideshow">
-  <div class="slides">
-    
-  </div>
-  <div class="controls">
-    <a class="prev"></a>
-    <a class="next"></a>
-  </div>
-</div>
+h2. Naming Conventions, formatting
 
-h2. Classes
+* CSS classes should be hyphenated, lowercase
+* SASS variables and mixins should be underscored to differentiate
+* 2 space soft tabs
+* Classes should iterate numerically if referencing source order. Nest levels with hyphens: @.content-1@, @.content-1-1@, @.content-1-2@, @.content-2@, etc.
+* Classes should iterate alphabetically if merely triggering a differnt style: @.section-c@, @.section-a@, @.section-c@,
+* Avoid using ids for styling.
 
-h3. Layout
-
-* @.container@
+h2. Example Class Structure
 * @.wrapper@
 * @.header@
+* @.body@
+** @.content@
+*** @.content-header@
+**** @.content-header-1@
+**** @.content-header-2@
+*** @.content-1@
+**** @.content-1-1@
+**** @.content-1-2@
+*** @.content-2@
 * @.footer@
-* @.content@
-** @.content-main@
-** @.content-right@
-** @.content-left@
+** @.inner@
+*** @.footer-1@
+**** @.footer-1-1@
+**** @.footer-1-2@
+*** @.footer-2@
 
-h3. Navigation
+h3. Grid & Layout Classes
 
-* @.nav-main@
-* @.nav-local@
-* @.nav-sub@
-* @.nav-user@
-* @.nav-admin@
-* @.nav-global@
-* @.nav@ -- no specific styles, but can be used to target nav by location (e.g. .header .nav)
-* @.hnav@ -- horizontal navigation (floats li's left)
-* @.vnav@ -- vertical navigation (stacked vertical nav, links have block display)
-* @.inav@ -- inline navigation (e.g. pipe separated text navs)
-
-h3. Forms
-
-Forms can be set up using the @.hform@ or @.vform@ classes on any container of the input (e.g. @form@, @fieldset@, or @div.text@). @.col-x@ classes can be used on inputs, or if all inputs in a @fieldset@ need the same width, you can declare it on the @fieldset@.
-
-* @.text@ -- this class goes for input[type="text"],input[type="password"], textarea 
-* @.textarea@ -- include .text and .textarea
-* @.select@
-* @.file@
-* @.checkbox@
-* @.radio@
-* @.checkboxes@ -- fieldset.checkboxes
-* @.radios@ -- fieldset.radios
-* @.hform@ -- horizontal form (labels are side by side/inline with inputs)
-* @.vform@ -- vertical form (labels are on top of inputs)
-* @.multi-line@ -- inputs close to gether sharing a common label (e.g. address/address line 2)
-* @.fancy@ -- makes input text bold and adjusts letterspacing for a beefier look
-* @.legend@ -- the legend element is a pain to style, so don't be afraid to just use a heading with the class legend.
-* @.actions@ -- div.actions, a container for submit, cancel, reset buttons at the end of the form
-* @.validate@ -- class to trigger JS validation (e.g. @form.validate@)
-
-h3. Validation/Flash Messages
-
-* @.box@ -- a padded gray box
-** @.box.single-line@ -- not neccessary, but if the text is only a single line, this will center it vertically.
-** @.box.error@
-** @.box.notice@
-** @.box.success@
-* @.overlay@ -- transparent overlay for ajax form submission
-* @.loading@ -- wrapper for ajax spinner
-* @.error-summary@ -- error summary displayed before/after forms
-* @.error-message@ -- error indicator/description
-* @.required-mark@ -- indicator that a field is required (e.g. *)
-* @.error@
-* @.notice@
-* @.success@
+* @.section@ -- A common wrapper for most things. It is a stackable block with a base bottom margin and a clearfix applie. Furthermore, its last child should receive no margin to prevent doubling up margins.
+* @.last@ -- zeros bottom margin
+* @.col-x@ -- a floating column of specified width
+* @.append-x -- append columns of padding to a column
+* @.prepend-x -- prepend columns of padding to a column
+* @.pull-x@ -- pull column to the left x columns
+* @.push-x@ -- push column to the right x columns
+* @.col-last@ -- last column in a row needs this to zero right margin
 
 h3. Utility Classes
 
-* @.reset@ -- removes most styling for elements
-* @.js@ -- attach to html element with JS
+* @.js@ -- add to html element with JS to allow JS specific styling 
 * @.js-hide@ -- hide if JS is enabled
 * @.js-show@ -- show only if JS is enabled
-* @.hide@ -- hide element (display:none)
-* @.access@ -- hide element, but retain accessibility
+* @.hide@ -- hide element with display:none
+* @.hide-alt@ -- hide element, retain accessibility, does not use display (useful when JS needs to find dimensions)
+* @.js-hide-alt@ -- same as above, but for JS only
 * @.right@ -- float right
 * @.left@ -- float left
-* @.clear@
-* @.center@ -- no float, auto l/r margins (needs a width, or an implied width, like an image)
-* @.text-right@
-* @.text-left@
-* @.text-center@
-* @.no-border@
-* @.replace@ -- image replacement, useful to group selectors at top of stylsheet
-* @.no-margin@
-* @.half-margin@ -- 1/2 standard bottom margin for block elements
-* @.double-margin@ -- 2X bottom margin for block elements
-* @.group@ -- clearfix
+* @.clear@ -- clear floats
+* @.replace@ -- image replacement
+* @.group@, @.clearfix@  -- clearfix
 
-h3. Common classes
+h3. Commonly Used Classes
 
-* @.block@ -- a stackable block with a bottom margin. Margin amount may be equivalent to standard block elements (@p@, @ul@), but not always. Usually clear from site mockups.
-* @.alt@ -- zebra row striping, other things alternating/alternate
-* @.biglink@ -- JS big links, place on any container with a link inside to link entire container
-* @.note@ -- often lighter colors and smaller text
-* @.intro@ -- lead in parapraph
-* @.framed@ -- for images or linked images
-* @.captioned@ -- wrapper for image/caption combo
-* @.ruled@ -- ruled list, no bullets
-* @.rnd@ -- rounded corners
-* @.amp@ -- fancy ampersand
-* @.btn@ -- sliding doors buttons/link buttons
-* @.inner@
-* @.toc@ -- table of contents
-* @.slideshow@
-* @.branding@
-* @.logo@
-* @.meta@
-* @.callout@
-* @.hdg@ -- heading
-* @.fixed@ -- fixed width
-
-h3. Common Prefixes
-
-* @.btn-@ -- button
-* @.icn-@ -- icon
-* @.pho-@ -- photo
-* @.li-n@ -- _n_ being sequential numbering of list items. If we need to specifically target list items, (e.g. horizontal image nav), use class @.li-1@, @.li-2@, etc.
-* @.logo-@
-* @.txt-@ -- images/classes being replaced
-* @.hdg-@ -- heading
-
-
-h3. Common Suffixes
-
-* @-main@
-* @-sub@
-* @-inner@
-* @-outer@
-* @-alt@
-
-h2. Comments
-
-h3. File Header
-
-<notextile><pre><code>
-/** =screen.css
-************************************************************
-@project      Easel
-@colordef     #808080; dark gray (body copy)
-@colordef     #6aa000; lime green (link)
-@colordef     #517805; darker lime green (link hover)
-@colordef     #eafbd8; light green (link hover bg)
-************************************************************/
-</code></pre>
-
-h3. Comment heading 
-
-<pre><code>
-/** =fonts
-************************************************************/
-</code></pre></notextile>
-
-h3. Comment Heading (with notes)
-
-<pre><code>
-/** =fonts
-************************************************************
-@see   http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
-@see   http://www.sitepoint.com/article/eight-definitive-font-stacks/
-@see   http://stevecochrane.com/v3/2007/12/13/helvetica-neue-variants-for-use-on-the-web/
-************************************************************/
-</code></pre></notextile>
-
-h3. Comment Subheading
-
-<pre><code>
-/* =margins */
-</code></pre></notextile>
-
-h2. CSS formatting
-
-* use hyphens
-* all lowercase
-* 2 space soft tabs
-* observe spacing as below or Karl will hurt you
-
-<notextile><pre>
-.class-name {
-  color: #fff;
-  text-decoration: none;
-}
-.class-name { color: #fff; }
-</pre></notextile>
+* @.li-x@ --unique class
+* @.nav@ --navigation
+* @.nav-main/aside/global/footer@
+* @.content-main/aside/header/footer@

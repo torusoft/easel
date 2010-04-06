@@ -172,6 +172,8 @@ a {
 /** =cross-browser inline-block **/
 /** =css3
 ************************************************************/
+/** =eliminate chunky text in webkit	
+************************************************************/
 /*
 $$$$$$$$\                              $$\ 
 $$  _____|                             $$ |
@@ -1494,7 +1496,12 @@ textarea[disabled] {
   border-color: #ffacac; }
 .text.error .error-message,
 .select.error .error-message {
-  text-align: right; }
+  text-align: right;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em; }
 .text.error .placeholder,
 .select.error .placeholder {
   color: #e49494; }
@@ -1951,6 +1958,7 @@ body {
     overflow: hidden; }
 
 body {
+  -webkit-text-stroke: 1px transparent;
   background: url(../../../examples/assets/styles/images/f.png) 0 -80px; }
 
 .wrapper {

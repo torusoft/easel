@@ -215,3 +215,9 @@ a {
       filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end'); /* IE6,IE7 */
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end')"; /* IE8 */
 }
+
+/** =eliminate chunky text in webkit	
+************************************************************/
+@mixin slim_webkit {
+	-webkit-text-stroke: 1px transparent;
+}

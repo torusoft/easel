@@ -30,6 +30,7 @@ Reset, Tools, Grid, Section Definition, Reset Mixin
 	@include container;
 }
 body {
+	@include slim_webkit;
   background: url(../../../examples/assets/styles/images/f.png) 0 -80px;
 }
 .wrapper {

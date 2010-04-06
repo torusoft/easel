@@ -204,6 +204,7 @@ textarea[disabled] {
 		}
 		.error-message {
 			text-align: right;
+			@include upper;
 		}
 		.placeholder {
 			color: desaturate(lighten($error_text, 40%), 40%);
