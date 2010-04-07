@@ -1,17 +1,15 @@
 /*
-$$$$$$$$\                              $$\ 
-$$  _____|                             $$ |
-$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
-$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
-$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
-$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
-$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
-\________|\_______|\_______/  \_______|\__|
-
-Fusionary Easel v2.0
-Reset, Tools, Grid, Section Definition, Reset Mixin
-
-*/
+// $$$$$$$$\                              $$\ 
+// $$  _____|                             $$ |
+// $$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+// $$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+// $$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+// $$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+// $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+// \________|\_______|\_______/  \_______|\__|
+// 
+// Fusionary Easel v2.0
+// Reset, Tools, Grid, Base Mixins
 
 /** =reset
 ************************************************************
@@ -220,4 +218,19 @@ a {
 ************************************************************/
 @mixin slim_webkit {
 	-webkit-text-stroke: 1px transparent;
+}
+
+/** =section
+************************************************************
+Sections are block elements with bottom margins and a clearfix applied.
+Ideally, their last child should get get no bottom margin to prevent double margins.
+************************************************************/
+@mixin section($margin: $margin_y) {
+	display: block;
+	margin-bottom: $margin;
+	@include clearfix;
+	& > :last-child,
+	& > .last {
+		margin-bottom: 0;
+	}
 }

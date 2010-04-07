@@ -1,17 +1,14 @@
-/*
-$$$$$$$$\                              $$\ 
-$$  _____|                             $$ |
-$$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
-$$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
-$$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
-$$ |     $$  __$$ | \____$$\ $$   ____|$$ |
-$$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
-\________|\_______|\_______/  \_______|\__|
-
-Fusionary Easel v2.0
-Site Specific Reusable Mixins
-
-*/
+// $$$$$$$$\                              $$\ 
+// $$  _____|                             $$ |
+// $$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+// $$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+// $$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+// $$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+// $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+// \________|\_______|\_______/  \_______|\__|
+// 
+// Fusionary Easel v2.0
+// Site Specific Reusable Mixins
 
 /** =typography mixins
 ************************************************************/
@@ -342,22 +339,6 @@ http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
 	@include font_reset;
 	border-bottom: 0;
 	color: inherit;
-}
-
-
-/** =section
-************************************************************
-Sections are block elements with bottom margins and a clearfix applied.
-Ideally, their last child should get get no bottom margin to prevent double margins.
-************************************************************/
-@mixin section($margin: $margin_y) {
-	display: block;
-	margin-bottom: $margin;
-	@include clearfix;
-	& > :last-child,
-	& > .last {
-		margin-bottom: 0;
-	}
 }
 
 /** =sliding doors buttons (with hover)
