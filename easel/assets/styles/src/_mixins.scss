@@ -27,9 +27,9 @@
 @mixin ls_tightest { letter-spacing: -.1em; }
 
 /** =font-family **/
-@mixin sans						{ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-@mixin serif					{ font-family: Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif; }
-@mixin mono						{ font-family: Consolas, "Lucida Console", Monaco, monospace; }
+@mixin sans	 { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+@mixin serif { font-family: Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif; }
+@mixin mono	 { font-family: Consolas, "Lucida Console", Monaco, monospace; }
 
 /** =font-reset **/
 @mixin font_reset {
