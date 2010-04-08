@@ -5,6 +5,10 @@ Easel v2 runs on "SASS 3":http://beta.sass-lang.com/docs/yardoc/file.SASS_CHANGE
 To install: @gem install haml --pre@
 Once installed: @sass --watch assets/styles/src:assets/styles@
 
+h2. Browser Support
+
+By default, Easel supports IE6 through Javascript, and only to a level that is considered 'usable'. If a no-javascript/IE6 condition must be met, special considerations must be made.
+
 h2. Naming Conventions, formatting
 
 * CSS classes should be hyphenated, lowercase
