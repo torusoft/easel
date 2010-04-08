@@ -566,7 +566,6 @@ To be applied to the html element
 	}
 	.wrapper {
 		@include min_height(100%);
-		overflow: hidden;
 		position: relative;
 	}
 	.footer {
