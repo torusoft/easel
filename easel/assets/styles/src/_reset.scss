@@ -100,18 +100,11 @@ a {
 	text-decoration: none;
 }
 
-/** =tools
+/** =base mixins
 ************************************************************/
-.hide,
-.js .js-hide,
-.js-show      	 { display: none; }
-.js .js-show  	 { display: block; }
-.hide-alt,
-.js .js-hide-alt { position: absolute; left: -9999em; }
-.right        	 { float: right; display: inline; }
-.left         	 { float: left; display: inline; }
-.clear        	 { clear: both; }
-.replace 				 { background-repeat: no-repeat; text-indent: -999em; display: block; overflow: hidden; font-size: 1px; border: 0; }
+@mixin float($dir: left) { float: $dir; display: inline; }
+@mixin replace 					 { background-repeat: no-repeat; text-indent: -999em; display: block; overflow: hidden; font-size: 1px; border: 0; }
+@mixin hide_alt 			   { position: absolute; left: -9999em; }
 
 /** =clearfix **/
 @mixin clearfix {
@@ -153,6 +146,20 @@ a {
 		display: inline;
 	}
 }
+
+/** =utility classes
+************************************************************/
+.hide,
+.js .js-hide,
+.js-show      	 { display: none; }
+.js .js-show  	 { display: block; }
+.hide-alt,
+.js .js-hide-alt { @include hide_alt; }
+.right        	 { @include float(right); }
+.left        	 	 { @include float(left); }
+.clear        	 { clear: both; }
+.replace 				 { background-repeat: no-repeat; text-indent: -999em; display: block; overflow: hidden; font-size: 1px; border: 0; }
+
 
 /** =css3
 ************************************************************/

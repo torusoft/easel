@@ -399,7 +399,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 	@include list_reset;
 	@include clearfix;
 	& > li {
-		@include left;
+		@include float(left);
 		a {
 			display: block;
 		}
