@@ -66,20 +66,21 @@ $input_offset: $input_padding_width * 2 + $input_border_width * 2;
 	}
 	.text {
 		fieldset.col-#{$i} &,
-		html body &.col-#{$i},
-		html body fieldset & {
+		html body &.col-#{$i} {
 			input,
 			input.col-#{$i},
+			html body fieldset & input.col-#{$i},
 			textarea,
-			textarea.col-#{$i} {
+			textarea.col-#{$i},
+			html body fieldset & textarea.col-#{$i}, {
 				@include col_calc($i, "width", -$input_offset);
 			}
 		}
 	}
 	.select {
 		fieldset.col-#{$i} &,
-		html body &.col-#{$i},
-		html body fieldset & {
+		html body &.col-#{$i}{
+			html body fieldset & select.col-#{$i},
 			select {
 				@include col_calc($i);
 			}
