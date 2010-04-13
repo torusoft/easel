@@ -13,8 +13,8 @@
 
 /** =container
 ************************************************************/
-@mixin container($width: ($column_width + $gutter_width) * $column_count - $column_width) {
-  width: $width;
+@mixin container($width: ($column_width + $gutter_width) * $column_count - $gutter_width) {
+g  width: $width;
   margin: 0 auto;
 	@include clearfix;
 }
