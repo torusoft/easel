@@ -14,7 +14,7 @@
 /** =container
 ************************************************************/
 @mixin container($width: ($column_width + $gutter_width) * $column_count - $gutter_width) {
-g  width: $width;
+  width: $width;
   margin: 0 auto;
 	@include clearfix;
 }
