@@ -54,7 +54,7 @@ p {
 
 /** =load from mixins
 ************************************************************/
-body 			 { @include body-copy; }
+body 			 { @include body_copy; }
 a  				 { @include link; }
 h1 				 { @include h1; }
 h2 				 { @include h2; }
