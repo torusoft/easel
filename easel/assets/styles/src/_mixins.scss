@@ -33,7 +33,7 @@
 
 /** =font-reset **/
 @mixin font_reset {
-	@include body-copy;
+	@include body_copy;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
@@ -46,7 +46,7 @@
 	vertical-align: baseline;
 }
 
-/** =baseline body copy
+/** =font groups
 ************************************************************/
 @mixin body_copy($color: $text) {
 	color: $color;
@@ -431,21 +431,21 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 }
 
 /** =indented list with no bullets/numbers **/
-@mixin list_indented {
+@mixin list_indented($space: 1.5em) {
 	@include list_reset;
 	@include list;
 	& > li li {
-		margin-left: 1.5em;		
+		margin-left: $space;		
 	}
 }
 
 /** =piped horizontal nav **/
-@mixin hnav_piped {
+@mixin hnav_piped($space: .6em) {
 	@include hnav;
 	& > li {
 		border-left: 1px solid $border;
-		margin-left: .6em;
-		padding-left: .6em;
+		margin-left: $space;
+		padding-left: $space;
 		&:first-child {
 			margin-left: 0;
 			padding-left: 0;
@@ -455,11 +455,11 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 }
 
 /** =spaced horizontal nav **/
-@mixin hnav_spaced {
+@mixin hnav_spaced($space: .6em) {
 	@include hnav;
 	li {
-		margin-left: .6em;
-		padding-left: .6em;
+		margin-left: $space;
+		padding-left: $space;
 	}
 	li:first-child {
 		margin-left: 0;
@@ -468,13 +468,13 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 }
 
 /** =piped horizontal inline nav **/
-@mixin inav_piped {
+@mixin inav_piped($space: .6em) {
 	@include inav;
 	& > li {
 		display: inline;
 		border-left: 1px dotted $border;
-		margin-left: .25em;
-		padding-left: .6em;
+		margin-left: $space / 2.4;
+		padding-left: $space;
 		:first-child {
 			margin-left: 0;
 			padding-left: 0;
@@ -484,12 +484,12 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 }
 
 /** =spaced horizontal inline nav **/
-@mixin inav_spaced {
+@mixin inav_spaced($space: .6em) {
 	@include inav;
 	& > li {
 		display: inline;
-		margin-left: .25em;
-		padding-left: .6em;
+		margin-left: $space / 2.4;
+		padding-left: $space;
 		:first-child {
 			margin-left: 0;
 			padding-left: 0;
@@ -512,12 +512,12 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 
 /** =superfish dropdowns mixin
 ************************************************************/
-@mixin superfish {
+@mixin superfish($nav_height: 50px, $dropdown_width: 15em) {
 	@include hnav;
 	ul {
 		position: absolute;
 		top: -999em;
-		width: 15em;
+		width: $dropdown_width;
 		li {
 			width: 100%;
 			:hover {
@@ -528,11 +528,15 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 	li {
 		position: relative;
 	}
+	
+	li a { height: $nav_height; }
+	li li a { height: auto; }
+	
 	li li:hover ul,
 	li li.sfHover ul,
 	li li li:hover ul,
 	li li li.sfHover ul {
-		left: 15em; /* match ul width */
+		left: $dropdown_width;
 		top: 0;
 	}
 	a {
@@ -542,7 +546,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 	li:hover ul,
 	li.sfHover ul {
 		left: 0;
-		top: 41px; /* match top ul list item height */
+		top: $nav_height;
 		z-index: 99;
 		ul,
 		ul ul {
@@ -550,6 +554,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 		}
 	}
 }
+
 
 /** =sticky footer mixin
 ************************************************************
