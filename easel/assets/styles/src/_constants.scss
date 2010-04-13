@@ -17,7 +17,7 @@ $column_width: 20px;
 $gutter_width: 20px;
 $input_padding_width: 5px; /* padding (per side) */
 $input_border_width: 1px; /* border width (per side) */
-$input_offset: $input_padding_width * 2 + $input_border_width * 2;
+$input_default_width: 3; /* default width in columns for inputs */
 
 /** =baseline
 ************************************************************/
