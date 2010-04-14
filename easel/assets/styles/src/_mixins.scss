@@ -582,6 +582,7 @@ To be applied to the html element
 	}
 	.body {
 		padding-bottom: $extra_padding + $footer_height;
+		overflow: hidden;
 	}
 }
 
