@@ -1,18 +1,21 @@
 /** =import
 ************************************************************/
-/** =grid
-************************************************************/
-/* padding (per side) */
-/* border width (per side) */
 /** =baseline
 ************************************************************/
 /* 20px */
 /* base vertical margin */
 /* base horizontal margin */
 /* base rounded corner radius */
+/** =grid
+************************************************************/
+/** =inputs
+************************************************************/
+/* padding (per side) */
+/* border width (per side) */
+/* default width for inputs (in columns) */
+/* default height for textareas */
 /** =colors
 ************************************************************/
-/** =grayscale defaults **/
 /** =body copy **/
 /** =links **/
 /** =status colors **/
@@ -93,7 +96,12 @@ ins,
 a {
   text-decoration: none; }
 
-/** =tools
+/** =base mixins
+************************************************************/
+/** =clearfix **/
+/** =min height/width in ie6 **/
+/** =cross-browser inline-block **/
+/** =utility classes
 ************************************************************/
 .hide,
 .js .js-hide,
@@ -127,9 +135,6 @@ a {
   font-size: 1px;
   border: 0; }
 
-/** =clearfix **/
-/** =min height/width in ie6 **/
-/** =cross-browser inline-block **/
 /** =css3
 ************************************************************/
 /** =eliminate chunky text in webkit	
@@ -141,733 +146,449 @@ Ideally, their last child should get get no bottom margin to prevent double marg
 ************************************************************/
 /** =container
 ************************************************************/
-/** =default widths
+/** =default form input widths
 ************************************************************/
 .text input,
 .text textarea {
-  width: 232px; }
+  width: 288px; }
 .text textarea {
-  height: 9.228em; }
+  height: 7.69em; }
 
 .select select {
-  width: 220px; }
+  width: 300px; }
 
 /** =columns
 ************************************************************/
 .col-1 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 20px; }
 
 .append-1 {
-  padding-right: 60px; }
+  padding-right: 40px; }
 
 .prepend-1 {
-  padding-left: 60px; }
+  padding-left: 40px; }
 
-.pull-1 {
-  margin-left: -40px; }
-
-.push-1 {
-  margin-left: 60px; }
-
-fieldset.col-1 .text input,
-fieldset.col-1 .text input.col-1,
-fieldset.col-1 .text textarea,
-fieldset.col-1 .text textarea.col-1, html body .text.col-1 input, html body .text.col-1 input.col-1, html body .text.col-1 textarea, html body .text.col-1 textarea.col-1, html body fieldset .text input, html body fieldset .text input.col-1, html body fieldset .text textarea, html body fieldset .text textarea.col-1 {
+.text.col-1 input, .text.col-1 textarea, body .text input.col-1, body .text textarea.col-1 {
   width: 8px; }
 
-fieldset.col-1 .select select, html body .select.col-1 select, html body fieldset .select select {
+.select.col-1 select, body .select select.col-1 {
   width: 20px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-2 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 60px; }
 
 .append-2 {
-  padding-right: 100px; }
+  padding-right: 80px; }
 
 .prepend-2 {
-  padding-left: 100px; }
+  padding-left: 80px; }
 
-.pull-2 {
-  margin-left: -80px; }
-
-.push-2 {
-  margin-left: 100px; }
-
-fieldset.col-2 .text input,
-fieldset.col-2 .text input.col-2,
-fieldset.col-2 .text textarea,
-fieldset.col-2 .text textarea.col-2, html body .text.col-2 input, html body .text.col-2 input.col-2, html body .text.col-2 textarea, html body .text.col-2 textarea.col-2, html body fieldset .text input, html body fieldset .text input.col-2, html body fieldset .text textarea, html body fieldset .text textarea.col-2 {
+.text.col-2 input, .text.col-2 textarea, body .text input.col-2, body .text textarea.col-2 {
   width: 48px; }
 
-fieldset.col-2 .select select, html body .select.col-2 select, html body fieldset .select select {
+.select.col-2 select, body .select select.col-2 {
   width: 60px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-3 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 100px; }
 
 .append-3 {
-  padding-right: 140px; }
+  padding-right: 120px; }
 
 .prepend-3 {
-  padding-left: 140px; }
+  padding-left: 120px; }
 
-.pull-3 {
-  margin-left: -120px; }
-
-.push-3 {
-  margin-left: 140px; }
-
-fieldset.col-3 .text input,
-fieldset.col-3 .text input.col-3,
-fieldset.col-3 .text textarea,
-fieldset.col-3 .text textarea.col-3, html body .text.col-3 input, html body .text.col-3 input.col-3, html body .text.col-3 textarea, html body .text.col-3 textarea.col-3, html body fieldset .text input, html body fieldset .text input.col-3, html body fieldset .text textarea, html body fieldset .text textarea.col-3 {
+.text.col-3 input, .text.col-3 textarea, body .text input.col-3, body .text textarea.col-3 {
   width: 88px; }
 
-fieldset.col-3 .select select, html body .select.col-3 select, html body fieldset .select select {
+.select.col-3 select, body .select select.col-3 {
   width: 100px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-4 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 140px; }
 
 .append-4 {
-  padding-right: 180px; }
+  padding-right: 160px; }
 
 .prepend-4 {
-  padding-left: 180px; }
+  padding-left: 160px; }
 
-.pull-4 {
-  margin-left: -160px; }
-
-.push-4 {
-  margin-left: 180px; }
-
-fieldset.col-4 .text input,
-fieldset.col-4 .text input.col-4,
-fieldset.col-4 .text textarea,
-fieldset.col-4 .text textarea.col-4, html body .text.col-4 input, html body .text.col-4 input.col-4, html body .text.col-4 textarea, html body .text.col-4 textarea.col-4, html body fieldset .text input, html body fieldset .text input.col-4, html body fieldset .text textarea, html body fieldset .text textarea.col-4 {
+.text.col-4 input, .text.col-4 textarea, body .text input.col-4, body .text textarea.col-4 {
   width: 128px; }
 
-fieldset.col-4 .select select, html body .select.col-4 select, html body fieldset .select select {
+.select.col-4 select, body .select select.col-4 {
   width: 140px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-5 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 180px; }
 
 .append-5 {
-  padding-right: 220px; }
+  padding-right: 200px; }
 
 .prepend-5 {
-  padding-left: 220px; }
+  padding-left: 200px; }
 
-.pull-5 {
-  margin-left: -200px; }
-
-.push-5 {
-  margin-left: 220px; }
-
-fieldset.col-5 .text input,
-fieldset.col-5 .text input.col-5,
-fieldset.col-5 .text textarea,
-fieldset.col-5 .text textarea.col-5, html body .text.col-5 input, html body .text.col-5 input.col-5, html body .text.col-5 textarea, html body .text.col-5 textarea.col-5, html body fieldset .text input, html body fieldset .text input.col-5, html body fieldset .text textarea, html body fieldset .text textarea.col-5 {
+.text.col-5 input, .text.col-5 textarea, body .text input.col-5, body .text textarea.col-5 {
   width: 168px; }
 
-fieldset.col-5 .select select, html body .select.col-5 select, html body fieldset .select select {
+.select.col-5 select, body .select select.col-5 {
   width: 180px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-6 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 220px; }
 
 .append-6 {
-  padding-right: 260px; }
+  padding-right: 240px; }
 
 .prepend-6 {
-  padding-left: 260px; }
+  padding-left: 240px; }
 
-.pull-6 {
-  margin-left: -240px; }
-
-.push-6 {
-  margin-left: 260px; }
-
-fieldset.col-6 .text input,
-fieldset.col-6 .text input.col-6,
-fieldset.col-6 .text textarea,
-fieldset.col-6 .text textarea.col-6, html body .text.col-6 input, html body .text.col-6 input.col-6, html body .text.col-6 textarea, html body .text.col-6 textarea.col-6, html body fieldset .text input, html body fieldset .text input.col-6, html body fieldset .text textarea, html body fieldset .text textarea.col-6 {
+.text.col-6 input, .text.col-6 textarea, body .text input.col-6, body .text textarea.col-6 {
   width: 208px; }
 
-fieldset.col-6 .select select, html body .select.col-6 select, html body fieldset .select select {
+.select.col-6 select, body .select select.col-6 {
   width: 220px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-7 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 260px; }
 
 .append-7 {
-  padding-right: 300px; }
+  padding-right: 280px; }
 
 .prepend-7 {
-  padding-left: 300px; }
+  padding-left: 280px; }
 
-.pull-7 {
-  margin-left: -280px; }
-
-.push-7 {
-  margin-left: 300px; }
-
-fieldset.col-7 .text input,
-fieldset.col-7 .text input.col-7,
-fieldset.col-7 .text textarea,
-fieldset.col-7 .text textarea.col-7, html body .text.col-7 input, html body .text.col-7 input.col-7, html body .text.col-7 textarea, html body .text.col-7 textarea.col-7, html body fieldset .text input, html body fieldset .text input.col-7, html body fieldset .text textarea, html body fieldset .text textarea.col-7 {
+.text.col-7 input, .text.col-7 textarea, body .text input.col-7, body .text textarea.col-7 {
   width: 248px; }
 
-fieldset.col-7 .select select, html body .select.col-7 select, html body fieldset .select select {
+.select.col-7 select, body .select select.col-7 {
   width: 260px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-8 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 300px; }
 
 .append-8 {
-  padding-right: 340px; }
+  padding-right: 320px; }
 
 .prepend-8 {
-  padding-left: 340px; }
+  padding-left: 320px; }
 
-.pull-8 {
-  margin-left: -320px; }
-
-.push-8 {
-  margin-left: 340px; }
-
-fieldset.col-8 .text input,
-fieldset.col-8 .text input.col-8,
-fieldset.col-8 .text textarea,
-fieldset.col-8 .text textarea.col-8, html body .text.col-8 input, html body .text.col-8 input.col-8, html body .text.col-8 textarea, html body .text.col-8 textarea.col-8, html body fieldset .text input, html body fieldset .text input.col-8, html body fieldset .text textarea, html body fieldset .text textarea.col-8 {
+.text.col-8 input, .text.col-8 textarea, body .text input.col-8, body .text textarea.col-8 {
   width: 288px; }
 
-fieldset.col-8 .select select, html body .select.col-8 select, html body fieldset .select select {
+.select.col-8 select, body .select select.col-8 {
   width: 300px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-9 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 340px; }
 
 .append-9 {
-  padding-right: 380px; }
+  padding-right: 360px; }
 
 .prepend-9 {
-  padding-left: 380px; }
+  padding-left: 360px; }
 
-.pull-9 {
-  margin-left: -360px; }
-
-.push-9 {
-  margin-left: 380px; }
-
-fieldset.col-9 .text input,
-fieldset.col-9 .text input.col-9,
-fieldset.col-9 .text textarea,
-fieldset.col-9 .text textarea.col-9, html body .text.col-9 input, html body .text.col-9 input.col-9, html body .text.col-9 textarea, html body .text.col-9 textarea.col-9, html body fieldset .text input, html body fieldset .text input.col-9, html body fieldset .text textarea, html body fieldset .text textarea.col-9 {
+.text.col-9 input, .text.col-9 textarea, body .text input.col-9, body .text textarea.col-9 {
   width: 328px; }
 
-fieldset.col-9 .select select, html body .select.col-9 select, html body fieldset .select select {
+.select.col-9 select, body .select select.col-9 {
   width: 340px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-10 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 380px; }
 
 .append-10 {
-  padding-right: 420px; }
+  padding-right: 400px; }
 
 .prepend-10 {
-  padding-left: 420px; }
+  padding-left: 400px; }
 
-.pull-10 {
-  margin-left: -400px; }
-
-.push-10 {
-  margin-left: 420px; }
-
-fieldset.col-10 .text input,
-fieldset.col-10 .text input.col-10,
-fieldset.col-10 .text textarea,
-fieldset.col-10 .text textarea.col-10, html body .text.col-10 input, html body .text.col-10 input.col-10, html body .text.col-10 textarea, html body .text.col-10 textarea.col-10, html body fieldset .text input, html body fieldset .text input.col-10, html body fieldset .text textarea, html body fieldset .text textarea.col-10 {
+.text.col-10 input, .text.col-10 textarea, body .text input.col-10, body .text textarea.col-10 {
   width: 368px; }
 
-fieldset.col-10 .select select, html body .select.col-10 select, html body fieldset .select select {
+.select.col-10 select, body .select select.col-10 {
   width: 380px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-11 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 420px; }
 
 .append-11 {
-  padding-right: 460px; }
+  padding-right: 440px; }
 
 .prepend-11 {
-  padding-left: 460px; }
+  padding-left: 440px; }
 
-.pull-11 {
-  margin-left: -440px; }
-
-.push-11 {
-  margin-left: 460px; }
-
-fieldset.col-11 .text input,
-fieldset.col-11 .text input.col-11,
-fieldset.col-11 .text textarea,
-fieldset.col-11 .text textarea.col-11, html body .text.col-11 input, html body .text.col-11 input.col-11, html body .text.col-11 textarea, html body .text.col-11 textarea.col-11, html body fieldset .text input, html body fieldset .text input.col-11, html body fieldset .text textarea, html body fieldset .text textarea.col-11 {
+.text.col-11 input, .text.col-11 textarea, body .text input.col-11, body .text textarea.col-11 {
   width: 408px; }
 
-fieldset.col-11 .select select, html body .select.col-11 select, html body fieldset .select select {
+.select.col-11 select, body .select select.col-11 {
   width: 420px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-12 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 460px; }
 
 .append-12 {
-  padding-right: 500px; }
+  padding-right: 480px; }
 
 .prepend-12 {
-  padding-left: 500px; }
+  padding-left: 480px; }
 
-.pull-12 {
-  margin-left: -480px; }
-
-.push-12 {
-  margin-left: 500px; }
-
-fieldset.col-12 .text input,
-fieldset.col-12 .text input.col-12,
-fieldset.col-12 .text textarea,
-fieldset.col-12 .text textarea.col-12, html body .text.col-12 input, html body .text.col-12 input.col-12, html body .text.col-12 textarea, html body .text.col-12 textarea.col-12, html body fieldset .text input, html body fieldset .text input.col-12, html body fieldset .text textarea, html body fieldset .text textarea.col-12 {
+.text.col-12 input, .text.col-12 textarea, body .text input.col-12, body .text textarea.col-12 {
   width: 448px; }
 
-fieldset.col-12 .select select, html body .select.col-12 select, html body fieldset .select select {
+.select.col-12 select, body .select select.col-12 {
   width: 460px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-13 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 500px; }
 
 .append-13 {
-  padding-right: 540px; }
+  padding-right: 520px; }
 
 .prepend-13 {
-  padding-left: 540px; }
+  padding-left: 520px; }
 
-.pull-13 {
-  margin-left: -520px; }
-
-.push-13 {
-  margin-left: 540px; }
-
-fieldset.col-13 .text input,
-fieldset.col-13 .text input.col-13,
-fieldset.col-13 .text textarea,
-fieldset.col-13 .text textarea.col-13, html body .text.col-13 input, html body .text.col-13 input.col-13, html body .text.col-13 textarea, html body .text.col-13 textarea.col-13, html body fieldset .text input, html body fieldset .text input.col-13, html body fieldset .text textarea, html body fieldset .text textarea.col-13 {
+.text.col-13 input, .text.col-13 textarea, body .text input.col-13, body .text textarea.col-13 {
   width: 488px; }
 
-fieldset.col-13 .select select, html body .select.col-13 select, html body fieldset .select select {
+.select.col-13 select, body .select select.col-13 {
   width: 500px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-14 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 540px; }
 
 .append-14 {
-  padding-right: 580px; }
+  padding-right: 560px; }
 
 .prepend-14 {
-  padding-left: 580px; }
+  padding-left: 560px; }
 
-.pull-14 {
-  margin-left: -560px; }
-
-.push-14 {
-  margin-left: 580px; }
-
-fieldset.col-14 .text input,
-fieldset.col-14 .text input.col-14,
-fieldset.col-14 .text textarea,
-fieldset.col-14 .text textarea.col-14, html body .text.col-14 input, html body .text.col-14 input.col-14, html body .text.col-14 textarea, html body .text.col-14 textarea.col-14, html body fieldset .text input, html body fieldset .text input.col-14, html body fieldset .text textarea, html body fieldset .text textarea.col-14 {
+.text.col-14 input, .text.col-14 textarea, body .text input.col-14, body .text textarea.col-14 {
   width: 528px; }
 
-fieldset.col-14 .select select, html body .select.col-14 select, html body fieldset .select select {
+.select.col-14 select, body .select select.col-14 {
   width: 540px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-15 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 580px; }
 
 .append-15 {
-  padding-right: 620px; }
+  padding-right: 600px; }
 
 .prepend-15 {
-  padding-left: 620px; }
+  padding-left: 600px; }
 
-.pull-15 {
-  margin-left: -600px; }
-
-.push-15 {
-  margin-left: 620px; }
-
-fieldset.col-15 .text input,
-fieldset.col-15 .text input.col-15,
-fieldset.col-15 .text textarea,
-fieldset.col-15 .text textarea.col-15, html body .text.col-15 input, html body .text.col-15 input.col-15, html body .text.col-15 textarea, html body .text.col-15 textarea.col-15, html body fieldset .text input, html body fieldset .text input.col-15, html body fieldset .text textarea, html body fieldset .text textarea.col-15 {
+.text.col-15 input, .text.col-15 textarea, body .text input.col-15, body .text textarea.col-15 {
   width: 568px; }
 
-fieldset.col-15 .select select, html body .select.col-15 select, html body fieldset .select select {
+.select.col-15 select, body .select select.col-15 {
   width: 580px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-16 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 620px; }
 
 .append-16 {
-  padding-right: 660px; }
+  padding-right: 640px; }
 
 .prepend-16 {
-  padding-left: 660px; }
+  padding-left: 640px; }
 
-.pull-16 {
-  margin-left: -640px; }
-
-.push-16 {
-  margin-left: 660px; }
-
-fieldset.col-16 .text input,
-fieldset.col-16 .text input.col-16,
-fieldset.col-16 .text textarea,
-fieldset.col-16 .text textarea.col-16, html body .text.col-16 input, html body .text.col-16 input.col-16, html body .text.col-16 textarea, html body .text.col-16 textarea.col-16, html body fieldset .text input, html body fieldset .text input.col-16, html body fieldset .text textarea, html body fieldset .text textarea.col-16 {
+.text.col-16 input, .text.col-16 textarea, body .text input.col-16, body .text textarea.col-16 {
   width: 608px; }
 
-fieldset.col-16 .select select, html body .select.col-16 select, html body fieldset .select select {
+.select.col-16 select, body .select select.col-16 {
   width: 620px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-17 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 660px; }
 
 .append-17 {
-  padding-right: 700px; }
+  padding-right: 680px; }
 
 .prepend-17 {
-  padding-left: 700px; }
+  padding-left: 680px; }
 
-.pull-17 {
-  margin-left: -680px; }
-
-.push-17 {
-  margin-left: 700px; }
-
-fieldset.col-17 .text input,
-fieldset.col-17 .text input.col-17,
-fieldset.col-17 .text textarea,
-fieldset.col-17 .text textarea.col-17, html body .text.col-17 input, html body .text.col-17 input.col-17, html body .text.col-17 textarea, html body .text.col-17 textarea.col-17, html body fieldset .text input, html body fieldset .text input.col-17, html body fieldset .text textarea, html body fieldset .text textarea.col-17 {
+.text.col-17 input, .text.col-17 textarea, body .text input.col-17, body .text textarea.col-17 {
   width: 648px; }
 
-fieldset.col-17 .select select, html body .select.col-17 select, html body fieldset .select select {
+.select.col-17 select, body .select select.col-17 {
   width: 660px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-18 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 700px; }
 
 .append-18 {
-  padding-right: 740px; }
+  padding-right: 720px; }
 
 .prepend-18 {
-  padding-left: 740px; }
+  padding-left: 720px; }
 
-.pull-18 {
-  margin-left: -720px; }
-
-.push-18 {
-  margin-left: 740px; }
-
-fieldset.col-18 .text input,
-fieldset.col-18 .text input.col-18,
-fieldset.col-18 .text textarea,
-fieldset.col-18 .text textarea.col-18, html body .text.col-18 input, html body .text.col-18 input.col-18, html body .text.col-18 textarea, html body .text.col-18 textarea.col-18, html body fieldset .text input, html body fieldset .text input.col-18, html body fieldset .text textarea, html body fieldset .text textarea.col-18 {
+.text.col-18 input, .text.col-18 textarea, body .text input.col-18, body .text textarea.col-18 {
   width: 688px; }
 
-fieldset.col-18 .select select, html body .select.col-18 select, html body fieldset .select select {
+.select.col-18 select, body .select select.col-18 {
   width: 700px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-19 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 740px; }
 
 .append-19 {
-  padding-right: 780px; }
+  padding-right: 760px; }
 
 .prepend-19 {
-  padding-left: 780px; }
+  padding-left: 760px; }
 
-.pull-19 {
-  margin-left: -760px; }
-
-.push-19 {
-  margin-left: 780px; }
-
-fieldset.col-19 .text input,
-fieldset.col-19 .text input.col-19,
-fieldset.col-19 .text textarea,
-fieldset.col-19 .text textarea.col-19, html body .text.col-19 input, html body .text.col-19 input.col-19, html body .text.col-19 textarea, html body .text.col-19 textarea.col-19, html body fieldset .text input, html body fieldset .text input.col-19, html body fieldset .text textarea, html body fieldset .text textarea.col-19 {
+.text.col-19 input, .text.col-19 textarea, body .text input.col-19, body .text textarea.col-19 {
   width: 728px; }
 
-fieldset.col-19 .select select, html body .select.col-19 select, html body fieldset .select select {
+.select.col-19 select, body .select select.col-19 {
   width: 740px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-20 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 780px; }
 
 .append-20 {
-  padding-right: 820px; }
+  padding-right: 800px; }
 
 .prepend-20 {
-  padding-left: 820px; }
+  padding-left: 800px; }
 
-.pull-20 {
-  margin-left: -800px; }
-
-.push-20 {
-  margin-left: 820px; }
-
-fieldset.col-20 .text input,
-fieldset.col-20 .text input.col-20,
-fieldset.col-20 .text textarea,
-fieldset.col-20 .text textarea.col-20, html body .text.col-20 input, html body .text.col-20 input.col-20, html body .text.col-20 textarea, html body .text.col-20 textarea.col-20, html body fieldset .text input, html body fieldset .text input.col-20, html body fieldset .text textarea, html body fieldset .text textarea.col-20 {
+.text.col-20 input, .text.col-20 textarea, body .text input.col-20, body .text textarea.col-20 {
   width: 768px; }
 
-fieldset.col-20 .select select, html body .select.col-20 select, html body fieldset .select select {
+.select.col-20 select, body .select select.col-20 {
   width: 780px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-21 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 820px; }
 
 .append-21 {
-  padding-right: 860px; }
+  padding-right: 840px; }
 
 .prepend-21 {
-  padding-left: 860px; }
+  padding-left: 840px; }
 
-.pull-21 {
-  margin-left: -840px; }
-
-.push-21 {
-  margin-left: 860px; }
-
-fieldset.col-21 .text input,
-fieldset.col-21 .text input.col-21,
-fieldset.col-21 .text textarea,
-fieldset.col-21 .text textarea.col-21, html body .text.col-21 input, html body .text.col-21 input.col-21, html body .text.col-21 textarea, html body .text.col-21 textarea.col-21, html body fieldset .text input, html body fieldset .text input.col-21, html body fieldset .text textarea, html body fieldset .text textarea.col-21 {
+.text.col-21 input, .text.col-21 textarea, body .text input.col-21, body .text textarea.col-21 {
   width: 808px; }
 
-fieldset.col-21 .select select, html body .select.col-21 select, html body fieldset .select select {
+.select.col-21 select, body .select select.col-21 {
   width: 820px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-22 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 860px; }
 
 .append-22 {
-  padding-right: 900px; }
+  padding-right: 880px; }
 
 .prepend-22 {
-  padding-left: 900px; }
+  padding-left: 880px; }
 
-.pull-22 {
-  margin-left: -880px; }
-
-.push-22 {
-  margin-left: 900px; }
-
-fieldset.col-22 .text input,
-fieldset.col-22 .text input.col-22,
-fieldset.col-22 .text textarea,
-fieldset.col-22 .text textarea.col-22, html body .text.col-22 input, html body .text.col-22 input.col-22, html body .text.col-22 textarea, html body .text.col-22 textarea.col-22, html body fieldset .text input, html body fieldset .text input.col-22, html body fieldset .text textarea, html body fieldset .text textarea.col-22 {
+.text.col-22 input, .text.col-22 textarea, body .text input.col-22, body .text textarea.col-22 {
   width: 848px; }
 
-fieldset.col-22 .select select, html body .select.col-22 select, html body fieldset .select select {
+.select.col-22 select, body .select select.col-22 {
   width: 860px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-23 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 900px; }
 
 .append-23 {
-  padding-right: 940px; }
+  padding-right: 920px; }
 
 .prepend-23 {
-  padding-left: 940px; }
+  padding-left: 920px; }
 
-.pull-23 {
-  margin-left: -920px; }
-
-.push-23 {
-  margin-left: 940px; }
-
-fieldset.col-23 .text input,
-fieldset.col-23 .text input.col-23,
-fieldset.col-23 .text textarea,
-fieldset.col-23 .text textarea.col-23, html body .text.col-23 input, html body .text.col-23 input.col-23, html body .text.col-23 textarea, html body .text.col-23 textarea.col-23, html body fieldset .text input, html body fieldset .text input.col-23, html body fieldset .text textarea, html body fieldset .text textarea.col-23 {
+.text.col-23 input, .text.col-23 textarea, body .text input.col-23, body .text textarea.col-23 {
   width: 888px; }
 
-fieldset.col-23 .select select, html body .select.col-23 select, html body fieldset .select select {
+.select.col-23 select, body .select select.col-23 {
   width: 900px; }
-
-.col-24,
-.col-last {
-  margin-right: 0; }
 
 .col-24 {
   float: left;
+  display: inline;
   margin-right: 20px;
   width: 940px; }
 
 .append-24 {
-  padding-right: 980px; }
+  padding-right: 960px; }
 
 .prepend-24 {
-  padding-left: 980px; }
+  padding-left: 960px; }
 
-.pull-24 {
-  margin-left: -960px; }
-
-.push-24 {
-  margin-left: 980px; }
-
-fieldset.col-24 .text input,
-fieldset.col-24 .text input.col-24,
-fieldset.col-24 .text textarea,
-fieldset.col-24 .text textarea.col-24, html body .text.col-24 input, html body .text.col-24 input.col-24, html body .text.col-24 textarea, html body .text.col-24 textarea.col-24, html body fieldset .text input, html body fieldset .text input.col-24, html body fieldset .text textarea, html body fieldset .text textarea.col-24 {
+.text.col-24 input, .text.col-24 textarea, body .text input.col-24, body .text textarea.col-24 {
   width: 928px; }
 
-fieldset.col-24 .select select, html body .select.col-24 select, html body fieldset .select select {
+.select.col-24 select, body .select select.col-24 {
   width: 940px; }
 
 .col-24,
@@ -880,7 +601,7 @@ fieldset.col-24 .select select, html body .select.col-24 select, html body field
 /** =letter spacing **/
 /** =font-family **/
 /** =font-reset **/
-/** =baseline body copy
+/** =font groups
 ************************************************************/
 /** =baseline links
 ************************************************************/
@@ -1421,7 +1142,9 @@ textarea[disabled] {
   font-weight: bold;
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.05em; }
+  letter-spacing: 0.05em;
+  display: block;
+  clear: both; }
 .text.error .placeholder,
 .select.error .placeholder {
   color: #e49494; }
@@ -1845,7 +1568,6 @@ body {
 
 .wrapper {
   min-height: 100%;
-  overflow: hidden;
   position: relative; }
   .ie6 .wrapper {
     height: 100%; }
@@ -1858,12 +1580,13 @@ body {
   height: 100px; }
 
 .body {
-  padding-bottom: 150px; }
+  padding-bottom: 150px;
+  overflow: hidden; }
 
 .body,
 .header,
 .footer > .inner {
-  width: 960px;
+  width: 940px;
   margin: 0 auto;
   display: block;
   zoom: 1; }
@@ -1908,7 +1631,7 @@ body {
   right: 10px; }
 
 .p-thin .body {
-  width: 960px;
+  width: 940px;
   margin: 0 auto;
   display: block;
   zoom: 1;

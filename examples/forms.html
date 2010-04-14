@@ -41,49 +41,59 @@
               </label>
               <input type="text" id="f1">
             </div>
-          <fieldset class="col-12 col-last">
-            <div class="text">
-              <label for="f2">
-                Text Input With Email Validation
-              </label>
-              <input type="text" id="f2" class="email" placeholder="email@domain.com">
+          <fieldset>
+            <div class="group">
+              <div class="text col-8">
+                <label for="f2">
+                  Text Input With Email Validation
+                </label>
+                <input type="text" id="f2" class="email" placeholder="email@domain.com">
+              </div>
             </div>
-            <div class="text col-8">
-              <label for="f7">Text Input <code>type=tel</code></label>
-              <input type="tel" id="f7" class="col-2" placeholder="xxx">
-              <input type="tel" id="f8" class="col-2" placeholder="xxx">
-              <input type="tel" id="f9" class="col-4 col-last" placeholder="xxxx">
+            <div class="group">
+              <div class="text col-8">
+                <label for="f7">Text Input <code>type=tel</code></label>
+                <input type="tel" id="f7" class="col-2" placeholder="xxx">
+                <input type="tel" id="f8" class="col-2" placeholder="xxx">
+                <input type="tel" id="f9" class="col-4 col-last" placeholder="xxxx">
+              </div>
+              <div class="text col-4 col-last">
+                <label for="f4"><code>type=password</code></label>
+                <input type="password" id="f4">
+              </div>
             </div>
-            <div class="text col-4 col-last">
-              <label for="f4"><code>type=password</code></label>
-              <input type="password" id="f4">
+            <div class="group">
+              <div class="text col-6">
+                <label for="f3">
+                  Text Input
+                  <strong class="required-mark">*</strong>
+                </label>
+                <input type="text" id="f3" class="required">
+              </div>
+              <div class="text col-6 col-last">
+                <label for="f20">Disabled</label>
+                <input type="text" id="f20" disabled="disabled">
+              </div>
+            </div>
+            <div class="group">
+              <div class="text">
+                <label for="f10">Textarea</label> 
+                <textarea id="f10" rows="8" cols="40" class="col-12" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing"></textarea>
+              </div>
             </div>
 
-            <div class="text col-6">
-              <label for="f3">
-                Text Input
-                <strong class="required-mark">*</strong>
-              </label>
-              <input type="text" id="f3" class="required">
-            </div>
-            <div class="text col-6 col-last">
-              <label for="f20">Disabled</label>
-              <input type="text" id="f20" disabled="disabled">
-            </div>
-            <div class="text clear">
-              <label for="f10">Textarea</label> 
-              <textarea id="f10" rows="8" cols="40" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing"></textarea>
-            </div>
-            <div class="select">
-              <label for="f11">
-                Select
-                <strong class="required-mark"></strong>
-              </label>
-              <select id="f11" class="required">
-                <option value="">Choose One...</option>
-                <option>Option 1</option>
-                <option>Option 2</option>
-              </select>
+            <div class="group">
+              <div class="select col-8">
+                <label for="f11">
+                  Select
+                  <strong class="required-mark"></strong>
+                </label>
+                <select id="f11" class="required">
+                  <option value="">Choose One...</option>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                </select>
+              </div>
             </div>
             <fieldset>
               <h3 class="legend">Nested Fieldset</h3>
@@ -95,7 +105,7 @@
               </div>
             </fieldset>
           </fieldset>
-          <fieldset class="clear">
+          <fieldset>
             <h3 class="legend">Radios &amp; Checkboxes</h3>
             <fieldset class="radio-group">
               <h4 class="legend">Radio Group</h4>
