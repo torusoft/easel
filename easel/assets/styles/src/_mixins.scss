@@ -494,7 +494,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 		border-left: 1px dotted $border;
 		margin-left: $space / 2.4;
 		padding-left: $space;
-		:first-child {
+		&:first-child {
 			margin-left: 0;
 			padding-left: 0;
 			border-left: 0;
@@ -509,7 +509,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 		display: inline;
 		margin-left: $space / 2.4;
 		padding-left: $space;
-		:first-child {
+		&:first-child {
 			margin-left: 0;
 			padding-left: 0;
 		}
@@ -539,7 +539,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 		width: $dropdown_width;
 		li {
 			width: 100%;
-			:hover {
+			&:hover {
 				visibility: inherit; /* fixes IE7 "sticky bug" */
 			}
 		}
