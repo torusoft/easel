@@ -653,6 +653,8 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 /** =ruled list **/
 /** =superfish dropdowns mixin
 ************************************************************/
+/** =button bar
+************************************************************/
 /** =sticky footer mixin
 ************************************************************
 To be applied to the html element
@@ -1188,9 +1190,7 @@ textarea[disabled] {
   .btn > span {
     padding: 0 0 0 18px;
     height: 32px;
-    line-height: 31px;
-    color: #232323;
-    font-size: 15px; }
+    line-height: 31px; }
   .btn, .btn:hover, .btn:active, .btn > span {
     background-image: url(images/easel/sprites/btn-default-white.png); }
   .btn > span {
@@ -1203,6 +1203,73 @@ textarea[disabled] {
     background-position: 100% -400px; }
   .btn:active > span {
     background-position: 0 -500px; }
+
+.btn-bar {
+  margin-bottom: 0;
+  display: block;
+  zoom: 1; }
+  .btn-bar > li,
+  .btn-bar ul > li,
+  .btn-bar ol > li {
+    line-height: 1.538em;
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    background: none; }
+  .btn-bar ul, .btn-bar ol {
+    margin-top: 0; }
+  .btn-bar > dt {
+    font-weight: normal; }
+  .btn-bar > dd {
+    margin-bottom: 0; }
+  .btn-bar:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
+  .btn-bar > li {
+    float: left;
+    display: inline; }
+    .btn-bar > li a {
+      display: block; }
+  .btn-bar a {
+    padding: 1px 0 3px;
+    background: -20px 0;
+    background-image: url("images/easel/sprites/btn-bar-default-white-sm.png"); }
+    .btn-bar a > span {
+      border-right: 1px solid #d8d8d8;
+      border-left: 1px solid white;
+      display: block;
+      height: 24px;
+      line-height: 23px;
+      padding: 0 18px; }
+    .btn-bar a:hover {
+      background-position: -20px -100px; }
+      .btn-bar a:hover span {
+        border-left-color: transparent; }
+    .btn-bar a:active {
+      background-position: -20px -200px; }
+      .btn-bar a:active span {
+        border-right-color: transparent; }
+  .btn-bar li.first a {
+    background-position: 0 0; }
+    .btn-bar li.first a:hover {
+      background-position: 0 -100px; }
+    .btn-bar li.first a:active {
+      background-position: 0 -200px; }
+    .btn-bar li.first a > span {
+      border-left: none; }
+  .btn-bar li.last a {
+    background-position: 100% 0; }
+    .btn-bar li.last a:hover {
+      background-position: 100% -100px; }
+    .btn-bar li.last a:active {
+      background-position: 100% -200px; }
+    .btn-bar li.last a > span {
+      border-right: none; }
 
 /** =easel icons
 ************************************************************/

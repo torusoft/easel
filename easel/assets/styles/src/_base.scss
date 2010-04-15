@@ -219,27 +219,9 @@ textarea[disabled] {
 ************************************************************/
 .btn {
 	@include btn;
-	padding: 0 18px 0 0;
-  & > span {
-	  padding: 0 0 0 18px;
-	  height: 32px;
-	  line-height: 31px;
-		color: $text_dark;
-		font-size: 15px;
-	}
-	&,
-	&:hover,
-	&:active,
-	& > span {
-		background-image: url(images/easel/sprites/btn-default-white.png);
-	}
-	background-position: 100% 0;
-	> span { background-position: 0 -100px; }
-	&:hover { background-position: 100% -200px; }
-	&:hover > span { background-position: 0 -300px; }
-	&:active { background-position: 100% -400px; }
-	&:active > span { background-position: 0 -500px; }
-	
+}
+.btn-bar {
+	@include btn_bar("images/easel/sprites/btn-bar-default-white-sm.png", 28px);
 }
 
 /** =easel icons

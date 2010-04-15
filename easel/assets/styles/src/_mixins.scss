@@ -345,7 +345,7 @@ http://perishablepress.com/press/2009/11/09/perfect-pre-tags/
 ************************************************************
 http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 ************************************************************/
-@mixin btn {
+@mixin btn($height: 32px, $padding: 18px, $img: url(images/easel/sprites/btn-default-white.png)) {
 	@include link_reset;
 	@include inline_block;
   cursor: pointer;
@@ -360,6 +360,25 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 	  white-space: nowrap;
 	}
 	&::-moz-focus-inner { border: none; padding: 0;} /* removes 1px border in FF */
+	padding: 0 $padding 0 0;
+  & > span {
+	  padding: 0 0 0 $padding;
+	  height: $height;
+	  line-height: $height - 1px;
+	}
+	&,
+	&:hover,
+	&:active,
+	& > span {
+		background-image: $img;
+	}
+	background-position: 100% 0;
+	> span { background-position: 0 -100px; }
+	&:hover { background-position: 100% -200px; }
+	&:hover > span { background-position: 0 -300px; }
+	&:active { background-position: 100% -400px; }
+	&:active > span { background-position: 0 -500px; }	
+	
 }
 
 /** =easel icons (20x20)
@@ -367,7 +386,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 @mixin easel_icon($icon, $padding: 25px) {
 	@include inline-block;
 	padding: 0 0 0 $padding;
-	background: url('images/easel/icons/default/'#{$icon}'.png') no-repeat 0 50%;
+	background: url("images/easel/icons/default/" + $icon + ".png") no-repeat 0 50%;
 	&.alt {
 		padding: 0 $padding 0 0;
 		background-position: 100% 50%;
@@ -521,7 +540,7 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 		li {
 			width: 100%;
 			:hover {
-				visibility: inherit; /* fixes IE7 'sticky bug' */
+				visibility: inherit; /* fixes IE7 "sticky bug" */
 			}
 		}
 	}
@@ -555,6 +574,56 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 	}
 }
 
+/** =button bar
+************************************************************/
+@mixin btn_bar($img: "", $height: "", $padding_x: "", $padding_top: "", $padding_bottom: "", $border_right_color: "", $border_left_color: "") {
+	@if $img == "" { $img: "images/easel/sprites/btn-bar-default-white.png"; }
+	@if $height == "" { $height: 32px; }
+	@if $padding_x == "" { $padding_x: 18px; }
+	@if $padding_top == "" { $padding_top: 1px; }
+	@if $padding_bottom == "" { $padding_bottom: 3px; }
+	@if $border_right_color == "" { $border_right_color: #d8d8d8; }
+	@if $border_left_color == "" { $border_left_color: #fff; }
+	@include hnav;
+	$inner_height: $height - $padding_top - $padding_bottom;
+	a {
+		padding: $padding_top 0 $padding_bottom;
+		background: -20px 0;
+		background-image: url("" + $img);
+		> span {
+			border-right: 1px solid $border_right_color;
+			border-left: 1px solid $border_left_color;
+			display: block;
+			height: $inner_height;
+		  line-height: $inner_height - 1px;
+		  padding: 0 $padding_x;
+		}
+		&:hover {
+			background-position: -20px -100px;
+			span { border-left-color: transparent; }
+		}
+		&:active {
+			background-position: -20px -200px;
+			span { border-right-color: transparent; }
+		}
+	}
+	li.first a {
+		background-position: 0 0;
+		&:hover { background-position: 0 -100px; }
+		&:active { background-position: 0 -200px; }
+		> span {
+			border-left: none;
+		}
+	}
+	li.last a {
+		background-position: 100% 0;
+		&:hover { background-position: 100% -100px; }
+		&:active { background-position: 100% -200px; }
+		> span {
+			border-right: none;
+		}
+	}
+}
 
 /** =sticky footer mixin
 ************************************************************
