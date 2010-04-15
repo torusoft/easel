@@ -656,8 +656,6 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 /** =button bar
 ************************************************************/
 /** =sticky footer mixin
-************************************************************
-To be applied to the html element
 ************************************************************/
 /** =border box
 ************************************************************/
@@ -1243,8 +1241,8 @@ textarea[disabled] {
       border-right: 1px solid #d8d8d8;
       border-left: 1px solid white;
       display: block;
-      height: 24px;
-      line-height: 23px;
+      height: 23px;
+      line-height: 22px;
       padding: 0 18px; }
     .btn-bar a:hover {
       background-position: -20px -100px; }
@@ -1633,10 +1631,10 @@ body {
   height: 100%;
   position: relative; }
 
-.wrapper {
+100px {
   min-height: 100%;
   position: relative; }
-  .ie6 .wrapper {
+  .ie6 100px {
     height: 100%; }
 
 .footer {
@@ -1646,8 +1644,8 @@ body {
   width: 100%;
   height: 100px; }
 
-.body {
-  padding-bottom: 150px;
+50px {
+  padding-bottom: 100px;
   overflow: hidden; }
 
 .body,

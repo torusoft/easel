@@ -626,10 +626,8 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 }
 
 /** =sticky footer mixin
-************************************************************
-To be applied to the html element
 ************************************************************/
-@mixin sticky_footer($footer_height: 100px, $extra_padding: 0) {
+@mixin sticky_footer($wrapper: '.wrapper', $body: '.body', $footer:  '.footer', $footer_height: 100px, $extra_padding: 0) {
 	html {
 		height: 100%;
 		position: relative;
@@ -638,18 +636,18 @@ To be applied to the html element
 		height: 100%;
 		position: relative;
 	}
-	.wrapper {
+	#{$wrapper} {
 		@include min_height(100%);
 		position: relative;
 	}
-	.footer {
+	#{$footer} {
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		width: 100%;
 		height: $footer_height;
 	}
-	.body {
+	#{$body} {
 		padding-bottom: $extra_padding + $footer_height;
 		overflow: hidden;
 	}
