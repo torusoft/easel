@@ -17,8 +17,9 @@ YUI3 reset with at few tweaks:
 -reset button, select
 -reset text decoration on a, ins
 -reset small
+-color and bg on body, not html (helps with sticky footer)
 ************************************************************/
-html {
+body {
 	color: #000;
 	background: #fff;
 }
