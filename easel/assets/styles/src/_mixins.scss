@@ -686,3 +686,14 @@ http://www.cssstickyfooter.com/
 		margin-bottom: $margin_y / 2;
 	}
 }
+
+/** =negative margin fix for ie6
+************************************************************
+http://haslayout.net/css/Negative-Margin-Bug
+************************************************************/
+@mixin negative_margin_fix {
+  .ie6 & {
+    position: relative;
+    zoom: 1;
+  }
+}
