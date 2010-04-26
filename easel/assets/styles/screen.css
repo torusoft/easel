@@ -19,14 +19,17 @@
 /** =body copy **/
 /** =links **/
 /** =status colors **/
+/** =import
+************************************************************/
 /** =reset
 ************************************************************
 YUI3 reset with at few tweaks: 
 -reset button, select
 -reset text decoration on a, ins
 -reset small
+-color and bg on body, not html (helps with sticky footer)
 ************************************************************/
-html {
+body {
   color: black;
   background: white; }
 
@@ -656,8 +659,14 @@ http://www.filamentgroup.com/lab/styling_the_button_element_with_sliding_doors
 /** =button bar
 ************************************************************/
 /** =sticky footer mixin
+************************************************************
+http://www.cssstickyfooter.com/
 ************************************************************/
 /** =border box
+************************************************************/
+/** =negative margin fix for ie6
+************************************************************
+http://haslayout.net/css/Negative-Margin-Bug
 ************************************************************/
 /** =inline elements
 ************************************************************/
@@ -1620,125 +1629,3 @@ textarea[disabled] {
     margin-bottom: 10px; }
 .box.info, .box.warning, .box.error, .box.success {
   padding-left: 54px; }
-
-/** =example pages
-************************************************************/
-html {
-  height: 100%;
-  position: relative; }
-
-body {
-  height: 100%;
-  position: relative; }
-
-.wrapper {
-  min-height: 100%;
-  position: relative; }
-  .ie6 .wrapper {
-    height: 100%; }
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px; }
-
-.body {
-  padding-bottom: 150px;
-  overflow: hidden; }
-
-.body,
-.header,
-.footer > .inner {
-  width: 940px;
-  margin: 0 auto;
-  display: block;
-  zoom: 1; }
-  .body:after,
-  .header:after,
-  .footer > .inner:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-    overflow: hidden; }
-
-body {
-  -webkit-text-stroke: 1px transparent;
-  background: url(../../../examples/assets/styles/images/f.png) 0 -80px; }
-
-.wrapper {
-  background: url(../../../examples/assets/styles/images/color-bar.png) repeat-x; }
-
-.header {
-  padding-top: 30px;
-  text-align: center; }
-
-.header > h1,
-.body > h1 {
-  font-size: 60px;
-  letter-spacing: -0.04em;
-  text-align: center;
-  margin: 0 0 20px; }
-
-.body {
-  padding-top: 20px; }
-
-.footer > .inner {
-  border-top: 1px solid #ebebeb;
-  text-align: right; }
-
-.header .icn.home {
-  position: absolute;
-  top: 10px;
-  right: 10px; }
-
-.p-thin .body {
-  width: 940px;
-  margin: 0 auto;
-  display: block;
-  zoom: 1;
-  width: 460px; }
-  .p-thin .body h2 {
-    text-align: center; }
-  .p-thin .body:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-    overflow: hidden; }
-
-.nav {
-  margin-bottom: 0;
-  border-bottom: 1px solid #ebebeb;
-  font-size: 18px;
-  font-weight: bold;
-  letter-spacing: -0.025em; }
-  .nav > li,
-  .nav ul > li,
-  .nav ol > li {
-    line-height: 1.538em;
-    margin-top: 0;
-    margin-left: 0;
-    padding-left: 0;
-    list-style: none;
-    background: none; }
-  .nav ul, .nav ol {
-    margin-top: 0; }
-  .nav > dt {
-    font-weight: normal; }
-  .nav > dd {
-    margin-bottom: 0; }
-  .nav a {
-    display: block; }
-  .nav > li {
-    border-top: 1px solid #ebebeb; }
-    .nav > li > a,
-    .nav > li > a.icn {
-      display: block;
-      /* reset icon links from inline-block */ }
-  .nav a:hover {
-    background-color: #f7f7f7; }

@@ -104,8 +104,18 @@ a {
 /** =base mixins
 ************************************************************/
 @mixin float($dir: left) { float: $dir; display: inline; }
-@mixin replace 					 { background-repeat: no-repeat; text-indent: -999em; display: block; overflow: hidden; font-size: 1px; border: 0; }
 @mixin hide_alt 			   { position: absolute; left: -9999em; }
+@mixin replace($bg: false) {
+  @if $bg {
+    background-image: url($bg);
+  }
+  background-repeat: no-repeat;
+  text-indent: -999em;
+  display: block;
+  overflow: hidden;
+  font-size: 1px;
+  border: 0;
+}
 
 /** =clearfix **/
 @mixin clearfix {

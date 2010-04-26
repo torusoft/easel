@@ -1,0 +1,30 @@
+// $$$$$$$$\                              $$\ 
+// $$  _____|                             $$ |
+// $$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+// $$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+// $$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+// $$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+// $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+// \________|\_______|\_______/  \_______|\__|
+// 
+// Fusionary Easel v2.0
+// Keeps funky proprietary code out of our main stylesheets
+
+/** =rgba
+************************************************************/
+/* filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#80FF00FF',endColorstr='#80FF00FF');
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#80FF00FF',endColorstr='#80FF00FF')"; */
+
+/** =max height/width in ie6
+************************************************************/
+/* .max-height {
+	max-height: 700px;
+	height: auto !important;
+	height: expression( document.body.clientHeight > 700 ? "700px" : "auto" );
+}
+ 
+.max-height {
+	max-width: 700px;
+	width: auto !important;
+	width: expression( document.body.clientWidth > 700 ? "700px" : "auto" );
+} */
