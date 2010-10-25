@@ -1,9 +1,9 @@
 @mixin base_heading(
   $font_size,
-  $line_height: 1,
+  $line_height: 1.25,
   $font_weight: bold,
   $margin_bottom: $base_y / 3,
-  $letter_spacing: $base_letter_spacing) {
+  $letter_spacing: .01em) {
     
   font-weight: $font_weight;
   line-height: $line_height;
@@ -18,7 +18,7 @@
 
 @mixin h2($font_size: 22px) {
   @include base_heading($font_size);
-} //h2                           
+} //h2
                                  
 @mixin h3($font_size: 20px) {                      
   @include base_heading($font_size);

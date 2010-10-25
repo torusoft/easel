@@ -4,7 +4,10 @@
 @include grid;
 
 // body
-body 			  { @include body; }
+body {
+  @include body;
+  @include font_sans;
+}
 
 // headings
 h1 				  { @include h1; }

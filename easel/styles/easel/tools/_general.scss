@@ -85,3 +85,23 @@
     @include hide_accessibly;
   }
 } //js_hide_accessibly
+
+@mixin block($margin: $base_y, $display: block) {
+  display: $display;
+  margin-bottom: $margin;
+} //block
+
+@mixin cycle($h) {
+  .slide,
+  .slides {
+    height: $h;
+    overflow: hidden;
+    * {
+      display: block;
+    }
+  }
+}
+
+@mixin ampersand {
+  @include BaskervaldADFStdItalic;
+}
