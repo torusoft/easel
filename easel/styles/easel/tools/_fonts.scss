@@ -1,6 +1,16 @@
+@mixin proxima_bold_italic {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'ProximaNovaBoldItalic', sans-serif;
+	font-size-adjust: 0.48;
+}
+
 // GoodDog New
 @mixin GoodDogNewRegular {
-  @include font_face('GoodDogNewRegular', '/easel/styles/fonts/gooddog-new/gooddog_new-webfont');
+  font-weight: normal;
+	font-style: normal;
+	font-family: 'GoodDogNewRegular', sans-serif;
+	font-size-adjust: 0.46;
 }
 @mixin BaskervaldADFStdBoldItalic {
  	@include font_face('BaskervaldADFStdBoldItalic', '/easel/styles/fonts/baskervald/baskervald-bold-italic-webfont');

@@ -1,3 +1,42 @@
-@mixin superfish {
-  
-} //sticky_footer
+@mixin superfish($nav_height: 50px, $dropdown_width: 15em) {
+	@include hnav;
+	ul {
+		position: absolute;
+		top: -999em;
+		width: $dropdown_width;
+		li {
+			width: 100%;
+			&:hover {
+				visibility: inherit; /* fixes IE7 "sticky bug" */
+			}
+		}
+	}
+	li {
+		position: relative;
+	}
+	
+	li a { height: $nav_height; }
+	li li a { height: auto; }
+	
+	li li:hover ul,
+	li li.sfHover ul,
+	li li li:hover ul,
+	li li li.sfHover ul {
+		left: $dropdown_width;
+		top: 0;
+	}
+	a {
+		display: block;
+		position: relative;
+	}
+	li:hover ul,
+	li.sfHover ul {
+		left: 0;
+		top: $nav_height;
+		z-index: 99;
+		ul,
+		ul ul {
+			top: -999em;
+		}
+	}
+} //superfish

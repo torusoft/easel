@@ -6,6 +6,22 @@
   }
 } //list_base
 
+@mixin bullet($img, $padding_x, $top_offset, $left_offset) {
+  background: url($img) $left_offset $top_offset no-repeat;
+  padding-left: $padding_x;
+} //bullet
+
+@mixin no_bullet {
+  background: none;
+  list-style-type: none;
+} //no_bullet
+
+@mixin no_bullets {
+  li {
+    @include no_bullet;
+  }
+} //no_bullets
+
 @mixin list_reset {
   margin-bottom: 0;
   li {

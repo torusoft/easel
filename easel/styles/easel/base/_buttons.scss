@@ -1,0 +1,55 @@
+@mixin button(
+  $padding_x: 18px,
+  $height: 32px,
+  $y_offset: -1px,
+  $img: "images/easel/sprites/btn-white.png",
+  $text_align: center){
+	@include inline_block;
+  cursor: pointer;
+  text-align: $text_align;
+  position: relative;
+  padding: 0 $padding_x 0 0;    
+	zoom: 1; //ie
+	width: auto; //ie
+  overflow: visible; //ie
+    
+  &::-moz-focus-inner {
+	  border: none;
+	  padding: 0;
+	} // removes 1px border in FF
+	
+	@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    & span { 
+    margin-top: -1px; 
+  } 
+  
+	& span {
+		position: relative;
+	  display: block;
+	  white-space: nowrap;
+    padding: 0 0 0 $padding_x;
+	  height: $height;
+	  line-height: $height + $y_offset;
+	}
+	
+	&,
+	& span {
+		background-image: $img;
+	}
+	
+	& { background-position: 100% 0; }
+	span { background-position: 0 -100px; }
+	&:hover { background-position: 100% -200px; }
+	&:hover span { background-position: 0 -300px; }
+	&:active { background-position: 100% -400px; }
+	&:active span { background-position: 0 -500px; }
+	
+	// reset inner spans
+	& span span {
+	  background: none;
+	  height: auto;
+	  line-height: $base_line_height;
+	  padding: 0;
+	}
+	
+}

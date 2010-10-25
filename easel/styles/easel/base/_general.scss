@@ -9,6 +9,18 @@
   @include block;
 } //p
 
+@mixin blockquote {
+  @include block;
+} //blockquote
+
+@mixin pre {
+  @include block;
+} //pre
+
+@mixin address {
+  @include block;
+} //address
+
 @mixin a($color: $base_link_color, $hover_color: $base_link_hover_color) {
   color: $color;
   &:focus,
@@ -17,14 +29,6 @@
   }
 } //a
 
-@mixin blockquote {
-  @include block;
-} //blockquote
-
-@mixin pre {
-  @include block;
-} //blockquote
-
 @mixin img($inline_block: true) {
   max-width: 100%;
   height: auto;  
@@ -32,3 +36,36 @@
     @include inline_block; 
   }
 } //img
+
+@mixin small {
+  
+} //small
+
+@mixin strong {
+  font-weight: bold;
+} //strong
+
+@mixin em {
+  font-style: italic;
+} //em
+
+@mixin code {
+
+} //code
+
+@mixin abbr {
+  text-transform: uppercase;
+  cursor: help;
+} //abbr
+
+@mixin q {
+  
+} //q
+
+@mixin del {
+  text-decoration: line-through;
+} //del
+
+@mixin ins {
+  text-decoration: underline;
+} //ins
