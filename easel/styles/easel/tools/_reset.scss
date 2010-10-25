@@ -118,9 +118,11 @@
   	font-variant:normal;
   }
   
-  sup,
+  sup {
+  	vertical-align: text-top;
+  }
   sub {
-  	vertical-align: baseline;
+  	vertical-align: text-bottom;
   }
 
   input,

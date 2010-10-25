@@ -70,13 +70,10 @@
   text-decoration: underline;
 } //ins
 
-// vertical-align: super/sub creates line height issues, so we'll do it this way
 @mixin sub {
-  vertical-align: text-bottom;  
   font-size: 60%;
 } //sub
 
 @mixin sup {
-  vertical-align: text-top;
   font-size: 60%;
 } //sup
