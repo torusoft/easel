@@ -2,7 +2,9 @@
   $font_size,
   $line_height: 1,
   $font_weight: bold,
-  $margin_bottom: $base_y / 3) {
+  $margin_bottom: $base_y / 3,
+  $letter_spacing: $base_letter_spacing) {
+    
   font-weight: $font_weight;
   line-height: $line_height;
   font-size: $font_size;

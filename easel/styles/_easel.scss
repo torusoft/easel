@@ -27,7 +27,7 @@ $base_bg_color: #fff !default;
 $base_border_color: #ccc !default;
 
 $base_link_color: #ff0000 !default;
-$base_link_color: darken($base_link_color, 10%) !default;
+$base_link_hover_color: darken($base_link_color, 10%) !default;
 
 $base_list_line_height: $base_line_height * .85 !default;
 $base_list_margin_y: $base_y / 2 !default;

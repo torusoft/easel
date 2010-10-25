@@ -52,7 +52,7 @@
 
 @mixin ol(
   $type: decimal,
-  $margin_left: 2em
+  $margin_left: 2em,
   $line_height: $base_list_line_height,
   $margin_y: $base_list_margin_y) {
     @include list_base($line_height, $margin_y);

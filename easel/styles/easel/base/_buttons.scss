@@ -4,6 +4,7 @@
   $y_offset: -1px,
   $img: "images/easel/sprites/btn-white.png",
   $text_align: center){
+    
 	@include inline_block;
   cursor: pointer;
   text-align: $text_align;
@@ -19,9 +20,10 @@
 	} // removes 1px border in FF
 	
 	@media screen and (-webkit-min-device-pixel-ratio:0) { 
-    & span { 
-    margin-top: -1px; 
-  } 
+    span { 
+      margin-top: -1px; 
+    }
+  }
   
 	& span {
 		position: relative;

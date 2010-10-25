@@ -18,7 +18,7 @@
 	opacity: $opacity;
 } //opacity
 
-@mixin font_face($name, $font_file, $weight: normal, $style: normal) {
+@mixin font_face($name, $font_file, $weight: normal, $style: normal, $font_size_adjust: 0) {
   @font-face {
     font-family: quote($name);
     src: url('#{$font_file}' + '.eot');
@@ -29,5 +29,9 @@
     @if $style {
       font-weight: $style;
     }
+    @if $font_size_adjust {
+      font-size-adjust: $font_size_adjust;
+    }
+    
   }
 } //font_face

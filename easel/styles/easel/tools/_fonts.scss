@@ -1,102 +1,0 @@
-@mixin proxima_bold_italic {
-	font-weight: normal;
-	font-style: normal;
-	font-family: 'ProximaNovaBoldItalic', sans-serif;
-	font-size-adjust: 0.48;
-}
-
-// GoodDog New
-@mixin GoodDogNewRegular {
-  font-weight: normal;
-	font-style: normal;
-	font-family: 'GoodDogNewRegular', sans-serif;
-	font-size-adjust: 0.46;
-}
-@mixin BaskervaldADFStdBoldItalic {
- 	@include font_face('BaskervaldADFStdBoldItalic', '/easel/styles/fonts/baskervald/baskervald-bold-italic-webfont');
-}
-
-// Baskervald
-@mixin BaskervaldADFStdHeavy {
- 	@include font_face('BaskervaldADFStdHeavy', '/easel/styles/fonts/baskervald/baskervald-heavy-webfont');
-}
-
-@mixin BaskervaldADFStdRegular {
- 	@include font_face('BaskervaldADFStdRegular', '/easel/styles/fonts/baskervald/baskervald-std-webfont');
-}
-@mixin BaskervaldADFStdItalic{
- 	@include font_face('BaskervaldADFStdItalic', '/easel/styles/fonts/baskervald/baskervald-italic-webfont');
-}
-
-@mixin BaskervaldADFStdBold{
- 	@include font_face('BaskervaldADFStdBold', '/easel/styles/fonts/baskervald/baskervald-bold-webfont');
-}
-
-// Proxima Nova
-@mixin ProximaNovaCondensedRegular{
- 	@include font_face('ProximaNovaCondensedRegular', '/easel/styles/fonts/proxima-nova/proximanovacond_regular-webfont');
-}
-
-@mixin ProximaNovaCondensedExtrabold{
- 	@include font_face('ProximaNovaCondensedExtrabold', '/easel/styles/fonts/proxima-nova/proximanovacond_extrabld-webfont');
-}
-@mixin ProximaNovaExtrabold{
- 	@include font_face('ProximaNovaExtrabold', '/easel/styles/fonts/proxima-nova/proxima_nova_xbold-webfont');
-}
-
-@mixin ProximaNovaExtraboldItalic {
- 	@include font_face('ProximaNovaExtraboldItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_xbold_it-webfont');
-}
-
-@mixin ProximaNovaSemibold {
- 	@include font_face('ProximaNovaSemibold', '/easel/styles/fonts/proxima-nova/proxima_nova_sbold-webfont');
-}
-
-@mixin ProximaNovaSemiboldItalic {
- 	@include font_face('ProximaNovaSemiboldItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_sbold_it-webfont');
-}
-@mixin ProximaNovaRegular {
- 	@include font_face('ProximaNovaRegular', '/easel/styles/fonts/proxima-nova/proxima_nova_reg-webfont');
-}
-@mixin ProximaNovaRegularItalic {
- 	@include font_face('ProximaNovaRegularItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_reg_it-webfont');
-}
-@mixin ProximaNovaLight {
- 	@include font_face('ProximaNovaLight', '/easel/styles/fonts/proxima-nova/proxima_nova_light-webfont');
-}
-@mixin ProximaNovaLightItalic {
- 	@include font_face('ProximaNovaLightItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_light_it-webfont');
-}
-@mixin ProximaNovaBold {
- 	@include font_face('ProximaNovaBold', '/easel/styles/fonts/proxima-nova/proxima_nova_bold-webfont');
-}
-@mixin ProximaNovaBoldItalic {
- 	@include font_face('ProximaNovaBoldItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_bold_it-webfont');
-}
-@mixin ProximaNovaBlack {
- 	@include font_face('ProximaNovaBlack', '/easel/styles/fonts/proxima-nova/proxima_nova_black-webfont');
-}
-@mixin ProximaNovaBlackItalic {
- 	@include font_face('ProximaNovaBlackItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_black_it-webfont');
-}
-@mixin ProximaNovaAltExtrabold {
- 	@include font_face('ProximaNovaAltExtrabold', '/easel/styles/fonts/proxima-nova/proxima_nova_alt_xbold-webfont');
-}
-@mixin ProximaNovaAltExtraboldItalic {
- 	@include font_face('ProximaNovaAltExtraboldItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_alt_xbold_it-webfont');
-}
-@mixin ProximaNovaAltSemibold {
- 	@include font_face('ProximaNovaAltSemibold', '/easel/styles/fonts/proxima-nova/proxima_nova_alt_sbold-webfont');
-}
-@mixin ProximaNovaAltSemiboldItalic {
- 	@include font_face('ProximaNovaAltSemiboldItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_alt_sbold_it-webfont');
-}
-@mixin ProximaNovaAltLightItalic {
- 	@include font_face('ProximaNovaAltLightItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_alt_light_it-webfont');
-}
-@mixin ProximaNovaAltBlack {
- 	@include font_face('ProximaNovaAltBlack', '/easel/styles/fonts/proxima-nova/proxima_nova_alt_black-webfont');
-}
-@mixin ProximaNovaAltBlackItalic {
- 	@include font_face('ProximaNovaAltBlackItalic', '/easel/styles/fonts/proxima-nova/proxima_nova_alt_black_it-webfont');
-}
