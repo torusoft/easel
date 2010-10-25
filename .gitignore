@@ -4,4 +4,4 @@ generator/generated/*
 generator/logs/*
 generator/cache/*
 
-.sass-cache
+.sass-cache/*
