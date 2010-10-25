@@ -118,12 +118,9 @@
   	font-variant:normal;
   }
   
-  // text-align: super/sub creates line height issues, so we'll do it this way
-  sup {
-  	vertical-align: text-top;
-  }
+  sup,
   sub {
-  	vertical-align: text-bottom;
+  	vertical-align: baseline;
   }
 
   input,
