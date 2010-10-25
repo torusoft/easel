@@ -12,6 +12,7 @@
   text-align: $text_align;
   li {
     @include float(left);
+    @include li_reset;
     margin-right: $margin_right;
     a {
       display: block;
