@@ -1,0 +1,87 @@
+@mixin float($dir: left) {
+  float: $dir;
+  .ie6 & {
+    display: inline;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    visibility: hidden;
+  	display: block;
+  	font-size: 0;
+  	content: " ";
+  	clear: both;
+  	height: 0;
+  }
+  .ie6,
+  .ie7 {
+    zoom: 1;
+  }
+}
+
+@mixin inline_block {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+	.ie6 &,
+	.ie7 & {
+		display: inline;
+		vertical-align: auto;
+	}
+}
+
+@mixin negative_margin_fix {
+  .ie6 & {
+    position: relative;
+    zoom: 1;
+  }
+}
+
+@mixin min_height($h: auto) {
+  min-height: $h;
+  .ie6 & {
+		height: $h;
+	}
+}
+@mixin min_width($w: auto) {
+  min-width: $w;
+  .ie6 & {
+		width: $w;
+	}
+}
+
+@mixin replace {
+  background-repeat: no-repeat;
+  text-indent: -999em;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  direction: ltr;
+  font-size: 1px;
+}
+
+@mixin js_hide {
+  .js & {
+    display: none;
+  }
+} //js_hide
+
+@mixin js_show {
+  @include hide;
+  .js & {
+    display: block;
+  }
+} //js_show
+
+@mixin hide_accessibly() {
+  position: absolute;
+  left: -9999em;
+} //hide_accessibly
+
+@mixin js_hide_accessibly() {
+  .js & {
+    @include hide_accessibly;
+  }
+} //js_hide_accessibly

@@ -1,0 +1,38 @@
+//
+// $$$$$$$$\                              $$\ 
+// $$  _____|                             $$ |
+// $$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
+// $$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
+// $$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+// $$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+// $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
+// \________|\_______|\_______/  \_______|\__|
+// 
+
+// defaults
+$column_count: 24 !default;
+$column_width: 30px !default;
+$column_gutter: 10px !default;
+
+$base_line_height: 1.5 !default;
+$base_font_size: 12px !default;
+$base_letter_spacing: 0 !default;
+$base_border_radius: 5px !default;
+
+$base_x: 20px !default;
+$base_y: 20px !default;
+
+$base_text_color: #333 !default;
+$base_bg_color: #fff !default;
+$base_border_color: #ccc !default;
+
+$base_link_color: #ff0000 !default;
+$base_link_color: darken($base_link_color, 10%) !default;
+
+$base_list_line_height: $base_line_height * .85 !default;
+$base_list_margin_y: $base_y / 2 !default;
+
+// import
+@import "easel/tools";
+@import "easel/base";
+@import "easel/mixins";

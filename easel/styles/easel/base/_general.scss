@@ -1,0 +1,34 @@
+@mixin body {
+  font-size: $base_font_size;
+  line-height: $base_line_height;
+  color: $base_text_color;
+  letter-spacing: $base_letter_spacing;
+} //body
+
+@mixin p {
+  @include block;
+} //p
+
+@mixin a($color: $base_link_color, $hover_color: $base_link_hover_color) {
+  color: $color;
+  &:focus,
+  &:hover {
+    color: $hover_color;
+  }
+} //a
+
+@mixin blockquote {
+  @include block;
+} //blockquote
+
+@mixin pre {
+  @include block;
+} //blockquote
+
+@mixin img($inline_block: true) {
+  max-width: 100%;
+  height: auto;  
+  @if $inline_block {
+    @include inline_block; 
+  }
+} //img

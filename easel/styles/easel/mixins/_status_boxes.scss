@@ -1,0 +1,19 @@
+$status_gray_bg: darken(#fff, 3%) !default;
+$status_gray_border: darken(#fff, 8%) !default;
+$status_gray_text: darken(#fff, 60%) !default;
+
+$status_red_bg: #ffdfdf !default;
+$status_red_border: saturate(darken($status_red_bg, 10%), 20%) !default;
+$status_red_text: saturate(darken($status_red_bg, 60%), 60%) !default;
+
+$status_yellow_bg: #fff6bf !default;
+$status_yellow_border: saturate(darken($status_yellow_bg, 30%), 10%) !default;
+$status_yellow_text: saturate(darken($status_yellow_bg, 60%), 60%) !default;
+
+$status_blue_bg: #e8F5ff !default;
+$status_blue_border: saturate(darken($status_blue_bg, 8%), 20%) !default;
+$status_blue_text: saturate(darken($status_blue_bg, 60%), 60%) !default;
+
+$status_green_bg: #e6efc2 !default;
+$status_green_border: saturate(darken($status_green_bg, 30%), 20%) !default;
+$status_green_text: saturate(darken($status_green_bg, 60%), 20%) !default;

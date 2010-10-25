@@ -1,24 +1,9 @@
-//
-// $$$$$$$$\                              $$\ 
-// $$  _____|                             $$ |
-// $$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
-// $$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
-// $$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
-// $$ |     $$  __$$ | \____$$\ $$   ____|$$ |
-// $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
-// \________|\_______|\_______/  \_______|\__|
-// 
-// Fusionary Easel v2.0
-// Reset, Tools, Grid, Base Mixins
+// YUI3 reset with at few tweaks: 
+// -reset button, select
+// -reset text decoration on a, ins
+// -reset small
+// -color and bg on body, not html
 
-/** =reset
-************************************************************
-YUI3 reset with at few tweaks: 
--reset button, select
--reset text decoration on a, ins
--reset small
--color and bg on body, not html
-************************************************************/
 
 // Reset the box model measurements.
 @mixin reset_box_model {
@@ -38,7 +23,6 @@ YUI3 reset with at few tweaks:
 }
 
 @mixin reset_all {
-  
   body {
   	color: #000;
   	background: #fff;
@@ -69,8 +53,8 @@ YUI3 reset with at few tweaks:
   blockquote,
   th,
   td {
-  	margin:0;
-  	padding:0;
+  	margin: 0;
+  	padding: 0;
   }
 
   table {
@@ -129,14 +113,12 @@ YUI3 reset with at few tweaks:
     content:none;
   }
 
-  abbr,
-  acronym {
+  abbr {
   	border:0;
   	font-variant:normal;
   }
-
-  /** =super/subscript 
-  text-align: super/sub creates line height issues, so we'll do it this way **/
+  
+  // text-align: super/sub creates line height issues, so we'll do it this way
   sup {
   	vertical-align: text-top;
   }
@@ -164,20 +146,4 @@ YUI3 reset with at few tweaks:
   	text-decoration: none;
   }
   
-}
-
-@mixin reset_html5 {
-  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  section { 
-    display:block;
-  }
 }

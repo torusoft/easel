@@ -1,0 +1,54 @@
+@mixin list_base($line_height, $margin_y) {
+  @include block;
+  li {
+    line-height: $line_height;
+		margin: $margin_y 0;
+  }
+} //list_base
+
+@mixin list_reset {
+  margin-bottom: 0;
+  li {
+    @include li_reset;
+  }
+} //list_reset
+
+@mixin li_reset {
+  list-style-type: none;
+  padding-left: 0;
+  background: none;
+  line-height: inherit;
+  margin: 0;
+} //li_reset
+
+@mixin ul(
+  $line_height: $base_list_line_height,
+  $margin_y: $base_list_margin_y,
+  $img: '/easel/styles/images/icons/20x20/dot-blue.png',
+  $padding_left: $base_x,
+  $top_offset: -.15em,
+  $left_offset: -6px) {
+  @include list_base($line_height, $margin_y);
+  li {
+    @include bullet($img, $padding_left, $top_offset, $left_offset);
+  }
+} //ul
+
+@mixin ol(
+  $type: decimal,
+  $margin_left: 2em
+  $line_height: $base_list_line_height,
+  $margin_y: $base_list_margin_y) {
+    @include list_base($line_height, $margin_y);
+  li {
+    list-style-type: $type;
+    margin-left: $margin_left;
+  }
+} //ol
+
+@mixin dl {
+  @include block;
+  dd {
+    margin-left: $base_x;
+  }
+} //dl

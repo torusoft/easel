@@ -1,0 +1,26 @@
+@mixin link_sprite($left: 0, $unit: 100px, $selector: false, $offset: 0) {
+  @if $selector {
+    #{$selector} {
+      background-repeat: no-repeat;
+      background-position: $left $offset;  
+    }
+    &:hover #{$selector},
+    &:focus #{$selector} {
+      background-position: $left (($unit * -1) + $offset);
+    }
+    &:active #{$selector}{
+      background-position: $left (($unit * 2 * -1) + $offset);
+    }
+  }
+  @else {
+    background-repeat: no-repeat;
+    background-position: $left $offset;  
+    &:hover,
+    &:focus {
+      background-position: $left (($unit * -1) + $offset);
+    }
+    &:active {
+      background-position: $left (($unit * 2 * -1) + $offset);
+    }
+  }
+} //link_sprite

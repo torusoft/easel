@@ -1,0 +1,35 @@
+@mixin base_heading(
+  $font_size,
+  $line_height: 1,
+  $font_weight: bold,
+  $margin_bottom: $base_y / 3) {
+  font-weight: $font_weight;
+  line-height: $line_height;
+  font-size: $font_size;
+  margin-bottom: $margin_bottom;
+  letter-spacing: $letter_spacing;
+}
+
+@mixin h1($font_size: 24px) {
+  @include base_heading($font_size);
+} //h1
+
+@mixin h2($font_size: 22px) {
+  @include base_heading($font_size);
+} //h2                           
+                                 
+@mixin h3($font_size: 20px) {                      
+  @include base_heading($font_size);
+} //h3                           
+                                 
+@mixin h4($font_size: 18px) {                      
+  @include base_heading($font_size);
+} //h4                           
+                                 
+@mixin h5($font_size: 16px) {                      
+  @include base_heading($font_size);
+} //h5                           
+                                 
+@mixin h6($font_size: 14px) {                      
+  @include base_heading($font_size);
+} //h6

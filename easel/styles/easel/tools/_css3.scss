@@ -1,0 +1,33 @@
+@mixin text_shadow() {
+  
+} //text_shadow
+
+@mixin box_shadow() {
+  
+} //box_shadow
+
+@mixin border_radius() {
+  
+} //border_radius
+
+@mixin opacity($opacity) {
+	-ms-filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+	filter: alpha(opacity=$opacity);
+	-khtml-opacity: $opacity;
+	-moz-opacity: $opacity;
+	opacity: $opacity;
+} //opacity
+
+@mixin font_face($name, $font_file, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($name);
+    src: url('#{$font_file}' + '.eot');
+  	src: local('☺'), url('#{$font_file}' + '.ttf') format('truetype'), url('#{$font_file}' + '.svg#webfont') format('svg');
+  	@if $weight {
+      font-weight: $weight;
+    }
+    @if $style {
+      font-weight: $style;
+    }
+  }
+} //font_face
