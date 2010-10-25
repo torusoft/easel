@@ -15,6 +15,7 @@
 
 @mixin pre {
   @include block;
+  white-space: pre;
 } //pre
 
 @mixin address {
@@ -38,7 +39,7 @@
 } //img
 
 @mixin small {
-  
+  font-size: 80%;
 } //small
 
 @mixin strong {
@@ -59,7 +60,7 @@
 } //abbr
 
 @mixin q {
-  
+  font-style: italic;
 } //q
 
 @mixin del {
