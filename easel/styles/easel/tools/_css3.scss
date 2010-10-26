@@ -1,15 +1,18 @@
+ //text_shadow
 @mixin text_shadow ($x: 1px, $y: 1px, $size: 1px, $color: #000) {
 	-moz-text-shadow: $x $y $size $color;
 	-webkit-text-shadow: $x $y $size $color;
 	text-shadow: $x $y $size $color;
 }
+
 @mixin box_shadow($x: 0px, $y: 0px, $b: 0px, $c: #000) {
 	-moz-box-shadow: $x $y $b $c;
 	-webkit-box-shadow: $x $y $b $c;
 	filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=$x, OffY=$y, Color='$c');
 	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=$x, OffY=$y, Color='$c')";
 	box-shadow: $x $y $b $c;
-}
+} //box_shadow
+
 @mixin border_radius() {
   
 } //border_radius
@@ -37,9 +40,9 @@
       font-size-adjust: $font_size_adjust;
     }
   }
-}
+} //font_face
 
 @mixin base_font_face($font-size-adjust: 0) {
   font-weight: normal;
   font-style: normal;
-}
+} //base_font_face

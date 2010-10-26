@@ -20,7 +20,7 @@
 	} // removes 1px border in FF
 	
 	@media screen and (-webkit-min-device-pixel-ratio:0) { 
-    span { 
+    span {
       margin-top: -1px; 
     }
   }
