@@ -1,4 +1,4 @@
-@mixin sticky_footer(
+@mixin sticky-footer(
   $height,
   $padding: 0,
   $wrapper: '.wrapper',
@@ -9,7 +9,7 @@
 	}
 	body {
 		position: relative;
-    @include min_height(100%);
+    @include min-height(100%);
 	}
 	#{$wrapper} {
     padding-bottom: $padding + $height;

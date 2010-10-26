@@ -5,7 +5,7 @@
 // -reset small
 // -color and bg on body, not html
 // --------------------------------------------------
-@mixin reset_all {
+@mixin reset-all {
   body {
   	color: #000;
   	background: #fff;
@@ -132,7 +132,7 @@
 }
 
 // reset box model
-@mixin reset_box_model {
+@mixin reset-box-model {
   margin: 0;
   padding: 0;
   border: 0;
@@ -140,7 +140,7 @@
 }
 
 // reset fonts
-@mixin reset_font {
+@mixin reset-font {
   font-weight: inherit;
   font-style: inherit;
   size: 100%;

@@ -1,4 +1,4 @@
-// float fix for ie6
+// dboule margin float fix for ie6
 @mixin float($dir: left) {
   float: $dir;
   .ie6 & {
@@ -23,7 +23,7 @@
 }
 
 // cross browser inline-block
-@mixin inline_block {
+@mixin inline-block {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
@@ -36,7 +36,7 @@
 }
 
 // negative margin fix for ie6
-@mixin negative_margin_fix {
+@mixin negative-margin-fix {
   .ie6 & {
     position: relative;
     zoom: 1;
@@ -44,13 +44,13 @@
 }
 
 // min height/width for ie6
-@mixin min_height($h: auto) {
+@mixin min-height($h: auto) {
   min-height: $h;
   .ie6 & {
 		height: $h;
 	}
 }
-@mixin min_width($w: auto) {
+@mixin min-width($w: auto) {
   min-width: $w;
   .ie6 & {
 		width: $w;
@@ -69,29 +69,29 @@
 }
 
 // hiding/showing
-@mixin js_hide {
+@mixin js-hide {
   .js & {
     display: none;
   }
 }
-@mixin js_show {
+@mixin js-show {
   display: none;
   .js & {
     display: block;
   }
 }
-@mixin hide_accessibly() {
+@mixin hide-accessibly() {
   position: absolute;
   left: -9999em;
 }
-@mixin js_hide_accessibly() {
+@mixin js-hide-accessibly() {
   .js & {
-    @include hide_accessibly;
+    @include hide-accessibly;
   }
 }
 
 // bottom margin block
-@mixin block($margin: $base_y, $display: block) {
+@mixin block($margin: $base-y, $display: block) {
   display: $display;
   margin-bottom: $margin;
 }

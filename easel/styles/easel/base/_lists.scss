@@ -1,35 +1,35 @@
-@mixin list_base($line_height, $margin_y) {
+@mixin list-base($line-height, $margin-y) {
   @include block;
   li {
-    line-height: $line_height;
-		margin: $margin_y 0;
+    line-height: $line-height;
+		margin: $margin-y 0;
   }
 }
 
-@mixin bullet($img, $padding_x, $top_offset, $left_offset) {
-  background: url($img) $left_offset $top_offset no-repeat;
-  padding-left: $padding_x;
+@mixin bullet($img, $padding-x, $top-offset, $left-offset) {
+  background: url($img) $left-offset $top-offset no-repeat;
+  padding-left: $padding-x;
 }
 
-@mixin no_bullet {
+@mixin no-bullet {
   background: none;
   list-style-type: none;
 }
 
-@mixin no_bullets {
+@mixin no-bullets {
   li {
-    @include no_bullet;
+    @include no-bullet;
   }
 }
 
-@mixin list_reset {
+@mixin list-reset {
   margin-bottom: 0;
   li {
-    @include li_reset;
+    @include li-reset;
   }
 }
 
-@mixin li_reset {
+@mixin li-reset {
   list-style-type: none;
   padding-left: 0;
   background: none;
@@ -38,33 +38,33 @@
 }
 
 @mixin ul(
-  $line_height: $base_list_line_height,
-  $margin_y: $base_list_margin_y,
-  $img: '/easel/styles/images/icons/20x20/dot-blue.png',
-  $padding_left: $base_x,
-  $top_offset: -.15em,
-  $left_offset: -6px) {
-  @include list_base($line_height, $margin_y);
+  $line-height: $base-list-line-height,
+  $margin-y: $base-list-margin-y,
+  $img: '/easel/styles/images/icons/20x20/dot-gray.png',
+  $padding-left: $base-x,
+  $top-offset: -.15em,
+  $left-offset: -6px) {
+  @include list-base($line-height, $margin-y);
   li {
-    @include bullet($img, $padding_left, $top_offset, $left_offset);
+    @include bullet($img, $padding-left, $top-offset, $left-offset);
   }
 }
 
 @mixin ol(
   $type: decimal,
-  $margin_left: 2em,
-  $line_height: $base_list_line_height,
-  $margin_y: $base_list_margin_y) {
-    @include list_base($line_height, $margin_y);
+  $margin-left: 2em,
+  $line-height: $base-list-line-height,
+  $margin-y: $base-list-margin-y) {
+    @include list-base($line-height, $margin-y);
   li {
     list-style-type: $type;
-    margin-left: $margin_left;
+    margin-left: $margin-left;
   }
 }
 
 @mixin dl {
   @include block;
   dd {
-    margin-left: $base_x;
+    margin-left: $base-x;
   }
 }

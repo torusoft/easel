@@ -8,15 +8,15 @@
   
   // hiding/showing
   .hide { display: none; }
-  .js-hide { @include js_hide; }
-  .js-show { @include js_show; }
-  .hide-accessibly { @include hide_accessibly; }
+  .js-hide { @include js-hide; }
+  .js-show { @include js-show; }
+  .hide-accessibly { @include hide-accessibly; }
   
   // misc
   .centered { text-align: center; }
   .block { @include block; }
-  .no-bullets { @include no_bullets; }
-  .no-bullet { @include no_bullet; }
+  .no-bullets { @include no-bullets; }
+  .no-bullet { @include no-bullet; }
   .nowrap { white-space: nowrap; }
   
 }

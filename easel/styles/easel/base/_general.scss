@@ -1,8 +1,8 @@
 @mixin body {
-  font-size: $base_font_size;
-  line-height: $base_line_height;
-  color: $base_text_color;
-  letter-spacing: $base_letter_spacing;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $base-text-color;
+  letter-spacing: $base-letter-spacing;
 }
 
 @mixin p {
@@ -22,19 +22,19 @@
   @include block;
 }
 
-@mixin a($color: $base_link_color, $hover_color: $base_link_hover_color) {
+@mixin a($color: $base-link-color, $hover-color: $base-link-hover-color) {
   color: $color;
   &:focus,
   &:hover {
-    color: $hover_color;
+    color: $hover-color;
   }
 }
 
-@mixin img($inline_block: true) {
+@mixin img($inline-block: true) {
   max-width: 100%;
   height: auto;  
-  @if $inline_block {
-    @include inline_block; 
+  @if $inline-block {
+    @include inline-block; 
   }
 }
 
@@ -51,7 +51,7 @@
 }
 
 @mixin code {
-  @include font_mono;
+  @include font-mono;
 }
 
 @mixin abbr {

@@ -1,9 +1,10 @@
-$column_outer_width: $column_width + $column_gutter;
-$container_width: $column_outer_width * $column_count - $column_gutter;
+// calculate widths
+$column-outer-width: $column-width + $column-gutter;
+$container-width: $column-outer-width * $column-count - $column-gutter;
 
 // container
-@mixin container($width: $container_width, $offset: 0) {
-  width: $width - $offset;
+@mixin container($width: $container-width, $offset: 0) {
+  width: $width + $offset;
   margin: 0 auto;
 	@include clearfix;
 }
@@ -12,17 +13,17 @@ $container_width: $column_outer_width * $column_count - $column_gutter;
 @mixin column($n: false, $last: false) {
   @include float(left);
   @if $n {
-    @include column_width($n);
+    @include column-width($n);
   }
 	@if $last {
     @include last;
   }
   @else {
-    margin-right: $column_gutter;
+    margin-right: $column-gutter;
   }
 }
-@mixin column_width($n) {
-  $width: $column_width * $n + $column_gutter * ($n - 1);
+@mixin column-width($n) {
+  $width: $column-width * $n + $column-gutter * ($n - 1);
   width: $width;
 }
 @mixin last {
@@ -31,37 +32,37 @@ $container_width: $column_outer_width * $column_count - $column_gutter;
 
 // append
 @mixin append($n) {
-  padding-right: $column_outer_width * $n;
+  padding-right: $column-outer-width * $n;
 }
 
 //prepend
 @mixin prepend($n) {
-  padding-left: $column_outer_width * $n;
+  padding-left: $column-outer-width * $n;
 }
 
 // pull
 @mixin pull($n, $last: false) {
   @if $last {
-    margin-left: -$column_outer_width * $n + $column_gutter;
+    margin-left: -$column-outer-width * $n + $column-gutter;
   }
   @else {
-    margin-left: -$column_outer_width * $n;
+    margin-left: -$column-outer-width * $n;
   }
 }
 
 // push
 @mixin push($n, $last: false) {
   @if $last {
-    margin-left: $column_outer_width * $n + $column_gutter;
+    margin-left: $column-outer-width * $n + $column-gutter;
   }
   @else {
-    margin-left: $column_outer_width * $n;
+    margin-left: $column-outer-width * $n;
   }
 }
 
 // grid classes
 @mixin grid {
-  @for $n from 1 through $column_count {
+  @for $n from 1 through $column-count {
   	.col-#{$n} {
   		@include column($n);
   	}
@@ -79,7 +80,7 @@ $container_width: $column_outer_width * $column_count - $column_gutter;
   	}
   }
 
-  .col-#{$column_count},
+  .col-#{$column-count},
   .col-last {
   	@include last;
   }

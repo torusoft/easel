@@ -1,15 +1,15 @@
 @mixin button(
-  $padding_x: 18px,
+  $padding-x: 18px,
   $height: 32px,
-  $y_offset: -1px,
+  $y-offset: -1px,
   $img: "images/easel/sprites/default-white.png",
-  $text_align: center){
+  $text-align: center){
     
-	@include inline_block;
+	@include inline-block;
   cursor: pointer;
-  text-align: $text_align;
+  text-align: $text-align;
   position: relative;
-  padding: 0 $padding_x 0 0;    
+  padding: 0 $padding-x 0 0;    
 	zoom: 1; //ie
 	width: auto; //ie
   overflow: visible; //ie
@@ -29,9 +29,9 @@
 		position: relative;
 	  display: block;
 	  white-space: nowrap;
-    padding: 0 0 0 $padding_x;
+    padding: 0 0 0 $padding-x;
 	  height: $height;
-	  line-height: $height + $y_offset;
+	  line-height: $height + $y-offset;
 	}
 	
 	&,
@@ -50,16 +50,16 @@
 	& span span {
 	  background: none;
 	  height: auto;
-	  line-height: $base_line_height;
+	  line-height: $base-line-height;
 	  padding: 0;
 	}
 	
 }
 
-@mixin button_reset {
+@mixin button-reset {
   &, span {
-    @include reset_box_model;
-    @include reset_font; 
+    @include reset-box-model;
+    @include reset-font; 
     cursor: default;
     white-space: normal;
   }

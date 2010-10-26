@@ -3,7 +3,7 @@
 // http://css3pie.com/
 // --------------------------------------------------
 @mixin pie {
-  behavior: url(#{$easel_dir}/tools/PIE.htc);
+  behavior: url(#{$easel-dir}/tools/PIE.htc);
   position: relative;
 }
 .pie {
@@ -55,28 +55,28 @@
 // --------------------------------------------------
 // border-radius
 // --------------------------------------------------
-@mixin border-corner-radius($x, $y, $radius: $base_border_radius) {
+@mixin border-corner-radius($x, $y, $radius: $base-border-radius) {
   @extend .pie;
   -moz-border-radius-#{$y}-#{$x}: $radius;
   -webkit-border-#{$y}-#{$x}-radius: $radius;
   border-#{$y}-#{$x}-radius: $radius;
 }
-@mixin border-radius($radius: $base_border_radius) {
+@mixin border-radius($radius: $base-border-radius) {
   @extend .pie;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
   border-radius: $radius;
 }
-@mixin border-radius-tl($radius: $base_border_radius) {
+@mixin border-radius-tl($radius: $base-border-radius) {
   @include border-corner-radius(top, left, $radius);
 }
-@mixin border-radius-tr($radius: $base_border_radius) {
+@mixin border-radius-tr($radius: $base-border-radius) {
   @include border-corner-radius(top, right, $radius);
 }
-@mixin border-radius-bl($radius: $base_border_radius) {
+@mixin border-radius-bl($radius: $base-border-radius) {
   @include border-corner-radius(bottom, left, $radius);
 }
-@mixin border-radius-br($radius: $base_border_radius) {
+@mixin border-radius-br($radius: $base-border-radius) {
   @include border-corner-radius(bottom, right, $radius);
 }
 
@@ -84,13 +84,13 @@
 // @font-face
 // --------------------------------------------------
 @mixin font-face($name,
-                 $font_file,
+                 $font-file,
                  $weight: normal,
                  $style: normal) {
   @font-face {
     font-family: quote($name);
-    src: url('#{$font_file}' + '.eot');
-  	src: local('☺'), url('#{$font_file}' + '.ttf') format('truetype'), url('#{$font_file}' + '.svg#webfont') format('svg');
+    src: url('#{$font-file}' + '.eot');
+  	src: local('☺'), url('#{$font-file}' + '.ttf') format('truetype'), url('#{$font-file}' + '.svg#webfont') format('svg');
   	@if $weight {
       font-weight: $weight;
     }
