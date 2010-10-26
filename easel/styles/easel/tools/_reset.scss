@@ -1,27 +1,10 @@
+// --------------------------------------------------
 // YUI3 reset with at few tweaks: 
 // -reset button, select
 // -reset text decoration on a, ins
 // -reset small
 // -color and bg on body, not html
-
-
-// Reset the box model measurements.
-@mixin reset_box_model {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-}
-
-// Reset the font and vertical alignment.
-@mixin reset_font {
-  font-weight: inherit;
-  font-style: inherit;
-  size: 100%;
-  family: inherit;
-  vertical-align: baseline;
-}
-
+// --------------------------------------------------
 @mixin reset_all {
   body {
   	color: #000;
@@ -146,4 +129,22 @@
   	text-decoration: none;
   }
   
+}
+
+// reset box model
+@mixin reset_box_model {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+// reset fonts
+@mixin reset_font {
+  font-weight: inherit;
+  font-style: inherit;
+  size: 100%;
+  family: inherit;
+  vertical-align: baseline;
+  line-height: inherit;
 }

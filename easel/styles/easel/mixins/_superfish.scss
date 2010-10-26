@@ -1,4 +1,7 @@
-@mixin superfish($nav_height: 50px, $dropdown_width: 15em) {
+@mixin superfish(
+  $nav_height: 50px,
+  $dropdown_width: 15em) {
+    
   @include floated_list;
 	ul {
 		position: absolute;
@@ -39,4 +42,4 @@
 			top: -999em;
 		}
 	}
-} //superfish
+}

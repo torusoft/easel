@@ -3,24 +3,24 @@
   line-height: $base_line_height;
   color: $base_text_color;
   letter-spacing: $base_letter_spacing;
-} //body
+}
 
 @mixin p {
   @include block;
-} //p
+}
 
 @mixin blockquote {
   @include block;
-} //blockquote
+}
 
 @mixin pre {
   @include block;
   white-space: pre;
-} //pre
+}
 
 @mixin address {
   @include block;
-} //address
+}
 
 @mixin a($color: $base_link_color, $hover_color: $base_link_hover_color) {
   color: $color;
@@ -28,7 +28,7 @@
   &:hover {
     color: $hover_color;
   }
-} //a
+}
 
 @mixin img($inline_block: true) {
   max-width: 100%;
@@ -36,45 +36,45 @@
   @if $inline_block {
     @include inline_block; 
   }
-} //img
+}
 
 @mixin small {
   font-size: 80%;
-} //small
+}
 
 @mixin strong {
   font-weight: bold;
-} //strong
+}
 
 @mixin em {
   font-style: italic;
-} //em
+}
 
 @mixin code {
-
-} //code
+  @include font_mono;
+}
 
 @mixin abbr {
   text-transform: uppercase;
   cursor: help;
-} //abbr
+}
 
 @mixin q {
   font-style: italic;
-} //q
+}
 
 @mixin del {
   text-decoration: line-through;
-} //del
+}
 
 @mixin ins {
   text-decoration: underline;
-} //ins
+}
 
 @mixin sub {
   font-size: 60%;
-} //sub
+}
 
 @mixin sup {
   font-size: 60%;
-} //sup
+}

@@ -55,3 +55,12 @@
 	}
 	
 }
+
+@mixin button_reset {
+  &, span {
+    @include reset_box_model;
+    @include reset_font; 
+    cursor: default;
+    white-space: normal;
+  }
+}

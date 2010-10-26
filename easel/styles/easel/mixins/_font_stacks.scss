@@ -41,31 +41,18 @@
 }
 
 // baskervald
-@mixin BaskervaldADFStdItalic {
-  @include base_font_face(.48);
-  font-family: BaskervaldADFStdItalic, serif;
+@mixin baskervald {
+  font-family: Baskervald, serif;
 }
 
 // proxima nova
-@mixin ProximaNovaRegular {
-  @include base_font_face(.48);
-  font-family: 'ProximaNovaRegular', sans-serif;
-}
-@mixin ProximaNovaBold {
-  @include base_font_face(.48);
-  font-family: 'ProximaNovaBold', sans-serif;
-}
-@mixin ProximaNovaBoldItalic() {
-  @include base_font_face(.48);
-  font-family: 'ProximaNovaBoldItalic', sans-serif;
-}
-@mixin ProximaNovaExtrabold {
-  @include base_font_face(.48);
-  font-family: 'ProximaNovaExtrabold', sans-serif;
+@mixin proxima-nova {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size-adjust: .48;
 }
 
 // titillium text
-@mixin TitilliumText22L600wt {
-  @include base_font_face(.5);
-	font-family: 'TitilliumText22L600wt', sans-serif;
+@mixin titllium-text {
+	font-family: 'Titillium Text', sans-serif;
+	font-size-adjust: .5;
 }

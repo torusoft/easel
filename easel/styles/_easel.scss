@@ -36,4 +36,5 @@ $base_list_margin_y: $base_y / 2 !default;
 
 // import
 @import "easel/tools";
+@import "easel/mixins";
 @import "easel/base";

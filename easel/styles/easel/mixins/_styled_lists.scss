@@ -5,7 +5,7 @@
       display: block;
     }
   }
-} //block_list
+}
 
 @mixin floated_list($margin_right: 0, $text_align: center) {
   @include clearfix;
@@ -21,7 +21,7 @@
       margin-right: 0;
     }
   }
-} //floated_list
+}
 
 @mixin inline_block_list($margin_right: 0, $text_align: center) {
   text-align: $text_align;
@@ -33,7 +33,7 @@
       margin-right: 0;
     }
   }
-} //inline_block_list
+}
 
 @mixin inline_list($margin_right: 0, $text_align: center) {
   text-align: $text_align;
@@ -45,7 +45,7 @@
       margin-right: 0;
     }
   }
-} //inline_block_list
+}
 
 @mixin piped_list(
   $color: $base_border_color,
@@ -63,4 +63,4 @@
       padding-right: 0;
     }
   }
-} //piped_list
+}

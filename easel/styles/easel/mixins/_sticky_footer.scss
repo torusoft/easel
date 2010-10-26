@@ -1,4 +1,9 @@
-@mixin sticky_footer($height, $padding: 0,  $wrapper: '.wrapper', $footer:  '.footer') {
+@mixin sticky_footer(
+  $height,
+  $padding: 0,
+  $wrapper: '.wrapper',
+  $footer:  '.footer') {
+    
 	html {
 		height: 100%;
 	}
@@ -16,4 +21,4 @@
 		width: 100%;
 		height: $height;
 	}
-} //sticky_footer
+}

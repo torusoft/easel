@@ -1,3 +1,4 @@
+// float fix for ie6
 @mixin float($dir: left) {
   float: $dir;
   .ie6 & {
@@ -5,6 +6,7 @@
   }
 }
 
+// clearfix
 @mixin clearfix {
   &:after {
     visibility: hidden;
@@ -20,6 +22,7 @@
   }
 }
 
+// cross browser inline-block
 @mixin inline_block {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -32,6 +35,7 @@
 	}
 }
 
+// negative margin fix for ie6
 @mixin negative_margin_fix {
   .ie6 & {
     position: relative;
@@ -39,6 +43,7 @@
   }
 }
 
+// min height/width for ie6
 @mixin min_height($h: auto) {
   min-height: $h;
   .ie6 & {
@@ -52,6 +57,7 @@
 	}
 }
 
+// image replacement
 @mixin replace {
   background-repeat: no-repeat;
   text-indent: -999em;
@@ -62,46 +68,30 @@
   font-size: 1px;
 }
 
+// hiding/showing
 @mixin js_hide {
   .js & {
     display: none;
   }
-} //js_hide
-
+}
 @mixin js_show {
   display: none;
   .js & {
     display: block;
   }
-} //js_show
-
+}
 @mixin hide_accessibly() {
   position: absolute;
   left: -9999em;
-} //hide_accessibly
-
+}
 @mixin js_hide_accessibly() {
   .js & {
     @include hide_accessibly;
   }
-} //js_hide_accessibly
+}
 
+// bottom margin block
 @mixin block($margin: $base_y, $display: block) {
   display: $display;
   margin-bottom: $margin;
-} //block
-
-@mixin cycle($h) {
-  .slide,
-  .slides {
-    height: $h;
-    overflow: hidden;
-    * {
-      display: block;
-    }
-  }
-}
-
-@mixin ampersand {
-  @include BaskervaldADFStdItalic;
 }

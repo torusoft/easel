@@ -1,0 +1,15 @@
+@mixin cycle($h) {
+  .slide,
+  .slides {
+    height: $h;
+    overflow: hidden;
+    * {
+      display: block;
+    }
+  }
+}
+
+@mixin ampersand {
+  @include Baskervald;
+  font-style: italic;
+}

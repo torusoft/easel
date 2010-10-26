@@ -1,4 +1,9 @@
-@mixin link_sprite($left: 0, $unit: 100px, $selector: false, $offset: 0) {
+@mixin link_sprite(
+  $left: 0,
+  $unit: 100px,
+  $selector: false,
+  $offset: 0) {
+    
   @if $selector {
     #{$selector} {
       background-repeat: no-repeat;
@@ -23,4 +28,5 @@
       background-position: $left (($unit * 2 * -1) + $offset);
     }
   }
-} //link_sprite
+  
+}
