@@ -13,3 +13,13 @@
   @include Baskervald;
   font-style: italic;
 }
+
+@mixin uppercase(
+  $font-weight: bold,
+  $font-size: 10px,
+  $letter-spacing: .01em) {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}

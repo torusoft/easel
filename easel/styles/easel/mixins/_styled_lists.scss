@@ -7,9 +7,14 @@
   }
 }
 
-@mixin floated-list($margin-right: 0, $text-align: center) {
+@mixin floated-list(
+  $margin-right: 0,
+  $text-align: center) {
+    
   @include clearfix;
-  text-align: $text-align;
+  @if $text-align {
+    text-align: $text-align;
+  }
   li {
     @include float(left);
     @include li-reset;

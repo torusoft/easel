@@ -54,18 +54,30 @@
 
 // --------------------------------------------------
 // border-radius
+// PIE only works with shorthand method
 // --------------------------------------------------
 @mixin border-corner-radius($x, $y, $radius: $base-border-radius) {
-  @extend .pie;
   -moz-border-radius-#{$y}-#{$x}: $radius;
   -webkit-border-#{$y}-#{$x}-radius: $radius;
   border-#{$y}-#{$x}-radius: $radius;
 }
-@mixin border-radius($radius: $base-border-radius) {
+@mixin border-radius(
+  $radius: $base-border-radius,
+  $tl: $base-border-radius,
+  $tr: $base-border-radius,
+  $br: $base-border-radius,
+  $bl: $base-border-radius) {
+    
   @extend .pie;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-  border-radius: $radius;
+  @if $radius {
+    $tl: $radius;
+    $tr: $radius;
+    $br: $radius;
+    $bl: $radius;
+  }
+  -moz-border-radius: $tl $tr $br $bl;
+  -webkit-border-radius: $tl $tr $br $bl;
+  border-radius: $tl $tr $br $bl;
 }
 @mixin border-radius-tl($radius: $base-border-radius) {
   @include border-corner-radius(top, left, $radius);
