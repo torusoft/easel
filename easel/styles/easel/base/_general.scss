@@ -1,78 +1,80 @@
 @mixin body {
-  font-size: $base_font_size;
-  line-height: $base_line_height;
-  color: $base_text_color;
-  letter-spacing: $base_letter_spacing;
-} //body
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $base-text-color;
+  letter-spacing: $base-letter-spacing;
+}
 
 @mixin p {
   @include block;
-} //p
+}
 
 @mixin blockquote {
   @include block;
-} //blockquote
+}
 
 @mixin pre {
   @include block;
-} //pre
+  white-space: pre;
+}
 
 @mixin address {
   @include block;
-} //address
+}
 
-@mixin a($color: $base_link_color, $hover_color: $base_link_hover_color) {
+@mixin a($color: $base-link-color, $hover-color: $base-link-hover-color) {
   color: $color;
   &:focus,
   &:hover {
-    color: $hover_color;
+    color: $hover-color;
   }
-} //a
+}
 
-@mixin img($inline_block: true) {
+@mixin img($inline-block: true) {
   max-width: 100%;
   height: auto;  
-  @if $inline_block {
-    @include inline_block; 
+  @if $inline-block {
+    @include inline-block; 
   }
-} //img
+}
 
 @mixin small {
-  
-} //small
+  font-size: 80%;
+}
 
 @mixin strong {
   font-weight: bold;
-} //strong
+}
 
 @mixin em {
   font-style: italic;
-} //em
+}
 
 @mixin code {
-
-} //code
+  @include font-mono;
+}
 
 @mixin abbr {
   text-transform: uppercase;
   cursor: help;
-} //abbr
+}
 
 @mixin q {
-  
-} //q
+  font-style: italic;
+}
 
 @mixin del {
   text-decoration: line-through;
-} //del
+}
 
 @mixin ins {
   text-decoration: underline;
-} //ins
+}
 
 @mixin sub {
-  
-} //sub
+  font-size: 60%;
+}
+
 @mixin sup {
-  
-} //sup
+  font-size: 60%;
+}

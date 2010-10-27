@@ -1,0 +1,26 @@
+// --------------------------------------------------
+// define/override variables
+// --------------------------------------------------
+// $easel-dir: '/easel/styles';
+// $column-count: 24;
+// $column-width: 30px;
+// $column-gutter: 10px;
+// $base-line-height: 1.5;
+// $base-font-size: 12px;
+// $base-letter-spacing: 0;
+// $base-border-radius: 5px;
+// $base-x: 20px;
+// $base-y: 20px;
+// $base-text-color: #333;
+// $base-bg-color: #fff;
+// $base-border-color: #ccc;
+// $base-link-color: #ff0000;
+// $base-link-hover-color: darken($base-link-color, 10%);
+// $base-list-line-height: $base-line-height * .85;
+// $base-list-margin-y: $base-y / 2;
+
+
+// --------------------------------------------------
+// import easel
+// --------------------------------------------------
+@import "../../easel/styles/easel";

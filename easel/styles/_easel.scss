@@ -1,38 +1,40 @@
 //
 // $$$$$$$$\                              $$\ 
-// $$  _____|                             $$ |
+// $$  -----|                             $$ |
 // $$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
-// $$$$$\    \____$$\ $$  _____|$$  __$$\ $$ |
-// $$  __|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
-// $$ |     $$  __$$ | \____$$\ $$   ____|$$ |
+// $$$$$\    \----$$\ $$  -----|$$  --$$\ $$ |
+// $$  --|   $$$$$$$ |\$$$$$$\  $$$$$$$$ |$$ |
+// $$ |     $$  --$$ | \----$$\ $$   ----|$$ |
 // $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
-// \________|\_______|\_______/  \_______|\__|
+// \--------|\-------|\-------/  \-------|\--|
 // 
 
 // defaults
-$column_count: 24 !default;
-$column_width: 30px !default;
-$column_gutter: 10px !default;
+$easel-dir: '/easel/styles';
 
-$base_line_height: 1.5 !default;
-$base_font_size: 12px !default;
-$base_letter_spacing: 0 !default;
-$base_border_radius: 5px !default;
+$column-count: 24 !default;
+$column-width: 30px !default;
+$column-gutter: 10px !default;
 
-$base_x: 20px !default;
-$base_y: 20px !default;
+$base-line-height: 1.5 !default;
+$base-font-size: 12px !default;
+$base-letter-spacing: 0 !default;
+$base-border-radius: 5px !default;
 
-$base_text_color: #333 !default;
-$base_bg_color: #fff !default;
-$base_border_color: #ccc !default;
+$base-x: 20px !default;
+$base-y: 20px !default;
 
-$base_link_color: #ff0000 !default;
-$base_link_hover_color: darken($base_link_color, 10%) !default;
+$base-text-color: #333 !default;
+$base-bg-color: #fff !default;
+$base-border-color: #ccc !default;
 
-$base_list_line_height: $base_line_height * .85 !default;
-$base_list_margin_y: $base_y / 2 !default;
+$base-link-color: #ff0000 !default;
+$base-link-hover-color: darken($base-link-color, 10%) !default;
+
+$base-list-line-height: $base-line-height * .85 !default;
+$base-list-margin-y: $base-y / 2 !default;
 
 // import
 @import "easel/tools";
-@import "easel/base";
 @import "easel/mixins";
+@import "easel/base";

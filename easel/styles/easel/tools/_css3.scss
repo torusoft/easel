@@ -1,37 +1,143 @@
-@mixin text_shadow() {
-  
-} //text_shadow
+// --------------------------------------------------
+// css3 PIE
+// http://css3pie.com/
+// --------------------------------------------------
+@mixin pie {
+  behavior: url(#{$easel-dir}/tools/PIE.htc);
+  position: relative;
+}
+.pie {
+  @include pie;
+}
 
-@mixin box_shadow() {
-  
-} //box_shadow
+// --------------------------------------------------
+// text-shadow
+// --------------------------------------------------
+@mixin text-shadow($x: 0, $y: 1px, $blur: 1px, $color: #000) {
+	-moz-text-shadow: $x $y $blur $color;
+	-webkit-text-shadow: $x $y $blur $color;
+	text-shadow: $x $y $blur $color;
+}
 
-@mixin border_radius() {
-  
-} //border_radius
+// --------------------------------------------------
+// box-shadow
+// --------------------------------------------------
+@mixin box-shadow($x: 0px,
+                  $y: 0px,
+                  $blur: 0px,
+                  $spread: 0px,
+                  $color : #000,
+                  $inset: false) {
+  @extend .pie;
+  @if $inset {
+    -moz-box-shadow: $x $y $blur $spread $color $inset inset;
+  	-webkit-box-shadow: $x $y $blur $spread $color inset ;
+  	box-shadow: $x $y $blur $spread $color inset;
+  }
+  @else {
+    -moz-box-shadow: $x $y $blur $spread $color;
+  	-webkit-box-shadow: $x $y $blur $spread $color;
+  	box-shadow: $x $y $blur $spread $color;
+  }
+}
 
+// --------------------------------------------------
+// opacity
+// --------------------------------------------------
 @mixin opacity($opacity) {
-	-ms-filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
-	filter: alpha(opacity=$opacity);
-	-khtml-opacity: $opacity;
 	-moz-opacity: $opacity;
+	-khtml-opacity: $opacity;
 	opacity: $opacity;
-} //opacity
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})";
+	filter: alpha(opacity=$opacity * 100);
+}
 
-@mixin font_face($name, $font_file, $weight: normal, $style: normal, $font_size_adjust: 0) {
+// --------------------------------------------------
+// border-radius
+// PIE only works with shorthand method
+// --------------------------------------------------
+@mixin border-corner-radius($x, $y, $radius: $base-border-radius) {
+  -moz-border-radius-#{$y}-#{$x}: $radius;
+  -webkit-border-#{$y}-#{$x}-radius: $radius;
+  border-#{$y}-#{$x}-radius: $radius;
+}
+@mixin border-radius(
+  $radius: $base-border-radius,
+  $tl: $base-border-radius,
+  $tr: $base-border-radius,
+  $br: $base-border-radius,
+  $bl: $base-border-radius) {
+    
+  @extend .pie;
+  @if $radius {
+    $tl: $radius;
+    $tr: $radius;
+    $br: $radius;
+    $bl: $radius;
+  }
+  -moz-border-radius: $tl $tr $br $bl;
+  -webkit-border-radius: $tl $tr $br $bl;
+  border-radius: $tl $tr $br $bl;
+}
+@mixin border-radius-tl($radius: $base-border-radius) {
+  @include border-corner-radius(top, left, $radius);
+}
+@mixin border-radius-tr($radius: $base-border-radius) {
+  @include border-corner-radius(top, right, $radius);
+}
+@mixin border-radius-bl($radius: $base-border-radius) {
+  @include border-corner-radius(bottom, left, $radius);
+}
+@mixin border-radius-br($radius: $base-border-radius) {
+  @include border-corner-radius(bottom, right, $radius);
+}
+
+// --------------------------------------------------
+// @font-face
+// --------------------------------------------------
+@mixin font-face($name,
+                 $font-file,
+                 $weight: normal,
+                 $style: normal) {
   @font-face {
     font-family: quote($name);
-    src: url('#{$font_file}' + '.eot');
-  	src: local('☺'), url('#{$font_file}' + '.ttf') format('truetype'), url('#{$font_file}' + '.svg#webfont') format('svg');
+    src: url('#{$font-file}' + '.eot');
+  	src: local('☺'), url('#{$font-file}' + '.ttf') format('truetype'), url('#{$font-file}' + '.svg#webfont') format('svg');
   	@if $weight {
       font-weight: $weight;
     }
     @if $style {
       font-weight: $style;
     }
-    @if $font_size_adjust {
-      font-size-adjust: $font_size_adjust;
-    }
-    
   }
-} //font_face
+}
+
+// --------------------------------------------------
+// rgba backgrounds
+// --------------------------------------------------
+@mixin rgba($color, $opacity) {
+  @extend .pie;
+  background-color: $color;
+  background-color: rgba($color, $opacity);
+  -pie-background: rgba($color, $opacity);
+}
+
+// --------------------------------------------------
+// multiple backgrounds
+// --------------------------------------------------
+@mixin multiple-backgrounds($value) {
+  @extend .pie;
+  background: unquote($value);
+  -pie-background: unquote($value);
+}
+
+// --------------------------------------------------
+// vertical gradient
+// --------------------------------------------------
+@mixin vertical-gradient($start: #000, $end: #fff) {
+  @extend .pie;
+  background: $end;
+  background: -moz-linear-gradient(center top, $start 0%, $end 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
+  -pie-background: linear-gradient(90deg, $start, $end);
+}

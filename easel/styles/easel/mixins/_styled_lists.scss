@@ -5,12 +5,12 @@
       display: block;
     }
   }
-} //block-list
+}
 
-@mixin floated-list($margin-right: 0, $text-align: center) {
+@mixin floated-list($margin-right: 0) {
   @include clearfix;
   li {
-    text-align: $text-align;
+    @include li-reset;
     @include float(left);
     margin-right: $margin-right;
     a {
@@ -20,7 +20,8 @@
       margin-right: 0;
     }
   }
-} //floated-list
+}
+
 
 @mixin inline-block-list($margin-right: 0) {
   li {
@@ -31,7 +32,7 @@
       margin-right: 0;
     }
   }
-} //inline-block-list
+}
 
 @mixin inline-list($margin-right: 0) {
   li {
@@ -42,7 +43,7 @@
       margin-right: 0;
     }
   }
-} //inline-block-list
+}
 
 @mixin piped-list(
   $color: $base-border-color,
@@ -60,4 +61,4 @@
       padding-right: 0;
     }
   }
-} //piped-list
+}

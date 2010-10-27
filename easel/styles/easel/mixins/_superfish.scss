@@ -1,9 +1,12 @@
-@mixin superfish($nav_height: 50px, $dropdown_width: 15em) {
-	@include hnav;
+@mixin superfish(
+  $nav-height: 50px,
+  $dropdown-width: 15em) {
+    
+  @include floated-list;
 	ul {
 		position: absolute;
 		top: -999em;
-		width: $dropdown_width;
+		width: $dropdown-width;
 		li {
 			width: 100%;
 			&:hover {
@@ -15,14 +18,14 @@
 		position: relative;
 	}
 	
-	li a { height: $nav_height; }
+	li a { height: $nav-height; }
 	li li a { height: auto; }
 	
 	li li:hover ul,
 	li li.sfHover ul,
 	li li li:hover ul,
 	li li li.sfHover ul {
-		left: $dropdown_width;
+		left: $dropdown-width;
 		top: 0;
 	}
 	a {
@@ -32,11 +35,11 @@
 	li:hover ul,
 	li.sfHover ul {
 		left: 0;
-		top: $nav_height;
+		top: $nav-height;
 		z-index: 99;
 		ul,
 		ul ul {
 			top: -999em;
 		}
 	}
-} //superfish
+}
