@@ -1,45 +1,101 @@
+// --------------------------------------------------
 // includes
+// --------------------------------------------------
 @include reset_all;
 @include classes;
 @include grid;
 
+// --------------------------------------------------
 // body
-body 			  { @include body; }
+// --------------------------------------------------
+body {
+  @include body;
+}
 
+// --------------------------------------------------
 // headings
-h1 				  { @include h1; }
-h2 				  { @include h2; }
-h3 				  { @include h3; }
-h4 				  { @include h4; }
-h5 				  { @include h5; }
-h6 				  { @include h6; }
+// --------------------------------------------------
+h1 {
+  @include h1;
+}
+h2 {
+  @include h2;
+}
+h3 {
+  @include h3;
+}
+h4 {
+  @include h4;
+}
+h5 {
+  @include h5;
+}
+h6 {
+  @include h6;
+}
 
+// --------------------------------------------------
+// links
+// --------------------------------------------------
+a {
+  @include a;
+}
+
+// --------------------------------------------------
 // lists
-ul 				  { @include ul; }
-ol 				  { @include ol; }
-dl 				  { @include dl; }
+// --------------------------------------------------
+ul {
+  @include ul;
+}
+ol{
+  @include ol;
+}
+dl{
+  @include dl;
+}
 
+// --------------------------------------------------
 // block elements
-p           { @include p; }
-table 		  { @include table; }
-blockquote  { @include blockquote; }
-pre 			  { @include pre; }
-address 	  { @include address; }
+// --------------------------------------------------
+p {
+  @include p;
+}
+table {
+  @include table;
+}
+blockquote {
+  @include blockquote;
+}
+pre {
+  @include pre;
+}
+address {
+  @include address;
+}
 
+// --------------------------------------------------
 // forms
-form        { @include form; }
-fieldset    { @include fieldset; }
-button      { @include button; }
+// --------------------------------------------------
+form {
+  @include form;
+}
+fieldset {
+  @include fieldset;
+}
+button {
+  @include button;
+}
 
+// --------------------------------------------------
 // inline elements
-a           { @include a; }
-sup         { @include sup; }
-sub         { @include sub; }
-abbr        { @include abbr;}
-strong      { @include strong; }
-em          { @include em; }
-small       { @include small; }
-del         { @include del; }
-ins         { @include ins; }
-code        { @include code;}
-img         { @include img; }
+// --------------------------------------------------
+sup    { @include sup; }
+sub    { @include sub; }
+abbr   { @include abbr;}
+strong { @include strong; }
+em     { @include em; }
+small  { @include small; }
+del    { @include del; }
+ins    { @include ins; }
+code   { @include code;}
+img    { @include img; }

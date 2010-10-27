@@ -1,4 +1,4 @@
-@mixin block($margin: $base_y, $display: block) {
+@mixin block($margin: $base-y, $display: block) {
   display: $display;
   margin-bottom: $margin;
 } //block

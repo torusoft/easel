@@ -1,18 +1,18 @@
-@mixin block_list() {
+@mixin block-list() {
   li {
-    @include li_reset;
+    @include li-reset;
     a {
       display: block;
     }
   }
-} //block_list
+} //block-list
 
-@mixin floated_list($margin_right: 0, $text_align: center) {
+@mixin floated-list($margin-right: 0, $text-align: center) {
   @include clearfix;
-  text-align: $text_align;
   li {
+    text-align: $text-align;
     @include float(left);
-    margin-right: $margin_right;
+    margin-right: $margin-right;
     a {
       display: block;
     }
@@ -20,46 +20,44 @@
       margin-right: 0;
     }
   }
-} //floated_list
+} //floated-list
 
-@mixin inline_block_list($margin_right: 0, $text_align: center) {
-  text-align: $text_align;
+@mixin inline-block-list($margin-right: 0) {
   li {
-    @include li_reset;
-    @include inline_block;
-    margin-right: $margin_right;
+    @include li-reset;
+    @include inline-block;
+    margin-right: $margin-right;
     &.last {
       margin-right: 0;
     }
   }
-} //inline_block_list
+} //inline-block-list
 
-@mixin inline_list($margin_right: 0, $text_align: center) {
-  text-align: $text_align;
+@mixin inline-list($margin-right: 0) {
   li {
-    @include li_reset;
+    @include li-reset;
     display: inline;
-    margin-right: $margin_right;
+    margin-right: $margin-right;
     &.last {
       margin-right: 0;
     }
   }
-} //inline_block_list
+} //inline-block-list
 
-@mixin piped_list(
-  $color: $base_border_color,
+@mixin piped-list(
+  $color: $base-border-color,
   $width: 1px,
   $style: solid,
-  $padding_right: 5px,
-  $margin_right: 5px) {
+  $padding-right: 5px,
+  $margin-right: 5px) {
   li {
-    @include li_reset;
+    @include li-reset;
     border-right: $width $style $color;
-    padding-right: $padding_right;
-    margin-right: $margin_right;
+    padding-right: $padding-right;
+    margin-right: $margin-right;
     &.last {
       margin-right: 0;
       padding-right: 0;
     }
   }
-} //piped_list
+} //piped-list
