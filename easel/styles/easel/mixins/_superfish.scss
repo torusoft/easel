@@ -14,32 +14,38 @@
 			}
 		}
 	}
+	
 	li {
 		position: relative;
-	}
-	
-	li a { height: $nav-height; }
-	li li a { height: auto; }
-	
-	li li:hover ul,
-	li li.sfHover ul,
-	li li li:hover ul,
-	li li li.sfHover ul {
-		left: $dropdown-width;
-		top: 0;
 	}
 	a {
 		display: block;
 		position: relative;
 	}
+
+	li a { height: $nav-height; }
+	li li a { height: auto; }
+	
 	li:hover ul,
-	li.sfHover ul {
-		left: 0;
-		top: $nav-height;
-		z-index: 99;
-		ul,
-		ul ul {
-			top: -999em;
-		}
-	}
+  li.sfHover ul {
+  	left: 0;
+  	top: $nav-height;
+  	z-index:		99;
+  }
+
+  li:hover li ul,
+  li.sfHover li ul,
+  li li:hover li ul,
+  li li.sfHover li ul{
+  	top: -999em;
+  }
+
+  li li:hover ul,
+  li li.sfHover ul,
+  li li li:hover ul,
+  li li li.sfHover ul {
+  	left: $dropdown-width;
+  	top: 0;
+  }
+  
 }
