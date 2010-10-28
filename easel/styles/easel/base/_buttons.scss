@@ -4,7 +4,13 @@
   $y-offset: -1px,
   $img: "images/easel/sprites/default-white.png",
   $text-align: center){
-    
+	
+	@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    span {
+      margin-top: -1px; 
+    }
+  }
+  
 	@include inline-block;
   cursor: pointer;
   text-align: $text-align;
@@ -17,14 +23,7 @@
   &::-moz-focus-inner {
 	  border: none;
 	  padding: 0;
-	} // removes 1px border in FF
-	
-	@media screen and (-webkit-min-device-pixel-ratio:0) { 
-    span {
-      margin-top: -1px; 
-    }
-  }
-  
+	} // removes 1px border in FF  
 	& span {
 		position: relative;
 	  display: block;
@@ -36,7 +35,7 @@
 	
 	&,
 	& span {
-		background-image: $img;
+		background-image: url($img);
 	}
 	
 	& { background-position: 100% 0; }
@@ -53,7 +52,6 @@
 	  line-height: $base-line-height;
 	  padding: 0;
 	}
-	
 }
 
 @mixin button-reset {
