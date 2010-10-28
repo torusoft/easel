@@ -1,8 +1,12 @@
-@mixin body {
+@mixin base-font {
   font-size: $base-font-size;
   line-height: $base-line-height;
   color: $base-text-color;
   letter-spacing: $base-letter-spacing;
+}
+
+@mixin body {
+  @include base-font;
 }
 
 @mixin p {
@@ -22,7 +26,9 @@
   @include block;
 }
 
-@mixin a($color: $base-link-color, $hover-color: $base-link-hover-color) {
+@mixin a(
+  $color: $base-link-color,
+  $hover-color: $base-link-hover-color) {
   color: $color;
   &:focus,
   &:hover {
