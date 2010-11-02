@@ -7,18 +7,20 @@
 }
 
 // clearfix
+// j.mp/bestclearfix
 @mixin clearfix {
+  &:before,
   &:after {
-    visibility: hidden;
-  	display: block;
-  	font-size: 0;
-  	content: " ";
-  	clear: both;
-  	height: 0;
+    content: ".";    
+    display: block;    
+    height: 0;    
+    overflow: hidden;	
   }
-  .ie6,
-  .ie7 {
-    zoom: 1;
+  &:after {
+    clear: both;
+  }
+  & {
+    zoom: 1;// IE < 8
   }
 }
 
