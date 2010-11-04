@@ -1,7 +1,6 @@
 @mixin superfish(
-  $nav-height: 50px,
+  $height: 50px,
   $dropdown-width: 15em) {
-    
   @include floated-list;
 	ul {
 		position: absolute;
@@ -10,7 +9,7 @@
 		li {
 			width: 100%;
 			&:hover {
-				visibility: inherit; /* fixes IE7 "sticky bug" */
+				visibility: inherit; // fixes IE7 "sticky bug"
 			}
 		}
 	}
@@ -21,12 +20,12 @@
 		display: block;
 		position: relative;
 	}
-	li a { height: $nav-height; }
+	li a { height: $height; }
 	li li a { height: auto; }
 	li:hover ul,
   li.sfHover ul {
   	left: 0;
-  	top: $nav-height;
+  	top: $height;
   	z-index:		99;
   }
   li:hover li ul,

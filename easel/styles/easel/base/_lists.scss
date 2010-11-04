@@ -6,8 +6,8 @@
   }
 }
 
-@mixin bullet($img, $padding-x, $top-offset, $left-offset) {
-  background: url($img) $left-offset $top-offset no-repeat;
+@mixin bullet($img, $padding-x, $offset-x, $offset-y) {
+  background: url($img) $offset-x $offset-y no-repeat;
   padding-left: $padding-x;
 }
 
@@ -42,11 +42,11 @@
   $margin-y: $base-list-margin-y,
   $img: '/easel/styles/images/icons/20x20/dot-gray.png',
   $padding-left: $base-x,
-  $y-offset: 0,
-  $x-offset: 0) {
+  $offset-y: 0,
+  $offset-x: 0) {
   @include list-base($line-height, $margin-y);
   li {
-    @include bullet($img, $padding-left, $y-offset, $x-offset);
+    @include bullet($img, $padding-left, $offset-y, $offset-x);
   }
 }
 
@@ -55,7 +55,7 @@
   $margin-left: 2em,
   $line-height: $base-list-line-height,
   $margin-y: $base-list-margin-y) {
-    @include list-base($line-height, $margin-y);
+  @include list-base($line-height, $margin-y);
   li {
     list-style-type: $type;
     margin-left: $margin-left;

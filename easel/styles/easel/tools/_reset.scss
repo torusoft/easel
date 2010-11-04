@@ -1,11 +1,11 @@
 // --------------------------------------------------
 // YUI3 reset with at few tweaks: 
-// -reset button, select
-// -reset text decoration on a, ins
-// -reset small
-// -color and bg on body, not html
+// reset button, select, input
+// reset text decoration on a, ins
+// reset small
+// color and bg on body, not html
 // --------------------------------------------------
-@mixin reset-all {
+@mixin global-reset {
   body {
   	color: #000;
   	background: #fff;
@@ -101,11 +101,9 @@
   	font-variant:normal;
   }
   
-  sup {
-  	vertical-align: text-top;
-  }
+  sup,
   sub {
-  	vertical-align: text-bottom;
+  	vertical-align: baseline;
   }
 
   input,
@@ -116,7 +114,9 @@
   	font-size: inherit;
   	font-weight: inherit;
   }
-
+  
+  input,
+  textarea,
   button {
   	border: 0;
   	padding: 0;
@@ -131,16 +131,20 @@
   
 }
 
+// --------------------------------------------------
 // reset box model
-@mixin reset-box-model {
+// --------------------------------------------------
+@mixin box-model-reset {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
 }
 
-// reset fonts
-@mixin reset-font {
+// --------------------------------------------------
+// reset font styles
+// --------------------------------------------------
+@mixin font-reset {
   font-weight: inherit;
   font-style: inherit;
   font-size: 100%;

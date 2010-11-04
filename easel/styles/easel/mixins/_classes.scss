@@ -11,12 +11,13 @@
   .js-hide { @include js-hide; }
   .js-show { @include js-show; }
   .hide-accessibly { @include hide-accessibly; }
+  .js-hide-accessibly { @include js-hide-accessibly; }
+  .invisible { visibility: hidden; }
   
   // misc
-  .centered { text-align: center; }
   .block { @include block; }
+  .centered { text-align: center; }
   .no-bullets { @include no-bullets; }
-  .no-bullet { @include no-bullet; }
   .nowrap { white-space: nowrap; }
   
 }
