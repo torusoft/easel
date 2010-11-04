@@ -2,30 +2,30 @@
   $left: 0,
   $unit: 100px,
   $selector: false,
-  $offset: 0) {
+  $y-offset: 0) {
     
   @if $selector {
     #{$selector} {
       background-repeat: no-repeat;
-      background-position: $left $offset;  
+      background-position: $left $y-offset;  
     }
     &:hover #{$selector},
     &:focus #{$selector} {
-      background-position: $left (($unit * -1) + $offset);
+      background-position: $left (($unit * -1) + $y-offset);
     }
     &:active #{$selector}{
-      background-position: $left (($unit * 2 * -1) + $offset);
+      background-position: $left (($unit * 2 * -1) + $y-offset);
     }
   }
   @else {
     background-repeat: no-repeat;
-    background-position: $left $offset;  
+    background-position: $left $y-offset;  
     &:hover,
     &:focus {
-      background-position: $left (($unit * -1) + $offset);
+      background-position: $left (($unit * -1) + $y-offset);
     }
     &:active {
-      background-position: $left (($unit * 2 * -1) + $offset);
+      background-position: $left (($unit * 2 * -1) + $y-offset);
     }
   }
   
