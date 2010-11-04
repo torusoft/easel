@@ -57,7 +57,7 @@ $base-box-shadow-y: 2px !default;
 $base-box-shadow-blur: 3px !default;
 $base-box-shadow-spread: 0 !default;
 $base-box-shadow-color: rgba(#000, .2) !default;
-$base-box-shadow-inset: false !default;
+$base-box-shadow-style: false !default;
 
 // default colors
 $light-text-color: lighten($base-text-color, 10%) !default;

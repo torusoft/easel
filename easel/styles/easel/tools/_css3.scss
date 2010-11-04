@@ -35,18 +35,11 @@
   $blur: $base-box-shadow-blur,
   $spread: $base-box-shadow-spread,
   $color : $base-box-shadow-color,
-  $inset: $base-box-shadow-inset) {
+  $style: $base-box-shadow-style) {
   @extend .pie;
-  @if $inset {
-    -moz-box-shadow: $x $y $blur $spread $color $inset inset;
-  	-webkit-box-shadow: $x $y $blur $spread $color inset ;
-  	box-shadow: $x $y $blur $spread $color inset;
-  }
-  @else {
-    -moz-box-shadow: $x $y $blur $spread $color;
-  	-webkit-box-shadow: $x $y $blur $spread $color;
-  	box-shadow: $x $y $blur $spread $color;
-  }
+  -moz-box-shadow: $x $y $blur $spread $color $style;
+	-webkit-box-shadow: $x $y $blur $spread $color $style;
+	box-shadow: $x $y $blur $spread $color $style;
 }
 @mixin no-box-shadow {
   @include box-shadow(0, 0, 0, 0);
