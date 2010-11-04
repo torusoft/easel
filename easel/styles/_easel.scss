@@ -40,23 +40,23 @@ $base-list-margin-y: $base-y / 2 !default;
 
 // headings
 $base-heading-letter-spacing: .01em !default;
-$base-heading-line-height: 1.25 !default;
-$base-heading-margin-bottom: $base-y / 3 !default;
+$base-heading-line-height: 1 !default;
+$base-heading-margin-bottom: $base-y / 2 !default;
 $base-heading-font-weight: bold !default;
 $base-heading-text-color: darken($base-text-color, 10%) !default;
 
 // text-shadow
 $base-text-shadow-x: 0 !default;
 $base-text-shadow-y: 1px !default;
-$base-text-shadow-blur: 1px !default;
-$base-text-shadow-color: #000 !default;
+$base-text-shadow-blur: 2px !default;
+$base-text-shadow-color: rgba(#000, .2) !default;
 
 // box-shadow
 $base-box-shadow-x: 0 !default;
-$base-box-shadow-y: 0 !default;
-$base-box-shadow-blur: 5px !default;
+$base-box-shadow-y: 2px !default;
+$base-box-shadow-blur: 3px !default;
 $base-box-shadow-spread: 0 !default;
-$base-box-shadow-color: #000 !default;
+$base-box-shadow-color: rgba(#000, .2) !default;
 $base-box-shadow-inset: false !default;
 
 // default colors
