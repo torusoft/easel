@@ -42,11 +42,11 @@
   $margin-y: $base-list-margin-y,
   $img: '/easel/styles/images/icons/20x20/dot-gray.png',
   $padding-left: $base-x,
-  $offset-y: 0,
-  $offset-x: 0) {
+  $offset-x: 0,
+  $offset-y: 0) {
   @include list-base($line-height, $margin-y);
   li {
-    @include bullet($img, $padding-left, $offset-y, $offset-x);
+    @include bullet($img, $padding-left, $offset-x, $offset-y);
   }
 }
 
