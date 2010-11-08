@@ -1,6 +1,7 @@
 @mixin list-base($line-height, $margin-y) {
   @include block;
   li {
+    @include li-reset;
     line-height: $line-height;
 		margin: $margin-y 0;
   }
@@ -14,6 +15,7 @@
 @mixin no-bullet {
   background: none;
   list-style-type: none;
+  padding-left: 0;
 }
 
 @mixin no-bullets {
