@@ -39,6 +39,11 @@
 }
 
 // serif stacks
+@mixin helvetica-neue-light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+  font-weight: 300;
+}
+
 @mixin garamond {
   font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 }
