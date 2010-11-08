@@ -9,8 +9,10 @@
 // \--------|\-------|\-------/  \-------|\--|
 // 
 
+// --------------------------------------------------
 // defaults
-$easel-dir: '/easel/styles';
+// --------------------------------------------------
+$easel-dir: '/easel/styles/' !default;
 
 $column-count: 24 !default;
 $column-width: 30px !default;
@@ -28,13 +30,49 @@ $base-text-color: #333 !default;
 $base-bg-color: #fff !default;
 $base-border-color: #ccc !default;
 
+// links
 $base-link-color: #ff0000 !default;
 $base-link-hover-color: darken($base-link-color, 10%) !default;
 
+// lists
 $base-list-line-height: $base-line-height * .85 !default;
 $base-list-margin-y: $base-y / 2 !default;
 
+// headings
+$base-heading-letter-spacing: .01em !default;
+$base-heading-line-height: 1 !default;
+$base-heading-margin-bottom: $base-y / 2 !default;
+$base-heading-font-weight: bold !default;
+$base-heading-text-color: darken($base-text-color, 10%) !default;
+
+// text-shadow
+$base-text-shadow-x: 0 !default;
+$base-text-shadow-y: 1px !default;
+$base-text-shadow-blur: 2px !default;
+$base-text-shadow-color: rgba(#000, .2) !default;
+
+// box-shadow
+$base-box-shadow-x: 0 !default;
+$base-box-shadow-y: 2px !default;
+$base-box-shadow-blur: 3px !default;
+$base-box-shadow-spread: 0 !default;
+$base-box-shadow-color: rgba(#000, .2) !default;
+
+// forms
+$base-input-bg-color: #fff !default;
+$base-input-border-color: #ccc !default;
+$base-input-border-width: 1px !default;
+$base-input-border-padding-y: 4px !default;
+$base-input-border-padding-x: 5px !default;
+$base-input-box-shadow-color: rgba(#000, .10) !default;
+
+// default colors
+$light-text-color: lighten($base-text-color, 10%) !default;
+$dark-text-color: darken($base-text-color, 10%) !default;
+
+// --------------------------------------------------
 // import
+// --------------------------------------------------
 @import "easel/tools";
 @import "easel/mixins";
 @import "easel/base";

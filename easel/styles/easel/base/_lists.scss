@@ -1,19 +1,21 @@
 @mixin list-base($line-height, $margin-y) {
   @include block;
   li {
+    @include li-reset;
     line-height: $line-height;
 		margin: $margin-y 0;
   }
 }
 
-@mixin bullet($img, $padding-x, $top-offset, $left-offset) {
-  background: url($img) $left-offset $top-offset no-repeat;
+@mixin bullet($img, $padding-x, $offset-x, $offset-y) {
+  background: url($img) $offset-x $offset-y no-repeat;
   padding-left: $padding-x;
 }
 
 @mixin no-bullet {
   background: none;
   list-style-type: none;
+  padding-left: 0;
 }
 
 @mixin no-bullets {
@@ -42,11 +44,11 @@
   $margin-y: $base-list-margin-y,
   $img: '/easel/styles/images/icons/20x20/dot-gray.png',
   $padding-left: $base-x,
-  $top-offset: -.15em,
-  $left-offset: -6px) {
+  $offset-x: 0,
+  $offset-y: 0) {
   @include list-base($line-height, $margin-y);
   li {
-    @include bullet($img, $padding-left, $top-offset, $left-offset);
+    @include bullet($img, $padding-left, $offset-x, $offset-y);
   }
 }
 
@@ -55,7 +57,7 @@
   $margin-left: 2em,
   $line-height: $base-list-line-height,
   $margin-y: $base-list-margin-y) {
-    @include list-base($line-height, $margin-y);
+  @include list-base($line-height, $margin-y);
   li {
     list-style-type: $type;
     margin-left: $margin-left;

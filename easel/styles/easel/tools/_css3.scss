@@ -3,7 +3,7 @@
 // http://css3pie.com/
 // --------------------------------------------------
 @mixin pie {
-  behavior: url(#{$easel-dir}/tools/PIE.htc);
+  behavior: url($easel-dir + 'tools/PIE.htc');
   position: relative;
 }
 .pie {
@@ -13,25 +13,33 @@
 // --------------------------------------------------
 // text-shadow
 // --------------------------------------------------
-@mixin text-shadow($x: 0, $y: 1px, $blur: 1px, $color: #000) {
+@mixin text-shadow(
+  $x: $base-text-shadow-x,
+  $y: $base-text-shadow-y,
+  $blur: $base-text-shadow-blur,
+  $color: $base-text-shadow-color) {
 	-moz-text-shadow: $x $y $blur $color;
 	-webkit-text-shadow: $x $y $blur $color;
 	text-shadow: $x $y $blur $color;
+}
+@mixin no-text-shadow {
+  @include text-shadow(0, 0, 0);
 }
 
 // --------------------------------------------------
 // box-shadow
 // --------------------------------------------------
-@mixin box-shadow($x: 0px,
-                  $y: 0px,
-                  $blur: 0px,
-                  $spread: 0px,
-                  $color : #000,
-                  $inset: false) {
+@mixin box-shadow(
+  $x: $base-box-shadow-x,
+  $y: $base-box-shadow-y,
+  $blur: $base-box-shadow-blur,
+  $spread: $base-box-shadow-spread,
+  $color : $base-box-shadow-color,
+  $inset: false) {
   @extend .pie;
   @if $inset {
-    -moz-box-shadow: $x $y $blur $spread $color $inset inset;
-  	-webkit-box-shadow: $x $y $blur $spread $color inset ;
+    -moz-box-shadow: $x $y $blur $spread $color inset;
+  	-webkit-box-shadow: $x $y $blur $spread $color inset;
   	box-shadow: $x $y $blur $spread $color inset;
   }
   @else {
@@ -39,6 +47,9 @@
   	-webkit-box-shadow: $x $y $blur $spread $color;
   	box-shadow: $x $y $blur $spread $color;
   }
+}
+@mixin no-box-shadow {
+  @include box-shadow(0, 0, 0, 0);
 }
 
 // --------------------------------------------------
@@ -56,18 +67,12 @@
 // border-radius
 // PIE only works with shorthand method
 // --------------------------------------------------
-@mixin border-corner-radius($x, $y, $radius: $base-border-radius) {
-  -moz-border-radius-#{$y}-#{$x}: $radius;
-  -webkit-border-#{$y}-#{$x}-radius: $radius;
-  border-#{$y}-#{$x}-radius: $radius;
-}
 @mixin border-radius(
   $radius: $base-border-radius,
   $tl: $base-border-radius,
   $tr: $base-border-radius,
   $br: $base-border-radius,
   $bl: $base-border-radius) {
-    
   @extend .pie;
   @if $radius {
     $tl: $radius;
@@ -79,26 +84,46 @@
   -webkit-border-radius: $tl $tr $br $bl;
   border-radius: $tl $tr $br $bl;
 }
+@mixin border-radius-t($radius: $base-border-radius) {
+  @include border-radius(false, $radius, $radius, 0, 0);
+}
+@mixin border-radius-r($radius: $base-border-radius) {
+  @include border-radius(false, 0, $radius, $radius, 0);
+}
+@mixin border-radius-b($radius: $base-border-radius) {
+  @include border-radius(false, 0, 0, $radius, $radius);
+}
+@mixin border-radius-l($radius: $base-border-radius) {
+  @include border-radius(false, $radius, 0, 0, $radius);
+}
 @mixin border-radius-tl($radius: $base-border-radius) {
-  @include border-corner-radius(top, left, $radius);
+  @include border-radius(false, $radius, 0, 0, 0);
 }
 @mixin border-radius-tr($radius: $base-border-radius) {
-  @include border-corner-radius(top, right, $radius);
-}
-@mixin border-radius-bl($radius: $base-border-radius) {
-  @include border-corner-radius(bottom, left, $radius);
+  @include border-radius(false, 0, $radius, 0, 0);
 }
 @mixin border-radius-br($radius: $base-border-radius) {
-  @include border-corner-radius(bottom, right, $radius);
+  @include border-radius(false, 0, 0, $radius, 0);
+}
+@mixin border-radius-bl($radius: $base-border-radius) {
+  @include border-radius(false, 0, 0, 0, $radius);
+}
+
+// set a single corner (does not work with cssPIE)
+@mixin border-corner-radius($x, $y, $radius: $base-border-radius) {
+  -moz-border-radius-#{$y}-#{$x}: $radius;
+  -webkit-border-#{$y}-#{$x}-radius: $radius;
+  border-#{$y}-#{$x}-radius: $radius;
 }
 
 // --------------------------------------------------
 // @font-face
 // --------------------------------------------------
-@mixin font-face($name,
-                 $font-file,
-                 $weight: normal,
-                 $style: normal) {
+@mixin font-face(
+  $name,
+  $font-file,
+  $weight: normal,
+  $style: normal) {
   @font-face {
     font-family: quote($name);
     src: url('#{$font-file}' + '.eot');
@@ -107,7 +132,7 @@
       font-weight: $weight;
     }
     @if $style {
-      font-weight: $style;
+      font-style: $style;
     }
   }
 }

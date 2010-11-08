@@ -1,9 +1,8 @@
 @mixin sticky-footer(
   $height,
-  $padding: 0,
+  $padding-y: 0,
   $wrapper: '.wrapper',
   $footer:  '.footer') {
-    
 	html {
 		height: 100%;
 	}
@@ -12,7 +11,7 @@
     @include min-height(100%);
 	}
 	#{$wrapper} {
-    padding-bottom: $padding + $height;
+    padding-bottom: $padding-y + $height;
 	}
 	#{$footer} {
 		position: absolute;

@@ -1,4 +1,6 @@
-@import "mixins/general";
+// --------------------------------------------------
+// import
+// --------------------------------------------------
 @import "mixins/classes";
 @import "mixins/font_stacks";
 @import "mixins/styled_lists";
@@ -6,4 +8,63 @@
 @import "mixins/status_boxes";
 @import "mixins/sticky_footer";
 @import "mixins/superfish";
-@import "mixins/typography";
+
+// --------------------------------------------------
+// cycle styles
+// --------------------------------------------------
+@mixin cycle($height) {
+  .slide,
+  .slides {
+    height: $height;
+  }
+  .slides {
+    overflow: hidden;
+  }
+  .slide,
+  .slide * {
+    display: block;
+  }
+}
+
+// --------------------------------------------------
+// fancy ampersand
+// also need to include @font-face for baskervald (do this in the <head> to minimize FOUC)
+// --------------------------------------------------
+@mixin ampersand {
+  @include baskervald;
+  font-style: italic;
+}
+
+// --------------------------------------------------
+// all caps styles
+// http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.6/
+// --------------------------------------------------
+@mixin uppercase(
+  $font-weight: bold,
+  $font-size: 10px,
+  $letter-spacing: .01em) {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing;
+  @if $font-weight {
+    font-size: $font-weight;
+  }
+  @if $font-size {
+    font-size: $font-size;
+  }
+}
+
+// --------------------------------------------------
+// text selection
+// --------------------------------------------------
+@mixin selection($background, $color: inherit) {
+  ::-moz-selection{
+    background: $background;
+    color: $color;
+    @include no-text-shadow;
+  }
+  ::selection {
+    background: $background;
+    color: $color;
+    @include no-text-shadow;
+  } 
+}

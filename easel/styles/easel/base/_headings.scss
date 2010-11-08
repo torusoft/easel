@@ -1,15 +1,16 @@
 @mixin base-heading(
   $font-size,
-  $line-height: 1.25,
-  $font-weight: bold,
-  $margin-bottom: $base-y / 3,
-  $letter-spacing: .01em) {
-    
+  $line-height: $base-heading-line-height,
+  $font-weight: $base-heading-font-weight,
+  $margin-bottom: $base-heading-margin-bottom,
+  $letter-spacing: $base-heading-letter-spacing,
+  $color: $base-heading-text-color) {
   font-weight: $font-weight;
   line-height: $line-height;
   font-size: $font-size;
   margin-bottom: $margin-bottom;
   letter-spacing: $letter-spacing;
+  color: $color;
 }
 
 @mixin h1($font-size: 24px) {
@@ -19,19 +20,19 @@
 @mixin h2($font-size: 22px) {
   @include base-heading($font-size);
 } //h2
-                                 
-@mixin h3($font-size: 20px) {                      
+
+@mixin h3($font-size: 18px) {
   @include base-heading($font-size);
-} //h3                           
-                                 
-@mixin h4($font-size: 18px) {                      
+} //h3
+
+@mixin h4($font-size: 16px) {
   @include base-heading($font-size);
 } //h4                           
-                                 
-@mixin h5($font-size: 16px) {                      
-  @include base-heading($font-size);
+
+@mixin h5($font-size: 14px) {
+  @include base-heading($font-size, $letter-spacing: $base-letter-spacing);
 } //h5                           
-                                 
-@mixin h6($font-size: 14px) {                      
-  @include base-heading($font-size);
+
+@mixin h6($font-size: 12px) {
+  @include base-heading($font-size, $letter-spacing: $base-letter-spacing);
 } //h6
