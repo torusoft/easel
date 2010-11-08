@@ -58,6 +58,14 @@ $base-box-shadow-blur: 3px !default;
 $base-box-shadow-spread: 0 !default;
 $base-box-shadow-color: rgba(#000, .2) !default;
 
+// forms
+$base-input-bg-color: #fff !default;
+$base-input-border-color: #ccc !default;
+$base-input-border-width: 1px !default;
+$base-input-border-padding-y: 4px !default;
+$base-input-border-padding-x: 5px !default;
+$base-input-box-shadow-color: rgba(#000, .10) !default;
+
 // default colors
 $light-text-color: lighten($base-text-color, 10%) !default;
 $dark-text-color: darken($base-text-color, 10%) !default;
