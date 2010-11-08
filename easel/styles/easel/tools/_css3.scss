@@ -132,7 +132,7 @@
       font-weight: $weight;
     }
     @if $style {
-      font-weight: $style;
+      font-style: $style;
     }
   }
 }
