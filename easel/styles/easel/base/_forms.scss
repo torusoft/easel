@@ -5,3 +5,35 @@
 @mixin fieldset {
   
 } //fieldset
+
+/** =text/textarea inputs
+************************************************************/
+@mixin text-input(
+  $bg-color: $base-input-bg-color,
+  $border-color: $base-input-border-color,
+  $border-width: $base-input-border-width,
+  $padding-y: $base-input-border-padding-y,
+  $padding-x: $base-input-border-padding-x,
+  $box-shadow-color: $base-input-box-shadow-color,
+  $color: $base-text-color,
+  $button-selector: false) {
+  border: 0;
+  padding: $padding-y $padding-x;
+  border: $border-width solid $border-color;
+  border-bottom-color: darken($border-color, 14%);
+  @include box-shadow(0, 1px, 1px, 0, $box-shadow-color);
+  @include vertical-gradient($bg-color, darken($bg-color, 7%));
+  color: $color;
+  &:hover {
+    @include vertical-gradient($bg-color, darken($bg-color, 12%));
+  }
+  &:focus {
+    background: $bg-color;
+  }
+  // button selector for buttons, custom dropdowns, etc.
+  @if $button-selector {
+    &#{$button-selector} {
+      @include vertical-gradient(darken($bg-color, 12%), $bg-color);
+    }
+  }
+}
