@@ -2,84 +2,84 @@
 
 @font-face {
 	font-family: 'Titillium Text';
-	src: url('titilliumtext22l006-webfont.eot');
-	src: local('☺'), url('titilliumtext22l006-webfont.woff') format('woff'), url('titilliumtext22l006-webfont.ttf') format('truetype'), url('titilliumtext22l006-webfont.svg#webfontCCNkU58r') format('svg');
+	src: url('/easel/styles/fonts/titilliumtext22l006-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliumtext22l006-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliumtext22l006-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliumtext22l006-webfont.svg#webfontCCNkU58r') format('svg');
 	font-weight: 900;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Titillium Text';
-	src: url('titilliumtext22l005-webfont.eot');
-	src: local('☺'), url('titilliumtext22l005-webfont.woff') format('woff'), url('titilliumtext22l005-webfont.ttf') format('truetype'), url('titilliumtext22l005-webfont.svg#webfontlxhB8JaF') format('svg');
+	src: url('/easel/styles/fonts/titilliumtext22l005-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliumtext22l005-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliumtext22l005-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliumtext22l005-webfont.svg#webfontlxhB8JaF') format('svg');
 	font-weight: 800;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Titillium Text';
-	src: url('titilliumtext22l004-webfont.eot');
-	src: local('☺'), url('titilliumtext22l004-webfont.woff') format('woff'), url('titilliumtext22l004-webfont.ttf') format('truetype'), url('titilliumtext22l004-webfont.svg#webfontJBG34yo3') format('svg');
+	src: url('/easel/styles/fonts/titilliumtext22l004-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliumtext22l004-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliumtext22l004-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliumtext22l004-webfont.svg#webfontJBG34yo3') format('svg');
 	font-weight: 600;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Titillium Text';
-	src: url('titilliumtext22l003-webfont.eot');
-	src: local('☺'), url('titilliumtext22l003-webfont.woff') format('woff'), url('titilliumtext22l003-webfont.ttf') format('truetype'), url('titilliumtext22l003-webfont.svg#webfontzYKdEDwC') format('svg');
+	src: url('/easel/styles/fonts/titilliumtext22l003-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliumtext22l003-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliumtext22l003-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliumtext22l003-webfont.svg#webfontzYKdEDwC') format('svg');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Titillium Text';
-	src: url('titilliumtext22l002-webfont.eot');
-	src: local('☺'), url('titilliumtext22l002-webfont.woff') format('woff'), url('titilliumtext22l002-webfont.ttf') format('truetype'), url('titilliumtext22l002-webfont.svg#webfontKSEQGTdu') format('svg');
+	src: url('/easel/styles/fonts/titilliumtext22l002-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliumtext22l002-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliumtext22l002-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliumtext22l002-webfont.svg#webfontKSEQGTdu') format('svg');
 	font-weight: 200;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Titillium Text';
-	src: url('titilliumtext22l001-webfont.eot');
-	src: local('☺'), url('titilliumtext22l001-webfont.woff') format('woff'), url('titilliumtext22l001-webfont.ttf') format('truetype'), url('titilliumtext22l001-webfont.svg#webfontdFHJ9go5') format('svg');
+	src: url('/easel/styles/fonts/titilliumtext22l001-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliumtext22l001-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliumtext22l001-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliumtext22l001-webfont.svg#webfontdFHJ9go5') format('svg');
 	font-weight: 100;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Titillium Title';
-	src: url('titilliumtitle20-webfont.eot');
-	src: local('☺'), url('titilliumtitle20-webfont.woff') format('woff'), url('titilliumtitle20-webfont.ttf') format('truetype'), url('titilliumtitle20-webfont.svg#webfontwsIMscWW') format('svg');
+	src: url('/easel/styles/fonts/titilliumtitle20-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliumtitle20-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliumtitle20-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliumtitle20-webfont.svg#webfontwsIMscWW') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Titillium Maps';
-	src: url('titilliummaps29l003-webfont.eot');
-	src: local('☺'), url('titilliummaps29l003-webfont.woff') format('woff'), url('titilliummaps29l003-webfont.ttf') format('truetype'), url('titilliummaps29l003-webfont.svg#webfontlnpfDQDB') format('svg');
+	src: url('/easel/styles/fonts/titilliummaps29l003-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliummaps29l003-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliummaps29l003-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliummaps29l003-webfont.svg#webfontlnpfDQDB') format('svg');
 	font-weight: 900;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Titillium Maps';
-	src: url('titilliummaps29l002-webfont.eot');
-	src: local('☺'), url('titilliummaps29l002-webfont.woff') format('woff'), url('titilliummaps29l002-webfont.ttf') format('truetype'), url('titilliummaps29l002-webfont.svg#webfont5rgrOegD') format('svg');
+	src: url('/easel/styles/fonts/titilliummaps29l002-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliummaps29l002-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliummaps29l002-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliummaps29l002-webfont.svg#webfont5rgrOegD') format('svg');
 	font-weight: 800;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Titillium Maps';
-	src: url('titilliummaps29l001-webfont.eot');
-	src: local('☺'), url('titilliummaps29l001-webfont.woff') format('woff'), url('titilliummaps29l001-webfont.ttf') format('truetype'), url('titilliummaps29l001-webfont.svg#webfontGRTtmUEY') format('svg');
+	src: url('/easel/styles/fonts/titilliummaps29l001-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliummaps29l001-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliummaps29l001-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliummaps29l001-webfont.svg#webfontGRTtmUEY') format('svg');
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Titillium Maps';
-	src: url('titilliummaps29l-webfont.eot');
-	src: local('☺'), url('titilliummaps29l-webfont.woff') format('woff'), url('titilliummaps29l-webfont.ttf') format('truetype'), url('titilliummaps29l-webfont.svg#webfont7kCH50s0') format('svg');
+	src: url('/easel/styles/fonts/titilliummaps29l-webfont.eot');
+	src: local('☺'), url('/easel/styles/fonts/titilliummaps29l-webfont.woff') format('woff'), url('/easel/styles/fonts/titilliummaps29l-webfont.ttf') format('truetype'), url('/easel/styles/fonts/titilliummaps29l-webfont.svg#webfont7kCH50s0') format('svg');
 	font-weight: 100;
 	font-style: normal;
 }
