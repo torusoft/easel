@@ -46,7 +46,7 @@
   text-transform: uppercase;
   letter-spacing: $letter-spacing;
   @if $font-weight {
-    font-size: $font-weight;
+    font-weight: $font-weight;
   }
   @if $font-size {
     font-size: $font-size;

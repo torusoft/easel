@@ -39,8 +39,12 @@
   $color: $base-border-color,
   $width: 1px,
   $style: solid,
-  $padding-right: 5px,
-  $margin-right: 5px) {
+  $padding-right: 8px,
+  $margin-right: 8px,
+  $line-height: 1.1) {
+  @if $line-height {
+    line-height: $line-height;
+  }
   li {
     @include li-reset;
     border-right: $width $style $color;
