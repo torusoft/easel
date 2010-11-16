@@ -1,18 +1,20 @@
-// --------------------------------------------------
-// css3 PIE
-// http://css3pie.com/
-// --------------------------------------------------
+/**
+ * css3 PIE
+ * http://css3pie.com/
+ */
 @mixin pie {
-  behavior: url($easel-dir + 'tools/PIE.htc');
-  position: relative;
+  @if $enable-pie {
+    behavior: url($easel-dir + 'tools/PIE.htc');
+    position: relative;
+  }
 }
 .pie {
-  @include pie;
+  @include pie;	
 }
 
-// --------------------------------------------------
-// text-shadow
-// --------------------------------------------------
+/**
+ * text-shadow
+ */
 @mixin text-shadow(
   $x: $base-text-shadow-x,
   $y: $base-text-shadow-y,
@@ -26,9 +28,9 @@
   @include text-shadow(0, 0, 0);
 }
 
-// --------------------------------------------------
-// box-shadow
-// --------------------------------------------------
+/**
+ * box-shadow
+ */
 @mixin box-shadow(
   $x: $base-box-shadow-x,
   $y: $base-box-shadow-y,
@@ -55,9 +57,9 @@
   @include box-shadow(0, 0, 0, 0);
 }
 
-// --------------------------------------------------
-// opacity
-// --------------------------------------------------
+/**
+ * opacity
+ */
 @mixin opacity($opacity) {
 	-moz-opacity: $opacity;
 	-khtml-opacity: $opacity;
@@ -66,10 +68,10 @@
 	filter: alpha(opacity=$opacity * 100);
 }
 
-// --------------------------------------------------
-// border-radius
-// PIE only works with shorthand method
-// --------------------------------------------------
+/**
+ * border-radius
+ * PIE only works with shorthand method
+ */
 @mixin border-radius(
   $radius: $base-border-radius,
   $tl: $base-border-radius,
@@ -122,9 +124,10 @@
   border-#{$y}-#{$x}-radius: $radius;
 }
 
-// --------------------------------------------------
-// @font-face
-// --------------------------------------------------
+/**
+ * @font-face
+ * here for reference, but these declarations should go in the <head> to minimize any FOUC
+ */
 @mixin font-face(
   $name,
   $font-file,
@@ -143,9 +146,9 @@
   }
 }
 
-// --------------------------------------------------
-// rgba backgrounds
-// --------------------------------------------------
+/**
+ * rgba backgrounds
+ */
 @mixin rgba($color, $opacity, $pie: true) {
   background-color: $color;
   background-color: rgba($color, $opacity);
@@ -155,9 +158,9 @@
   }
 }
 
-// --------------------------------------------------
-// multiple backgrounds
-// --------------------------------------------------
+/**
+ * multiple backgrounds
+ */
 @mixin multiple-backgrounds($value, $pie: true) {
   background: unquote($value);
   @if $pie {
@@ -166,9 +169,9 @@
   }
 }
 
-// --------------------------------------------------
-// vertical gradient
-// --------------------------------------------------
+/**
+ * vertical gradient
+ */
 @mixin vertical-gradient($start: #000, $end: #fff) {
   background: $end;
   background: -moz-linear-gradient(center top, $start 0%, $end 100%);
@@ -179,9 +182,9 @@
   }
 }
 
-// --------------------------------------------------
-// multi-column
-// --------------------------------------------------
+/**
+ * multi-column layout (newspaper columns)
+ */
 @mixin columns(
   $column-count: 2,
   $column-width: false,
