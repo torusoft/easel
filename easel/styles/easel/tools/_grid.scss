@@ -22,8 +22,8 @@ $container-width: $column-outer-width * $column-count - $column-gutter;
     margin-right: $column-gutter;
   }
 }
-@mixin column-width($n) {
-  $width: $column-width * $n + $column-gutter * ($n - 1);
+@mixin column-width($n, $offset-y: 0) {
+  $width: $column-width * $n + $column-gutter * ($n - 1) + $offset-y;
   width: $width;
 }
 @mixin last {
@@ -31,32 +31,32 @@ $container-width: $column-outer-width * $column-count - $column-gutter;
 }
 
 // append
-@mixin append($n) {
-  padding-right: $column-outer-width * $n;
+@mixin append($n, $offset-y: 0) {
+  padding-right: $column-outer-width * $n + $offset-y;
 }
 
 //prepend
-@mixin prepend($n) {
-  padding-left: $column-outer-width * $n;
+@mixin prepend($n, $offset-y: 0) {
+  padding-left: $column-outer-width * $n + $offset-y;
 }
 
 // pull
-@mixin pull($n, $last: false) {
+@mixin pull($n, $last: false, $offset-y: 0) {
   @if $last {
-    margin-left: -$column-outer-width * $n + $column-gutter;
+    margin-left: -$column-outer-width * $n + $column-gutter + $offset-y;
   }
   @else {
-    margin-left: -$column-outer-width * $n;
+    margin-left: -$column-outer-width * $n + $offset-y;
   }
 }
 
 // push
-@mixin push($n, $last: false) {
+@mixin push($n, $last: false, $offset-y: 0) {
   @if $last {
-    margin-left: $column-outer-width * $n + $column-gutter;
+    margin-left: $column-outer-width * $n + $column-gutter + $offset-y;
   }
   @else {
-    margin-left: $column-outer-width * $n;
+    margin-left: $column-outer-width * $n + $offset-y;
   }
 }
 
