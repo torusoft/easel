@@ -35,8 +35,11 @@
   $blur: $base-box-shadow-blur,
   $spread: $base-box-shadow-spread,
   $color : $base-box-shadow-color,
-  $inset: false) {
-  @extend .pie;
+  $inset: false,
+  $pie: true) {
+  @if $pie {
+    @extend .pie;
+  }
   @if $inset {
     -moz-box-shadow: $x $y $blur $spread $color inset;
   	-webkit-box-shadow: $x $y $blur $spread $color inset;
@@ -72,8 +75,11 @@
   $tl: $base-border-radius,
   $tr: $base-border-radius,
   $br: $base-border-radius,
-  $bl: $base-border-radius) {
-  @extend .pie;
+  $bl: $base-border-radius,
+  $pie: true) {
+  @if $pie {
+    @extend .pie;
+  }
   @if $radius {
     $tl: $radius;
     $tr: $radius;
@@ -140,29 +146,77 @@
 // --------------------------------------------------
 // rgba backgrounds
 // --------------------------------------------------
-@mixin rgba($color, $opacity) {
-  @extend .pie;
+@mixin rgba($color, $opacity, $pie: true) {
   background-color: $color;
   background-color: rgba($color, $opacity);
-  -pie-background: rgba($color, $opacity);
+  @if $pie {
+    @extend .pie;
+    -pie-background: rgba($color, $opacity);
+  }
 }
 
 // --------------------------------------------------
 // multiple backgrounds
 // --------------------------------------------------
-@mixin multiple-backgrounds($value) {
-  @extend .pie;
+@mixin multiple-backgrounds($value, $pie: true) {
   background: unquote($value);
-  -pie-background: unquote($value);
+  @if $pie {
+    @extend .pie;
+    -pie-background: unquote($value);
+  }
 }
 
 // --------------------------------------------------
 // vertical gradient
 // --------------------------------------------------
 @mixin vertical-gradient($start: #000, $end: #fff) {
-  @extend .pie;
   background: $end;
   background: -moz-linear-gradient(center top, $start 0%, $end 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
-  -pie-background: linear-gradient(90deg, $start, $end);
+  @if $pie {
+    @extend .pie;
+    -pie-background: linear-gradient(90deg, $start, $end);
+  }
+}
+
+// --------------------------------------------------
+// multi-column
+// --------------------------------------------------
+@mixin columns(
+  $column-count: 2,
+  $column-width: false,
+  $column-gap: $base-x,
+  $column-rule-width: 0,
+  $column-rule-color: $base-border-color,
+  $column-rule-style: solid) {
+  @if $column-count {
+    -moz-column-count: $column-count;
+    -webkit-column-count: $column-count;
+    column-count: $column-count;
+  }
+  @if $column-width {
+    -moz-column-width: $column-width;
+    -webkit-column-width: $column-width;
+    column-width: $column-width;
+  }
+  @if $column-gap {
+    -moz-column-gap: $column-gap;
+    -webkit-column-gap: $column-gap;
+    column-gap: $column-gap;
+  }
+  @if $column-rule-width > 0 {
+    -moz-column-rule-width: $column-rule-width;
+    -webkit-column-rule-width: $column-rule-width;
+    column-rule-width: $column-rule-width;
+    @if $column-rule-color {
+      -moz-column-rule-color: $column-rule-color;
+      -webkit-column-rule-color: $column-rule-color;
+      column-rule-color: $column-rule-color;
+    }
+    @if $column-rule-style {
+      -moz-column-rule-style: $column-rule-style;
+      -webkit-column-rule-style: $column-rule-style;
+      column-rule-style: $column-rule-style;
+    }
+  }
 }
