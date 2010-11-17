@@ -1,11 +1,11 @@
 /**
  * css3 PIE
  * http://css3pie.com/
+ * elements also need a z-index, so not position: static
  */
 @mixin pie {
   @if $enable-pie {
     behavior: url($easel-dir + 'tools/PIE.htc');
-    position: relative;
   }
 }
 .pie {

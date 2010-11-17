@@ -5,13 +5,13 @@
 	src: url('/easel/styles/fonts/proxima-nova/proxima_nova_light-webfont.eot');
 	src: local('☺'), url('/easel/styles/fonts/proxima-nova/proxima_nova_light-webfont.woff') format('woff'), url('/easel/styles/fonts/proxima-nova/proxima_nova_light-webfont.ttf') format('truetype'), url('/easel/styles/fonts/proxima-nova/proxima_nova_light-webfont.svg#webfontpfMt3S6Y') format('svg');
 	font-weight: 100;
-	font-style: lighter;
+	font-style: normal;
 }
 @font-face {
 	font-family: 'Proxima Nova';
 	src: url('/easel/styles/fonts/proxima-nova/proxima_nova_light_it-webfont.eot');
 	src: local('☺'), url('/easel/styles/fonts/proxima-nova/proxima_nova_light_it-webfont.woff') format('woff'), url('/easel/styles/fonts/proxima-nova/proxima_nova_light_it-webfont.ttf') format('truetype'), url('/easel/styles/fonts/proxima-nova/proxima_nova_light_it-webfont.svg#webfonthdb02lJM') format('svg');
-	font-weight: lighter;
+	font-weight: 100;
 	font-style: italic;
 }
 @font-face {
