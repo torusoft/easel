@@ -12,7 +12,8 @@
   .js-show { @include js-show; }
   .hide-accessibly { @include hide-accessibly; }
   .js-hide-accessibly { @include js-hide-accessibly; }
-  .invisible { visibility: hidden; }
+  .invisible, .js .js-invisible { visibility: hidden; }
+  .visible, .js .js-visible { visibility: visible; }
   
   // misc
   .block { @include block; }
