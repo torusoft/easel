@@ -8,9 +8,7 @@
     behavior: url($easel-dir + 'tools/PIE.htc');
   }
 }
-.pie {
-  @include pie;	
-}
+
 
 /**
  * text-shadow
