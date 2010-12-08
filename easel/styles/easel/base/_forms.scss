@@ -30,9 +30,6 @@
   &:focus {
     background: $bg-color;
   }
-  &:active {
-    @include vertical-gradient(darken($bg-color, 12%), $bg-color);
-  }
   // active selector custom dropdowns, etc. for things that use classes for down state
   @if $active-selector {
     &#{$active-selector} {
