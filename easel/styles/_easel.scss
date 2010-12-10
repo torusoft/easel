@@ -70,7 +70,7 @@ $base-input-box-shadow-color: rgba(#000, .10) !default;
 $light-text-color: lighten($base-text-color, 10%) !default;
 $dark-text-color: darken($base-text-color, 10%) !default;
 
-$enable-pie: true !default;
+$pie_context: '.ie';
 
 // --------------------------------------------------
 // import
