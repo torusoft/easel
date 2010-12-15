@@ -2,14 +2,10 @@
  * css3 PIE
  * http://css3pie.com/
  * elements also need a z-index, so not position: static
+ * use ie html classes to create a .pie class in your site stylesheet
  */
 @mixin pie {
-  @if $enable-pie {
-    behavior: url($easel-dir + 'tools/PIE.htc');
-  }
-}
-.pie {
-  @include pie;	
+  behavior: url($easel-dir + 'tools/PIE.htc');
 }
 
 /**
@@ -40,7 +36,9 @@
   $inset: false,
   $pie: true) {
   @if $pie {
-    @extend .pie;
+    #{$pie_context} & {
+      @include pie;
+    }
   }
   @if $inset {
     -moz-box-shadow: $x $y $blur $spread $color inset;
@@ -80,7 +78,9 @@
   $bl: $base-border-radius,
   $pie: true) {
   @if $pie {
-    @extend .pie;
+    #{$pie_context} & {
+      @include pie;
+    }
   }
   @if $radius {
     $tl: $radius;
@@ -153,9 +153,11 @@
   background-color: $color;
   background-color: rgba($color, $opacity);
   @if $pie {
-    @extend .pie;
-    -pie-background: rgba($color, $opacity);
-  }
+    #{$pie_context} & {
+      @include pie;
+      -pie-background: rgba($color, $opacity);   
+    }
+  }  
 }
 
 /**
@@ -164,9 +166,11 @@
 @mixin multiple-backgrounds($value, $pie: true) {
   background: unquote($value);
   @if $pie {
-    @extend .pie;
-    -pie-background: unquote($value);
-  }
+    #{$pie_context} & {
+      @include pie;
+      -pie-background: unquote($value);   
+    }
+  }  
 }
 
 /**
@@ -177,8 +181,11 @@
   background: -moz-linear-gradient(center top, $start 0%, $end 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
   @if $pie {
-    @extend .pie;
-    -pie-background: linear-gradient(90deg, $start, $end);
+    #{$pie_context} & {
+      @include pie;
+      -pie-background: linear-gradient(90deg, $start, $end);
+      
+    }
   }
 }
 
