@@ -1,0 +1,302 @@
+# to see a list of rake commands, type "rake -T" on the command line
+# to get started with a new site, type "rake setup"
+
+prefix = File.dirname( __FILE__ )
+
+# github repos
+
+repos = Hash.new( "repo" )
+repos = { "Modernizr" => "Modernizr",
+          "LABjs" => "getify",
+          "jquery-carousel-lite" => "kswedberg",
+          "jquery-defaulttext" => "kswedberg",
+          "jquery-tinyvalidate" => "kswedberg",
+          "jquery-dotimeout" => "cowboy",
+          "jquery-bbq" => "cowboy",
+          "cycle" => "malsup"
+          
+        }
+
+# Directory variables
+script_dir = 'easel/scripts'
+lib_dir = 'lib'
+# A different scripts directory can be set by
+# setting DIR and/or LIB before calling rake
+script_dir = ENV['DIR']  || script_dir
+script_dir = File.join( prefix, script_dir )
+lib_dir = ENV['LIB']  || lib_dir
+lib_dir = File.join( script_dir, lib_dir )
+
+
+# Build and QUnit files/dirs
+config_dir = File.join( prefix, 'config' )
+repo_dir = File.join( config_dir, 'repos')
+build_dir = File.join( config_dir, 'build' )
+test_dir  = File.join( build_dir, 'test' )
+qunit_dir  = File.join( test_dir, "qunit" )
+funcunit_dir = File.join( test_dir, "funcunit")
+qunit      = File.join( qunit_dir, "qunit", "qunit.js" )
+
+# Build tools
+rhino     = "java -jar #{build_dir}/js.jar"
+minifier  = "java -jar #{build_dir}/google-compiler-20100917.jar"
+yuimin = "java -jar #{build_dir}/yuicompressor-2.4.2.jar"
+
+# Turn off output other than needed from `sh` and file commands
+verbose(false) 
+
+# Tasks
+
+desc "Update js files from GitHub repos (one arg - can be lib or jquery or all. default is lib)"
+task :update, [:which] => [repo_dir, lib_dir] do |t, args|
+  
+  args.with_defaults(:which => "lib")
+  
+  if args.which == "lib" || args.which == "all" then
+    Rake::Task[:clonepull].invoke
+    
+    repos.each  do |k,v|
+      copy_repo("#{repo_dir}/#{k}", lib_dir)
+    end
+  end
+  
+  if args.which == "jquery" || args.which == "all" then
+    Rake::Task[:jqueryupdate].invoke
+  end
+  
+  if args.which != 'jquery' && args.which != "all" && args.which != "lib" then
+    copy_repo("#{repo_dir}/#{args.which}", lib_dir)
+    
+  end
+end
+
+desc "Sets up site with JS files/plugins and test dir"
+task :setup => [:test, :update, :jqueryupdate] do
+  puts "JS setup complete!"
+end
+
+desc "Updates QUnit and sets up test files in a test directory"
+task :test => [:clonepull] do
+  script_test = File.join(script_dir, "test")
+  script_qunit = File.join(script_test, "qunit")
+  mkdir_p script_test
+  mkdir_p script_qunit
+  
+  cp( qunit, script_qunit )
+  cp( File.join(qunit_dir, "qunit/qunit.css"), script_qunit )
+  if !File.exist?( File.join(script_test, "index.html") ) then
+    cp( File.join(test_dir, "index.html"), script_test )
+  end
+  touch( File.join(script_test, "tests.js") )
+end
+
+desc "Updates jQuery core to latest stable release"
+task :jqueryupdate => [lib_dir] do
+  jq_latest = File.join( lib_dir, "jquery-latest.js" )
+  jq_url = "http://code.jquery.com/jquery-latest.js"
+
+  puts "downloading jQuery from #{jq_url}..."
+  sh "wget -O #{jq_latest} #{jq_url}"
+  puts "copied jQuery core to #{jq_latest}"
+  
+  v_latest = IO.readlines(jq_latest)[0..2].join()
+  v_latest = v_latest.scan(/ v(1.+)$/)
+  jq_version = File.join( lib_dir, "jquery.#{v_latest}.js" )
+  
+  if !File.exist?( jq_version ) then
+    cp( jq_latest, jq_version )
+  puts "******************* vv NOTICE vv ***********************\n"
+    puts "***** New jQuery file added to lib directory: jquery.#{v_latest}.js *****"
+  end
+
+end
+
+desc "Clones repos if necessary; otherwise pulls latest"
+task :clonepull, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
+  args.with_defaults(:repo => "all", :author => "all")
+  
+  if args.repo == "all" then
+    repos.each_pair do |k,v|
+      rdir = File.join(repo_dir, "#{k}")
+      rdir_git = File.join( rdir, '.git')
+      mkdir_p rdir
+    
+      if File.exist?( rdir_git )
+        puts "Updating #{k} with latest..."
+        sh "git --git-dir=#{rdir_git} pull -q origin master"
+      else
+        puts "Cloning #{k} from Github..."
+        sh "git clone git://github.com/#{v}/#{k}.git #{rdir}"
+      end
+    
+    end
+    
+    clone_or_pull("qunit", "jquery", test_dir)
+  elsif args.repo == "qunit" then
+    clone_or_pull("qunit", "jquery", test_dir)
+  elsif args.repo == "funcunit" then
+    clone_or_pull("funcunit", "jupiterjs", test_dir)
+  else
+    clone_or_pull( args.repo, args.author, repo_dir)
+  end
+  
+  
+  # if args.repo == "all" || args.repo == "funcunit" then
+  #   funcunit_git = File.join(funcunit_dir, '.git')
+  #   
+  #   if File.exist?( funcunit_git ) then
+  #     puts "Updating FuncUnit with latest..."
+  #     sh "git --git-dir=#{funcunit_git} pull -q origin master"
+  #   else
+  #     mkdir_p( funcunit_dir)
+  #     puts "Retrieving QUnit from Github..."
+  #     sh "git clone git://github.com/jupiterjs/funcunit.git #{funcunit_dir}"
+  #   end
+  # end
+  
+end
+
+desc "NOT READY: Minify files in directory"
+task :min, [:cat] => :update do |t, args|
+  args.with_defaults(:cat => "n")
+
+  min_files( "#{lib_dir}", "#{minifier}", args[:cat] )
+end
+
+task :default => "all"
+
+desc "Builds JavaScript Files"
+task :all => [:setup] do
+  puts "JavaScript build complete."
+end
+
+desc "NOT READY: Removes cloned directories"
+task :clean do
+  # puts "Removing repo directory directory: #{repo_dir}..."
+  # rm_rf repo_dir
+
+  puts "Removing cloned directories..."
+  rm_rf qunit_dir
+end
+
+# FUNCTIONs
+def min_files (dir, minifier, cat)
+  all_file = ''
+  intro_comment = ''
+  js_files = FileList["#{dir}/*.js"].exclude(/.*\.(min|all)\.js$/)
+  i = 0
+  js_files.each do |fl|
+    puts "Minifying js..."
+    # puts fl.index
+    js_min = File.join( "#{dir}", File.basename(fl, '.js') + '.min.js' )
+    sh "#{minifier} --js #{fl} --warning_level QUIET --js_output_file #{js_min}"
+    
+    # Equivalent of "head" (put top 15 lines [comments] from .js into .min.js)
+    min = File.read( js_min )
+    
+    File.open(js_min, 'w') do |f|
+      if (i == 0) then
+        all_file = File.join( "#{dir}", File.basename(fl, '.js') + '.all.js' )
+         
+        intro_comment = File.readlines(fl)[0..14].join()
+        f.write intro_comment
+      end
+      f.write min
+    end
+    i += 1
+    puts js_min
+  end
+
+  if (js_files.length > 1) then
+    puts "Concatenating #{js_files.length} files..."
+    all_min = File.join( "#{dir}", File.basename(all_file, '.js') + '.min.js' )
+    
+    File.open(all_file, 'w') do |f|
+      f.write cat(js_files)
+    end
+    sh "#{minifier} --js #{all_file} --warning_level QUIET --js_output_file #{all_min}"
+    
+    all_contents_min = File.read(all_min)
+    File.open(all_min, 'w') do |f|
+      f.write intro_comment
+      f.write all_contents_min
+    end
+    puts "Minified to #{all_min}"
+  end
+
+end
+
+def cat( files )
+  files.map do |file|
+    File.read(file)
+  end.join('')
+end
+
+# copy repos from repos dir to lib dir
+def copy_repo(from_dir, to_dir)
+  if File.exist?(from_dir) then
+    FileList["#{from_dir}/*.js"].exclude(/.*\.(min|all)\.js$/).each do |fl|
+      update_file = File.join( to_dir, File.basename(fl) )
+      puts "updating #{update_file}"
+      cp( fl, update_file)
+    end
+  end
+end
+
+# clone or pull repos
+def clone_or_pull( cp_repo, github_author, dir)
+
+  cp_repo_dir = File.join( dir, cp_repo)
+  cp_repo_git = File.join(cp_repo_dir, ".git")
+  
+  if File.exist?( cp_repo_git ) then
+    puts "Updating #{cp_repo} with latest..."
+    sh "git --git-dir=#{cp_repo_git} pull -q origin master"
+  else
+    mkdir_p( cp_repo_dir )
+    puts "Retrieving #{cp_repo} from Github..."
+    sh "git clone git://github.com/#{github_author}/#{cp_repo}.git #{cp_repo_dir}"
+  end
+end
+
+# file dependencies
+file lib_dir do
+  mkdir_p lib_dir
+end
+
+file qunit do
+  puts "Retrieving QUnit from Github..."
+  sh "git clone git://github.com/jquery/qunit.git #{qunit_dir}"
+end
+
+# desc "Tests js against JSLint"
+# task :lint => jq do
+#   puts "Checking jQuery against JSLint..."
+#   sh "#{rhino} " + File.join(build_dir, 'jslint-check.js')
+# end
+
+
+# File and Directory Dependencies
+# directory script_dir
+
+# file jq => [dist_dir, base_files].flatten do
+#   puts "Building jquery.js..."
+#   
+#   File.open(jq, 'w') do |f|
+#     f.write cat(base_files).gsub(/(Date:.)/, "\\1#{date}" ).gsub(/@VERSION/, version)
+#   end
+# end
+
+# file jq_min => jq do
+#   puts "Building jquery.min.js..."
+# 
+#   sh "#{minifier} --js #{jq} --warning_level QUIET --js_output_file #{jq_min}"
+#   
+#   min = File.read( jq_min )
+#   
+#   # Equivalent of "head"
+#   File.open(jq_min, 'w') do |f|
+#     f.write File.readlines(jq)[0..14].join()
+#     f.write min
+#   end
+# end
