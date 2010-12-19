@@ -3,5 +3,7 @@
 generator/generated/*
 generator/logs/*
 generator/cache/*
-
+config/repos/*
+config/build/test/funcunit/*
+config/build/test/qunit/*
 .sass-cache
