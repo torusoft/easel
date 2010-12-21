@@ -3,9 +3,9 @@
 
 prefix = File.dirname( __FILE__ )
 
-# github repos
-
-repos = Hash.new( "repo" )
+# USER CONFIGURATION: github repos
+easel_dir = ''
+script_dir = 'easel/scripts'
 repos = { "Modernizr" => "Modernizr",
           "LABjs" => "getify",
           "jquery-carousel-lite" => "kswedberg",
@@ -13,12 +13,25 @@ repos = { "Modernizr" => "Modernizr",
           "jquery-tinyvalidate" => "kswedberg",
           "jquery-dotimeout" => "cowboy",
           "jquery-bbq" => "cowboy",
-          "cycle" => "malsup"
-          
+          "cycle" => "malsup",
+          "mediaelement" => "johndyer" 
         }
 
+
+scripts = [ "init",
+            "utils",
+            "lib/fm.log",
+            "lib/ga-load",
+            "lib/jquery.hscroll",
+            "lib/jquery.setmargin"
+            "lib/jquery.cyclewrap",
+            "cycles",
+            "global-ajax",
+            "validation"
+          ]
+# ^^^^^^ USER CONFIGURATION ^^^^^^^
+
 # Directory variables
-script_dir = 'easel/scripts'
 lib_dir = 'lib'
 # A different scripts directory can be set by
 # setting DIR and/or LIB before calling rake
@@ -29,7 +42,7 @@ lib_dir = File.join( script_dir, lib_dir )
 
 
 # Build and QUnit files/dirs
-config_dir = File.join( prefix, 'config' )
+config_dir = File.join( prefix, easel_dir, 'config' )
 repo_dir = File.join( config_dir, 'repos')
 build_dir = File.join( config_dir, 'build' )
 test_dir  = File.join( build_dir, 'test' )
@@ -64,9 +77,13 @@ task :update, [:which] => [repo_dir, lib_dir] do |t, args|
     Rake::Task[:jqueryupdate].invoke
   end
   
+  if args.which == "all" then
+    Rake::Task[:scriptsupdate].invoke
+  end
+  
   if args.which != 'jquery' && args.which != "all" && args.which != "lib" then
     copy_repo("#{repo_dir}/#{args.which}", lib_dir)
-    
+    puts "updated #{args.which}"
   end
 end
 
@@ -109,6 +126,17 @@ task :jqueryupdate => [lib_dir] do
     puts "***** New jQuery file added to lib directory: jquery.#{v_latest}.js *****"
   end
 
+end
+
+desc "Grabs non-repo scripts from easel and copies them over to project"
+task :scriptsupdate => [easel_dir, lib_dir] do
+  scripts.each do |scr|
+    easel_script = File.join( easel_dir, scr) + ".js"
+    project_script = File.join( script_dir, scr ) + ".js"
+    if File.exist(easel_script) && !File.exist?(project_script) then
+      cp( easel_script, project_script )
+    end
+  end
 end
 
 desc "Clones repos if necessary; otherwise pulls latest"
