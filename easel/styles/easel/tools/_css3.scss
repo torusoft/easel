@@ -11,33 +11,10 @@ $default-pie-for-ie6: false !default;
 $default-pie-for-ie7: true !default;
 $default-pie-for-ie8: true !default;
 $default-pie-for-ie9: false !default;
-$default-pie-context: '.aweaw';
 
-@mixin pie-behavior {
+#{$default-pie-selector} {
   behavior: url($easel-dir + 'tools/PIE.htc');
 }
-.pie {
-  @include pie-behavior;
-}
-
-@mixin pie(
-  $ie6: $default-pie-for-ie6,
-  $ie7: $default-pie-for-ie7,
-  $ie8: $default-pie-for-ie8,
-  $ie9: $default-pie-for-ie9
-) {
-//   @if $ie6 { .ie6 & { @extend .pie; } }
-//   @if $ie7 { .ie7 & { @extend .pie; } }
-//   @if $ie8 { .ie8 & { @extend .pie; } }
-//   @if $ie9 { .ie9 & { @extend .pie; } }  
-  #{$default-pie-context} {
-    & {
-      @extend .pie;
-    }
-  }
-}
-
-
 
 /**
 * text-shadow
@@ -59,9 +36,6 @@ $default-pie-context: '.aweaw';
 * box-shadow
 */
 
-// default pie setting
-$default-pie-context-for-box-shadow: $default-pie-context !default;
-
 @mixin box-shadow(
   $x: $base-box-shadow-x,
   $y: $base-box-shadow-y,
@@ -69,11 +43,16 @@ $default-pie-context-for-box-shadow: $default-pie-context !default;
   $spread: $base-box-shadow-spread,
   $color : $base-box-shadow-color,
   $inset: false,
-  $pie-for-ie6: false,
-  $pie-for-ie7: true,
-  $pie-for-ie8: true,
-  $pie-for-ie9: false) {
-  @include pie();
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+    
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; } }
+  
   @if $inset {
     -moz-box-shadow: $x $y $blur $spread $color inset;
   	-webkit-box-shadow: $x $y $blur $spread $color inset;
@@ -105,19 +84,22 @@ $default-pie-context-for-box-shadow: $default-pie-context !default;
 * PIE only works with shorthand method
 */
 
-// default pie setting
-$default-pie-context-for-border-radius: $default-pie-context !default;
-
 @mixin border-radius(
   $radius: $base-border-radius,
   $tl: $base-border-radius,
   $tr: $base-border-radius,
   $br: $base-border-radius,
   $bl: $base-border-radius,
-  $pie-context: $default-pie-context-for-border-radius) {
-//   @if $pie-context {
-//     @include pie($pie-context);
-//   }
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+    
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; } }
+  
   @if $radius {
     $tl: $radius;
     $tr: $radius;
@@ -186,48 +168,62 @@ $default-pie-context-for-border-radius: $default-pie-context !default;
 * rgba backgrounds
 */
 
-// default pie setting
-$default-pie-context-for-rgba : $default-pie-context !default;
-
-@mixin rgba($color, $opacity, $pie-context: $default-pie-context-for-rgba) {
+@mixin rgba(
+  $color, 
+  $opacity,
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+    
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
+  
   background-color: $color;
   background-color: rgba($color, $opacity);
-//   @if $pie-context {
-//       @include pie($pie-context);
-//       -pie-background: rgba($color, $opacity);
-//   }
 }
 
 /**
 * multiple backgrounds
 */
 
-// default pie setting
-$default-pie-context-for-multiple-backgrounds: $default-pie-context !default;
+@mixin multiple-backgrounds(
+  $value,
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
 
-@mixin multiple-backgrounds($value, $pie-context: $default-pie-context-for-multiple-backgrounds) {
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: unquote($value); } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: unquote($value); } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: unquote($value); } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: unquote($value); } }
+
   background: unquote($value);
-//   @if $pie-context {
-//     @include pie($pie-context);
-//      -pie-background: unquote($value);
-//   }  
 }
 
 /**
 * vertical gradient
 */
- 
-// default pie setting
-$default-pie-context-for-vertical-gradient: $default-pie-context !default;
 
-@mixin vertical-gradient($start: #000, $end: #fff, $pie-context: $default-pie-context-for-vertical-gradient) {
+@mixin vertical-gradient(
+  $start: #000,
+  $end: #fff,
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+    
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
+    
   background: $end;
   background: -moz-linear-gradient(center top, $start 0%, $end 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
-//   @if $pie-context {
-//     @include pie($pie-context);
-//     -pie-background: linear-gradient(90deg, $start, $end);
-//   }
 }
 
 /**
@@ -240,6 +236,7 @@ $default-pie-context-for-vertical-gradient: $default-pie-context !default;
   $column-rule-width: 0,
   $column-rule-color: $base-border-color,
   $column-rule-style: solid) {
+    
   @if $column-count {
     -moz-column-count: $column-count;
     -webkit-column-count: $column-count;
@@ -364,8 +361,6 @@ $default-box-align: stretch !default;
 $default-box-flex: 0 !default;
 
 // mixin which takes an int argument for box flex. Apply this to the children inside the box.
-//
-// For example: "div.display-box > div.child-box" would get the box flex mixin.
 @mixin box-flex(
   $flex: $default-box-flex
 ) {
