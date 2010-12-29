@@ -8,7 +8,8 @@ $.fn.cycleWrap = function(options) {
         $wrapper = $(wrapper),
         opts = $.extend(true, {}, options ),
         $container = opts.container ? $wrapper[opts.container]('.slides') : $wrapper,
-        wrapped = opts.wrapped;
+        wrapped = opts.wrapped,
+        anchorsBuilt = false;
 
 
     if ( $container.children().length > 1 ) {
@@ -18,6 +19,7 @@ $.fn.cycleWrap = function(options) {
       $.each(opts, function(key, val) {
 
         if (key === 'pagerAnchorBuilder' && typeof val === 'string') {
+          anchorsBuilt = val;
           opts[ key ] = function(index, el) {
             return $wrapper.find( val )[index];
           };
@@ -27,6 +29,10 @@ $.fn.cycleWrap = function(options) {
         }
 
       });
+
+      if (anchorsBuilt && !opts.pager) {
+        opts.pager = $wrapper.find( anchorsBuilt ).parent();
+      }
 
       $container.cycle( opts );
     }
@@ -45,7 +51,7 @@ $.fn.cycleWrap.defaults = {
     prev: 1,
     pager: 1
   },
-  
+
   // SPECIAL CYCLE OPTIONS (not set here as defaults)
   // these get converted to $wrapper.find('yourSelector')
   // unless their "wrapped" status is set to  false/0/null
