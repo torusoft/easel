@@ -33,8 +33,32 @@ $.fn.cycleWrap = function(options) {
       if (anchorsBuilt && !opts.pager) {
         opts.pager = $wrapper.find( anchorsBuilt ).parent();
       }
-
+      
+      // call the cycle plugin
       $container.cycle( opts );
+      
+      // deal with img loading awkwardness
+      $container.children('.js-invisible, .js-hide').each(function() {
+        var $slide = $(this),
+            img = null;
+            
+        if ( $slide.is('img') ) {
+          img = this;
+        } else if ( $slide.find('img').length ) {
+          img = $slide.find('img')[0];
+        }
+        
+        if (img && !img.complete) {
+
+          $(img).bind('load error', function() {
+            $(this).removeClass('js-invisible js-hide');
+          });
+        } else {
+          $(this).removeClass('js-invisible js-hide');
+        }
+        
+      });
+      
     }
   });
 
