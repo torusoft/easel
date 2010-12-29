@@ -1,16 +1,24 @@
 /**
- * css3 PIE
- * http://css3pie.com/
- * elements also need a z-index, so not position: static
- * use ie html classes to create a .pie class in your site stylesheet
- */
-@mixin pie {
+* css3 PIE
+* http://css3pie.com/
+* elements also need a z-index, so not position: static
+* use ie html classes to create a .pie class in your site stylesheet
+*/
+
+// set up pie class to extend
+$default-pie-selector: '.pie' !default;
+$default-pie-for-ie6: false !default;
+$default-pie-for-ie7: true !default;
+$default-pie-for-ie8: true !default;
+$default-pie-for-ie9: false !default;
+
+#{$default-pie-selector} {
   behavior: url($easel-dir + 'tools/PIE.htc');
 }
 
 /**
- * text-shadow
- */
+* text-shadow
+*/
 @mixin text-shadow(
   $x: $base-text-shadow-x,
   $y: $base-text-shadow-y,
@@ -25,8 +33,9 @@
 }
 
 /**
- * box-shadow
- */
+* box-shadow
+*/
+
 @mixin box-shadow(
   $x: $base-box-shadow-x,
   $y: $base-box-shadow-y,
@@ -34,16 +43,16 @@
   $spread: $base-box-shadow-spread,
   $color : $base-box-shadow-color,
   $inset: false,
-  $pie: true) {
-  @if $pie {
-    .ie7  & {
-      @include pie;
-    }
-    .ie8 & {
-      @include pie;
-    }
-
-  }
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+    
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; } }
+  
   @if $inset {
     -moz-box-shadow: $x $y $blur $spread $color inset;
   	-webkit-box-shadow: $x $y $blur $spread $color inset;
@@ -60,35 +69,37 @@
 }
 
 /**
- * opacity
- */
+* opacity
+*/
 @mixin opacity($opacity) {
 	-moz-opacity: $opacity;
 	-khtml-opacity: $opacity;
 	opacity: $opacity;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})";
-	filter: alpha(opacity=$opacity * 100);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity* 100)})";
+	filter: alpha(opacity=$opacity* 100);
 }
 
 /**
- * border-radius
- * PIE only works with shorthand method
- */
+* border-radius
+* PIE only works with shorthand method
+*/
+
 @mixin border-radius(
   $radius: $base-border-radius,
   $tl: $base-border-radius,
   $tr: $base-border-radius,
   $br: $base-border-radius,
   $bl: $base-border-radius,
-  $pie: true) {
-  @if $pie {
-    .ie7  & {
-        @include pie;
-    }
-    .ie8 & {
-      @include pie;
-    }
-  }
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+    
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; } }
+  
   @if $radius {
     $tl: $radius;
     $tr: $radius;
@@ -132,9 +143,9 @@
 }
 
 /**
- * @font-face
- * here for reference, but these declarations should go in the <head> to minimize any FOUC
- */
+* @font-face
+* here for reference, but these declarations should go in the <head> to minimize any FOUC
+*/
 @mixin font-face(
   $name,
   $font-file,
@@ -154,69 +165,78 @@
 }
 
 /**
- * rgba backgrounds
- */
-@mixin rgba($color, $opacity, $pie: true) {
+* rgba backgrounds
+*/
+
+@mixin rgba(
+  $color, 
+  $opacity,
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+    
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
+  
   background-color: $color;
   background-color: rgba($color, $opacity);
-  @if $pie {
-    .ie7  & {
-      @include pie;
-      -pie-background: rgba($color, $opacity);
-    }
-    .ie8 & {
-      @include pie;
-      -pie-background: rgba($color, $opacity);
-    }    
-  }  
 }
 
 /**
- * multiple backgrounds
- */
-@mixin multiple-backgrounds($value, $pie: true) {
+* multiple backgrounds
+*/
+
+@mixin multiple-backgrounds(
+  $value,
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: unquote($value); } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: unquote($value); } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: unquote($value); } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: unquote($value); } }
+
   background: unquote($value);
-  @if $pie {
-    .ie7  & {
-      @include pie;
-       -pie-background: unquote($value);
-    }
-    .ie8 & {
-      @include pie;
-       -pie-background: unquote($value); 
-    }
-  }  
 }
 
 /**
- * vertical gradient
- */
-@mixin vertical-gradient($start: #000, $end: #fff, $pie: true) {
+* vertical gradient
+*/
+
+@mixin vertical-gradient(
+  $start: #000,
+  $end: #fff,
+  $pie-for-ie6: $default-pie-for-ie6,
+  $pie-for-ie7: $default-pie-for-ie7,
+  $pie-for-ie8: $default-pie-for-ie8,
+  $pie-for-ie9: $default-pie-for-ie9) {
+    
+  @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
+  @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
+  @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
+  @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
+    
   background: $end;
   background: -moz-linear-gradient(center top, $start 0%, $end 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
-  @if $pie {
-    .ie7  & {
-      @include pie;
-      -pie-background: linear-gradient(90deg, $start, $end);
-    }
-    .ie8 & {
-      @include pie;
-      -pie-background: linear-gradient(90deg, $start, $end);
-    }
-  }
 }
 
 /**
- * multi-column layout (newspaper columns)
- */
-@mixin columns(
+* multi-column layout (newspaper columns)
+*/
+@mixin multi-column-layout(
   $column-count: 2,
   $column-width: false,
   $column-gap: $base-x,
   $column-rule-width: 0,
   $column-rule-color: $base-border-color,
   $column-rule-style: solid) {
+    
   @if $column-count {
     -moz-column-count: $column-count;
     -webkit-column-count: $column-count;
@@ -247,4 +267,160 @@
       column-rule-style: $column-rule-style;
     }
   }
+}
+
+/**
+* css transitions
+* for multiple properties/durations/functions, use a comma-delimited list
+*/
+
+$default-transition-property: all !default;
+$default-transition-duration: 1s !default;
+$default-transition-function: false !default;
+$default-transition-delay: false !default;
+
+// also accepts "all" or "none"
+@mixin transition-property($properties: unquote($default-transition-property)) {
+  -moz-transition-property: $properties;
+  -webkit-transition-property: $properties;
+  -o-transition-property: $properties;
+  transition-property: $properties;
+}
+
+@mixin transition-duration($duration: $default-transition-duration) {
+  @if type-of($duration) == string { $duration: unquote($duration); }
+  -moz-transition-duration: $duration;
+  -webkit-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+}
+
+// ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier(x1, y1, x2, y2)
+@mixin transition-timing-function($function: $default-transition-function) {
+  -moz-transition-timing-function: $function;
+  -webkit-transition-timing-function: $function;
+  -o-transition-timing-function: $function;
+  transition-timing-function: $function;
+}
+
+@mixin transition-delay($delay: $default-transition-delay) {
+  @if type-of($delay) == string { $delay: unquote($delay); }
+  -moz-transition-delay: $delay;
+  -webkit-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  transition-delay: $delay;
+}
+
+@mixin transition(
+  $properties: $default-transition-property,
+  $duration: $default-transition-duration,
+  $function: $default-transition-function,
+  $delay: $default-transition-delay
+) {
+  @include transition-property($properties);
+  @include transition-duration($duration);
+  @if $function { @include transition-timing-function($function); }
+  @if $delay { @include transition-delay($delay); }
+}
+
+/**
+* flexible boxes
+*/
+
+// must be used for any of the other flexbox mixins to work properly
+@mixin display-box {
+  display: -moz-box;
+  display: -webkit-box;  
+  display: box;
+}
+
+// Box orientation [ horizontal, vertical, inline-axis, block-axis, inherit ]
+$default-box-orient: horizontal !default;
+@mixin box-orient(
+  $orientation: $default-box-orient
+) {
+  -moz-box-orient: $orientation;
+  -webkit-box-orient: $orientation;
+  box-orient: $orientation;
+}
+
+// Default box-align
+$default-box-align: stretch !default;
+
+// start, end, center, baseline, stretch ]
+@mixin box-align(
+  $alignment: $default-box-align
+) {
+  $alignment : unquote($alignment);
+  -moz-box-align: $alignment;
+  -webkit-box-align: $alignment;
+  box-align: $alignment;
+}
+
+// Default box flex
+$default-box-flex: 0 !default;
+
+// mixin which takes an int argument for box flex. Apply this to the children inside the box.
+@mixin box-flex(
+  $flex: $default-box-flex
+) {
+  -moz-box-flex: $flex;
+  -webkit-box-flex: $flex;
+  box-flex: $flex;
+}
+
+// Default flex group
+$default-box-flex-group: 1 !default;
+
+// mixin which takes an int argument for flexible grouping
+@mixin box-flex-group(
+  $group: $default-box-flex-group
+) {
+  -moz-box-flex-group: $flex;
+  -webkit-box-flex-group: $flex;
+  box-flex-group: $flex;
+  
+}
+
+$default-box-ordinal-group: 1 !default;
+@mixin box-ordinal-group(
+  $group: $default-ordinal-flex-group
+) {
+  -moz-box-ordinal-group: $group;
+  -webkit-box-ordinal-group: $group;
+  box-ordinal-group: $group;
+}
+
+// normal, reverse, inherit
+$default-box-direction: normal !default;
+@mixin box-direction(
+  $direction: $default-box-direction
+) {
+  $direction: unquote($direction);
+  -moz-box-direction: $direction;
+  -webkit-box-direction: $direction;
+  box-direction: $direction;
+}
+
+// single, multiple
+$default-box-lines: single !default;
+@mixin box-lines(
+  $lines: $default-box-lines
+) {
+  $lines: unquote($lines);
+  -moz-box-lines: $lines;
+  -webkit-box-lines: $lines;
+  box-lines: $lines;
+  
+}
+
+// start, end, center, justify
+$default-box-pack: start !default;
+@mixin box-pack(
+  $pack: $default-box-pack
+) {
+  $pack: unquote($pack);
+  -moz-box-pack: $pack;
+  -webkit-box-pack: $pack;
+  box-pack: $pack; 
 }
