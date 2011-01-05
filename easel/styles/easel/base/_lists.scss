@@ -42,7 +42,7 @@
 @mixin ul(
   $line-height: $base-list-line-height,
   $margin-y: $base-list-margin-y,
-  $img: '/easel/styles/images/icons/20x20/dot-gray.png',
+  $img: $easel_dir + 'images/icons/20x20/dot-gray.png',
   $padding-left: $base-x,
   $offset-x: 0,
   $offset-y: 0) {
