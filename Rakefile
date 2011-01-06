@@ -4,7 +4,7 @@
 prefix = File.dirname( __FILE__ )
 
 # USER CONFIGURATION: github repos
-easel_dir = ''
+easel_dir = 'easel'
 script_dir = 'easel/scripts'
 repos = { "Modernizr" => "Modernizr",
           "LABjs" => "getify",
@@ -23,8 +23,9 @@ scripts = [ "init",
             "lib/fm.log",
             "lib/ga-load",
             "lib/jquery.hscroll",
-            "lib/jquery.setmargin"
+            "lib/jquery.setmargin",
             "lib/jquery.cyclewrap",
+            "lib/jquery.fancywrap",
             "cycles",
             "global-ajax",
             "validation"
@@ -33,13 +34,16 @@ scripts = [ "init",
 
 # Directory variables
 lib_dir = 'lib'
+
+
 # A different scripts directory can be set by
 # setting DIR and/or LIB before calling rake
-script_dir = ENV['DIR']  || script_dir
+script_dir = ENV['DIR'] || script_dir
 script_dir = File.join( prefix, script_dir )
-lib_dir = ENV['LIB']  || lib_dir
+lib_dir = ENV['LIB'] || lib_dir
 lib_dir = File.join( script_dir, lib_dir )
 
+easel_script_dir = File.join( prefix, easel_dir, 'scripts' )
 
 # Build and QUnit files/dirs
 config_dir = File.join( prefix, easel_dir, 'config' )
@@ -60,7 +64,7 @@ verbose(false)
 
 # Tasks
 
-desc "Update js files from GitHub repos (one arg - can be lib or jquery or all. default is lib)"
+desc "Update js from GitHub - arg can be lib, jquery, all. default is lib"
 task :update, [:which] => [repo_dir, lib_dir] do |t, args|
   
   args.with_defaults(:which => "lib")
@@ -78,12 +82,13 @@ task :update, [:which] => [repo_dir, lib_dir] do |t, args|
   end
   
   if args.which == "all" then
-    Rake::Task[:scriptsupdate].invoke
+    Rake::Task[:copyscripts].invoke
   end
   
   if args.which != 'jquery' && args.which != "all" && args.which != "lib" then
     copy_repo("#{repo_dir}/#{args.which}", lib_dir)
-    puts "updated #{args.which}"
+    
+    puts "copied #{args.which} repo from #{repo_dir}/#{args.which} to #{lib_dir}"
   end
 end
 
@@ -129,14 +134,47 @@ task :jqueryupdate => [lib_dir] do
 end
 
 desc "Grabs non-repo scripts from easel and copies them over to project"
-task :scriptsupdate => [easel_dir, lib_dir] do
-  scripts.each do |scr|
-    easel_script = File.join( easel_dir, scr) + ".js"
-    project_script = File.join( script_dir, scr ) + ".js"
-    if File.exist(easel_script) && !File.exist?(project_script) then
-      cp( easel_script, project_script )
+task :copyscripts => [easel_script_dir, lib_dir] do
+  if easel_script_dir == script_dir then
+    puts "Not gonna do it. easel directory and scripts directory are the same"
+  else
+    scripts.each do |scr|
+      easel_script = File.join( easel_script_dir, scr) + ".js"
+      project_script = File.join( script_dir, scr ) + ".js"
+      if File.exist(easel_script) && !File.exist?(project_script) then
+        cp( easel_script, project_script )
+      end
     end
   end
+end
+
+# copy scripts from easel/scripts dir to site's scripts dir
+
+# def copy_scripts(from_dir, to_dir)
+#   if from_dir == to_dir then
+#     puts "not gonna do it. easel directory and scripts directory are the same"
+#   elsif File.exist?(from_dir) then
+#     FileList["#{from_dir}/*.js"].each do |fl|
+#       update_file = File.join( to_dir, File.basename(fl) )
+#       puts "updating #{update_file}"
+#       cp( fl, update_file)
+#     end
+#   end
+#   
+# end
+desc "List as many directories as I can think of"
+task :listdirs do
+  puts "config_dir  #{config_dir}"
+  puts "repo_dir  #{repo_dir}"
+  puts "build_dir  #{build_dir}"
+  puts "test_dir   #{test_dir}"
+  puts "qunit_dir   #{qunit_dir}"
+  puts "funcunit_dir  #{funcunit_dir}"
+  puts "script_dir  #{script_dir}"
+  puts "lib_dir  #{lib_dir}"
+  puts "easel_script_dir  #{easel_script_dir}"
+  
+  
 end
 
 desc "Clones repos if necessary; otherwise pulls latest"
@@ -276,7 +314,8 @@ def clone_or_pull( cp_repo, github_author, dir)
 
   cp_repo_dir = File.join( dir, cp_repo)
   cp_repo_git = File.join(cp_repo_dir, ".git")
-  
+  puts "cp_repo_dir #{cp_repo_dir}"
+  puts "cp_repo_git #{cp_repo_git}"
   if File.exist?( cp_repo_git ) then
     puts "Updating #{cp_repo} with latest..."
     sh "git --git-dir=#{cp_repo_git} pull -q origin master"
