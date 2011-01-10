@@ -12,17 +12,22 @@
 // --------------------------------------------------
 // cycle styles
 // --------------------------------------------------
-@mixin cycle($height) {
+@mixin cycle($height, $width: false) {
+  position: relative;
   .slide,
   .slides {
+    display: block;
     height: $height;
+    @if $width {
+      width: $width;      
+    }
+  }
+  .slide {
+    position: absolute;
   }
   .slides {
     overflow: hidden;
-  }
-  .slide,
-  .slide * {
-    display: block;
+    position: relative;
   }
 }
 

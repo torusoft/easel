@@ -16,7 +16,7 @@
   $padding-x: $base-input-border-padding-x,
   $box-shadow-color: $base-input-box-shadow-color,
   $color: $base-text-color,
-  $button-selector: false) {
+  $active-selector: false) {
   border: 0;
   padding: $padding-y $padding-x;
   border: $border-width solid $border-color;
@@ -30,9 +30,9 @@
   &:focus {
     background: $bg-color;
   }
-  // button selector for buttons, custom dropdowns, etc.
-  @if $button-selector {
-    &#{$button-selector} {
+  // active selector custom dropdowns, etc. for things that use classes for down state
+  @if $active-selector {
+    &#{$active-selector} {
       @include vertical-gradient(darken($bg-color, 12%), $bg-color);
     }
   }
