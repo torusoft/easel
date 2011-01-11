@@ -8,11 +8,12 @@
   $img: $easel-dir + 'ui/button-white.png',
   $text-align: center){
 	
-	@media screen and (-webkit-min-device-pixel-ratio:0) { 
-    span {
-      margin-top: -1px; 
-    }
-  }
+// no longer need this, keeping for reference
+//  @media screen and (-webkit-min-device-pixel-ratio:0) { 
+//     span {
+//       margin-top: -1px; 
+//     }
+//   }
   
   @include inline-block;
   cursor: pointer;
