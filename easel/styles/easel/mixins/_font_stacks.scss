@@ -61,6 +61,9 @@
   font-family: 'Proxima Nova', sans-serif;
 //   font-size-adjust: .48;
 }
+@mixin ofl-goudy {
+  font-family: 'OFL Goudy', serif;
+}
 @mixin champagne {
   font-family: 'CAC Champagne', serif;
 }
