@@ -10,10 +10,10 @@ $container-width: $column-outer-width * $column-count - $column-gutter;
 }
 
 // columns
-@mixin column($n: false, $last: false) {
+@mixin column($n: false, $last: false, $offset-x: 0) {
   @include float(left);
   @if $n {
-    @include column-width($n);
+    @include column-width($n, $offset-x);
   }
 	@if $last {
     @include last;
