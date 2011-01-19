@@ -42,10 +42,10 @@
 @mixin ul(
   $line-height: $base-list-line-height,
   $margin-y: $base-list-margin-y,
-  $img: $easel_dir + 'images/icons/20x20/dot-gray.png',
-  $padding-left: $base-x,
+  $img: $easel_dir + 'images/decor/bullet.png',
+  $padding-left: 10px,
   $offset-x: 0,
-  $offset-y: 0) {
+  $offset-y: .5em) {
   @include list-base($line-height, $margin-y);
   li {
     @include bullet($img, $padding-left, $offset-x, $offset-y);
