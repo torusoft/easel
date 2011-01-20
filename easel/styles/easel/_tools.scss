@@ -20,10 +20,10 @@
 @mixin clearfix {
   &:before,
   &:after {
-    content: ".";    
-    display: block;    
-    height: 0;    
-    overflow: hidden;	
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
   }
   &:after {
     clear: both;
@@ -41,11 +41,11 @@
   -moz-box-orient: vertical;
   display: inline-block;
   vertical-align: middle;
-	.ie6 &,
-	.ie7 & {
-		display: inline;
-		vertical-align: auto;
-	}
+  .ie6 &,
+  .ie7 & {
+    display: inline;
+    vertical-align: auto;
+  }
 }
 
 // --------------------------------------------------
@@ -65,14 +65,14 @@
 @mixin min-height($h: auto) {
   min-height: $h;
   .ie6 & {
-		height: $h;
-	}
+    height: $h;
+  }
 }
 @mixin min-width($w: auto) {
   min-width: $w;
   .ie6 & {
-		width: $w;
-	}
+    width: $w;
+  }
 }
 
 // --------------------------------------------------

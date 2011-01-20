@@ -24,9 +24,9 @@ $default-pie-for-ie9: false !default;
   $y: $base-text-shadow-y,
   $blur: $base-text-shadow-blur,
   $color: $base-text-shadow-color) {
-	-moz-text-shadow: $x $y $blur $color;
-	-webkit-text-shadow: $x $y $blur $color;
-	text-shadow: $x $y $blur $color;
+  -moz-text-shadow: $x $y $blur $color;
+  -webkit-text-shadow: $x $y $blur $color;
+  text-shadow: $x $y $blur $color;
 }
 @mixin no-text-shadow {
   @include text-shadow(0, 0, 0);
@@ -47,21 +47,21 @@ $default-pie-for-ie9: false !default;
   $pie-for-ie7: $default-pie-for-ie7,
   $pie-for-ie8: $default-pie-for-ie8,
   $pie-for-ie9: $default-pie-for-ie9) {
-    
+
   @if $pie-for-ie6 { .ie6 & { @extend .pie; } }
   @if $pie-for-ie7 { .ie7 & { @extend .pie; } }
   @if $pie-for-ie8 { .ie8 & { @extend .pie; } }
   @if $pie-for-ie9 { .ie9 & { @extend .pie; } }
-  
+
   @if $inset {
     -moz-box-shadow: $x $y $blur $spread $color inset;
-  	-webkit-box-shadow: $x $y $blur $spread $color inset;
-  	box-shadow: $x $y $blur $spread $color inset;
+    -webkit-box-shadow: $x $y $blur $spread $color inset;
+    box-shadow: $x $y $blur $spread $color inset;
   }
   @else {
     -moz-box-shadow: $x $y $blur $spread $color;
-  	-webkit-box-shadow: $x $y $blur $spread $color;
-  	box-shadow: $x $y $blur $spread $color;
+    -webkit-box-shadow: $x $y $blur $spread $color;
+    box-shadow: $x $y $blur $spread $color;
   }
 }
 @mixin no-box-shadow {
@@ -72,11 +72,11 @@ $default-pie-for-ie9: false !default;
 * opacity
 */
 @mixin opacity($opacity) {
-	-moz-opacity: $opacity;
-	-khtml-opacity: $opacity;
-	opacity: $opacity;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity* 100)})";
-	filter: alpha(opacity=$opacity* 100);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity* 100)})";
+  filter: alpha(opacity=$opacity* 100);
 }
 
 /**
@@ -94,12 +94,12 @@ $default-pie-for-ie9: false !default;
   $pie-for-ie7: $default-pie-for-ie7,
   $pie-for-ie8: $default-pie-for-ie8,
   $pie-for-ie9: $default-pie-for-ie9) {
-    
+
   @if $pie-for-ie6 { .ie6 & { @extend .pie; } }
   @if $pie-for-ie7 { .ie7 & { @extend .pie; } }
   @if $pie-for-ie8 { .ie8 & { @extend .pie; } }
   @if $pie-for-ie9 { .ie9 & { @extend .pie; } }
-  
+
   @if $radius {
     $tl: $radius;
     $tr: $radius;
@@ -154,8 +154,8 @@ $default-pie-for-ie9: false !default;
   @font-face {
     font-family: quote($name);
     src: url('#{$font-file}' + '.eot');
-  	src: local('☺'), url('#{$font-file}' + '.ttf') format('truetype'), url('#{$font-file}' + '.svg#webfont') format('svg');
-  	@if $weight {
+    src: local('☺'), url('#{$font-file}' + '.ttf') format('truetype'), url('#{$font-file}' + '.svg#webfont') format('svg');
+    @if $weight {
       font-weight: $weight;
     }
     @if $style {
@@ -169,18 +169,18 @@ $default-pie-for-ie9: false !default;
 */
 
 @mixin rgba(
-  $color, 
+  $color,
   $opacity,
   $pie-for-ie6: $default-pie-for-ie6,
   $pie-for-ie7: $default-pie-for-ie7,
   $pie-for-ie8: $default-pie-for-ie8,
   $pie-for-ie9: $default-pie-for-ie9) {
-    
+
   @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
   @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
   @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
   @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
-  
+
   background-color: $color;
   background-color: rgba($color, $opacity);
 }
@@ -215,12 +215,12 @@ $default-pie-for-ie9: false !default;
   $pie-for-ie7: $default-pie-for-ie7,
   $pie-for-ie8: $default-pie-for-ie8,
   $pie-for-ie9: $default-pie-for-ie9) {
-    
+
   @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
   @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
   @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
   @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
-    
+
   background: $end;
   background: -moz-linear-gradient(center top, $start 0%, $end 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
@@ -236,7 +236,7 @@ $default-pie-for-ie9: false !default;
   $column-rule-width: 0,
   $column-rule-color: $base-border-color,
   $column-rule-style: solid) {
-    
+
   @if $column-count {
     -moz-column-count: $column-count;
     -webkit-column-count: $column-count;
@@ -330,7 +330,7 @@ $default-transition-delay: false !default;
 // must be used for any of the other flexbox mixins to work properly
 @mixin display-box {
   display: -moz-box;
-  display: -webkit-box;  
+  display: -webkit-box;
   display: box;
 }
 
@@ -410,7 +410,6 @@ $default-box-lines: single !default;
   -moz-box-lines: $lines;
   -webkit-box-lines: $lines;
   box-lines: $lines;
-  
 }
 
 // start, end, center, justify
@@ -421,5 +420,5 @@ $default-box-pack: start !default;
   $pack: unquote($pack);
   -moz-box-pack: $pack;
   -webkit-box-pack: $pack;
-  box-pack: $pack; 
+  box-pack: $pack;
 }

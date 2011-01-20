@@ -19,7 +19,7 @@
     display: block;
     height: $height;
     @if $width {
-      width: $width;      
+      width: $width;
     }
   }
   .slide {
@@ -71,5 +71,5 @@
     background: $background;
     color: $color;
     @include no-text-shadow;
-  } 
+  }
 }
