@@ -1,21 +1,15 @@
 // calculate widths
 $column-outer-width: $column-width + $column-gutter;
 $container-width: $column-outer-width * $column-count - $column-gutter;
-$container-padding-left: 0 !default;
-$container-padding-right: 0 !default;
 $container-offset-x: 0 !default;
 
 // container
 @mixin container(
   $width: $container-width,
-  $offset-x: $container-offset-x,
-  $padding-left: $container-padding-left,
-  $padding-right: $container-padding-right) {
+  $offset-x: $container-offset-x) {
   width: $width + $offset-x;
   margin: 0 auto;
 	@include clearfix;
-	@if $padding-left { padding-left: $padding-left; }
-	@if $padding-right { padding-right: $padding-right; }
 }
 
 // columns
