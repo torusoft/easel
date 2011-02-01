@@ -13,10 +13,15 @@ $container-offset-x: 0 !default;
 }
 
 // columns
-@mixin column($n: false, $last: false, $offset-x: 0) {
+@mixin column(
+  $n: false,
+  $column-width: $column-width,
+  $column-gutter: $column-gutter,
+  $offset-x: 0,
+  $last: false) {
   @include float(left);
   @if $n {
-    @include column-width($n, $offset-x);
+    width: column-width($n, $column-width, $column-gutter, $offset-x);
   }
 	@if $last {
     @include last;
@@ -25,10 +30,16 @@ $container-offset-x: 0 !default;
     margin-right: $column-gutter;
   }
 }
-@mixin column-width($n, $offset-x: 0) {
-  $width: $column-width * $n + $column-gutter * ($n - 1) + $offset-x;
-  width: $width;
+
+@function column-width(
+  $n,
+  $column-width,
+  $column-gutter,
+  $offset-x
+) {
+  @return $column-width * $n + $column-gutter * ($n - 1) + $offset-x;
 }
+
 @mixin last {
   margin-right: 0;
 }
