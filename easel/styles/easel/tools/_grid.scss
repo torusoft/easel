@@ -9,7 +9,7 @@ $container-offset-x: 0 !default;
   $offset-x: $container-offset-x) {
   width: $width + $offset-x;
   margin: 0 auto;
-	@include clearfix;
+  @include clearfix;
 }
 
 // columns
@@ -23,7 +23,7 @@ $container-offset-x: 0 !default;
   @if $n {
     width: column-width($n, $column-width, $column-gutter, $offset-x);
   }
-	@if $last {
+  @if $last {
     @include last;
   }
   @else {
@@ -33,9 +33,9 @@ $container-offset-x: 0 !default;
 
 @function column-width(
   $n,
-  $column-width,
-  $column-gutter,
-  $offset-x
+  $column-width: $column-width,
+  $column-gutter: $column-gutter,
+  $offset-x: 0
 ) {
   @return $column-width * $n + $column-gutter * ($n - 1) + $offset-x;
 }
@@ -77,31 +77,31 @@ $container-offset-x: 0 !default;
 // grid classes
 @mixin grid {
   @for $n from 1 through $column-count {
-  	.col-#{$n} {
-  		@include column($n);
-  	}
-  	.append-#{$n} {
-  		@include append($n);
-  	}
-  	.prepend-#{$n} {
-  		@include prepend($n);
-  	}
-  	.pull-#{$n} {
-  	  @include pull($n);
-  	}
-  	.push-#{$n} {
-  	  @include push($n);
-  	}
+    .col-#{$n} {
+      @include column($n);
+    }
+    .append-#{$n} {
+      @include append($n);
+    }
+    .prepend-#{$n} {
+      @include prepend($n);
+    }
+    .pull-#{$n} {
+      @include pull($n);
+    }
+    .push-#{$n} {
+      @include push($n);
+    }
   }
 
   .col-#{$column-count},
   .col-last {
-  	@include last;
+    @include last;
   }
   .col {
     @include column;
   }
   .container {
     @include container;
-  } 
+  }
 }
