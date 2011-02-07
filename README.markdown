@@ -1,10 +1,16 @@
 # Easel Guide
 
+### SASS (SCSS)
+
+
 Easel runs on [SASS][1]
 
 To install: `gem install sass --pre`
 
 Once installed: `sass --watch assets/styles/screen.scss`
+
+### Scripts
+
 
 To set up the standard set of scripts in your project:
 
