@@ -1,112 +1,16 @@
 var FM = FM || {};
 
-(function(docel) {
+(function(window, q, arrProto, $L) {
 
-  // html class for js-only styling (done with Modernizr)
+  // variables to be used within this init function
 
-  // utility function to merge obects.
-  FM.extend = function() {
-    var args = Array.prototype.slice.call( arguments ),
-        al = args.length,
-        firstArg = al === 1 ? FM : args.shift();
-
-    while (--al > -1) {
-      var arg = args[al];
-      if (typeof arg  == 'object') {
-        for (var prop in arg) {
-          firstArg[ prop ] = arg[ prop ];
-        }
-      }
-    }
-
-    return firstArg;
-  };
-
-})(document.documentElement);
-
-/** =Set up some default values
-************************************************************/
-FM.extend({
-  timeStamp: +new Date(),
-  current: (function() {
-    var d = new Date();
-    var c = '';
-    var dateMethods = [ 'getFullYear', 'getMonth', 'getDate', 'getHours', 'getMinutes', 'getSeconds' ];
-    var tmp;
-    for (var i=0, il = dateMethods.length; i < il; i++) {
-      tmp = d[ dateMethods[i] ]();
-      if (dateMethods[i] === 'getMonth') {
-        tmp +=1;
-      }
-      tmp = '' + tmp;
-      tmp = tmp.length === 1 ? '0' + tmp : tmp;
-      c += tmp;
-    }
-
-    return c;
-  })(),
-  devsite: !(/\.(?:com|org|net|biz|co\.\w{2,4})$/).test(location.hostname),
-  pathname: function(address) {
-    return '/' + address.pathname.replace(/^\//,'');
-  },
-  paths: {
-    min: '/tools/min/index.php?g=',
-    script: '/assets/scripts/',
-    lib: '/assets/scripts/lib/',
-    img: '/assets/styles/images/',
-    swf: '/assets/styles/swf/'
-  },
-  html: {
-    prevNext: '<a href="#" class="prev">Previous</a><a href="#" class="next">Next</a>'
-  }
-});
-
-/**
- **  site-specific (header/footer): STRINGS or ARRAYS
- **  section/page scripts (from body class): STRINGS or ARRAYS
- ** scripts are executed in the following order (provided they exist, of course):
-    1. scripts[sitename].header
-    2. scripts[sitename][bodyClassNames]
-    3. scripts[sitename].footer
-************************************************************/
-// uncomment next line to bust some cache, yo.
-if (location.search.indexOf('bust') !== -1) {
-  FM.bustCache = FM.timeStamp;
-}
-FM.scripts = {
-
-  prepend: [
-    FM.paths.min + 'jq',
-    FM.paths.min + 'box-and-cycle',
-    FM.paths.min + 'js'
-  ],
-  append: [
-    // FM.paths.lib + 'jquery.fancybox.js',
-    // FM.paths.script + 'fancyboxes.js',
-    // FM.paths.lib + 'fm.showloading.js'
-  ],
-
-  'p-work': [
-    FM.paths.min + 'filters'
-  ],
-  'p-people': [
-    FM.paths.min + 'filters'
-  ]
-  
-};
-
-
-/** =build the script queue for LABjs
-************************************************************/
-(function(scripts, q, arrayPush) {
-  
-  if ( typeof $LAB == 'undefined' ) {
-    return;
-  }
-  
-  var scr,
-      $L = $LAB,
-      bust = FM.bustCache,
+  var min = '/tools/min/index.php?g=',
+      script = '/assets/scripts/',
+      lib = '/assets/scripts/lib/',
+      img = '/assets/styles/images/',
+      swf = '/assets/styles/swf/',
+      bust, scr,
+      timeStamp = +new Date(),
       doQueue = function(item) {
         if (!item ) {
           $L = $L.wait();
@@ -118,6 +22,42 @@ FM.scripts = {
           $L = $L.script(item);
         }
       };
+
+  /** SCRIPT LOADING
+   ** scripts can be functions, strings, or arrays. Usually arrays
+   ** scripts are executed in the following order (provided they exist, of course):
+      1. scripts[sitename].prepend
+      2. scripts[sitename][bodyClassNames]
+      3. scripts[sitename].append
+  ************************************************************/
+
+  var scripts = {
+
+    prepend: [
+      min + 'jq',
+      min + 'js',
+      min + 'box-and-cycle'
+
+    ],
+    append: [
+      min + 'lastjs' // lib + 'search.js', lib + 'default.js'
+    ],
+
+    'p-filters': [
+      min + 'filters' // script + 'templates.js', script + 'filter-sort.js'
+    ],
+    'p-case-detail': [
+      lib + 'jquery.masonry.min.js'
+    ]
+
+  };
+
+  /** =build the script queue for LABjs
+  ************************************************************/
+
+  if (window.location.search.indexOf('bust') !== -1) {
+    bust = timeStamp;
+  }
 
   $L.setGlobalDefaults({
     AlwaysPreserveOrder: true,
@@ -145,5 +85,66 @@ FM.scripts = {
     }
   }
 
-})(FM.scripts, FM.scriptQueue, Array.prototype.push);
+
+  /** =utility function to merge obects
+  ************************************************************/
+
+  FM.extend = function() {
+    var args = arrProto.slice.call( arguments ),
+        al = args.length,
+        firstArg = al === 1 ? FM : args.shift();
+
+    while (--al > -1) {
+      var arg = args[al];
+      if (typeof arg  == 'object') {
+        for (var prop in arg) {
+          firstArg[ prop ] = arg[ prop ];
+        }
+      }
+    }
+
+    return firstArg;
+  };
+
+  /** =Namespace variables to be exposed to other files/functions
+  ************************************************************/
+
+  FM.extend({
+    timeStamp: timeStamp,
+    current: (function() {
+      var tmp,
+          c = '',
+          d = new Date(),
+          dateMethods = [ 'getFullYear', 'getMonth', 'getDate', 'getHours', 'getMinutes', 'getSeconds' ];
+
+      for (var i=0, il = dateMethods.length; i < il; i++) {
+        tmp = d[ dateMethods[i] ]();
+        if (dateMethods[i] === 'getMonth') {
+          tmp +=1;
+        }
+        tmp = '' + tmp;
+        tmp = tmp.length === 1 ? '0' + tmp : tmp;
+        c += tmp;
+      }
+
+      return c;
+    })(),
+    devsite: !(/\.(?:com|org|net|biz|co\.\w{2,4})$/).test(window.location.hostname),
+    pathname: function(address) {
+      return '/' + address.pathname.replace(/^\//,'');
+    },
+    html: {
+      prevNext: '<div class="prev-next"><a href="#" class="prev">Previous</a><a href="#" class="next">Next</a></div>'
+    },
+    paths: {
+      min: min,
+      script: script,
+      lib: lib,
+      img: img,
+      swf: swf
+    },
+    scripts: scripts
+  });
+
+})(this, FM.scriptQueue, Array.prototype, $LAB);
 
