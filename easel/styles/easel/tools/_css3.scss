@@ -153,8 +153,10 @@ $default-pie-for-ie9: false !default;
   $style: normal) {
   @font-face {
     font-family: quote($name);
-    src: url('#{$font-file}' + '.eot');
-    src: local('☺'), url('#{$font-file}' + '.ttf') format('truetype'), url('#{$font-file}' + '.svg#webfont') format('svg');
+    src: url("#{$font-file}.eot?") format('eot'),
+         url("#{$font-file}.woff") format('woff'),
+         url("#{$font-file}.ttf")  format('truetype'),
+         url("#{$font-file}.svg#svgFontName") format('svg'); format('svg');
     @if $weight {
       font-weight: $weight;
     }
