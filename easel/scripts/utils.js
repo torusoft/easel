@@ -129,7 +129,7 @@ FM.list.prototype.filter = function(filtered, limit) {
         break;
       }
     }
-    
+
     if (limit) {
       visCount += !hide ? 1 : 0;
       hide = visCount > 2 ? true : hide;
@@ -169,7 +169,7 @@ FM.addEvent = listener;
 // redefine addEvent to call the function immediately if window is already loaded
 
 FM.addEvent(win, 'load', function() {
-
+  document.body.className += ' js-loaded';
   FM.windowLoaded = true;
   var _listener = FM.addEvent;
 
@@ -182,4 +182,4 @@ FM.addEvent(win, 'load', function() {
   };
 });
 
-})(document, this);
+})(this.document, this);
