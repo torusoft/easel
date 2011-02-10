@@ -86,7 +86,7 @@ var FM = FM || {};
   }
 
 
-  /** =utility function to merge obects
+  /** =utility function to merge objects
   ************************************************************/
 
   FM.extend = function() {
