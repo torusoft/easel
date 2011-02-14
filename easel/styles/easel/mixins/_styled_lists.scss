@@ -7,7 +7,8 @@
     a {
       display: block;
     }
-    &.last {
+    &.li-last,
+    &:last-child {
       margin-right: 0;
     }
   }
@@ -18,7 +19,8 @@
     @include li-reset;
     @include inline-block;
     margin-right: $margin-right;
-    &.last {
+    &.li-last,
+    &:last-child {
       margin-right: 0;
     }
   }
@@ -29,16 +31,17 @@
     @include li-reset;
     display: inline;
     margin-right: $margin-right;
-    &.last {
+    &.li-last,
+    &:last-child {
       margin-right: 0;
     }
   }
 }
 
 @mixin piped-list(
-  $color: $base-border-color,
-  $width: 1px,
-  $style: solid,
+  $border-color: $base-border-color,
+  $border-width: 1px,
+  $border-style: solid,
   $padding-right: 8px,
   $margin-right: 8px,
   $line-height: 1.1) {
@@ -47,10 +50,11 @@
   }
   li {
     @include li-reset;
-    border-right: $width $style $color;
+    border-right: $border-width $border-style $border-color;
     padding-right: $padding-right;
     margin-right: $margin-right;
-    &.last {
+    &.li-last,
+    &:last-child {
       margin-right: 0;
       padding-right: 0;
       border-right: 0;
