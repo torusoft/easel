@@ -1,23 +1,31 @@
 @mixin sticky-footer(
-  $height,
+  $height: 100px,
+  $width: false,
   $padding-y: 0,
   $wrapper: '.wrapper',
   $footer:  '.footer') {
-	html {
-		height: 100%;
-	}
-	body {
-		position: relative;
+  html {
+    height: 100%;
+  }
+  body {
+    position: relative;
     @include min-height(100%);
-	}
-	#{$wrapper} {
+  }
+  #{$wrapper} {
     padding-bottom: $padding-y + $height;
-	}
-	#{$footer} {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: $height;
-	}
+  }
+  #{$footer} {
+    position: absolute;
+    bottom: 0;
+    height: $height;
+    @if $width {
+      width: $width;
+      margin-left: -($width/2);
+      left: 50%;
+    }
+    @else {
+     width: 100%;
+     left: 0;
+    }
+  }
 }
