@@ -1,5 +1,5 @@
 // --------------------------------------------------
-// YUI3 reset with at few tweaks: 
+// YUI3 reset with at few tweaks:
 // reset button, select, input
 // reset text decoration on a, ins
 // reset small
@@ -7,8 +7,8 @@
 // --------------------------------------------------
 @mixin global-reset {
   body {
-  	color: #000;
-  	background: #fff;
+    color: #000;
+    background: #fff;
   }
 
   body,
@@ -36,18 +36,18 @@
   blockquote,
   th,
   td {
-  	margin: 0;
-  	padding: 0;
+    margin: 0;
+    padding: 0;
   }
 
   table {
-  	border-collapse: collapse;
-  	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
   }
 
   fieldset,
   img {
-  	border: 0;
+    border: 0;
   }
 
   address,
@@ -59,17 +59,17 @@
   strong,
   th,
   var {
-  	font-style: normal;
-  	font-weight: normal;
+    font-style: normal;
+    font-weight: normal;
   }
 
   li {
-  	list-style: none;
+    list-style: none;
   }
 
   caption,
   th {
-  	text-align: left;
+    text-align: left;
   }
 
   h1,
@@ -79,8 +79,8 @@
   h5,
   h6,
   small {
-  	font-size: 100%;
-  	font-weight: normal;
+    font-size: 100%;
+    font-weight: normal;
   }
 
   blockquote,
@@ -97,38 +97,43 @@
   }
 
   abbr {
-  	border:0;
-  	font-variant:normal;
+    border:0;
+    font-variant:normal;
   }
-  
+
   sup,
   sub {
-  	vertical-align: baseline;
+    vertical-align: baseline;
   }
 
   input,
   textarea,
   select,
   button {
-  	font-family: inherit;
-  	font-size: inherit;
-  	font-weight: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
   }
-  
+
   input,
   textarea,
   button {
-  	border: 0;
-  	padding: 0;
-  	background: none;
+    border: 0;
+    padding: 0;
+    background: none;
   }
 
   del,
   ins,
   a {
-  	text-decoration: none;
+    text-decoration: none;
   }
-  
+
+  /** html5 */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
 }
 
 // --------------------------------------------------
