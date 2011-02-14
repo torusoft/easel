@@ -68,7 +68,8 @@
 
 @mixin a(
   $color: $base-link-color,
-  $hover-color: $base-link-hover-color) {
+  $hover-color: $base-link-hover-color
+) {
   color: $color;
   &:focus,
   &:hover {
