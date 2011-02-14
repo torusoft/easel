@@ -1,123 +1,114 @@
 @mixin scaffolding {
-  // --------------------------------------------------
-  // includes
-  // --------------------------------------------------
+
+  /**
+  * includes
+  * --------------------------------------------------
+  */
+
   @include global-reset;
   @include classes;
   @include grid;
 
-  // --------------------------------------------------
-  // body
-  // --------------------------------------------------
+  /**
+  * body
+  * --------------------------------------------------
+  */
+
   body {
     @include base-font;
     @include font_sans;
   }
 
-  // --------------------------------------------------
-  // headings
-  // --------------------------------------------------
-  h1 {
-    @include h1;
-  }
-  h2 {
-    @include h2;
-  }
-  h3 {
-    @include h3;
-  }
-  h4 {
-    @include h4;
-  }
-  h5 {
-    @include h5;
-  }
-  h6 {
-    @include h6;
-  }
+  /**
+  * base styling
+  * --------------------------------------------------
+  */
 
-  // --------------------------------------------------
-  // links
-  // --------------------------------------------------
-  a {
-    @include a;
-  }
+  .base {
 
-  // --------------------------------------------------
-  // lists
-  // --------------------------------------------------
-  ul {
-    @include ul;
-  }
-  ol{
-    @include ol;
-  }
-  dl{
-    @include dl;
-  }
+    /** headings */
+    h1 {
+      @include h1;
+    }
+    h2 {
+      @include h2;
+    }
+    h3 {
+      @include h3;
+    }
+    h4 {
+      @include h4;
+    }
+    h5 {
+      @include h5;
+    }
+    h6 {
+      @include h6;
+    }
 
-  // --------------------------------------------------
-  // block elements
-  // --------------------------------------------------
-  p {
-    @include p;
-  }
-  table {
-    @include table;
-  }
-  blockquote {
-    @include blockquote;
-  }
-  pre {
-    @include pre;
-  }
-  address {
-    @include address;
-  }
+    /** links */
+    a {
+      @include a;
+    }
 
-  // --------------------------------------------------
-  // forms
-  // --------------------------------------------------
-  form {
-    @include form;
-  }
-  fieldset {
-    @include fieldset;
-  }
-  button {
-    @include image-button;
-  }
+    /** lists */
+    ul {
+      @include ul;
+    }
+    ol{
+      @include ol;
+    }
+    dl{
+      @include dl;
+    }
 
-  // --------------------------------------------------
-  // inline elements
-  // --------------------------------------------------
-  sup    { @include sup; }
-  sub    { @include sub; }
-  abbr   { @include abbr;}
-  strong { @include strong; }
-  em     { @include em; }
-  small  { @include small; }
-  del    { @include del; }
-  ins    { @include ins; }
-  code   { @include code;}
-  img    { @include img; }
-  
-  // --------------------------------------------------
-  // specific markup
-  // --------------------------------------------------
-  .header,
-  .footer,
-  .content {
-    @include container;
-  }
-  
-  .text input,
-  .textarea textarea {
-    @include text-input;
-  }
-  .nav {
-    @include floated-list;
-    @include piped-list;
-  }
-  
-}
+    /** block elements */
+    p {
+      @include p;
+    }
+    table {
+      @include table;
+    }
+    blockquote {
+      @include blockquote;
+    }
+    pre {
+      @include pre;
+    }
+    address {
+      @include address;
+    }
+
+    /** inline elements */
+    sup    { @include sup; }
+    sub    { @include sub; }
+    abbr   { @include abbr;}
+    strong { @include strong; }
+    em     { @include em; }
+    small  { @include small; }
+    del    { @include del; }
+    ins    { @include ins; }
+    code   { @include code;}
+    img    { @include img; }
+
+    /** forms */
+    form {
+      @include form;
+    }
+    fieldset {
+      @include fieldset;
+    }
+    button {
+      @include image-button;
+    }
+
+  }// .base
+
+  /**
+  * admin styling
+  * --------------------------------------------------
+  */
+
+
+
+}// @mixin scaffolding
