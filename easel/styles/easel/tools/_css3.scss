@@ -156,7 +156,7 @@ $default-pie-for-ie9: false !default;
     src: url("#{$font-file}.eot?") format('eot'),
          url("#{$font-file}.woff") format('woff'),
          url("#{$font-file}.ttf")  format('truetype'),
-         url("#{$font-file}.svg#svgFontName") format('svg'); format('svg');
+         url("#{$font-file}.svg#svgFontName") format('svg');
     @if $weight {
       font-weight: $weight;
     }
