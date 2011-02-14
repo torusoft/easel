@@ -1,5 +1,5 @@
 //
-// $$$$$$$$\                              $$\ 
+// $$$$$$$$\                              $$\
 // $$  -----|                             $$ |
 // $$ |      $$$$$$\   $$$$$$$\  $$$$$$\  $$ |
 // $$$$$\    \----$$\ $$  -----|$$  --$$\ $$ |
@@ -7,7 +7,7 @@
 // $$ |     $$  --$$ | \----$$\ $$   ----|$$ |
 // $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 // \--------|\-------|\-------/  \-------|\--|
-// 
+//
 
 // --------------------------------------------------
 // defaults
@@ -15,8 +15,8 @@
 $easel-dir: '/easel/styles/' !default;
 
 $column-count: 24 !default;
-$column-width: 30px !default;
-$column-gutter: 10px !default;
+$column-width: 20px !default;
+$column-gutter: 20px !default;
 
 $base-line-height: 1.5 !default;
 $base-font-size: 12px !default;
@@ -30,8 +30,11 @@ $base-text-color: #333 !default;
 $base-bg-color: #fff !default;
 $base-border-color: #ccc !default;
 
+// base color
+$base-color: #0d5fe5 !default;
+
 // links
-$base-link-color: #ff0000 !default;
+$base-link-color: $base-color !default;
 $base-link-hover-color: darken($base-link-color, 10%) !default;
 
 // lists
