@@ -9,9 +9,20 @@
 @import "mixins/sticky_footer";
 @import "mixins/superfish";
 
-// --------------------------------------------------
-// cycle styles
-// --------------------------------------------------
+/**
+* gray
+* --------------------------------------------------
+*/
+
+@function gray($percentage) {
+  @return darken(#fff, $percentage);
+}
+
+/**
+* cycle styles
+* --------------------------------------------------
+*/
+
 @mixin cycle($height, $width: false) {
   position: relative;
   .slide,
@@ -72,4 +83,31 @@
     color: $color;
     @include no-text-shadow;
   }
+}
+
+/**
+* tabs
+* --------------------------------------------------
+*/
+
+@mixin tabbed-content(
+  $nav-selector: '.tabs-nav',
+  $panel-selector: '.tabs-panel',
+  $hide-panel-selector: '.ui-tabs-hide'
+) {
+  #{$nav-selector} {
+    @include tabs-nav;
+  }
+  .js & #{$panel-selector} {
+    display: none;
+  }
+  .js-loaded & #{$panel-selector} {
+    display: block;
+  }
+  .js & #{$hide-panel-selector} {
+    display: none;
+  }
+}
+@mixin tabs-nav {
+  @include floated-list;
 }
