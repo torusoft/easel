@@ -150,7 +150,8 @@ $default-pie-for-ie9: false !default;
   $name,
   $font-file,
   $weight: normal,
-  $style: normal) {
+  $style: normal
+) {
   @font-face {
     font-family: quote($name);
     src: url("#{$font-file}.eot?") format('eot'),
