@@ -1,6 +1,8 @@
-// --------------------------------------------------
-// import
-// --------------------------------------------------
+/**
+ * Imports
+ * --------------------------------------------------
+ */
+
 @import "base/headings";
 @import "base/lists";
 @import "base/tables";
@@ -8,11 +10,14 @@
 @import "base/buttons";
 @import "base/scaffolding";
 
-// --------------------------------------------------
-// base font
-// the reset-font mixin will set properies to inherit,
-// while this one will reset to the styled default.
-// --------------------------------------------------
+/**
+ * Base font
+ *
+ * The reset-font mixin will set properies to inherit,
+ * while this one will reset to the styled default.
+ * --------------------------------------------------
+ */
+
 @mixin base-font {
   font-size: $base-font-size;
   line-height: $base-line-height;
@@ -20,9 +25,11 @@
   letter-spacing: $base-letter-spacing;
 }
 
-// --------------------------------------------------
-// plain blocks
-// --------------------------------------------------
+/**
+ * Plain blocks
+ * --------------------------------------------------
+ */
+
 @mixin p {
   @include block;
 }
@@ -30,9 +37,11 @@
   @include block;
 }
 
-// --------------------------------------------------
-// quotes
-// --------------------------------------------------
+/**
+ * Quotes
+ * --------------------------------------------------
+ */
+
 @mixin blockquote {
   @include block;
   padding: $base-x $base-y;
@@ -42,16 +51,19 @@
   font-style: italic;
 }
 
-// --------------------------------------------------
-// pre, code, etc
-// pre stuff lifted from http://html5boilerplate.com/
-// --------------------------------------------------
+/**
+ * Pre, code, etc
+ *
+ * Pre stuff lifted from http://html5boilerplate.com/
+ * --------------------------------------------------
+ */
+
 @mixin pre {
   @include block;
-  white-space: pre;// CSS2
-  white-space: pre-wrap;// CSS 2.1
-  white-space: pre-line;// CSS 3 (and 2.1 as well, actually)
-  word-wrap: break-word;// IE
+  white-space: pre; // CSS2
+  white-space: pre-wrap; // CSS 2.1
+  white-space: pre-line; // CSS 3 (and 2.1 as well, actually)
+  word-wrap: break-word; // IE
 }
 @mixin code {
   @include font-mono;
@@ -77,10 +89,14 @@
   }
 }
 
-// --------------------------------------------------
-// images
-// max-width/height to prevent oversized images from breaking out of a box
-// --------------------------------------------------
+/**
+ * Images
+ *
+ * Max-width/height to prevent oversized images from breaking out of a box.
+ * --------------------------------------------------
+ */
+
+
 @mixin img {
   max-width: 100%;
   height: auto;
@@ -89,9 +105,11 @@
   }
 }
 
-// --------------------------------------------------
-// inline text
-// --------------------------------------------------
+/**
+ * Inline text
+ * --------------------------------------------------
+ */
+
 @mixin small {
   font-size: 85%;
 }
