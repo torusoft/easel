@@ -20,7 +20,7 @@
     height: $height;
     @if $width {
       width: $width;
-      margin-left: -($width/2);
+      margin-left: -($width / 2);
       left: 50%;
     }
     @else {

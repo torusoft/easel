@@ -16,4 +16,4 @@ case with some shared hosting providers).
 
 header( 'Content-type: text/x-component' );
 include( 'PIE.htc' );
-?>  
+?>

@@ -1,0 +1,268 @@
+/**
+* include base
+* --------------------------------------------------
+*/
+
+@include base;
+
+/**
+* font-face
+* --------------------------------------------------
+*/
+
+@include font-face(
+  "Proxima Nova",
+  $easel-font-dir + 'proxima_nova_bold-webfont',
+  $weight: 700,
+  $style: normal
+);
+@include font-face(
+  "Proxima Nova",
+  $easel-font-dir + 'proxima_nova_xbold-webfont',
+  $weight: 800,
+  $style: normal
+);
+
+/**
+* mixins
+* --------------------------------------------------
+*/
+
+@mixin dark-div {
+ background-color: gray(75%);
+ color: gray(40%);
+  a {
+   @include a(#fff, darken(#fff, 20%));
+  }
+}
+
+/**
+* layout
+* --------------------------------------------------
+*/
+
+// body
+body {
+  background-color: gray(5%);
+  @include default-font($color: gray(40%));
+}
+
+/** containers */
+.header-inner,
+.content,
+.footer {
+  @include container;
+}
+
+/**
+* header
+* --------------------------------------------------
+*/
+
+.header {
+  @include dark-div;
+  @include vertical-gradient($start: gray(85%), $end: gray(75%));
+  padding: 20px 0 0;
+  .logo {
+    @include float(left);
+    margin: 0 0 20px;
+    a {
+      @include replace;
+      background-image: url(images/content/logo-header.png);
+    }
+    &, a {
+      width: 300px;
+      height: 50px;
+    }
+  }
+  .nav-util {
+    @include float(right);
+    @include inline-block-list;
+    @include piped-list($border-color: gray(50%));
+  }
+  .nav-main {
+    clear: both;
+    @include tabs-nav;
+    li {
+      margin: 0 4px 0 0;
+      a {
+        @include border-radius-t;
+        background-color: gray(85%);
+        padding: 7px 20px;
+        @include text-shadow(0, 1px, 1px, gray(95%));
+        @include heading($color: #fff);
+        &:hover {
+          color: gray(15%);
+          background-color: gray(90%);
+        }
+      }
+    }
+    li.active {
+      a {
+        @include vertical-gradient($start: #fff, $end: gray(5%));
+        color: gray(80%);
+        @include text-shadow(0, 1px, 1px, gray(15%));
+      }
+    }
+  }
+} // header
+
+/**
+* footer
+* --------------------------------------------------
+*/
+
+@include sticky-footer(
+  $height: 50px,
+  $width: 940px,
+  $padding-y: 41px
+);
+
+.footer {
+  border-top: 1px solid gray(20%);
+  padding-top: 20px;
+  @include box-shadow(0, 1px, 0, 0, #fff, true);
+  .copyright {
+    text-align: center;
+  }
+} // footer
+
+/**
+* content
+* --------------------------------------------------
+*/
+
+.content {
+  padding: 20px 0 0;
+}
+
+/**
+* data-table
+* --------------------------------------------------
+*/
+
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  @include block($display: table);
+  td, th {
+    border-left: 1px solid $default-border-color;
+    @include box-shadow(1px, 0, 0, 0, #fff, true);
+    padding: 10px 15px;
+    &:first-child,
+    .cell-first {
+      border-left: 0;
+      @include no-box-shadow;
+    }
+    &:last-child,
+    .cell-last {
+      border-right: 0;
+      @include no-box-shadow;
+    }
+  }
+  thead {
+    th, td {
+      padding: 15px;
+      background-color: #fff;
+    }
+  }
+  th,
+  thead td,
+  thead th {
+    @include heading;
+  }
+  tbody {
+    th, td {
+      background-color: gray(5%);
+    }
+    tr:nth-child(2n + 1),
+    .odd {
+      th, td {
+        background-color: gray(10%);
+      }
+    }
+    tr:hover {
+      td, th {
+        background-color: $default-link-color;
+        border-color: $default-link-hover-color;
+        @include box-shadow(1px, 0, 0, 0, lighten(desaturate($default-link-color, 20%), 5%), true);
+        &, a {
+          color: #fff;
+        }
+      }
+    }
+
+  }
+  tr:hover {
+    .delete-row {
+      @include no-box-shadow;
+    }
+  }
+  .delete-row {
+    text-align: right;
+    width: 16px;
+    border-left: 0;
+    a {
+      @include replace;
+      @include link-sprite;
+      background-image: url($easel-img-dir + 'ui/close-x.png');
+      width: 16px;
+      height: 17px;
+    }
+  }
+}
+
+/**
+* buttons
+* --------------------------------------------------
+*/
+
+.btn {
+  @include css3-button;
+}
+.btn-bar {
+  @include css3-button-bar;
+  a {
+    @include border-radius(0);
+  }
+  li.li-first,
+  li:first-child {
+    a {
+      @include border-radius-l;
+    }
+  }
+  li.li-last,
+  li:last-child {
+    a {
+      @include border-radius-r;
+    }
+  }
+}
+
+/**
+* flash messages
+* --------------------------------------------------
+*/
+
+.flash {
+  background-color: gray(10%);
+  padding: $default-column-gutter;
+  width: column-width(16);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: column-width(16) / 2 * -1;
+  @include border-radius-b;
+  @include box-shadow(0, 5px, 20px, 0, rgba(#000, .65));
+
+// temp
+  background-color: #fff9b7;
+  color: #666;
+  @include heading(20px);
+  text-align: center;
+
+}
+.flash {
+  &.warning {
+  }
+}

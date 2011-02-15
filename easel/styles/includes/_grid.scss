@@ -1,0 +1,132 @@
+/**
+* defaults
+* --------------------------------------------------
+*/
+
+$column-outer-width: $default-column-width + $default-column-gutter ;
+$container-width: $column-outer-width * $default-column-count - $default-column-gutter;
+
+/**
+* width function
+* --------------------------------------------------
+*/
+
+@function column-width(
+  $n,
+  $column-width: $default-column-width,
+  $column-gutter: $default-column-gutter,
+  $offset-x: 0
+) {
+  @return $column-width * $n + $column-gutter * ($n - 1) + $offset-x;
+}
+
+/**
+* container
+* --------------------------------------------------
+*/
+
+@mixin container(
+  $width: $container-width,
+  $center: true
+) {
+  width: $width;
+  @include clearfix;
+  @if $center {
+    margin: 0 auto;
+  }
+}
+
+/**
+* columns
+* --------------------------------------------------
+*/
+
+@mixin column(
+  $n: false,
+  $column-width: $default-column-width,
+  $column-gutter: $default-column-gutter,
+  $offset-x: 0,
+  $last: false
+) {
+  @include float(left);
+  @if $n {
+    width: column-width($n, $column-width, $column-gutter, $offset-x);
+  }
+  @if $last {
+    @include last-column;
+  }
+  @else {
+    margin-right: $column-gutter;
+  }
+}
+
+
+@mixin last-column {
+  margin-right: 0;
+}
+
+// append
+@mixin append($n, $offset-x: 0) {
+  padding-right: $column-outer-width * $n + $offset-x;
+}
+
+//prepend
+@mixin prepend($n, $offset-x: 0) {
+  padding-left: $column-outer-width * $n + $offset-x;
+}
+
+// pull
+@mixin pull($n, $last: false, $offset-x: 0) {
+  @if $last {
+    margin-left: -$column-outer-width * $n + $default-column-gutter + $offset-x;
+  }
+  @else {
+    margin-left: -$column-outer-width * $n + $offset-x;
+  }
+}
+
+// push
+@mixin push($n, $last: false, $offset-x: 0) {
+  @if $last {
+    margin-left: $column-outer-width * $n + $default-column-gutter + $offset-x;
+  }
+  @else {
+    margin-left: $column-outer-width * $n + $offset-x;
+  }
+}
+
+/**
+* grid classes
+* --------------------------------------------------
+*/
+
+@mixin grid-classes {
+  @for $n from 1 through $default-column-count {
+    .col-#{$n} {
+      @include column($n);
+    }
+    .append-#{$n} {
+      @include append($n);
+    }
+    .prepend-#{$n} {
+      @include prepend($n);
+    }
+    .pull-#{$n} {
+      @include pull($n);
+    }
+    .push-#{$n} {
+      @include push($n);
+    }
+  }
+
+  .col-#{$default-column-count},
+  .col-last {
+    @include last-column;
+  }
+  .col {
+    @include column;
+  }
+  .container {
+    @include container;
+  }
+}

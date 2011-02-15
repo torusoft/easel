@@ -1,0 +1,166 @@
+/**
+ * defaults
+ * --------------------------------------------------
+ */
+
+$default-list-line-height: $default-line-height * .85 !default;
+$default-list-measure: $default-measure / 2 !default;
+
+/**
+ * base mixins
+ * --------------------------------------------------
+ */
+
+@mixin list-base(
+  $line-height: $default-list-line-height,
+  $measure: $default-list-measure
+) {
+  @include block;
+  li {
+    @include li-reset;
+    line-height: $line-height;
+    margin: $measure 0;
+  }
+}
+@mixin bullet($img, $padding-x, $offset-x, $offset-y) {
+  background: url($img) $offset-x $offset-y no-repeat;
+  padding-left: $padding-x;
+}
+
+@mixin no-bullet {
+  background: none;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+@mixin no-bullets {
+  li {
+    @include no-bullet;
+  }
+}
+
+@mixin list-reset {
+  margin-bottom: 0;
+  li {
+    @include li-reset;
+  }
+}
+
+@mixin li-reset {
+  list-style-type: none;
+  padding-left: 0;
+  background: none;
+  line-height: inherit;
+  margin: 0;
+}
+
+/**
+ * default lists
+ * --------------------------------------------------
+ */
+
+// bulletted list
+@mixin ul(
+  $line-height: $default-list-line-height,
+  $measure: $default-list-measure,
+  $img: $easel-img-dir + 'images/decor/bullet.png',
+  $padding-left: 10px,
+  $offset-x: 0,
+  $offset-y: .5em
+) {
+  @include list-base($line-height, $measure);
+  li {
+    @include bullet($img, $padding-left, $offset-x, $offset-y);
+  }
+}
+
+// numbed list
+@mixin ol(
+  $type: 'decimal',
+  $margin-left: 2em,
+  $line-height: $default-list-line-height,
+  $measure: $default-list-measure) {
+  @include list-base($line-height, $measure);
+  li {
+    list-style-type: unquote($type);
+    margin-left: $margin-left;
+  }
+}
+
+// definition list
+@mixin dl($margin-left: 2em) {
+  @include block;
+  dd {
+    margin-left: 2em;
+  }
+}
+
+/**
+* styled lists
+* --------------------------------------------------
+*/
+
+@mixin floated-list($margin-right: 0) {
+  @include clearfix;
+  li {
+    @include li-reset;
+    @include float(left);
+    margin-right: $margin-right;
+    a {
+      display: block;
+    }
+    &.li-last,
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+@mixin inline-block-list($margin-right: 0) {
+  li {
+    @include li-reset;
+    @include inline-block;
+    margin-right: $margin-right;
+    &.li-last,
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@mixin inline-list($margin-right: 0) {
+  li {
+    @include li-reset;
+    display: inline;
+    margin-right: $margin-right;
+    &.li-last,
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@mixin piped-list(
+  $border-color: $default-border-color,
+  $border-width: 1px,
+  $border-style: solid,
+  $padding-right: 8px,
+  $margin-right: 8px,
+  $line-height: 1.1) {
+  @if $line-height {
+    line-height: $line-height;
+  }
+  li {
+    @include li-reset;
+    border-right: $border-width $border-style $border-color;
+    padding-right: $padding-right;
+    margin-right: $margin-right;
+    &.li-last,
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+}
