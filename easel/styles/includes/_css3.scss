@@ -253,7 +253,7 @@ $default-border-radius: 5px !default;
 @mixin multi-column-layout(
   $column-count: 2,
   $column-width: false,
-  $column-gap: $default-x,
+  $column-gap: $default-column-width,
   $column-rule-width: 0,
   $column-rule-color: $default-border-color,
   $column-rule-style: solid) {

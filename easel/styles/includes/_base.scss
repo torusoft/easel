@@ -186,39 +186,6 @@
 }
 
 /**
-* form
-* --------------------------------------------------
-*/
-
-@mixin form {
-  @include block;
-}
-@mixin label {
-  @include heading;
-  display: block;
-}
-@mixin legend {
-  @include heading;
-  display: block;
-}
-@mixin fieldset {
-  display: block;
-}
-.text,
-.select,
-.checkboxes,
-.radios {
-  margin: 0 0 $default-measure/2;
-}
-
-.radios,
-.checkboxes {
-  label {
-    display: inline;
-  }
-}
-
-/**
 * base mixin
 * --------------------------------------------------
 */
@@ -267,12 +234,6 @@
     h4 { @include heading(18px); }
     h5 { @include heading(16px); }
     h6 { @include heading(14px); }
-
-    // forms
-    form        { @include form; }
-    fieldset    { @include fieldset; }
-    label       { @include label; }
-    legend      { @include legend; }
 
   } // #{$selector}
 

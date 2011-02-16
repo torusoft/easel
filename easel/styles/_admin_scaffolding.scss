@@ -12,13 +12,13 @@
 
 @include font-face(
   "Proxima Nova",
-  $easel-font-dir + 'proxima_nova_bold-webfont',
+  $easel-font-dir + 'proxima-nova/proxima_nova_bold-webfont',
   $weight: 700,
   $style: normal
 );
 @include font-face(
   "Proxima Nova",
-  $easel-font-dir + 'proxima_nova_xbold-webfont',
+  $easel-font-dir + 'proxima-nova/proxima_nova_xbold-webfont',
   $weight: 800,
   $style: normal
 );
@@ -175,7 +175,7 @@ body {
     th, td {
       background-color: gray(5%);
     }
-    tr:nth-child(2n + 1),
+    tr:nth-of-type(odd),
     .odd {
       th, td {
         background-color: gray(10%);
@@ -226,13 +226,13 @@ body {
     @include border-radius(0);
   }
   li.li-first,
-  li:first-child {
+  & > li:first-child {
     a {
       @include border-radius-l;
     }
   }
   li.li-last,
-  li:last-child {
+  & > li:last-child {
     a {
       @include border-radius-r;
     }
@@ -265,4 +265,51 @@ body {
 .flash {
   &.warning {
   }
+}
+
+.multi-column {
+  @include multi-column-layout(
+    $column-count: false,
+    $column-width: column-width(6)
+  );
+}
+/**
+* form
+* --------------------------------------------------
+*/
+
+@mixin label {
+  @include heading;
+  display: block;
+  margin: 0 0 5px;
+}
+form {
+  @include block;
+}
+.text,
+.select,
+.checkboxes,
+.radios {
+  margin: 0 0 $default-measure / 2;
+}
+.text,
+.select {
+  label {
+    @include label;
+  }
+}
+
+fieldset {
+  legend {
+    @include label;
+  }
+}
+.radios,
+.checkboxes {
+  label {
+    display: inline;
+  }
+}
+.actions {
+  margin-top: $default-measure;
 }
