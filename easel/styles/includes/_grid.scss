@@ -27,9 +27,10 @@ $container-width: $column-outer-width * $default-column-count - $default-column-
 
 @mixin container(
   $width: $container-width,
-  $center: true
+  $center: true,
+  $offset-x: 0
 ) {
-  width: $width;
+  width: $width + $offset-x;
   @include clearfix;
   @if $center {
     margin: 0 auto;
