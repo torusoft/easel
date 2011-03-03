@@ -1,6 +1,3 @@
-#### THIS FILE IS USED FOR easel ITSELF ####
-#### FOR SITE PROJECTS, USE Rakefile.example ####
-
 # to see a list of rake commands, type "rake -T" on the command line
 # to get started with a new site, type "rake setup"
 
@@ -9,8 +6,9 @@ prefix = File.dirname( __FILE__ )
 # USER CONFIGURATION
 
 # main directories
-easel_dir = ''
-script_dir = 'easel/scripts'
+easel_dir = 'submodules/easel_framework'
+script_dir = 'sites/website/public/assets/scripts'
+
 
 # github repos
 repos = { "Modernizr" => "Modernizr",
@@ -68,34 +66,34 @@ minifier  = "java -jar #{build_dir}/google-compiler-20100917.jar"
 yuimin = "java -jar #{build_dir}/yuicompressor-2.4.2.jar"
 
 # Turn off output other than needed from `sh` and file commands
-verbose(false)
+verbose(false) 
 
 # Tasks
 
 desc "Update js from GitHub - arg can be lib, jquery, all. default is lib"
 task :update, [:which] => [repo_dir, lib_dir] do |t, args|
-
+  
   args.with_defaults(:which => "lib")
-
+  
   if args.which == "lib" || args.which == "all" then
     Rake::Task[:clonepull].invoke
-
+    
     repos.each  do |k,v|
       copy_repo("#{repo_dir}/#{k}", lib_dir)
     end
   end
-
+  
   if args.which == "jquery" || args.which == "all" then
     Rake::Task[:jqueryupdate].invoke
   end
-
+  
   if args.which == "all" then
     Rake::Task[:copyscripts].invoke
   end
-
+  
   if args.which != 'jquery' && args.which != "all" && args.which != "lib" then
     copy_repo("#{repo_dir}/#{args.which}", lib_dir)
-
+    
     puts "copied #{args.which} repo from #{repo_dir}/#{args.which} to #{lib_dir}"
   end
 end
@@ -111,7 +109,7 @@ task :test => [:clonepull] do
   script_qunit = File.join(script_test, "qunit")
   mkdir_p script_test
   mkdir_p script_qunit
-
+  
   cp( qunit, script_qunit )
   cp( File.join(qunit_dir, "qunit/qunit.css"), script_qunit )
   if !File.exist?( File.join(script_test, "index.html") ) then
@@ -128,11 +126,11 @@ task :jqueryupdate => [lib_dir] do
   puts "downloading jQuery from #{jq_url}..."
   sh "wget -O #{jq_latest} #{jq_url}"
   puts "copied jQuery core to #{jq_latest}"
-
+  
   v_latest = IO.readlines(jq_latest)[0..2].join()
   v_latest = v_latest.scan(/ v(1.+)$/)
   jq_version = File.join( lib_dir, "jquery-#{v_latest}.js" )
-
+  
   if !File.exist?( jq_version ) then
     cp( jq_latest, jq_version )
   puts "******************* vv NOTICE vv ***********************\n"
@@ -169,7 +167,7 @@ end
 #       cp( fl, update_file)
 #     end
 #   end
-#
+#   
 # end
 desc "List as many directories as I can think of"
 task :listdirs do
@@ -182,20 +180,20 @@ task :listdirs do
   puts "script_dir  #{script_dir}"
   puts "lib_dir  #{lib_dir}"
   puts "easel_script_dir  #{easel_script_dir}"
-
-
+  
+  
 end
 
 desc "Clones repos if necessary; otherwise pulls latest"
 task :clonepull, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
   args.with_defaults(:repo => "all", :author => "all")
-
+  
   if args.repo == "all" then
     repos.each_pair do |k,v|
       rdir = File.join(repo_dir, "#{k}")
       rdir_git = File.join( rdir, '.git')
       mkdir_p rdir
-
+    
       if File.exist?( rdir_git )
         puts "Updating #{k} with latest..."
         sh "git --git-dir=#{rdir_git} pull -q origin master"
@@ -203,9 +201,9 @@ task :clonepull, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
         puts "Cloning #{k} from Github..."
         sh "git clone git://github.com/#{v}/#{k}.git #{rdir}"
       end
-
+    
     end
-
+    
     clone_or_pull("qunit", "jquery", test_dir)
   elsif args.repo == "qunit" then
     clone_or_pull("qunit", "jquery", test_dir)
@@ -214,11 +212,11 @@ task :clonepull, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
   else
     clone_or_pull( args.repo, args.author, repo_dir)
   end
-
-
+  
+  
   # if args.repo == "all" || args.repo == "funcunit" then
   #   funcunit_git = File.join(funcunit_dir, '.git')
-  #
+  #   
   #   if File.exist?( funcunit_git ) then
   #     puts "Updating FuncUnit with latest..."
   #     sh "git --git-dir=#{funcunit_git} pull -q origin master"
@@ -228,7 +226,7 @@ task :clonepull, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
   #     sh "git clone git://github.com/jupiterjs/funcunit.git #{funcunit_dir}"
   #   end
   # end
-
+  
 end
 
 desc "NOT READY: Minify files in directory"
@@ -265,14 +263,14 @@ def min_files (dir, minifier, cat)
     # puts fl.index
     js_min = File.join( "#{dir}", File.basename(fl, '.js') + '.min.js' )
     sh "#{minifier} --js #{fl} --warning_level QUIET --js_output_file #{js_min}"
-
+    
     # Equivalent of "head" (put top 15 lines [comments] from .js into .min.js)
     min = File.read( js_min )
-
+    
     File.open(js_min, 'w') do |f|
       if (i == 0) then
         all_file = File.join( "#{dir}", File.basename(fl, '.js') + '.all.js' )
-
+         
         intro_comment = File.readlines(fl)[0..14].join()
         f.write intro_comment
       end
@@ -285,12 +283,12 @@ def min_files (dir, minifier, cat)
   if (js_files.length > 1) then
     puts "Concatenating #{js_files.length} files..."
     all_min = File.join( "#{dir}", File.basename(all_file, '.js') + '.min.js' )
-
+    
     File.open(all_file, 'w') do |f|
       f.write cat(js_files)
     end
     sh "#{minifier} --js #{all_file} --warning_level QUIET --js_output_file #{all_min}"
-
+    
     all_contents_min = File.read(all_min)
     File.open(all_min, 'w') do |f|
       f.write intro_comment
@@ -357,7 +355,7 @@ end
 
 # file jq => [dist_dir, base_files].flatten do
 #   puts "Building jquery.js..."
-#
+#   
 #   File.open(jq, 'w') do |f|
 #     f.write cat(base_files).gsub(/(Date:.)/, "\\1#{date}" ).gsub(/@VERSION/, version)
 #   end
@@ -365,11 +363,11 @@ end
 
 # file jq_min => jq do
 #   puts "Building jquery.min.js..."
-#
+# 
 #   sh "#{minifier} --js #{jq} --warning_level QUIET --js_output_file #{jq_min}"
-#
+#   
 #   min = File.read( jq_min )
-#
+#   
 #   # Equivalent of "head"
 #   File.open(jq_min, 'w') do |f|
 #     f.write File.readlines(jq)[0..14].join()

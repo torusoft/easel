@@ -2,28 +2,35 @@
 * css3 PIE
 * http://css3pie.com/
 * elements also need a z-index, so not position: static
-* use ie html classes to create a .pie class in your site stylesheet
+* --------------------------------------------------
 */
 
-// set up pie class to extend
-$default-pie-selector: '.pie' !default;
+// default support
 $default-pie-for-ie6: false !default;
 $default-pie-for-ie7: true !default;
 $default-pie-for-ie8: true !default;
 $default-pie-for-ie9: false !default;
 
+// class to extend
+$default-pie-selector: '.pie' !default;
 #{$default-pie-selector} {
-  behavior: url($easel-dir + 'tools/PIE.htc');
+  behavior: url($easel-style-dir + 'PIE/PIE.htc');
 }
 
 /**
 * text-shadow
 */
+
+$default-text-shadow-x: 0 !default;
+$default-text-shadow-y: 1px !default;
+$default-text-shadow-blur: 2px !default;
+$default-text-shadow-color: rgba(#000, .2) !default;
+
 @mixin text-shadow(
-  $x: $base-text-shadow-x,
-  $y: $base-text-shadow-y,
-  $blur: $base-text-shadow-blur,
-  $color: $base-text-shadow-color) {
+  $x: $default-text-shadow-x,
+  $y: $default-text-shadow-y,
+  $blur: $default-text-shadow-blur,
+  $color: $default-text-shadow-color) {
   -moz-text-shadow: $x $y $blur $color;
   -webkit-text-shadow: $x $y $blur $color;
   text-shadow: $x $y $blur $color;
@@ -36,12 +43,18 @@ $default-pie-for-ie9: false !default;
 * box-shadow
 */
 
+$default-box-shadow-x: 0 !default;
+$default-box-shadow-y: 2px !default;
+$default-box-shadow-blur: 3px !default;
+$default-box-shadow-spread: 0 !default;
+$default-box-shadow-color: rgba(#000, .2) !default;
+
 @mixin box-shadow(
-  $x: $base-box-shadow-x,
-  $y: $base-box-shadow-y,
-  $blur: $base-box-shadow-blur,
-  $spread: $base-box-shadow-spread,
-  $color : $base-box-shadow-color,
+  $x: $default-box-shadow-x,
+  $y: $default-box-shadow-y,
+  $blur: $default-box-shadow-blur,
+  $spread: $default-box-shadow-spread,
+  $color : $default-box-shadow-color,
   $inset: false,
   $pie-for-ie6: $default-pie-for-ie6,
   $pie-for-ie7: $default-pie-for-ie7,
@@ -71,6 +84,7 @@ $default-pie-for-ie9: false !default;
 /**
 * opacity
 */
+
 @mixin opacity($opacity) {
   -moz-opacity: $opacity;
   -khtml-opacity: $opacity;
@@ -84,12 +98,14 @@ $default-pie-for-ie9: false !default;
 * PIE only works with shorthand method
 */
 
+$default-border-radius: 5px !default;
+
 @mixin border-radius(
-  $radius: $base-border-radius,
-  $tl: $base-border-radius,
-  $tr: $base-border-radius,
-  $br: $base-border-radius,
-  $bl: $base-border-radius,
+  $radius: $default-border-radius,
+  $tl: $default-border-radius,
+  $tr: $default-border-radius,
+  $br: $default-border-radius,
+  $bl: $default-border-radius,
   $pie-for-ie6: $default-pie-for-ie6,
   $pie-for-ie7: $default-pie-for-ie7,
   $pie-for-ie8: $default-pie-for-ie8,
@@ -110,33 +126,33 @@ $default-pie-for-ie9: false !default;
   -webkit-border-radius: $tl $tr $br $bl;
   border-radius: $tl $tr $br $bl;
 }
-@mixin border-radius-t($radius: $base-border-radius) {
+@mixin border-radius-t($radius: $default-border-radius) {
   @include border-radius(false, $radius, $radius, 0, 0);
 }
-@mixin border-radius-r($radius: $base-border-radius) {
+@mixin border-radius-r($radius: $default-border-radius) {
   @include border-radius(false, 0, $radius, $radius, 0);
 }
-@mixin border-radius-b($radius: $base-border-radius) {
+@mixin border-radius-b($radius: $default-border-radius) {
   @include border-radius(false, 0, 0, $radius, $radius);
 }
-@mixin border-radius-l($radius: $base-border-radius) {
+@mixin border-radius-l($radius: $default-border-radius) {
   @include border-radius(false, $radius, 0, 0, $radius);
 }
-@mixin border-radius-tl($radius: $base-border-radius) {
+@mixin border-radius-tl($radius: $default-border-radius) {
   @include border-radius(false, $radius, 0, 0, 0);
 }
-@mixin border-radius-tr($radius: $base-border-radius) {
+@mixin border-radius-tr($radius: $default-border-radius) {
   @include border-radius(false, 0, $radius, 0, 0);
 }
-@mixin border-radius-br($radius: $base-border-radius) {
+@mixin border-radius-br($radius: $default-border-radius) {
   @include border-radius(false, 0, 0, $radius, 0);
 }
-@mixin border-radius-bl($radius: $base-border-radius) {
+@mixin border-radius-bl($radius: $default-border-radius) {
   @include border-radius(false, 0, 0, 0, $radius);
 }
 
 // set a single corner (does not work with cssPIE)
-@mixin border-corner-radius($x, $y, $radius: $base-border-radius) {
+@mixin border-corner-radius($x, $y, $radius: $default-border-radius) {
   -moz-border-radius-#{$y}-#{$x}: $radius;
   -webkit-border-#{$y}-#{$x}-radius: $radius;
   border-#{$y}-#{$x}-radius: $radius;
@@ -144,17 +160,21 @@ $default-pie-for-ie9: false !default;
 
 /**
 * @font-face
-* here for reference, but these declarations should go in the <head> to minimize any FOUC
+* Here for reference, but these declarations should go in the <head> to minimize any FOUC.
 */
+
 @mixin font-face(
   $name,
   $font-file,
   $weight: normal,
-  $style: normal) {
+  $style: normal
+) {
   @font-face {
     font-family: quote($name);
-    src: url('#{$font-file}' + '.eot');
-    src: local('☺'), url('#{$font-file}' + '.ttf') format('truetype'), url('#{$font-file}' + '.svg#webfont') format('svg');
+    src: url("#{$font-file}.eot?") format('eot'),
+         url("#{$font-file}.woff") format('woff'),
+         url("#{$font-file}.ttf")  format('truetype'),
+         url("#{$font-file}.svg#svgFontName") format('svg');
     @if $weight {
       font-weight: $weight;
     }
@@ -229,12 +249,13 @@ $default-pie-for-ie9: false !default;
 /**
 * multi-column layout (newspaper columns)
 */
+
 @mixin multi-column-layout(
   $column-count: 2,
   $column-width: false,
-  $column-gap: $base-x,
+  $column-gap: $default-column-width,
   $column-rule-width: 0,
-  $column-rule-color: $base-border-color,
+  $column-rule-color: $default-border-color,
   $column-rule-style: solid) {
 
   @if $column-count {
@@ -271,13 +292,13 @@ $default-pie-for-ie9: false !default;
 
 /**
 * css transitions
-* for multiple properties/durations/functions, use a comma-delimited list
+* For multiple properties/durations/functions, use a comma-delimited list.
 */
 
-$default-transition-property: all !default;
-$default-transition-duration: 1s !default;
-$default-transition-function: false !default;
-$default-transition-delay: false !default;
+ $default-transition-property: all !default;
+ $default-transition-duration: 1s !default;
+ $default-transition-function: false !default;
+ $default-transition-delay: false !default;
 
 // also accepts "all" or "none"
 @mixin transition-property($properties: unquote($default-transition-property)) {
@@ -335,8 +356,8 @@ $default-transition-delay: false !default;
 }
 
 // Box orientation [ horizontal, vertical, inline-axis, block-axis, inherit ]
-$default-box-orient: horizontal !default;
-@mixin box-orient(
+  $default-box-orient: horizontal !default;
+  @mixin box-orient(
   $orientation: $default-box-orient
 ) {
   -moz-box-orient: $orientation;

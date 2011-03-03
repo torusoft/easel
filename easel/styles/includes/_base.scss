@@ -1,0 +1,289 @@
+/**
+* classes
+* --------------------------------------------------
+*/
+
+@mixin easel-classes(
+  $grid: true
+) {
+
+  // floats/clearing
+  .left { @include float(left); }
+  .right { @include float(right); }
+  .clear { clear: both; }
+  .group, .clearfix { @include clearfix; }
+
+  // hiding/showing
+  .hide { display: none; }
+  .js-hide { @include js-hide; }
+  .js-show { @include js-show; }
+  .hide-accessibly { @include hide-accessibly; }
+  .js-hide-accessibly { @include js-hide-accessibly; }
+  .invisible, .js .js-invisible { visibility: hidden; }
+  .visible, .js .js-visible { visibility: visible; }
+
+  // misc
+  .block { @include block; }
+  .centered { text-align: center; }
+  .no-bullets { @include no-bullets; }
+  .nowrap { white-space: nowrap; }
+
+  // grid classes
+  @if $grid {
+    @include grid-classes;
+  }
+}
+
+/**
+* default text
+* --------------------------------------------------
+*/
+
+@mixin default-font-family {
+  @include sans;
+};
+
+@mixin default-font(
+  $font-size: $default-font-size,
+  $line-height: $default-line-height,
+  $letter-spacing: $default-letter-spacing,
+  $color: $default-font-color,
+  $default-font-family: true
+) {
+  @if $font-size {
+    font-size: $font-size;
+  }
+  @if $line-height {
+    line-height: $line-height;
+  }
+  @if $letter-spacing {
+    letter-spacing: $letter-spacing;
+  }
+  @if $color {
+    color: $color;
+  }
+  @if $default-font-family {
+    @include default-font-family;
+  }
+}
+
+/**
+* bottom margin blocks
+* --------------------------------------------------
+*/
+
+@mixin p {
+  @include block;
+}
+@mixin address {
+  @include block;
+}
+@mixin table {
+  @include block($display: table);
+}
+
+/**
+* quotes
+* --------------------------------------------------
+*/
+
+@mixin blockquote {
+  @include block;
+  padding: $default-column-gutter $default-measure;
+  color: gray(20%);
+}
+@mixin q {
+  font-style: italic;
+}
+
+/**
+* Pre, code, etc
+* Pre stuff lifted from http://html5boilerplate.com/
+* --------------------------------------------------
+*/
+
+@mixin pre {
+  @include block;
+  white-space: pre; // CSS2
+  white-space: pre-wrap; // CSS 2.1
+  white-space: pre-line; // CSS 3 (and 2.1 as well, actually)
+  word-wrap: break-word; // IE
+}
+@mixin code {
+  @include monospace;
+}
+@mixin samp {
+  @include monospace;
+}
+@mixin kbd {
+  @include monospace;
+}
+@mixin samp {
+  @include monospace;
+}
+
+/**
+* links
+* --------------------------------------------------
+*/
+
+@mixin a(
+  $color: $default-link-color,
+  $hover-color: $default-link-hover-color
+) {
+  color: $color;
+  &:focus,
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+/**
+* images
+* Max-width/height to prevent oversized images from breaking out of a box.
+* --------------------------------------------------
+*/
+
+@mixin img {
+  max-width: 100%;
+  height: auto;
+  .ie7 {
+    -ms-interpolation-mode: bicubic;
+  }
+}
+
+/**
+* inline text
+* --------------------------------------------------
+*/
+
+@mixin small {
+  font-size: 85%;
+}
+@mixin strong {
+  font-weight: bold;
+}
+@mixin em {
+  font-style: italic;
+}
+@mixin abbr {
+  // @include uppercase($font-weight: false, $font-size: false);
+  cursor: help;
+}
+@mixin del {
+  text-decoration: line-through;
+}
+@mixin ins {
+  text-decoration: underline;
+}
+@mixin sub {
+  font-size: 60%;
+  vertical-align: text-bottom;
+}
+@mixin sup {
+  font-size: 60%;
+  vertical-align: text-top;
+}
+
+/**
+* base mixin
+* --------------------------------------------------
+*/
+
+@mixin base(
+  $selector: '.base'
+) {
+
+  @include reset;
+  @include easel-classes;
+
+  #{$selector} {
+
+    // lists
+    ul { @include ul; }
+    ol { @include ol; }
+    dl { @include dl; }
+
+    // block elements
+    p           { @include p; }
+    table       { @include table; }
+    blockquote  { @include blockquote; }
+    pre         { @include pre; }
+    address     { @include address; }
+
+    // inline elements
+    a      { @include a; }
+    sup    { @include sup; }
+    sub    { @include sub; }
+    abbr   { @include abbr;}
+    strong { @include strong; }
+    em     { @include em; }
+    small  { @include small; }
+    del    { @include del; }
+    ins    { @include ins; }
+    code   { @include code;}
+    img    { @include img; }
+
+    // headings
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 0 $default-measure;
+    }
+    h1 { @include heading(36px); }
+    h2 { @include heading(24px); }
+    h3 { @include heading(20px); }
+    h4 { @include heading(18px); }
+    h5 { @include heading(16px); }
+    h6 { @include heading(14px); }
+
+  } // #{$selector}
+
+}
+
+
+/**
+* misc
+* --------------------------------------------------
+*/
+
+/**
+* css3 button
+* --------------------------------------------------
+*/
+
+@mixin css3-button-base {
+  @include border-radius;
+  @include heading($font-weight: 800);
+  @include text-shadow(0, 1px, 2px, darkerate($default-link-color, 30%));
+  @include box-shadow(0, 1px, 2px, 0, rgba(#000, .2));
+  padding: 6px 14px;
+}
+
+@mixin css3-button {
+  @include css3-button-base;
+  @include vertical-gradient($default-link-color, darkerate($default-link-color, 20%));
+  &,
+  html body & {
+    color: #fff;
+  }
+  &:hover {
+    @include vertical-gradient(darkerate($default-link-color, 5%), darkerate($default-link-color, 25%));
+  }
+  &:active {
+    // @include vertical-gradient(darkerate($default-link-color, 25%), darkerate($default-link-color, 20
+    @include box-shadow(0, 4px, 5px, 0, darkerate($default-link-color, 30%), true);
+  }
+}
+
+@mixin css3-button-bar {
+  @include floated-list;
+  a {
+    @include css3-button-base;
+    @include vertical-gradient(#fff, gray(10%));
+  }
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background: none;
+}
