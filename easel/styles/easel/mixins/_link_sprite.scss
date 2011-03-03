@@ -2,29 +2,34 @@
   $left: 0,
   $unit: 100px,
   $selector: false,
-  $offset-y: 0) {
+  $offset-y: 0,
+  $active: true) {
   @if $selector {
     #{$selector} {
       background-repeat: no-repeat;
-      background-position: $left $offset-y;  
+      background-position: $left $offset-y;
     }
     &:hover #{$selector},
     &:focus #{$selector} {
       background-position: $left (($unit * -1) + $offset-y);
     }
-    &:active #{$selector}{
-      background-position: $left (($unit * 2 * -1) + $offset-y);
+    @if $active {
+      &:active #{$selector}{
+        background-position: $left (($unit * 2 * -1) + $offset-y);
+      }
     }
   }
   @else {
     background-repeat: no-repeat;
-    background-position: $left $offset-y;  
+    background-position: $left $offset-y;
     &:hover,
     &:focus {
       background-position: $left (($unit * -1) + $offset-y);
     }
-    &:active {
-      background-position: $left (($unit * 2 * -1) + $offset-y);
+    @if $active {
+      &:active {
+        background-position: $left (($unit * 2 * -1) + $offset-y);
+      }
     }
   }
 }
