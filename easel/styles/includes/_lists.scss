@@ -63,7 +63,7 @@ $default-list-measure: $default-measure / 2 !default;
 @mixin ul(
   $line-height: $default-list-line-height,
   $measure: $default-list-measure,
-  $img: $easel-img-dir + 'images/decor/bullet.png',
+  $img: $easel-img-dir + 'decor/bullet.png',
   $padding-left: 10px,
   $offset-x: 0,
   $offset-y: .5em
