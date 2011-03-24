@@ -1,11 +1,17 @@
 (function() {
-var validateLoaded = false;
+  var validateLoaded = false,
+      meths = ['showLoading', 'hideLoading'];
 
-FM.loadValidate = function() {
-  
+  for (var meth in meths) {
+    if ( !(meth in FM) ) {
+      FM[meth] = function() {};
+    }
+  }
+
   $(document).ready(function() {
-    if (validateLoaded) { return; }
-    validateLoaded = true;
+    if (typeof $.fn.tinyvalidate === 'undefined') {
+      return;
+    }
 
     $.fn.tinyvalidate.defaults.summary.lineItems = null;
 
@@ -37,7 +43,7 @@ FM.loadValidate = function() {
         data: $frm.serialize(),
         dataType: dt,
         success: function(data) {
-          success[dt].call(frm, data);
+          success[dt] && success[dt].call(frm, data);
         }
       });
     }
@@ -57,27 +63,6 @@ FM.loadValidate = function() {
   }); //document ready
 
 
-}; // FM.loadValidate()
-
-// determine how and when validation scripts should be loaded
-
-
-  var tvmin = FM.paths.min + 'validate',
-      tv = FM.paths.lib + 'jquery.tinyvalidate.js',
-      tvr = FM.paths.lib + 'jquery.tinyvalidate.rules.js',
-      sel = FM.paths.lib + 'jquery.selectmenu.js';
-
-  if ( FM.inArray(tv, FM.loaded) || FM.inArray(tvmin, FM.loaded) ) {
-    FM.loadValidate();
-  } else {
-
-    $LAB.wait()
-    .script(tv)
-    .script(tvr)
-    .script(sel)
-    .wait(FM.loadValidate);
-    FM.loaded.push(tv, tvr, sel);
-  }
 
 })();
 

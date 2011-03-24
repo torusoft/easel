@@ -24,7 +24,7 @@ $.tinyvalidate.rules.email = {
 $.tinyvalidate.rules.url = {
   ruleClass: 'url',
   rule: function(r) {
-    return (/^http(s?)\/\/:/).test(r);
+    return (/^(?:https?:\/\/)?.+\.\w{2,5}$/).test(r) || r == '';
   },
   text: 'Invalid URL Format',
   check: 'value'
