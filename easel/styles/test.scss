@@ -1,0 +1,11 @@
+// directories
+$easel-dir: '/easel/easel/';
+$easel-script-dir: $easel-dir + 'scripts/';
+$easel-style-dir: $easel-dir + 'styles/';
+$easel-img-dir: $easel-dir + 'styles/images/';
+$easel-font-dir: $easel-dir + 'styles/fonts/';
+
+@import "easel";
+@include reset;
+@include easel-classes;
+

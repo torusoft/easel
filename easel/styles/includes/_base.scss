@@ -1,11 +1,8 @@
-/**
-* classes
-* --------------------------------------------------
-*/
+//** =classes
+//**********************************************************/
 
-@mixin easel-classes(
-  $grid: true
-) {
+
+@mixin easel-classes( $grid: true ) {
 
   // floats/clearing
   .left { @include float(left); }
@@ -34,10 +31,9 @@
   }
 }
 
-/**
-* default text
-* --------------------------------------------------
-*/
+//** =default text
+//**********************************************************/
+
 
 @mixin default-font-family {
   @include sans;
@@ -67,10 +63,8 @@
   }
 }
 
-/**
-* bottom margin blocks
-* --------------------------------------------------
-*/
+//** =bottom margin blocks
+//**********************************************************/
 
 @mixin p {
   @include block;
@@ -82,10 +76,9 @@
   @include block($display: table);
 }
 
-/**
-* quotes
-* --------------------------------------------------
-*/
+//** =quotes
+//**********************************************************/
+
 
 @mixin blockquote {
   @include block;
@@ -96,11 +89,10 @@
   font-style: italic;
 }
 
-/**
-* Pre, code, etc
-* Pre stuff lifted from http://html5boilerplate.com/
-* --------------------------------------------------
-*/
+//** =Pre, code, etc
+//    Pre stuff lifted from http://html5boilerplate.com/
+//**********************************************************/
+
 
 @mixin pre {
   @include block;
@@ -122,10 +114,9 @@
   @include monospace;
 }
 
-/**
-* links
-* --------------------------------------------------
-*/
+//** =links
+//**********************************************************/
+
 
 @mixin a(
   $color: $default-link-color,
@@ -138,11 +129,9 @@
   }
 }
 
-/**
-* images
-* Max-width/height to prevent oversized images from breaking out of a box.
-* --------------------------------------------------
-*/
+//** =images
+//    Max-width/height to prevent oversized images from breaking out of a box.
+//**********************************************************/
 
 @mixin img {
   max-width: 100%;
@@ -152,10 +141,9 @@
   }
 }
 
-/**
-* inline text
-* --------------------------------------------------
-*/
+//** =inline text
+//**********************************************************/
+
 
 @mixin small {
   font-size: 85%;
@@ -185,10 +173,9 @@
   vertical-align: text-top;
 }
 
-/**
-* base mixin
-* --------------------------------------------------
-*/
+//** =base mixin
+//**********************************************************/
+
 
 @mixin base(
   $selector: '.base'
@@ -240,15 +227,13 @@
 }
 
 
-/**
-* misc
-* --------------------------------------------------
-*/
+//** =misc
+//**********************************************************/
 
-/**
-* css3 button
-* --------------------------------------------------
-*/
+
+//** =css3 button
+//**********************************************************/
+
 
 @mixin css3-button-base {
   @include border-radius;

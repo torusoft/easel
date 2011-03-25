@@ -1,15 +1,12 @@
-/**
-* defaults
-* --------------------------------------------------
-*/
+//** =defaults
+//**********************************************************/
 
 $column-outer-width: $default-column-width + $default-column-gutter ;
 $container-width: $column-outer-width * $default-column-count - $default-column-gutter;
 
-/**
-* width function
-* --------------------------------------------------
-*/
+//** =width function
+//**********************************************************/
+
 
 @function column-width(
   $n,
@@ -20,10 +17,9 @@ $container-width: $column-outer-width * $default-column-count - $default-column-
   @return $column-width * $n + $column-gutter * ($n - 1) + $offset-x;
 }
 
-/**
-* container
-* --------------------------------------------------
-*/
+//** =container
+//**********************************************************/
+
 
 @mixin container(
   $width: $container-width,
@@ -37,10 +33,9 @@ $container-width: $column-outer-width * $default-column-count - $default-column-
   }
 }
 
-/**
-* columns
-* --------------------------------------------------
-*/
+//** =columns
+//**********************************************************/
+
 
 @mixin column(
   $n: false,
@@ -96,10 +91,8 @@ $container-width: $column-outer-width * $default-column-count - $default-column-
   }
 }
 
-/**
-* grid classes
-* --------------------------------------------------
-*/
+//** =grid classes
+//**********************************************************/
 
 @mixin grid-classes {
   @for $n from 1 through $default-column-count {
@@ -119,7 +112,6 @@ $container-width: $column-outer-width * $default-column-count - $default-column-
       @include push($n);
     }
   }
-
   .col-#{$default-column-count},
   .col-last {
     @include last-column;

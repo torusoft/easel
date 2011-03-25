@@ -1,19 +1,17 @@
 // You may want to include this file in your project's base file before easel,
 // in the event you may want to use a function to override an easel default variable.
 
-/**
-* gray
-* --------------------------------------------------
-*/
+//** =gray
+//**********************************************************/
+
 
 @function gray($percentage) {
   @return darken(#fff, $percentage);
 }
 
-/**
-* darkerate
-* --------------------------------------------------
-*/
+//** =darkerate
+//**********************************************************/
+
 
 @function darkerate($color, $darken, $saturate: false) {
   @if $saturate {

@@ -1,15 +1,12 @@
-/**
- * defaults
- * --------------------------------------------------
- */
+//** =list defaults
+//**********************************************************/
 
 $default-list-line-height: $default-line-height * .85 !default;
 $default-list-measure: $default-measure / 2 !default;
 
-/**
- * base mixins
- * --------------------------------------------------
- */
+//** =list base mixins
+//**********************************************************/
+
 
 @mixin list-base(
   $line-height: $default-list-line-height,
@@ -54,10 +51,9 @@ $default-list-measure: $default-measure / 2 !default;
   margin: 0;
 }
 
-/**
- * default lists
- * --------------------------------------------------
- */
+//** =default lists
+//**********************************************************/
+
 
 // bulletted list
 @mixin ul(
@@ -95,10 +91,9 @@ $default-list-measure: $default-measure / 2 !default;
   }
 }
 
-/**
-* styled lists
-* --------------------------------------------------
-*/
+//** =styled lists
+//**********************************************************/
+
 
 @mixin floated-list($margin-right: 0) {
   @include clearfix;

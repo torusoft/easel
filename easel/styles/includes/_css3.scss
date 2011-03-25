@@ -1,9 +1,8 @@
-/**
-* css3 PIE
-* http://css3pie.com/
-* elements also need a z-index, so not position: static
-* --------------------------------------------------
-*/
+
+//** =css3 PIE
+//    http://css3pie.com/
+//    elements also need a z-index, so not position: static
+//**********************************************************/
 
 // default support
 $default-pie-for-ie6: false !default;
@@ -17,9 +16,9 @@ $default-pie-selector: '.pie' !default;
   behavior: url($easel-style-dir + 'PIE/PIE.htc');
 }
 
-/**
-* text-shadow
-*/
+//** =text-shadow
+//**********************************************************/
+
 
 $default-text-shadow-x: 0 !default;
 $default-text-shadow-y: 1px !default;
@@ -39,9 +38,8 @@ $default-text-shadow-color: rgba(#000, .2) !default;
   @include text-shadow(0, 0, 0);
 }
 
-/**
-* box-shadow
-*/
+//** =box-shadow
+//**********************************************************/
 
 $default-box-shadow-x: 0 !default;
 $default-box-shadow-y: 2px !default;
@@ -81,9 +79,9 @@ $default-box-shadow-color: rgba(#000, .2) !default;
   @include box-shadow(0, 0, 0, 0);
 }
 
-/**
-* opacity
-*/
+//** =opacity
+//**********************************************************/
+
 
 @mixin opacity($opacity) {
   -moz-opacity: $opacity;
@@ -93,10 +91,9 @@ $default-box-shadow-color: rgba(#000, .2) !default;
   filter: alpha(opacity=$opacity* 100);
 }
 
-/**
-* border-radius
-* PIE only works with shorthand method
-*/
+//** =border-radius
+//    PIE only works with shorthand method
+//**********************************************************/
 
 $default-border-radius: 5px !default;
 
@@ -158,10 +155,9 @@ $default-border-radius: 5px !default;
   border-#{$y}-#{$x}-radius: $radius;
 }
 
-/**
-* @font-face
-* Here for reference, but these declarations should go in the <head> to minimize any FOUC.
-*/
+//** =@font-face
+//    Here for reference, but these declarations should go in the <head> to minimize any FOUC.
+//**********************************************************/
 
 @mixin font-face(
   $name,
@@ -184,9 +180,9 @@ $default-border-radius: 5px !default;
   }
 }
 
-/**
-* rgba backgrounds
-*/
+//** =rgba backgrounds
+//**********************************************************/
+
 
 @mixin rgba(
   $color,
@@ -205,9 +201,9 @@ $default-border-radius: 5px !default;
   background-color: rgba($color, $opacity);
 }
 
-/**
-* multiple backgrounds
-*/
+//** =multiple backgrounds
+//**********************************************************/
+
 
 @mixin multiple-backgrounds(
   $value,
@@ -224,9 +220,9 @@ $default-border-radius: 5px !default;
   background: unquote($value);
 }
 
-/**
-* vertical gradient
-*/
+//** =vertical gradient
+//**********************************************************/
+
 
 @mixin vertical-gradient(
   $start: #000,
@@ -246,9 +242,8 @@ $default-border-radius: 5px !default;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
 }
 
-/**
-* multi-column layout (newspaper columns)
-*/
+//** =multi-column layout (newspaper columns)
+//**********************************************************/
 
 @mixin multi-column-layout(
   $column-count: 2,
@@ -290,10 +285,9 @@ $default-border-radius: 5px !default;
   }
 }
 
-/**
-* css transitions
-* For multiple properties/durations/functions, use a comma-delimited list.
-*/
+//** =css transitions
+//    For multiple properties/durations/functions, use a comma-delimited list.
+//**********************************************************/
 
  $default-transition-property: all !default;
  $default-transition-duration: 1s !default;
@@ -344,9 +338,9 @@ $default-border-radius: 5px !default;
   @if $delay { @include transition-delay($delay); }
 }
 
-/**
-* flexible boxes
-*/
+//** =flexible boxes
+//**********************************************************/
+
 
 // must be used for any of the other flexbox mixins to work properly
 @mixin display-box {

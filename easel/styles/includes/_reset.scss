@@ -1,11 +1,11 @@
-/**
-* YUI3 reset with at few tweaks:
-* - reset button, select, input
-* - reset text decoration on a, ins
-* - reset small
-* - color and bg on body, not html
-* --------------------------------------------------
-*/
+//*
+// * YUI3 reset with at few tweaks:
+// * - reset button, select, input
+// * - reset text decoration on a, ins
+// * - reset small
+// * - color and bg on body, not html
+// * --------------------------------------------------
+// */
 
 @mixin reset {
   body,
@@ -125,10 +125,9 @@
   }
 }
 
-/**
-* reset box model
-* --------------------------------------------------
-*/
+//** =reset box model
+//**********************************************************/
+
 
 @mixin reset-box-model {
   margin: 0;

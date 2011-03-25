@@ -7,10 +7,9 @@
 // $$$$$$$$\\$$$$$$$ |$$$$$$$  |\$$$$$$$\ $$ |
 // \--------|\-------|\-------/  \-------|\--|
 
-/**
-* default variables
-* --------------------------------------------------
-*/
+//** =default variables
+//**********************************************************/
+
 
 // directories
 $easel-dir: '/easel/' !default;
@@ -37,10 +36,8 @@ $default-column-count: 24 !default;
 $default-column-width: 20px !default;
 $default-column-gutter: 20px !default;
 
-/**
-* imports
-* --------------------------------------------------
-*/
+//** =imports
+//**********************************************************/
 
 @import "includes/functions";
 @import "includes/mixins";
