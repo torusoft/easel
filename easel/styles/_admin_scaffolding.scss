@@ -12,13 +12,25 @@
 
 @include font-face(
   "Proxima Nova",
-  $easel-font-dir + 'proxima-nova/proxima_nova_bold-webfont',
+  $easel-font-dir + 'proxima-nova/ProximaNova-Light-webfont',
+  $weight: 300,
+  $style: normal
+);
+@include font-face(
+  "Proxima Nova",
+  $easel-font-dir + 'proxima-nova/ProximaNova-Reg-webfont',
+  $weight: 500,
+  $style: normal
+);
+@include font-face(
+  "Proxima Nova",
+  $easel-font-dir + 'proxima-nova/ProximaNova-Bold-webfont',
   $weight: 700,
   $style: normal
 );
 @include font-face(
   "Proxima Nova",
-  $easel-font-dir + 'proxima-nova/proxima_nova_xbold-webfont',
+  $easel-font-dir + 'proxima-nova/ProximaNova-Xbold-webfont',
   $weight: 800,
   $style: normal
 );
@@ -29,8 +41,8 @@
 */
 
 @mixin dark-div {
- background-color: gray(75%);
- color: gray(40%);
+ background-color: #434343;
+ color: #999999;
   a {
    @include a(#fff, darken(#fff, 20%));
   }
@@ -49,6 +61,7 @@ body {
 
 /** containers */
 .header-inner,
+.content-header-inner,
 .content,
 .footer {
   @include container;
@@ -61,7 +74,7 @@ body {
 
 .header {
   @include dark-div;
-  @include vertical-gradient($start: gray(85%), $end: gray(75%));
+  @include box-shadow(0, 8px, 8px, 0, #333333, true);
   padding: 20px 0 0;
   .logo {
     @include float(left);
@@ -86,22 +99,21 @@ body {
     li {
       margin: 0 4px 0 0;
       a {
-        @include border-radius-t;
-        background-color: gray(85%);
-        padding: 7px 20px;
+        @include border-radius-t(3px);
+        background-color: #2c2c2c;
+        padding: 8px 20px 4px;
         @include text-shadow(0, 1px, 1px, gray(95%));
         @include heading($color: #fff);
         &:hover {
-          color: gray(15%);
-          background-color: gray(90%);
+          background-color: #1c1c1c;
         }
       }
     }
     li.active {
       a {
-        @include vertical-gradient($start: #fff, $end: gray(5%));
-        color: gray(80%);
-        @include text-shadow(0, 1px, 1px, gray(15%));
+        @include vertical-gradient($start: #fff, $end: #f6f6f6);
+        color: #333;
+        @include text-shadow(0, 1px, 1px, #d9d9d9);
       }
     }
   }
@@ -145,6 +157,7 @@ body {
   width: 100%;
   border-collapse: separate;
   @include block($display: table);
+  margin-bottom: 30px;
   td, th {
     border-left: 1px solid $default-border-color;
     @include box-shadow(1px, 0, 0, 0, #fff, true);
@@ -222,6 +235,7 @@ body {
 }
 .btn-bar {
   @include css3-button-bar;
+  margin-bottom: 20px;
   a {
     @include border-radius(0);
   }
@@ -285,6 +299,16 @@ body {
 }
 form {
   @include block;
+  textarea {
+    @include min-height(75px);
+    width: 100%;
+  }
+}
+.text input,
+.select select {
+  @include min-height(20px);
+  width: 100%;
+  padding: 0;
 }
 .text,
 .select,
@@ -312,4 +336,22 @@ fieldset {
 }
 .actions {
   margin-top: $default-measure;
+}
+
+.layout-a {
+  @include clearfix;
+  margin-bottom: 30px;
+  .content-1 {
+    @include column(6, $offset-x: -1px);
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-right: 1px solid $default-border-color;
+    background: #f6f6f6;
+    background-image: -webkit-gradient(linear, right top, .92 top, from(#e7e7e7), to(#f6f6f6));
+    background-image: -moz-linear-gradient(right center, #e7e7e7 0px, #f6f6f6 15px);
+  }
+  .content-2 {
+    @include column(18, $last: true);
+    padding-top: 20px;
+  }
 }
