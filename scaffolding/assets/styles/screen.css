@@ -1412,7 +1412,21 @@ body {
   .btn-bar a {
     -moz-border-radius: 0 0 0 0;
     -webkit-border-radius: 0 0 0 0;
-    border-radius: 0 0 0 0; }
+    border-radius: 0 0 0 0;
+    background: #333333;
+    background: -moz-linear-gradient(center top, #4c4c4c 0%, #333333 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #4c4c4c), color-stop(1, #333333));
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+    -moz-text-shadow: 0px 1px 2px black;
+    -webkit-text-shadow: 0px 1px 2px black;
+    text-shadow: 0px 1px 2px black;
+    color: white; }
+    .ie7 .btn-bar a {
+      -pie-background: linear-gradient(90deg, #4c4c4c, #333333); }
+    .ie8 .btn-bar a {
+      -pie-background: linear-gradient(90deg, #4c4c4c, #333333); }
   .btn-bar li.li-first a, .btn-bar > li:first-child a {
     -moz-border-radius: 5px 0 0 5px;
     -webkit-border-radius: 5px 0 0 5px;
@@ -1731,7 +1745,7 @@ form {
   -webkit-box-orient: horizontal;
   box-orient: horizontal; }
   .promos .promo, .promos .promo-group {
-    padding: 15px 20px 0;
+    padding: 15px 0 1px;
     margin: 0 20px 20px 0;
     background: white;
     -moz-border-radius: 10px 10px 10px 10px;
@@ -1739,7 +1753,11 @@ form {
     border-radius: 10px 10px 10px 10px;
     -moz-box-shadow: 0px 1px 3px 0px #bcbcbc;
     -webkit-box-shadow: 0px 1px 3px 0px #bcbcbc;
-    box-shadow: 0px 1px 3px 0px #bcbcbc; }
+    box-shadow: 0px 1px 3px 0px #bcbcbc;
+    float: none !important; }
+    .promos .promo > *, .promos .promo-group > * {
+      padding-left: 20px;
+      padding-right: 20px; }
   .promos .promo-group {
     display: -moz-box;
     display: -webkit-box;

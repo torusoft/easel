@@ -145,11 +145,16 @@ form {
   @include display-box();
   @include box-orient();
   .promo {
-    padding: 15px 20px 0;
+    padding: 15px 0 1px;
     margin: 0 20px 20px 0;
     background: white;
     @include border-radius(10px);
     @include box-shadow(0px, 1px, 3px, 0px, #bcbcbc);
+    float: none !important;
+    & > * {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
   .promo-group {
     @include display-box();
