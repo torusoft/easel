@@ -15,6 +15,8 @@ class FM_gallery
       'slide_class' => 'slide',
       'id_prefix' => 's-',
       'return_type' => 'string',
+      'img' => 'img',
+      'url' => 'url',
     );
     $opts = array_merge(  $defaults, $options );
 
@@ -28,6 +30,8 @@ class FM_gallery
   public function videos( $options = array(), $slides ) {
     $slides = $slides ? $slides : $this->slideset;
     $defaults = array(
+      'width' => '640',
+      'height' => '360',
       'slide_class' => 'slide',
       'id_prefix' => 'v-',
       'return_type' => 'string',
@@ -43,7 +47,7 @@ class FM_gallery
 
   private function has_video($video) {
     $has = false;
-    $videofiles = (array)$video;
+    $videofiles = isset($video['files']) ? $video['files'] : (array)$video;
     foreach ($videofiles as $type => $file):
       if ($file) :
         $has = true;
@@ -59,9 +63,13 @@ class FM_gallery
 
     foreach ($items as $id => $s) {
       $slide_html = '';
+
+      $s['url'] = isset($s[ $opts['url'] ]) ? $s[ $opts['url'] ] : '';
+      $s['img'] = isset($s[ $opts['img'] ]) ? $s[ $opts['img'] ] : '';
+
       $slide_class = $opts['slide_class'];
       $has_video = $this->has_video($s['video']);
-      $has_link = isset($s['url']) && !empty($s['url']);
+      $has_link = !empty($s['url']);
       if ($first_slide):
         $slide_class .= ' first';
         $first_slide = false;
@@ -106,8 +114,13 @@ class FM_gallery
       if (!$has_video) { continue; }
 
       $video = $s['video'];
-
       $videofiles = (array)$video;
+      if ( isset($video['files']) ):
+        $videofiles = $video['files'];
+        $opts['width'] = isset( $video['width'] ) && $video['width'] ? $video['width'] : $opts['width'];
+        $opts['height'] = isset( $video['height'] ) && $video['height'] ? $video['height'] : $opts['height'];
+      endif;
+
       $source = array();
       foreach ($videofiles as $type => $file):
         if ($file) :
