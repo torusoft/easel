@@ -111,8 +111,9 @@ class FM_gallery
       $source = array();
       foreach ($videofiles as $type => $file):
         if ($file) :
-        $type_attr = ( preg_match('/^\d+$/', $type) ) ? '' : ' type="' . $type . '"';
-        $source[] = '<source src="' . $file . '"' . $type_attr . '></source>';
+          $type_attr = ( preg_match('/^\d+$/', $type) ) ? '' : ' type="' . $type . '"';
+          $src_attr = ' src="' . $file . '"';
+          $source[] = '<source' . $src_attr . $type_attr . '></source>';
         endif;
       endforeach;
 
@@ -123,8 +124,12 @@ class FM_gallery
           $item .= ' poster="' .  $s['img'] . '"';
           $item .= $preload;
           $item .= ' width="' . $opts['width'] . '" height="' . $opts['height'] . '"';
-        $item .= '>';
-          $item .= implode("\n", $source);
+
+        if ( count($source) == 1 ):
+          $item .= $src_attr . $type_attr . '>';
+        else :
+          $item .= '>' . implode("\n", $source);
+        endif;
         $item .= '</video>';
 
         $item_list[] = $item;
