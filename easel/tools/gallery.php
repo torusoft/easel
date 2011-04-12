@@ -1,5 +1,6 @@
 <?php
 // for making .cycle() slideshows
+// currently used in ofield/simplycremations, lippincott
 
 class FM_gallery
 {
@@ -32,10 +33,13 @@ class FM_gallery
     $defaults = array(
       'width' => '640',
       'height' => '360',
+      'preload' => false,
+      'autoplay' => false,
+      'controls' => false,
       'slide_class' => 'slide',
       'id_prefix' => 'v-',
       'return_type' => 'string',
-      'preload' => false,
+
     );
     $opts = array_merge(  $defaults, $options );
 
@@ -108,12 +112,29 @@ class FM_gallery
 
   private function build_videos($items, $opts) {
     $item_list = array();
+    $attr_opts = array(
+      'preload',
+      'autobuffer',
+      'width',
+      'height',
+      'poster',
+      'controls',
+      'id',
+    );
 
     foreach ($items as $id => $s) :
       $has_video = $this->has_video($s['video']);
+      $multi_source = false;
       if (!$has_video) { continue; }
 
+      // normalize a couple opts to be added to video attributes
+      $opts['id'] = $opts['id_prefix'] . $id;
+      $opts['poster'] = $s['img'];
+
       $video = $s['video'];
+      $source = array();
+      $video_attrs = array();
+
       $videofiles = (array)$video;
       if ( isset($video['files']) ):
         $videofiles = $video['files'];
@@ -121,32 +142,43 @@ class FM_gallery
         $opts['height'] = isset( $video['height'] ) && $video['height'] ? $video['height'] : $opts['height'];
       endif;
 
-      $source = array();
+      // gather src and type attrs, and possibly <source>
       foreach ($videofiles as $type => $file):
+        // make sure $file isn't empty string
         if ($file) :
-          $type_attr = ( preg_match('/^\d+$/', $type) ) ? '' : ' type="' . $type . '"';
-          $src_attr = ' src="' . $file . '"';
-          $source[] = '<source' . $src_attr . $type_attr . '></source>';
+          // $file = '/files/videos/VTS_01_3.mp4';
+          $video_attrs['src'] = $file;
+          if ( !preg_match('/^\d+$/', $type) ):
+            $codec = strpos($type, '.m4v') > 0 ? 'video/mp4' : $type;
+            $video_attrs['type'] = $codec;
+          endif;
+
+          $type_attr = $type ? ' type="' . $type . '"' : '';
+          $source[] = '<source src="' . $file . '"' . $type_attr . '></source>';
         endif;
       endforeach;
 
-      if (!empty($source)):
-        $preload = $opts['preload'] ? ' preload="preload"' : '';
-        $item = '<video';
-          $item .= ' id="' . $opts['id_prefix'] . $id . '"';
-          $item .= ' poster="' .  $s['img'] . '"';
-          $item .= $preload;
-          $item .= ' width="' . $opts['width'] . '" height="' . $opts['height'] . '"';
+      // if no sources, skip this video
+      if ( empty($source) ) {
+        continue;
+      } elseif ( count($source) > 1 ) {
+        $multi_source = true;
+      }
 
-        if ( count($source) == 1 ):
-          $item .= $src_attr . $type_attr . '>';
-        else :
-          $item .= '>' . implode("\n", $source);
-        endif;
-        $item .= '</video>';
+      // build up video attributes
 
-        $item_list[] = $item;
-      endif;
+      for ($i=0; $i < count($attr_opts); $i++) {
+        $video_attrs[ $attr_opts[$i] ] = $opts[ $attr_opts[$i] ];
+      }
+
+      $item = '<video';
+        $item .= $this->build_attrs($video_attrs, $multi_source);
+      $item .= '>';
+        $item .= $multi_source ? implode("\n", $source) : '';
+      $item .= '</video>';
+
+      $item_list[] = $item;
+
     endforeach;
 
     if ($opts['return_type'] == 'array'):
@@ -157,6 +189,30 @@ class FM_gallery
     return $item_list;
   }
 
+  private function build_attrs($attrs, $multi) {
+    $attr_string = '';
+
+    if ($multi):
+      unset($attrs['src']);
+      unset($attrs['type']);
+    endif;
+
+    if (!$attrs['autoplay']):
+      $attrs['autobuffer'] = true;
+    endif;
+
+    foreach ($attrs as $name => $val):
+      if ($val):
+        $attr_string .= ' ';
+        $attr_string .= $name . '="';
+        $attr_string .= $val === true ? $name : $val;
+        $attr_string .= '"';
+      endif;
+
+    endforeach;
+
+    return $attr_string;
+  }
 
 }
 ?>
