@@ -37,7 +37,9 @@
 
       if ( vidExt ) {
         optsType = 'video';
-        var vid = 'v-' + event.timeStamp,
+
+        var uuid = event ? event.timeStamp : +new Date,
+            vid = 'v-' + uuid,
             vidHref = this.href;
 
         options.href = '#' + vid;
