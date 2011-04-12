@@ -1,5 +1,16 @@
 (function($) {
-var players = {},
+
+var setNum = function(prop, fallbackNum) {
+      if (FM && FM[prop] || FM[prop] === 0) {
+        var num = parseInt(FM[prop], 10);
+        return isNaN(num) ? fallbackNum : num;
+      }
+      return fallbackNum;
+    },
+    cycleSpeed = setNum('cycleSpeed', 600),
+    cycleTimeout = setNum('cycleTimeout', 8000),
+
+    players = {},
     pausePlayers = $.noop,
     videoOptions = {
       videoIdPrefix: 'v',
@@ -19,9 +30,10 @@ $.fn.cycleWrap = function(options) {
         opts = $.extend(true, {}, options ),
         $container = opts.container ? $wrapper[opts.container]('.slides') : $wrapper,
         wrapped = opts.wrapped,
+        anchorsBuilt = false,
         slideNum = $container.children().length;
 
-
+    opts.videos = opts.videos || !!$wrapper.find('video').length;
     if ( slideNum ) {
 
       // add video events to init, before, and after if videos option is true
@@ -51,6 +63,7 @@ $.fn.cycleWrap = function(options) {
 
         // make sure pager anchors are the ones within this cycle wrapper
         if (key === 'pagerAnchorBuilder' && typeof val === 'string') {
+          anchorsBuilt = val;
           opts[ key ] = function(index, el) {
             return $wrapper.find( val )[index];
           };
@@ -62,7 +75,26 @@ $.fn.cycleWrap = function(options) {
 
       });
 
+      if (anchorsBuilt && !opts.pager) {
+        opts.pager = $wrapper.find( anchorsBuilt ).parent();
+      }
+
+      // call the cycle plugin
       $container.cycle( opts );
+
+      // deal with img loading awkwardness
+      $container.find('.js-invisible').each(function() {
+        var $invisi = $(this);
+        if (this.nodeName == 'IMG' && !this.complete) {
+
+          $invisi.bind('load error', function() {
+            $invisi.removeClass('js-invisible');
+          });
+
+        } else {
+          $invisi.removeClass('js-invisible');
+        }
+      });
     }
   });
 
@@ -102,8 +134,10 @@ $.fn.cycleWrap.defaults = {
 
   // CYCLE DEFAULTS
   pause: 1,
-  speed: 600,
-  timeout: 8000
+  speed: cycleSpeed,
+  timeout: cycleTimeout,
+  speedIn: cycleSpeed - 50,
+  speedOut: cycleSpeed
 };
 
 // set up player pausing function
@@ -123,8 +157,9 @@ pausePlayers = function(ps, $gallery, opts) {
 
       $slideVideos.find(vOpts.playerSelector).addClass(vOpts.hideClass);
       for ( var p in ps ) {
-
-        ps[ p ].pause();
+        if (typeof ps[ p ].pause == 'function' ) {
+          ps[ p ].pause();
+        }
       }
     };
   }, 1000);
