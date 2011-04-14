@@ -93,9 +93,12 @@ $default-list-measure: $default-measure / 2 !default;
 
 //** =styled lists
 //**********************************************************/
+$default-last-li-selector: '.li-last' !default;
 
-
-@mixin floated-list($margin-right: 0) {
+@mixin floated-list(
+  $margin-right: 0,
+  $last-child: $default-last-li-selector
+) {
   @include clearfix;
   li {
     @include li-reset;
@@ -104,33 +107,43 @@ $default-list-measure: $default-measure / 2 !default;
     a {
       display: block;
     }
-    &.li-last,
-    &:last-child {
+  }
+  @if $last-child {
+    #{$last-child} {
       margin-right: 0;
     }
   }
+
 }
 
 
-@mixin inline-block-list($margin-right: 0) {
+@mixin inline-block-list(
+  $margin-right: 0,
+  $last-child: $default-last-li-selector
+) {
   li {
     @include li-reset;
     @include inline-block;
     margin-right: $margin-right;
-    &.li-last,
-    &:last-child {
+  }
+  @if $last-child {
+    #{$last-child} {
       margin-right: 0;
     }
   }
 }
 
-@mixin inline-list($margin-right: 0) {
+@mixin inline-list(
+  $margin-right: 0,
+  $last-child: $default-last-li-selector
+) {
   li {
     @include li-reset;
     display: inline;
     margin-right: $margin-right;
-    &.li-last,
-    &:last-child {
+  }
+  @if $last-child {
+    #{$last-child} {
       margin-right: 0;
     }
   }
@@ -142,7 +155,9 @@ $default-list-measure: $default-measure / 2 !default;
   $border-style: solid,
   $padding-right: 8px,
   $margin-right: 8px,
-  $line-height: 1.1) {
+  $line-height: 1.1,
+  $last-child: $default-last-li-selector
+) {
   @if $line-height {
     line-height: $line-height;
   }
@@ -151,8 +166,9 @@ $default-list-measure: $default-measure / 2 !default;
     border-right: $border-width $border-style $border-color;
     padding-right: $padding-right;
     margin-right: $margin-right;
-    &.li-last,
-    &:last-child {
+  }
+  @if $last-child {
+    #{$last-child} {
       margin-right: 0;
       padding-right: 0;
       border-right: 0;

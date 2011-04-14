@@ -149,7 +149,6 @@
   $color: gray(80%),
   $line-height: 1.2
 ) {
-  @include proxima-nova;
   @if $color {
     color: $color;
   }
