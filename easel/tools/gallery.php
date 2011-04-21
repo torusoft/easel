@@ -49,6 +49,49 @@ class FM_gallery
 
   }
 
+  public function count( $item_type = 'slides', $slides ) {
+    $slides = $slides ? $slides : $this->slideset;
+    $num = 0;
+    if ($item_type == 'slides') {
+      $num = count($slides);
+    } else {
+      $num = $this->count_videos($slides);
+    }
+
+    return $num;
+  }
+
+  private function count_videos($items) {
+    $item_count = 0;
+
+    foreach ($items as $id => $s) :
+      $has_video = $this->has_video($s['video']);
+      $has_file = false;
+      if (!$has_video) { continue; }
+
+      $video = $s['video'];
+      $videofiles = (array)$video;
+      if ( isset($video['files']) ):
+        $videofiles = $video['files'];
+      endif;
+
+      // gather src and type attrs, and possibly <source>
+      foreach ($videofiles as $type => $file):
+        // make sure $file isn't empty string
+        if ($file) :
+          $has_file = true;
+        endif;
+      endforeach;
+
+      // if no sources, skip this video
+      if ( $has_file ) {
+        $item_count++;
+      }
+    endforeach;
+
+    return $item_count;
+  }
+
   private function has_video($video) {
     $has = false;
     $videofiles = isset($video['files']) ? $video['files'] : (array)$video;
