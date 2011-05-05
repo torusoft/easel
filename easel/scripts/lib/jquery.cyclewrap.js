@@ -21,6 +21,24 @@ var setNum = function(prop, fallbackNum) {
       highZClass: 'highz'
     };
 
+// set up pause/resume "events"
+$(document).bind('cycleWrap', function(event, pauseresume) {
+  if ( !$.fn.cycleWrap.cycles ) {
+    return;
+  }
+  var triggered = 0;
+  if (event.target === document) {
+    $.each($.fn.cycleWrap.cycles, function(index, val) {
+      val.cycle(pauseresume);
+      triggered++;
+    });
+  } else {
+    $(event.target).cycle(pauseresume);
+    triggered++;
+  }
+  FM && FM.log && FM.log(pauseresume + 'd: ' + triggered);
+});
+
 $.fn.cycleWrap = function(options) {
   options = $.extend(true, {}, $.fn.cycleWrap.defaults, options || {} );
   this.each(function() {
@@ -55,6 +73,9 @@ $.fn.cycleWrap = function(options) {
           };
         });
       }
+
+      // add this container to the list of running cycles
+      $.fn.cycleWrap.cycles.push($container);
 
       // call the init function
       opts.init.call(wrapper, $container);
@@ -95,17 +116,30 @@ $.fn.cycleWrap = function(options) {
           $invisi.removeClass('js-invisible');
         }
       });
+
+      // pause cycle when user leaves the browser tab, resume when returns
+      if ( opts.pauseOnWindowBlur ) {
+        $window.bind('focus blur', function(event) {
+          event.stopPropagation();
+          var playpause = event.type == 'focus' ? 'resume' : 'pause';
+          $container.trigger('cycleWrap', playpause );
+        });
+      }
+
     }
   });
 
   return this;
 };
 
+$.fn.cycleWrap.cycles = [];
+
 $.fn.cycleWrap.defaults = {
   // cycleWrap() OPTIONS.
   init: $.noop, // gets called within the context of $().cycleWrap jQuery set -- before .cycle() is called
   container: 'children', // Use null if selector for cycleWrap() is same as selector for cycle()
   containerFilter: '.slides', // Use undefined to select all children of the cycleWrap selector
+  pauseOnWindowBlur: true,
   wrapped: {
     next: 1,
     prev: 1,
