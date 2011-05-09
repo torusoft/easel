@@ -9,7 +9,7 @@
   @return darken(#fff, $percentage);
 }
 
-//** =darkerate
+//** =darkerate/lighterate
 //**********************************************************/
 
 
@@ -22,5 +22,17 @@
   }
   $color: darken($color, $darken);
   $color: saturate($color, $saturate);
+  @return $color;
+}
+
+@function lighterate($color, $darken, $saturate: false) {
+  @if $saturate {
+    $saturate: $saturate;
+  }
+  @else {
+    $saturate: $darken;
+  }
+  $color: lighten($color, $darken);
+  $color: desaturate($color, $saturate);
   @return $color;
 }
