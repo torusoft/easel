@@ -1,12 +1,12 @@
 /*!
- * Modernizr v1.6
+ * Modernizr v1.7
  * http://www.modernizr.com
  *
  * Developed by: 
  * - Faruk Ates  http://farukat.es/
  * - Paul Irish  http://paulirish.com/
  *
- * Copyright (c) 2009-2010
+ * Copyright (c) 2009-2011
  * Dual-licensed under the BSD or MIT licenses.
  * http://www.modernizr.com/license/
  */
@@ -26,13 +26,13 @@
  * 
  * @author        Faruk Ates
  * @author        Paul Irish
- * @copyright     (c) 2009-2010 Faruk Ates.
+ * @copyright     (c) 2009-2011 Faruk Ates.
  * @contributor   Ben Alman
  */
 
 window.Modernizr = (function(window,document,undefined){
     
-    var version = '1.6',
+    var version = '1.7',
 
     ret = {},
 
@@ -236,6 +236,7 @@ window.Modernizr = (function(window,document,undefined){
 
     /**
      * Tests
+     * -----
      */
 
     tests['flexbox'] = function() {
@@ -295,20 +296,12 @@ window.Modernizr = (function(window,document,undefined){
         return !!(ret['canvas'] && is(document.createElement( 'canvas' ).getContext('2d').fillText, 'function'));
     };
     
-    
+    // This WebGL test false positives in FF depending on graphics hardware. But really it's quite impossible to know
+    // wether webgl will succeed until after you create the context. You might have hardware that can support
+    // a 100x100 webgl canvas, but will not support a 1000x1000 webgl canvas. So this feature inference is weak, 
+    // but intentionally so.
     tests['webgl'] = function(){
-
-        var elem = document.createElement( 'canvas' ); 
-        
-        try {
-            if (elem.getContext('webgl')){ return true; }
-        } catch(e){	}
-        
-        try {
-            if (elem.getContext('experimental-webgl')){ return true; }
-        } catch(e){	}
-
-        return false;
+        return !!window.WebGLRenderingContext;
     };
     
     /*
@@ -552,7 +545,7 @@ window.Modernizr = (function(window,document,undefined){
         if (ret && 'webkitPerspective' in docElement.style){
           
           // Webkit allows this media query to succeed only if the feature is enabled.    
-          // "@media (transform-3d),(-o-transform-3d),(-moz-transform-3d),(-ms-transform-3d),(-webkit-transform-3d),(modernizr){ ... }"      
+          // `@media (transform-3d),(-o-transform-3d),(-moz-transform-3d),(-ms-transform-3d),(-webkit-transform-3d),(modernizr){ ... }`    
           ret = testMediaQuery('@media ('+prefixes.join('transform-3d),(')+'modernizr)');
         }
         return ret;
@@ -584,7 +577,7 @@ window.Modernizr = (function(window,document,undefined){
                     var result = false;
                     try {
                         sheet.insertRule(rule, 0);
-                        result = !(/unknown/i).test(sheet.cssRules[0].cssText);
+                        result = (/src/i).test(sheet.cssRules[0].cssText);
                         sheet.deleteRule(sheet.cssRules.length - 1);
                     } catch(e) { }
                     return result;
@@ -593,13 +586,13 @@ window.Modernizr = (function(window,document,undefined){
                     if (!(sheet && rule)) return false;
                     sheet.cssText = rule;
                     
-                    return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) &&
+                    return sheet.cssText.length !== 0 && (/src/i).test(sheet.cssText) &&
                       sheet.cssText
                             .replace(/\r+|\n+/g, '')
                             .indexOf(rule.split(' ')[0]) === 0;
                 };
         
-        bool = supportAtRule('@font-face { font-family: "font"; src: "font.ttf"; }');
+        bool = supportAtRule('@font-face { font-family: "font"; src: url(data:,); }');
         head.removeChild(style);
         return bool;
     };
@@ -747,44 +740,53 @@ window.Modernizr = (function(window,document,undefined){
         
         // Big thanks to @miketaylr for the html5 forms expertise. http://miketaylr.com/
         ret['inputtypes'] = (function(props) {
-            for (var i = 0, bool, len=props.length ; i < len ; i++) {
+          
+            for (var i = 0, bool, inputElemType, defaultView, len=props.length; i < len; i++) {
               
-                inputElem.setAttribute('type', props[i]);
+                inputElem.setAttribute('type', inputElemType = props[i]);
                 bool = inputElem.type !== 'text';
                 
-                // Chrome likes to falsely purport support, so we feed it a textual value;
-                // if that doesnt succeed then we know there's a custom UI
+                // We first check to see if the type we give it sticks.. 
+                // If the type does, we feed it a textual value, which shouldn't be valid.
+                // If the value doesn't stick, we know there's input sanitization which infers a custom UI
                 if (bool){  
-
-                    inputElem.value = smile;
+                  
+                    inputElem.value         = smile;
+                    inputElem.style.cssText = 'position:absolute;visibility:hidden;';
      
-                    if (/^range$/.test(inputElem.type) && inputElem.style.WebkitAppearance !== undefined){
+                    if (/^range$/.test(inputElemType) && inputElem.style.WebkitAppearance !== undefined){
                       
                       docElement.appendChild(inputElem);
-                      var defaultView = document.defaultView;
+                      defaultView = document.defaultView;
                       
                       // Safari 2-4 allows the smiley as a value, despite making a slider
                       bool =  defaultView.getComputedStyle && 
-                              defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' && 
-                      
+                              defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' &&                  
                               // Mobile android web browser has false positive, so must
                               // check the height to see if the widget is actually there.
                               (inputElem.offsetHeight !== 0);
                               
                       docElement.removeChild(inputElem);
                               
-                    } else if (/^(search|tel)$/.test(inputElem.type)){
+                    } else if (/^(search|tel)$/.test(inputElemType)){
                       // Spec doesnt define any special parsing or detectable UI 
                       //   behaviors so we pass these through as true
                       
                       // Interestingly, opera fails the earlier test, so it doesn't
                       //  even make it here.
                       
-                    } else if (/^(url|email)$/.test(inputElem.type)) {
-
+                    } else if (/^(url|email)$/.test(inputElemType)) {
                       // Real url and email support comes with prebaked validation.
                       bool = inputElem.checkValidity && inputElem.checkValidity() === false;
                       
+                    } else if (/^color$/.test(inputElemType)) {
+                        // chuck into DOM and force reflow for Opera bug in 11.00
+                        // github.com/Modernizr/Modernizr/issues#issue/159
+                        docElement.appendChild(inputElem);
+                        docElement.offsetWidth; 
+                        bool = inputElem.value != smile;
+                        docElement.removeChild(inputElem);
+
                     } else {
                       // If the upgraded input compontent rejects the :) text, we got a winner
                       bool = inputElem.value != smile;
@@ -801,6 +803,7 @@ window.Modernizr = (function(window,document,undefined){
 
 
     // End of test definitions
+    // -----------------------
 
 
 
@@ -853,8 +856,9 @@ window.Modernizr = (function(window,document,undefined){
      * Reset m.style.cssText to nothing to reduce memory footprint.
      */
     set_css( '' );
-    modElem = f = null;
+    modElem = inputElem = null;
 
+    //>>BEGIN IEPP
     // Enable HTML 5 elements for styling in IE. 
     // fyi: jscript version does not reflect trident version
     //      therefore ie9 in ie7 mode will still have a jScript v.9
@@ -942,16 +946,18 @@ window.Modernizr = (function(window,document,undefined){
           );
         })(window, document);
     }
+    //>>END IEPP
 
     // Assign private properties to the return object with prefix
     ret._enableHTML5     = enableHTML5;
     ret._version         = version;
 
     // Remove "no-js" class from <html> element, if it exists:
-    docElement.className=docElement.className.replace(/\bno-js\b/,'') + ' js';
+    docElement.className = docElement.className.replace(/\bno-js\b/,'') 
+                            + ' js '
 
-    // Add the new classes to the <html> element.
-    docElement.className += ' ' + classes.join( ' ' );
+                            // Add the new classes to the <html> element.
+                            + classes.join( ' ' );
     
     return ret;
 
