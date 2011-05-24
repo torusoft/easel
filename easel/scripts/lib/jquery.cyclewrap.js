@@ -100,6 +100,35 @@ $.fn.cycleWrap = function(options) {
         opts.pager = $wrapper.find( anchorsBuilt ).parent();
       }
 
+      if (opts.pager && opts.autoPagerPosition) {
+        var _optsBefore = opts.before,
+            controlsWidth = opts.pager.parent().width(),
+            thumbsWidth = opts.pager.children().map(function(index, elem) {
+              return $(this).outerWidth();
+            }).get(),
+            addWidths = function(start, end) {
+              var w = 0;
+              for ( var i=start; i < end; i++ ) {
+                w += thumbsWidth[i];
+              }
+              return w;
+            };
+
+        opts.before = function(c, n, o) {
+
+          var mLeft = parseInt(opts.pager.css('marginLeft'), 10),
+              currentPos = addWidths(0, o.nextSlide),
+              thumbWidth = addWidths(o.nextSlide-1, o.nextSlide);
+          if (currentPos > controlsWidth) {
+           opts.pager.animate({marginLeft: -currentPos + (controlsWidth - thumbWidth)});
+          } else if (mLeft !== 0) {
+            opts.pager.animate({marginLeft: 0});
+          }
+          if ($.isFunction(_optsBefore)) {
+            _optsBefore(c, n, o);
+          }
+        };
+      }
       // call the cycle plugin
       $container.cycle( opts );
 
@@ -119,7 +148,7 @@ $.fn.cycleWrap = function(options) {
 
       // pause cycle when user leaves the browser tab, resume when returns
       if ( opts.pauseOnWindowBlur ) {
-        $window.bind('focus blur', function(event) {
+        $(window).bind('focus blur', function(event) {
           event.stopPropagation();
           var playpause = event.type == 'focus' ? 'resume' : 'pause';
           $container.trigger('cycleWrap', playpause );
