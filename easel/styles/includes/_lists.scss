@@ -99,9 +99,9 @@ $default-last-li-selector: '.li-last' !default;
   $margin-right: 0,
   $last-child: $default-last-li-selector
 ) {
+  @include list-reset;
   @include clearfix;
   li {
-    @include li-reset;
     @include float(left);
     margin-right: $margin-right;
     a {
@@ -121,8 +121,8 @@ $default-last-li-selector: '.li-last' !default;
   $margin-right: 0,
   $last-child: $default-last-li-selector
 ) {
+  @include list-reset;
   li {
-    @include li-reset;
     @include inline-block;
     margin-right: $margin-right;
   }
@@ -137,8 +137,8 @@ $default-last-li-selector: '.li-last' !default;
   $margin-right: 0,
   $last-child: $default-last-li-selector
 ) {
+  @include list-reset;
   li {
-    @include li-reset;
     display: inline;
     margin-right: $margin-right;
   }
