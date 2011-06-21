@@ -2,7 +2,18 @@
 if ($.fn.hscroll) { return; }
 
 // Creates a horizontal scrollbar for a set of items
+var FM = FM || {};
 
+if (!FM.add) {
+  FM.add = function(nums) {
+    var tally = 0;
+    for (var i = nums.length - 1; i >= 0; i--){
+      tally += nums[i] || 0;
+    }
+
+    return tally;
+  };
+}
 $.fn.hscroll = function(options) {
 
   if (!this.length) { return this; }
@@ -29,15 +40,26 @@ $.fn.hscroll = function(options) {
         wrapperWidth = $itemWrapper.width(),
         itemWidth = 0,
         widthDiff = 0,
+        sliderOpts = {animate: 400},
         $slider, wiggle;
 
+    FM.wrapperWidth = wrapperWidth;
     itemWidth = FM.add(widthArray);
     wiggle = m.ceil(itemWidth/1000);
     itemWidth += ( wiggle );
-
     if (itemWidth <= (wrapperWidth || 0)) {
       $itemWrapper.addClass('no-scroller');
+      $itemList.width(wrapperWidth);
       return;
+    } else {
+      $itemWrapper.removeClass('no-scroller');
+    }
+
+    if (opts.prevNext) {
+      sliderOpts.change = function(e, ui) {
+        $itemWrapper.find('.prev').toggleClass('disabled', ui.value == 0);
+        $itemWrapper.find('.next').toggleClass('disabled', ui.value == 100);
+      };
     }
 
     if (opts.adjustHeight) {
@@ -47,6 +69,7 @@ $.fn.hscroll = function(options) {
     $itemList.width(itemWidth);
 
     widthDiff = wrapperWidth - itemWidth;
+    FM.widthDiff = widthDiff;
 
     $slider = $itemWrapper
     .append('<div class="slider-wrapper ui-widget ui-widget-content ui-corner-all"><div class="slider"></div></div>')
@@ -72,9 +95,7 @@ $.fn.hscroll = function(options) {
       }
     });
 
-    $slider.slider({
-      animate: 400
-    });
+    $slider.slider(sliderOpts);
 
     var $handle = $slider.find('.ui-slider-handle').append('<span></span>'),
         handleRightEdge = wrapperWidth - $handle.width() ;
@@ -158,10 +179,7 @@ $.fn.hscroll = function(options) {
           wrapperWidth: wrapperWidth
         });
 
-        $prevNext.removeClass('disabled');
-        sliderValues.disable && $itemWrapper.find(sliderValues.disable).addClass('disabled');
         $slider.trigger('slide', [{handle: $(false)}, sliderValues]);
-
       });
     }
 
@@ -197,7 +215,6 @@ $.fn.hscroll = function(options) {
 
   function slideStep(step) {
     var position, width,
-        disable = false,
         d = {
           direction: 'prev',
           step: 1,
@@ -212,24 +229,22 @@ $.fn.hscroll = function(options) {
     if ( s.direction.indexOf('prev') > -1 ) {
       position += (s.wrapperWidth * s.step);
 
-      if ( position >= 0 ) {
+      if ( position > 0 ) {
         position = 0;
-        disable = '.prev';
       }
 
     } else {
       position -= (s.wrapperWidth * s.step);
 
-      if ( position <= width ) {
+      if ( position < width ) {
         position = width;
-        disable = '.next';
       }
+
     }
 
     return {
       itemList: {marginLeft: position + 'px'},
-      handle: m.floor( position / width * 100 ),
-      disable: disable
+      handle: m.floor( position / width * 100 )
     };
 
   }
@@ -242,7 +257,6 @@ $.fn.hscroll = function(options) {
 // default options
 $.fn.hscroll.defaults = {
   adjustHeight: true,
-  scriptDir: FM.paths.lib,
   uistylesheet: '/assets-shared/styles/ui/jquery-ui.css',
   items:'div',
   biglinks: false,
