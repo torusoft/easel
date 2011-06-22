@@ -10,28 +10,21 @@ easel_dir = 'submodules/easel_framework'
 script_dir = 'sites/website/public/assets/scripts'
 
 # github repos
-repos = { "Modernizr" => "Modernizr",
-          "LABjs" => "getify",
+repos = { "cycle" => "malsup",
+          # "jquery-ui" => "jquery",
+          # "LABjs" => "getify",
+          # "jqanalyze" => "mennovanslooten",
+          # "jquery-dotimeout" => "cowboy",
+          # "jquery-bbq" => "cowboy",
+          "Modernizr" => "Modernizr",
           "JSON-js" => "douglascrockford",
-          "jquery-ui" => "jquery",
+          "mediaelement" => "johndyer",
+          "Respond" => "scottjehl",
           "jquery-carousel-lite" => "kswedberg",
           "jquery-defaulttext" => "kswedberg",
-          "jquery-tinyvalidate" => "kswedberg",
-          "jquery-dotimeout" => "cowboy",
-          "jquery-bbq" => "cowboy",
-          "cycle" => "malsup",
-          "mediaelement" => "johndyer",
-          "jqanalyze" => "mennovanslooten",
-          "Respond" => "scottjehl"
+          "jquery-tinyvalidate" => "kswedberg"
         }
 
-# standard non-lib "starter" scripts
-scripts = [ "init",
-            "utils",
-            "cycles",
-            "global-ajax",
-            "validation"
-          ]
 # ^^^^^^ USER CONFIGURATION ^^^^^^^
 
 # Directory variables
@@ -57,9 +50,11 @@ qunit        = File.join( qunit_dir, "qunit", "qunit.js" )
 # Turn off output other than needed from `sh` and file commands
 verbose(false)
 
-# Tasks
-desc "Updates js from GitHub - rake update[lib/jquery/all[reponame]"
-task :update, [:which, :auth] => [repo_dir, lib_dir] do |t, args|
+#### Tasks ####
+
+###
+desc "Updates js from GitHub/lib - rake update[lib/jquery/all/[reponame],[?repoauthor]"
+task :update, [:which, :auth] => [repo_dir, script_dir, lib_dir] do |t, args|
   args.with_defaults(:which => "lib", :auth => nil)
   auth = args.auth
 
@@ -70,6 +65,9 @@ task :update, [:which, :auth] => [repo_dir, lib_dir] do |t, args|
     repos.each  do |k,v|
       copy_repo("#{repo_dir}/#{k}", lib_dir)
     end
+  when "jquery"
+    Rake::Task[:updatejquery].invoke
+
   when "all"
     Rake::Task[:updatejquery].invoke
     Rake::Task[:clonepull].invoke
@@ -77,10 +75,9 @@ task :update, [:which, :auth] => [repo_dir, lib_dir] do |t, args|
     repos.each  do |k,v|
       copy_repo("#{repo_dir}/#{k}", lib_dir)
     end
-    Rake::Task[:updatescripts].invoke("scripts")
-    Rake::Task[:updatescripts].invoke
+    Rake::Task[:updatescripts].invoke("scripts_lib")
   when "lib"
-    Rake::Task[:updatescripts].invoke
+    Rake::Task[:updatescripts].invoke("lib")
   else
     auth ||= repos["#{args.which}"]
     Rake::Task[:updaterepo].invoke(args.which, auth)
@@ -89,17 +86,31 @@ task :update, [:which, :auth] => [repo_dir, lib_dir] do |t, args|
   puts "Update routine completed for #{args.which}"
 end
 
-desc "Updates scripts: rake updatescripts[lib/scripts/[somescriptname]]"
+###
+desc "Updates js from easel dir: rake updatescripts[lib/scripts/[somescriptname]]"
 task :updatescripts, [:which] => [easel_script_dir, lib_dir] do |t, args|
-  args.with_defaults(:which => "lib")
+  if args.which.nil?
+    puts "What do you want to update from easel?"
+    puts "scripts directory:"
+    puts "    rake updatescripts[scripts]"
+    puts "lib directory:"
+    puts "    rake updatescripts[lib]"
+    puts "particular script?"
+    puts "utils.js:"
+    puts "    rake updatescripts[utils]"
+    puts "lib/fm.log.js:"
+    puts "    rake updatescripts[lib/fm.log]"
 
-  if easel_script_dir == script_dir then
+  elsif easel_script_dir == script_dir then
     puts "Not gonna do it. easel directory and scripts directory are the same"
   else
     case args.which
     when "scripts"
       copy_files(easel_script_dir, script_dir)
     when "lib"
+      copy_files(File.join(easel_script_dir,"lib"), lib_dir)
+    when "scripts_lib"
+      copy_files(easel_script_dir, script_dir)
       copy_files(File.join(easel_script_dir,"lib"), lib_dir)
     else
       base_script = args.which.sub(".js", "") + ".js"
@@ -118,22 +129,42 @@ task :updatescripts, [:which] => [easel_script_dir, lib_dir] do |t, args|
 
 end
 
-# desc "Copies files listed in scripts array to lib dir if not already there"
-# task :addscripts => [easel_script_dir, lib_dir] do
-#   if easel_script_dir == script_dir then
-#     puts "Not gonna do it. easel directory and scripts directory are the same"
-#   else
-#     scripts.each do |scr|
-#       easel_script = File.join( easel_script_dir, scr) + ".js"
-#       project_script = File.join( script_dir, scr ) + ".js"
-#       if File.exist?(easel_script) && !File.exist?(project_script) then
-#         cp( easel_script, project_script )
-#         puts "Copying #{scr} from easel to #{project_script}"
-#       end
-#     end
-#   end
-# end
+###
+desc "Adds js from easel dir only if not already in project dir: rake addscripts[all/scripts/lib]"
+task :addscripts, [:which] => [easel_script_dir, lib_dir] do |t, args|
+  scr = args.which
 
+  if scr.nil?
+    puts "Which script or directory do you want to add?"
+  elsif easel_script_dir == script_dir then
+    puts "Not gonna do it. easel and scripts directory are the same"
+  else
+    case scr
+    when "all"
+      add_files(easel_script_dir, script_dir)
+      add_files(File.join(easel_script_dir,"lib"), script_dir)
+    when "scripts"
+      add_files(easel_script_dir, script_dir)
+    when "lib"
+      add_files(File.join(easel_script_dir,"lib"), script_dir)
+    else
+      base_script = scr.sub(".js", "") + ".js"
+      from_script = File.join( easel_script_dir, base_script )
+      to_script = File.join( script_dir, base_script )
+
+      if File.exist?(from_script) && !File.exist?(to_script) then
+        cp( from_script, to_script )
+        puts "Added #{scr} from easel to #{to_script}"
+      else
+        msg = File.exist?(from_script) ? "Script already exists in #{to_script}" : "Can't find #{from_script}"
+        puts "Not added: #{msg}"
+      end
+    end
+
+  end
+end
+
+###
 desc "Updates a particular repo: rake updaterepo[reponame]"
 task :updaterepo, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
   rep = args.repo
@@ -151,6 +182,7 @@ task :updaterepo, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
   end
 end
 
+###
 desc "Clones repos if necessary; otherwise pulls latest"
 task :clonepull, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
   args.with_defaults(:repo => "all", :author => nil)
@@ -182,7 +214,7 @@ task :clonepull, [:repo, :author] => [repo_dir, lib_dir] do |t, args|
 
 end
 
-
+###
 desc "Updates QUnit and sets up test files in a test directory"
 task :test do
 
@@ -200,6 +232,7 @@ task :test do
   touch( File.join(script_test, "tests.js") )
 end
 
+###
 desc "Updates jQuery core to latest stable release"
 task :updatejquery => [lib_dir] do
   jq_latest = File.join( lib_dir, "jquery-latest.js" )
@@ -222,20 +255,24 @@ task :updatejquery => [lib_dir] do
 
 end
 
+
 task :default => "all"
 
-desc "Sets up scripts "
+###
+desc "Sets up site with JS files/plugins/repos and cleans up after itself"
 task :all => [:setup] do
   Rake::Task[:clean].invoke
   puts "Everything in its right place."
 end
 
-desc "Sets up site with JS files/plugins and test dir"
+###
+desc "Sets up site with JS files/plugins/repos"
 task :setup do
   Rake::Task[:update].invoke("all")
   puts "JS setup complete!"
 end
 
+###
 desc "Removes cloned repos"
 task :clean do
   puts "Removing repo directory: #{repo_dir}..."
@@ -243,20 +280,33 @@ task :clean do
 
   puts "Removing temporary qunit directory..."
   rm_rf qunit_dir
+  puts "All clean!"
 end
 
-desc "List as many directories as I can think of"
-task :listdirs do
-  puts "config_dir  #{config_dir}"
-  puts "repo_dir  #{repo_dir}"
-  puts "build_dir  #{build_dir}"
-  puts "test_dir   #{test_dir}"
-  puts "qunit_dir   #{qunit_dir}"
-  puts "funcunit_dir  #{funcunit_dir}"
-  puts "script_dir  #{script_dir}"
-  puts "lib_dir  #{lib_dir}"
-  puts "easel_script_dir  #{easel_script_dir}"
+###
+desc "Removes cloned repos and lib directory"
+task :purge do
+  sure = ask("Are you sure you want to remove cloned repos and\n #{lib_dir}?\n[y/N]")
+
+  if sure == "y" then
+    puts "Removing repo directory: #{repo_dir}..."
+    rm_rf repo_dir
+
+    puts "Removing temporary qunit directory..."
+    rm_rf qunit_dir
+
+    puts "Removing repo directory: #{lib_dir}..."
+    rm_rf lib_dir
+
+    puts "All purged!"
+  else
+    puts "Aborted purge. Everything intact."
+  end
+
 end
+
+
+##### FUNCTIONS #####
 
 # copy .js files from one dir to another
 def copy_files(from_dir, to_dir)
@@ -269,6 +319,23 @@ def copy_files(from_dir, to_dir)
   end
 end
 
+# copy .js files to project dirs only if not already there
+def add_files(from_dir, to_dir)
+  if to_dir.nil? then
+    puts "Sorry"
+  else
+    FileList["#{from_dir}/*.js"].each do |fl|
+      add_file = File.join( to_dir, File.basename(fl) )
+      if File.exist?( add_file )
+        puts "Not added (file exists): #{add_file}"
+      else
+        cp( fl, add_file )
+        puts "Added #{add_file}"
+      end
+    end
+  end
+end
+
 # copy repos from repos dir to lib dir
 def copy_repo(from_dir, to_dir)
   from_base_dir = File.basename(from_dir)
@@ -278,11 +345,26 @@ def copy_repo(from_dir, to_dir)
     mkdir_p to_repo_dir
 
     if from_base_dir == 'jquery-ui' then
+      # run jQuery UI's ant script without minifying or creating zip
+      sh "cd #{from_dir}/build && ant clean copy concatenate"
+
+      # after initial build, create temporary dirs to trick ant
       ui_dist_dir = File.join(from_dir, "build/dist")
-      unless File.exist?( ui_dist_dir )
-        sh "cd #{from_dir}/build && ant"
-      end
-      FileList["#{ui_dist_dir}/*"].exclude(/\.zip$/).each do |fl|
+      ui_deploy_dir = FileList["#{ui_dist_dir}/*"].exclude(/\.zip$/)
+      ui_deploy_dir_s = ui_deploy_dir.to_s()
+
+      mkdir_p File.join(ui_deploy_dir_s, "ui", "minified")
+      mkdir_p File.join(ui_deploy_dir_s, "ui-headered")
+      mkdir_p File.join(ui_deploy_dir_s, "themes", "base","minified")
+
+      # finish ant build process
+      sh "cd #{from_dir}/build && ant replace-version prepend-header"
+
+      #remove temp dirs
+      rm_rf File.join(ui_deploy_dir_s, "ui", "minified")
+      rm_rf File.join(ui_deploy_dir_s, "themes", "base","minified")
+
+      ui_deploy_dir.each do |fl|
         cp_r( File.join("#{fl}", "themes"), File.join("#{to_repo_dir}", "themes") )
         cp_r( File.join("#{fl}", "ui"), File.join("#{to_repo_dir}", "ui") )
       end
@@ -315,7 +397,21 @@ def clone_or_pull( cp_repo, github_author, dir)
   end
 end
 
+# get value from standard input
+# usage: sure = ask('Are you sure you want to do that?')
+def ask( message )
+  print message + " "
+  STDIN.gets.chomp
+end
+
+
+
+
 # file dependencies
+file script_dir do
+  mkdir_p script_dir
+end
+
 file lib_dir do
   mkdir_p lib_dir
 end
