@@ -1,22 +1,17 @@
 /** =set up addthis configuration
 ************************************************************/
-// var addthis_config = {
-//   ui_use_css: false,
-//   username: 'steelcasestore',
-//   data_track_clickback: true,
-//   // ui_cobrand: 'Steelcase Store',
-//   services_compact: 'print,email,favorites,facebook,twitter,myspace,google,digg,live,delicious'
-// };
-// var addthis_share = {
-//   templates: {
-//     twitter: '{{title}}: {{url}}'
-//   }
-// };
+
+var FM = FM || {};
 
 // global _gaq array
 var _gaq = [
   ['_setAccount', FM.siteId],
   // add site-specific parameters here.
+  // ['_setDomainName', 'none'],
+  // ['_setAllowLinker', true],
+  // ['_setAllowHash', false],
+
+  // finish up
   ['_trackPageview']
 ];
 
@@ -26,6 +21,19 @@ if (FM.searchWords) {
 
 } else {
   // this is needed for addThis tracking:
+
+  // var addthis_config = {
+  //   ui_use_css: false,
+  //   username: 'steelcasestore',
+  //   data_track_clickback: true,
+  //   services_compact: 'print,email,favorites,facebook,twitter,myspace,google,digg,live,delicious'
+  // };
+  // var addthis_share = {
+  //   templates: {
+  //     twitter: '{{title}}: {{url}}'
+  //   }
+  // };
+
   // var pageTracker = {};
   // _gaq.push(function() {
   //    pageTracker = _gat._getTracker(FM.siteId);
@@ -47,7 +55,7 @@ if (FM.searchWords) {
       };
 
   if (!FM.siteId || FM.siteId == 'XXXXXX') {
-    FM.log('Google Analytics account not set.');
+    FM.log && FM.log('Google Analytics account not set.');
     return;
   }
 

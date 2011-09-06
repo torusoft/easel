@@ -389,7 +389,7 @@ $default-box-flex-group: 1 !default;
 
 // mixin which takes an int argument for flexible grouping
 @mixin box-flex-group(
-  $group: $default-box-flex-group
+  $flex: $default-box-flex-group
 ) {
   -moz-box-flex-group: $flex;
   -webkit-box-flex-group: $flex;
