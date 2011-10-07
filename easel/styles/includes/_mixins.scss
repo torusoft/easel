@@ -30,6 +30,7 @@
   vertical-align: middle;
   .ie6 &,
   .ie7 & {
+    *zoom: 1;
     display: inline;
     vertical-align: auto;
   }
