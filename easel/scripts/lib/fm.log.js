@@ -19,13 +19,12 @@ var FM = FM || {};
   };
 
   // override defaults with props set "globally" on the FM object.
-  if (FM.extend) {
-    FM = FM.extend(defaults, FM);
-  } else {
-    FM.debug = defaults.debug;
-    FM.console = defaults.console;
+  for (var d in defaults) {
+    if (!FM[d]) {
+      FM[d] = defaults[d];
+    }
   }
-
+  
   if ( typeof cons === 'undefined' ) {
     for ( var c = 0, ct = FM.console.types, cl = ct.length; c < cl; c++ ) {
       FM[ ct[c] ] = function() {};
@@ -53,17 +52,22 @@ var FM = FM || {};
           var fml = doc.getElementById('FM-log'),
               fmlogdiv = doc.createElement('div'),
               fmlogmsg = doc.createTextNode( args.join(' ') ),
-              b = doc.getElementsByTagName('body')[0];
+              b = doc.getElementsByTagName('body')[0],
+              styles = {
+                width:  (wwidth-20)+'px',
+                position: 'absolute',
+                left: '0px',
+                bottom: '0px',
+                padding: '10px',
+                backgroundColor: '#ffffcc'
+              };
 
           if ( !fml ) {
             fml = doc.createElement('div');
             fml.setAttribute('id', 'FM-log');
-            fml.style.width =  (wwidth-20)+'px';
-            fml.style.position = 'absolute';
-            fml.style.left = '0px';
-            fml.style.bottom = '0px';
-            fml.style.padding = '10px';
-            fml.style.backgroundColor = '#ffffcc';
+            for (var st in styles) {
+              fml.style[st] = styles[st];
+            }
             docel.insertBefore(fml, b);
 
             var btn = doc.createElement('button'),
