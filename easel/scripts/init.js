@@ -1,27 +1,16 @@
 var FM = FM || {};
 
-(function(window, q, arrProto, $L) {
+(function(window, q, arrProto) {
 
   // variables to be used within this init function
 
-  var min = '/tools/min/index.php?g=',
+  var bust, scr, doQueue,
+      min = '/tools/min/index.php?g=',
       script = '/assets/scripts/',
       lib = '/assets/scripts/lib/',
       img = '/assets/styles/images/',
       swf = '/assets/styles/swf/',
-      bust, scr,
-      timeStamp = +new Date(),
-      doQueue = function(item) {
-        if (!item ) {
-          $L = $L.wait();
-
-        } else if ( typeof item == 'function' ) {
-          $L = $L.wait(item);
-
-        } else {
-          $L = $L.script(item);
-        }
-      };
+      timeStamp = +new Date();
 
   /** SCRIPT LOADING
    ** scripts can be functions, strings, or arrays. Usually arrays
@@ -32,24 +21,15 @@ var FM = FM || {};
   ************************************************************/
 
   var scripts = {
-
     prepend: [
-      min + 'jq',
-      min + 'js',
-      min + 'box-and-cycle'
 
     ],
     append: [
-      min + 'lastjs' // lib + 'search.js', lib + 'default.js'
-    ],
 
-    'p-filters': [
-      min + 'filters' // script + 'templates.js', script + 'filter-sort.js'
     ],
     'p-case-detail': [
       lib + 'jquery.masonry.min.js'
     ]
-
   };
 
   /** =build the script queue for LABjs
@@ -59,32 +39,46 @@ var FM = FM || {};
     bust = timeStamp;
   }
 
-  $L.setGlobalDefaults({
-    AlwaysPreserveOrder: true,
-    AllowDuplicates: false
-  });
+  if (window.$LAB) {
+    doQueue = function(item) {
 
-  // FM.bodyClass always includes 'prepend' at index 0 and 'append' at length-1
-  for ( var i=0, bc = FM.bodyClass, bcl = FM.bodyClass.length; i < bcl; i++ ) {
-    scr = scripts[ bc[i] ];
-    if (scr) {
-      if (bust && typeof scr !== 'string') {
-        for ( var b=0, bl = scr.length; b < bl; b++) {
-          scr[b] += (scr[b].indexOf('?') === -1 ? '?' : '&') + bust;
-        }
+      if (!item ) {
+        $LAB = $LAB.wait();
+
+      } else if ( typeof item == 'function' ) {
+        $LAB = $LAB.wait(item);
+
+      } else {
+        $LAB = $LAB.script(item);
       }
-      doQueue(scr);
+    };
+
+    $LAB.setGlobalDefaults({
+      AlwaysPreserveOrder: true,
+      AllowDuplicates: false
+    });
+
+    // FM.bodyClass always includes 'prepend' at index 0 and 'append' at length-1
+    for ( var i=0, bc = FM.bodyClass, bcl = FM.bodyClass.length; i < bcl; i++ ) {
+      scr = scripts[ bc[i] ];
+      if (scr) {
+        if (bust && typeof scr !== 'string') {
+          for ( var b=0, bl = scr.length; b < bl; b++) {
+            scr[b] += (scr[b].indexOf('?') === -1 ? '?' : '&') + bust;
+          }
+        }
+        doQueue(scr);
+      }
+    }
+
+    // other scripts that may have been added to FM.scriptQueue
+    // these could be one-off functions or a path to some 3rd-party script
+    if (q && q.length) {
+      for ( var j = 0, ql = q.length; j < ql; j++ ) {
+        doQueue( q[j] );
+      }
     }
   }
-
-  // other scripts that may have been added to FM.scriptQueue
-  // these could be one-off functions or a path to some 3rd-party script
-  if (q && q.length) {
-    for ( var j = 0, ql = q.length; j < ql; j++ ) {
-      doQueue( q[j] );
-    }
-  }
-
 
   /** =utility function to merge objects
   ************************************************************/
@@ -108,7 +102,6 @@ var FM = FM || {};
 
   /** =Namespace variables to be exposed to other files/functions
   ************************************************************/
-
   FM.extend({
     timeStamp: timeStamp,
     current: (function() {
@@ -146,5 +139,5 @@ var FM = FM || {};
     scripts: scripts
   });
 
-})(this, FM.scriptQueue, Array.prototype, $LAB);
+})(this, FM.scriptQueue, Array.prototype);
 
