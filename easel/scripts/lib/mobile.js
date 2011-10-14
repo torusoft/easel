@@ -29,6 +29,68 @@
 
 }(document);
 
+// Update viewport orientation
+// http://menacingcloud.com/?c=orientationScreenWidth
+//-----------------------------
+$.getOrientation = function() {
+
+    var orientation = window.orientation;
+
+    if (orientation === undefined) {
+      // No JavaScript orientation support. Work it out.
+      if ( document.documentElement.clientWidth > document.documentElement.clientHeight ) {
+        orientation = 'landscape';
+      } else {
+        orientation = 'portrait';
+      }
+    } else if (orientation === 0 || orientation === 180) {
+       orientation = 'portrait';
+    } else {
+      orientation = 'landscape';
+    }
+    return orientation;
+    
+
+};
+
+// Get current scale
+// http://menacingcloud.com/?c=viewportScale
+//-------------------
+$.getScale = function() {
+  // Get viewport width
+  var screenWidth, viewportScale,
+      viewportWidth = document.documentElement.clientWidth,
+      orientation = $.getOrientation();
+
+  // Abort. Screen width is greater than the viewport width (not fullscreen).
+  if(screen.width > viewportWidth) {
+    // console.log('Aborted viewport scale measurement. Screen width > viewport width');
+    return;
+  }
+
+  // Get the orientation corrected screen width
+  screenWidth = screen.width;
+
+  if (orientation === 'portrait') {
+    // Take smaller of the two dimensions
+    if (screen.width > screen.height) {
+      screenWidth = screen.height;
+    }
+
+  } else if (screen.width < screen.height) {
+    // Take larger of the two dimensions
+      screenWidth = screen.height;
+    }
+
+  }
+
+  // Calculate viewport scale
+  var pageScale = viewportWidth / window.innerWidth;
+  var scaleRatio = viewportWidth / screenWidth;
+
+  return pageScale / scaleRatio;
+
+};
 /*
  * jSwipe - jQuery Plugin
  * http://plugins.jquery.com/project/swipe

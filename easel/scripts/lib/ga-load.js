@@ -1,5 +1,6 @@
 /** =set up addthis configuration
 ************************************************************/
+
 var FM = FM || {};
 
 // global _gaq array
@@ -9,6 +10,7 @@ var _gaq = [
   // ['_setDomainName', 'none'],
   // ['_setAllowLinker', true],
   // ['_setAllowHash', false],
+
   // finish up
   ['_trackPageview']
 ];
