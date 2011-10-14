@@ -9,6 +9,11 @@ prefix = File.dirname( __FILE__ )
 easel_dir = 'submodules/easel_framework'
 script_dir = 'sites/website/public/assets/scripts'
 
+# extras
+extras = [
+  "min"
+]
+
 # github repos
 repos = { "cycle" => "malsup",
           # "jquery-ui" => "jquery",
@@ -27,14 +32,16 @@ repos = { "cycle" => "malsup",
 
 # ^^^^^^ USER CONFIGURATION ^^^^^^^
 
+
 # Directory variables
 lib_dir = 'lib'
 # Different scripts and lib directories can be set by
-# setting DIR and/or LIB before calling rake
+# setting DIR and/or LIB when calling rake
 script_dir = ENV['DIR'] || script_dir
+scr_dir    = script_dir
 script_dir = File.join( prefix, script_dir )
-lib_dir = ENV['LIB'] || lib_dir
-lib_dir = File.join( script_dir, lib_dir )
+lib_dir    = ENV['LIB'] || lib_dir
+lib_dir    = File.join( script_dir, lib_dir )
 
 easel_script_dir = File.join( prefix, easel_dir, 'easel/scripts' )
 
@@ -47,11 +54,83 @@ qunit_dir    = File.join( test_dir, "qunit" )
 funcunit_dir = File.join( test_dir, "funcunit")
 qunit        = File.join( qunit_dir, "qunit", "qunit.js" )
 
+dirhash = {
+  scr_dir => "#{scr_dir}",
+  script_dir => "#{script_dir}",
+  lib_dir => "#{lib_dir}",
+  config_dir => "#{config_dir}",
+  repo_dir => "#{repo_dir}",
+  build_dir => "#{build_dir}",
+  test_dir => "#{test_dir}",
+  qunit_dir => "#{qunit_dir}",
+  funcunit_dir => "#{funcunit_dir}"
+}
+
+yuimin = File.join( "#{build_dir}", "yuicompressor-2.4.2.jar")
+
 # Turn off output other than needed from `sh` and file commands
 verbose(false)
 
-#### Tasks ####
+# LOAD extras
+# extras.each do |fl|
+#   require File.join( easel_dir, "config/rake/", "#{fl}.rb")
+# end
 
+
+###############
+#### Tasks ####
+###############
+
+task :default => "all"
+
+###
+desc "Sets up site with JS files/plugins/repos and cleans up after itself"
+task :all => [:setup] do
+  Rake::Task[:clean].invoke
+  puts "Everything in its right place."
+end
+
+###
+desc "Minifies js file - rake minfile[file.js[, altScriptDir]]"
+task :minfile, [:file, :dir] => [scr_dir] do |t, args|
+  args.with_defaults(:file => nil, :dir => scr_dir)
+  if args.file.nil? then
+    puts "Pick a file, dude."
+    exit
+  end
+
+  dir = File.join(prefix, "#{args.dir}")
+  mindir = dir
+
+  minbase = ask("Specify a subdirectory for the minified file? ... [subdir/n]")
+  minbase ||= "n"
+
+  if (minbase != "n") then
+    mindir = File.join(dir, "#{minbase}")
+    mkdir_p "#{mindir}"
+  end
+
+  min_file(dir, mindir, args.file, yuimin)
+
+end
+
+###
+desc "Minifies all js files within a given directory - rake mindir[[altScriptDir]]"
+task :mindir, [:dir] => [scr_dir] do |t, args|
+  dir = File.join(prefix, "#{args.dir}")
+  mindir = dir
+
+  minbase = ask("Specify a subdirectory for the minified file? ... [subdir/n]")
+  minbase ||= "n"
+
+  if (minbase != "n") then
+    mindir = File.join(dir, "#{minbase}")
+    mkdir_p "#{mindir}"
+  end
+
+  min_dir(dir, mindir, yuimin)
+
+end
 ###
 desc "Updates js from GitHub/lib - rake update[lib/jquery/all/[reponame],[?repoauthor]"
 task :update, [:which, :auth] => [repo_dir, script_dir, lib_dir] do |t, args|
@@ -255,16 +334,6 @@ task :updatejquery => [lib_dir] do
 
 end
 
-
-task :default => "all"
-
-###
-desc "Sets up site with JS files/plugins/repos and cleans up after itself"
-task :all => [:setup] do
-  Rake::Task[:clean].invoke
-  puts "Everything in its right place."
-end
-
 ###
 desc "Sets up site with JS files/plugins/repos"
 task :setup do
@@ -295,7 +364,7 @@ task :purge do
     puts "Removing temporary qunit directory..."
     rm_rf qunit_dir
 
-    puts "Removing repo directory: #{lib_dir}..."
+    puts "Removing lib directory: #{lib_dir}..."
     rm_rf lib_dir
 
     puts "All purged!"
@@ -305,8 +374,9 @@ task :purge do
 
 end
 
-
+#####################
 ##### FUNCTIONS #####
+#####################
 
 # copy .js files from one dir to another
 def copy_files(from_dir, to_dir)
@@ -404,7 +474,67 @@ def ask( message )
   STDIN.gets.chomp
 end
 
+######
+# min functions
+######
 
+def min_file (dir, mindir, fl, minifier)
+  puts "Minifying js..."
+  rake_dir = File.dirname( __FILE__ )
+
+  minifier ||=  File.join( rake_dir, "config/build/yuicompressor-2.4.2.jar" )
+
+  js_min = File.join( rake_dir, dir, File.basename(fl, '.js') + ".min.js" )
+
+  # google compiler:
+  if /google/ =~ minifier then
+    sh "#{minifier} --js #{fl} --warning_level QUIET --js_output_file #{js_min}"
+  else
+    # yuicompressor:
+    sh "java -jar #{minifier} --type js --preserve-semi -o #{js_min} #{fl}"
+  end
+
+  min = File.read( js_min )
+  File.open(js_min, 'w') do |f|
+    f.write min
+  end
+
+  puts js_min
+end
+
+def min_dir (dir, mindir, minifier)
+  all_file = ''
+
+  js_files = FileList["#{dir}/*.js"].exclude(/.*\.(min|tmp|all)\.js$/)
+
+  js_files.each do |fl|
+    min_file(dir, mindir, fl, minifier)
+  end
+
+  if (js_files.length > 1) then
+    concat_base = ask("Concatenate .js files to... [filename.js/n]:\n")
+    if (concat_base != 'n') then
+      concat_base ||= "all.js"
+
+      concat_file = File.join( "#{dir}", "#{concat_base}" )
+      puts "Concatenating #{js_files.length} files..."
+      concat_min = File.join( "#{mindir}", File.basename(concat_file, '.js') + '.min.js' )
+
+      File.open(concat_file, 'w') do |f|
+        f.write cat(js_files)
+      end
+      sh "#{minifier} --js #{concat_file} --warning_level QUIET --js_output_file #{concat_min}"
+
+      # all_contents_min = File.read(concat_min)
+      # File.open(concat_min, 'w') do |f|
+      #   f.write intro_comment
+      #   f.write all_contents_min
+      # end
+      puts "Minified to #{concat_min}"
+    end
+  end
+
+end
 
 
 # file dependencies
