@@ -1,12 +1,17 @@
+
 (function(win, doc) {
 
 var h = doc.getElementsByTagName('head')[0],
     m = Math;
 
-// a couple utility functions
+// turn off jQuery animations on touch devices unless FM.fxOff == false
+if (FM.touch && typeof jQuery != 'undefined') {
+  jQuery.fx.off = mobileFxOff;
+}
 
+// a few utility functions
 FM.extend({
-  
+
   //=determine whether item "el" is in array "arr"
   inArray: function(el, arr) {
     for (var i = arr.length - 1; i >= 0; i--){
@@ -27,6 +32,14 @@ FM.extend({
     return tally;
   },
 
+  //=convert an object to a serialized string
+  serialize: function(obj) {
+    var serial = [];
+    for (var el in obj) {
+      serial.push( encodeURIComponent(el) + '=' + encodeURIComponent(obj[el]) );
+    }
+    return serial.join('&');
+  },
   //=insert a CSS <link> element in the head.
   addLink: function(params) {
 
@@ -51,6 +64,27 @@ FM.extend({
 
     lnk = null;
 
+  },
+  callMethod: function(obj, meth, args, ctx) {
+
+    // if the object is excluded, we'll assume that FM is the obj.
+    // so, we need to shift all the other arguments.
+    if (typeof obj == 'string') {
+      ctx = args || FM;
+
+      // args needs to be an array, even if we're only passing a single argument
+      args = meth || [];
+      meth = obj;
+      obj = FM;
+    } else {
+      args = args || [];
+      ctx = ctx || FM;
+    }
+
+    if (obj[meth]) {
+      return obj[meth].apply(ctx, args);
+    }
+    return false;
   }
 });
 
@@ -68,7 +102,7 @@ FM.extend({
     listenerType = 'attachEvent';
     prefix = 'on';
   }
-  
+
   FM.addEvent = listenerType ? function(el, type, fn) {
     el[ listenerType ](prefix + type, fn, false);
   } : function() {};
@@ -78,6 +112,11 @@ FM.extend({
   FM.addEvent(window, 'load', function() {
     document.body.className += ' js-loaded';
     FM.windowLoaded = true;
+
+    if (FM.touch && typeof jQuery != 'undefined') {
+      jQuery.fx.off = FM.mobileFxOff;
+    }
+
     var _listener = FM.addEvent;
 
     FM.addEvent = function(el, type, fn) {
@@ -104,5 +143,5 @@ FM.extend({
     fm[e] = FM[e];
   }
   FM = fm;
-  
+
 })(window);

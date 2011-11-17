@@ -13,7 +13,7 @@
 
     if (extension || external) {
       category = extension ? extension.toUpperCase() + ' Downloads' : 'External Links';
-      action = extension ? this.href.match(/\/([-_\w\.]+)$/)[1] : this.href;
+      action = extension ? this.href.match(/\/([\-_\w\.]+)$/)[1] : this.href;
 
       _gaq.push(['_trackEvent', category, action, 'from: ' + win.location.pathname]);
     }
