@@ -40,6 +40,32 @@ FM.extend({
     }
     return serial.join('&');
   },
+
+  //=convert a serialized string to an object
+  unserialize: function(string) {
+    string = string || window.location.search;
+    string = string.replace(/^\?/,'');
+
+    var key, val,
+        obj = {},
+        params = [],
+        paramParts = [];
+
+    if (!string) {
+      return obj;
+    }
+
+    params = string.split(/&/);
+
+    for (var i=0, l = params.length; i < l; i++) {
+      paramParts = params[i].split('=');
+      key = decodeURIComponent( paramParts[0] );
+      val = paramParts.length == 2 ? decodeURIComponent(paramParts[1]) : true;
+      obj[ key ] = val;
+    }
+
+    return obj;
+  },
   //=insert a CSS <link> element in the head.
   addLink: function(params) {
 
