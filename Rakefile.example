@@ -323,8 +323,8 @@ task :updatejquery => [lib_dir] do
   sh "wget -O #{jq_latest} #{jq_url}"
   puts "copied jQuery core to #{jq_latest}"
 
-  v_latest = IO.readlines(jq_latest)[0..2].join()
-  v_latest = v_latest.scan(/ v(1.+)$/)
+  v_latest = IO.readlines(jq_latest)[0..4].join()
+  v_latest = v_latest.scan(/Library v(1.+)$/)
   jq_version = File.join( lib_dir, "jquery-#{v_latest}.js" )
 
   if !File.exist?( jq_version ) then

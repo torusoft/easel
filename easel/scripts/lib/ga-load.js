@@ -3,6 +3,13 @@
 
 var FM = FM || {};
 
+FM.siteId = FM.siteId || FM.googleAnalyticsKey || '';
+FM.trackPageview = FM.trackPageview || ['_trackPageview'];
+
+if ( FM.trackPageview.length == 1 && (/page not found/i).test(document.title) ) {
+  FM.trackPageview.push('/404/' + window.location.pathname.replace(/^\//,'') );
+}
+
 // global _gaq array
 var _gaq = [
   ['_setAccount', FM.siteId],
@@ -12,7 +19,7 @@ var _gaq = [
   // ['_setAllowHash', false],
 
   // finish up
-  ['_trackPageview']
+  FM.trackPageview
 ];
 
 if (FM.searchWords) {
