@@ -114,9 +114,9 @@ FM.extend({
   }
 });
 
-})(window, window.document);
+})(window, document);
 
-(function(window) {
+(function(window, doc) {
   /** =generic addEventListener
       makes for more reliable window.onload.
   ************************************************************/
@@ -136,7 +136,7 @@ FM.extend({
   // call addEvent on window load
   // redefine addEvent to call the function immediately if window is already loaded
   FM.addEvent(window, 'load', function() {
-    document.body.className += ' js-loaded';
+    doc.body.className += ' js-loaded';
     FM.windowLoaded = true;
 
     if (FM.touch && typeof jQuery != 'undefined') {
@@ -170,4 +170,4 @@ FM.extend({
   }
   FM = fm;
 
-})(window);
+})(window, document);
