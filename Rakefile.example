@@ -325,12 +325,13 @@ task :updatejquery => [lib_dir] do
 
   v_latest = IO.readlines(jq_latest)[0..4].join()
   v_latest = v_latest.scan(/Library v(1.+)$/)
-  jq_version = File.join( lib_dir, "jquery-#{v_latest}.js" )
+  jq_latest_file_name = "jquery-#{v_latest}.js"
+  jq_version = File.join( lib_dir, jq_latest_file_name )
 
   if !File.exist?( jq_version ) then
     cp( jq_latest, jq_version )
-  puts "******************* vv NOTICE vv ***********************\n"
-    puts "***** New jQuery file added to lib directory: jquery-#{v_latest}.js *****"
+    puts "******************* vv NOTICE vv ***********************\n"
+    puts "***** New jQuery file added to lib directory: #{jq_latest_file_name} *****"
   end
 
 end
