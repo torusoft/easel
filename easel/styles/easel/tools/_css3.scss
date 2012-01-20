@@ -211,12 +211,12 @@ $default-pie-for-ie9: false !default;
   $pie-for-ie7: $default-pie-for-ie7,
   $pie-for-ie8: $default-pie-for-ie8,
   $pie-for-ie9: $default-pie-for-ie9) {
-    
+
   @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
   @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
   @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
   @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: linear-gradient(90deg, $start, $end); } }
-    
+
   background: $end;
   background: -moz-linear-gradient(center top, $start 0%, $end 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
@@ -232,7 +232,7 @@ $default-pie-for-ie9: false !default;
   $column-rule-width: 0,
   $column-rule-color: $base-border-color,
   $column-rule-style: solid) {
-    
+
   @if $column-count {
     -moz-column-count: $column-count;
     -webkit-column-count: $column-count;
@@ -326,7 +326,7 @@ $default-transition-delay: false !default;
 // must be used for any of the other flexbox mixins to work properly
 @mixin display-box {
   display: -moz-box;
-  display: -webkit-box;  
+  display: -webkit-box;
   display: box;
 }
 
@@ -375,7 +375,7 @@ $default-box-flex-group: 1 !default;
   -moz-box-flex-group: $flex;
   -webkit-box-flex-group: $flex;
   box-flex-group: $flex;
-  
+
 }
 
 $default-box-ordinal-group: 1 !default;
@@ -407,7 +407,7 @@ $default-box-lines: single !default;
   -moz-box-lines: $lines;
   -webkit-box-lines: $lines;
   box-lines: $lines;
-  
+
 }
 
 // start, end, center, justify
@@ -418,5 +418,5 @@ $default-box-pack: start !default;
   $pack: unquote($pack);
   -moz-box-pack: $pack;
   -webkit-box-pack: $pack;
-  box-pack: $pack; 
+  box-pack: $pack;
 }
