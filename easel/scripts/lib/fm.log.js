@@ -1,7 +1,7 @@
 var FM = FM || {};
 (function(win, cons, doc, docel) {
 
-  
+
   /** =console logging
   ************************************************************/
   var defaults = {
@@ -19,23 +19,29 @@ var FM = FM || {};
   };
 
   // override defaults with props set "globally" on the FM object.
-  if (FM.extend) {
-    FM.extend(defaults, FM);  
-  } else {
-    FM.debug = defaults.debug;
-    FM.console = defaults.console;
+  for (var d in defaults) {
+    if (!FM[d]) {
+      FM[d] = defaults[d];
+    }
   }
-
+  
+  if ( typeof cons === 'undefined' ) {
+    for ( var c = 0, ct = FM.console.types, cl = ct.length; c < cl; c++ ) {
+      FM[ ct[c] ] = function() {};
+    }
+    return;
+  }
 /** =Utility function for logging.
-** Only works when FM.debug is true or "force" and when you are on dev site
+** Only works when FM.debug is "force" or when it's true and you are on dev site
 ************************************************************/
-  for (i=0, ctl = FM.console.types.length; i<ctl; i++) {
-    (function(ct) {  
+  for (var i=0, ctl = FM.console.types.length; i<ctl; i++) {
+    (function(ct) {
       var ctype = ct[i];
       FM[ctype] = function() {
 
-        if ( !FM.debug || !FM.console.devsite || !arguments.length) { return; }
-         ct = !cons ? 'logalt' : cons[ ctype ] && ctype || 'log';
+        if ( !FM.debug || (!FM.console.devsite && FM.debug !== 'force') || !arguments.length) { return; }
+
+        ctype = !cons ? 'logalt' : (ctype in cons) && ctype || 'log';
         var args = Array.prototype.slice.call( arguments );
 
         if (ctype == 'logalt' && FM.debug === 'force') {
@@ -46,17 +52,22 @@ var FM = FM || {};
           var fml = doc.getElementById('FM-log'),
               fmlogdiv = doc.createElement('div'),
               fmlogmsg = doc.createTextNode( args.join(' ') ),
-              b = doc.getElementsByTagName('body')[0];
+              b = doc.getElementsByTagName('body')[0],
+              styles = {
+                width:  (wwidth-20)+'px',
+                position: 'absolute',
+                left: '0px',
+                bottom: '0px',
+                padding: '10px',
+                backgroundColor: '#ffffcc'
+              };
 
           if ( !fml ) {
             fml = doc.createElement('div');
             fml.setAttribute('id', 'FM-log');
-            fml.style.width =  (wwidth-20)+'px';
-            fml.style.position = 'absolute';
-            fml.style.left = '0px';
-            fml.style.bottom = '0px';
-            fml.style.padding = '10px';
-            fml.style.backgroundColor = '#ffffcc';
+            for (var st in styles) {
+              fml.style[st] = styles[st];
+            }
             docel.insertBefore(fml, b);
 
             var btn = doc.createElement('button'),
@@ -69,7 +80,7 @@ var FM = FM || {};
               var attrs = ['style', 'id', 'className', 'onclick'];
               for (var i=0, il = attrs.length; i < il; i++) {
                 if (attrs[i] in fml ) {
-                  delete fml[attrs[i]];
+                  fml[attrs[i]] = null;
                 }
               }
               docel.removeChild(fml);

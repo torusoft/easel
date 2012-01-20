@@ -1,0 +1,171 @@
+//** =clearfix
+//    j.mp/bestclearfix
+//**********************************************************/
+
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &:after {
+    clear: both;
+  }
+  & {
+    zoom: 1; // IE < 8
+  }
+}
+
+//** =cross-browser inline-block
+//**********************************************************/
+
+
+@mixin inline-block {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  .ie6 &,
+  .ie7 & {
+    *zoom: 1;
+    display: inline;
+    vertical-align: auto;
+  }
+}
+
+//** =float fix for ie6
+//**********************************************************/
+
+
+@mixin float($dir: left) {
+  float: $dir;
+  .ie6 & {
+    display: inline;
+  }
+}
+
+//** =min height/width for ie6
+//**********************************************************/
+
+
+@mixin min-height($h: auto) {
+  min-height: $h;
+  .ie6 & {
+    height: $h;
+  }
+}
+@mixin min-width($w: auto) {
+  min-width: $w;
+  .ie6 & {
+    width: $w;
+  }
+}
+
+//** =image replacement
+//**********************************************************/
+
+
+@mixin replace {
+  background-repeat: no-repeat;
+  text-indent: -999em;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  direction: ltr;
+  font-size: 1px;
+}
+
+//** =hiding/showing
+//**********************************************************/
+
+
+@mixin js-hide {
+  .js & {
+    display: none;
+  }
+}
+@mixin js-show {
+  display: none;
+  .js & {
+    display: block;
+  }
+}
+@mixin hide-accessibly($dir: 'left') {
+  position: absolute;
+  #{$dir}: -9999em;
+}
+@mixin js-hide-accessibly() {
+  .js & {
+    @include hide-accessibly;
+  }
+}
+
+//** =bottom margin block
+//**********************************************************/
+
+
+@mixin block(
+  $margin: $default-measure,
+  $display: 'block') {
+  display: unquote($display);
+  margin-bottom: $margin;
+}
+
+//** =tabs
+//**********************************************************/
+
+
+@mixin tabbed-content(
+  $nav-selector: '.tabs-nav',
+  $panel-selector: '.tabs-panel',
+  $hide-panel-selector: '.ui-tabs-hide'
+) {
+  #{$nav-selector} {
+    @include tabs-nav;
+  }
+  .js & #{$panel-selector} {
+    display: none;
+  }
+  .js-loaded & #{$panel-selector} {
+    display: block;
+  }
+  .js & #{$hide-panel-selector} {
+    display: none;
+  }
+}
+@mixin tabs-nav {
+  @include floated-list;
+}
+
+//** =heading
+//**********************************************************/
+
+
+@mixin heading(
+  $font-size: 14px,
+  $font-weight: 700,
+  $color: gray(80%),
+  $line-height: 1.2
+) {
+  @if $color {
+    color: $color;
+  }
+  @if $line-height {
+    line-height: $line-height;
+  }
+  @if $font-size {
+    font-size: $font-size;
+  }
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
+  @if $font-size < 13px {
+    letter-spacing: .025em;
+  }
+  @else if $font-size > 19px {
+    letter-spacing: -.025em;
+  }
+}

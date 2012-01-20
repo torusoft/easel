@@ -1,0 +1,41 @@
+@mixin link-sprite(
+  $left: 0,
+  $unit: 100px,
+  $selector: false,
+  $offset-y: 0,
+  $hover: true,
+  $active: true
+) {
+  @if $selector {
+    #{$selector} {
+      background-repeat: no-repeat;
+      background-position: $left $offset-y;
+    }
+    @if $hover {
+      &:hover #{$selector},
+      &:focus #{$selector} {
+        background-position: $left (($unit * -1) + $offset-y);
+      }
+    }
+    @if $active {
+      &:active #{$selector}{
+        background-position: $left (($unit * 2 * -1) + $offset-y);
+      }
+    }
+  }
+  @else {
+    background-repeat: no-repeat;
+    background-position: $left $offset-y;
+    @if $hover {
+      &:hover,
+      &:focus {
+        background-position: $left (($unit * -1) + $offset-y);
+      }
+    }
+    @if $active {
+      &:active {
+        background-position: $left (($unit * 2 * -1) + $offset-y);
+      }
+    }
+  }
+}

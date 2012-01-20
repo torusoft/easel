@@ -1,11 +1,18 @@
-(function(doc, win) {
+
+(function(win, doc) {
 
 var h = doc.getElementsByTagName('head')[0],
     m = Math;
 
-// a couple utility functions
+// turn off jQuery animations on touch devices unless FM.fxOff == false
+if (FM.touch && typeof jQuery != 'undefined') {
+  jQuery.fx.off = mobileFxOff;
+}
 
+// a few utility functions
 FM.extend({
+
+  //=determine whether item "el" is in array "arr"
   inArray: function(el, arr) {
     for (var i = arr.length - 1; i >= 0; i--){
       if (arr[i] === el) {
@@ -14,8 +21,10 @@ FM.extend({
     }
     return false;
   },
+
+  //=add an array of numbers
   add: function(nums) {
-    var tally = FM.basePrice;
+    var tally = 0;
     for (var i = nums.length - 1; i >= 0; i--){
       tally += nums[i];
     }
@@ -23,8 +32,41 @@ FM.extend({
     return tally;
   },
 
-  /** =insert a CSS <link> element in the head.
-  ************************************************************/
+  //=convert an object to a serialized string
+  serialize: function(obj) {
+    var serial = [];
+    for (var el in obj) {
+      serial.push( encodeURIComponent(el) + '=' + encodeURIComponent(obj[el]) );
+    }
+    return serial.join('&');
+  },
+
+  //=convert a serialized string to an object
+  unserialize: function(string) {
+    string = string || window.location.search;
+    string = string.replace(/^\?/,'');
+
+    var key, val,
+        obj = {},
+        params = [],
+        paramParts = [];
+
+    if (!string) {
+      return obj;
+    }
+
+    params = string.split(/&/);
+
+    for (var i=0, l = params.length; i < l; i++) {
+      paramParts = params[i].split('=');
+      key = decodeURIComponent( paramParts[0] );
+      val = paramParts.length == 2 ? decodeURIComponent(paramParts[1]) : true;
+      obj[ key ] = val;
+    }
+
+    return obj;
+  },
+  //=insert a CSS <link> element in the head.
   addLink: function(params) {
 
     var opts = FM.extend({
@@ -49,137 +91,83 @@ FM.extend({
     lnk = null;
 
   },
+  callMethod: function(obj, meth, args, ctx) {
 
-  // GRID LIST
-  list: function(obj) {
-    if ( !(this instanceof FM.list) ) {
-      return new FM.list(obj);
-    }
+    // if the object is excluded, we'll assume that FM is the obj.
+    // so, we need to shift all the other arguments.
+    if (typeof obj == 'string') {
+      ctx = args || FM;
 
-    this.view = obj || (FM && FM.listData) || {};
-
-    return this;
-  }
-});
-
-/* list sorting USAGE:
-  1. Instantiate the list with the field name to sort by and the array
-      to be sorted:
-      var sortPeopleByName = FM.list('fullname', people);
-
-  2. run a sort algorithm on the created object -- .asc() or .desc() or .random():
-      var sortedPeople = sortPeopleByName.asc();
-
-  or, you can do steps 1 and 2 in one swell foop:
-      var sortedPeople = FM.list('fullname', people).asc();
-
-*/
-
-
-var sortMethods = {'asc': 1, 'desc': -1, 'random': 'random'},
-    randomize = function() {
-      return ( m.round( m.random() ) -0.5 ) * 2 ;
-    };
-
-FM.list.prototype = {
-  sorts: function(dir, orderby) {
-    dir = dir || 1;
-    // return this;
-    var sortKey = orderby, //this.field,
-        view = this.view;
-
-    if ( dir === 'random' ) {
-      view = view.sort(randomize);
-
-    } else if ( view[0] && view[0][sortKey] ) {
-
-      view = view.sort(function(a, b) {
-        return a[sortKey] >= b[sortKey] ? dir : -dir;
-      });
-
-    }
-    this.view = view;
-    return this;
-  }
-};
-
-for (var meth in sortMethods) {
-  (function(dir) {
-    FM.list.prototype[meth] = function(orderby) {
-      return FM.list.prototype.sorts.call(this, dir, orderby);
-    };
-  })(sortMethods[meth]);
-}
-
-// FILTER (actually just hides)
-FM.list.prototype.filter = function(filtered, limit) {
-
-  var hide,
-      visCount = 0,
-      view = this.view;
-  for (var i = 0, l = view.length; i < l; i++) {
-    hide = false;
-    for (var f in filtered) {
-      if ( f === 'year' ) {
-        hide = view[i].year_from > filtered.year.max || view[i].year_to < filtered.year.min;
-      } else {
-        hide = view[i].filters[f][ filtered[f] ] !== 'y';
-      }
-      if (hide) {
-        break;
-      }
-    }
-    
-    if (limit) {
-      visCount += !hide ? 1 : 0;
-      hide = visCount > 2 ? true : hide;
-    }
-
-    view[i].hide = hide;
-  }
-
-  this.view = view;
-  return this;
-
-};
-
-/** =generic addEventListener
-    used almost solely as more reliable window.onload
-    because of how LABjs loads stuff.
-************************************************************/
-
-var listener;
-
-if (typeof win.addEventListener === 'function') {
-  listener = function(el, type, fn) {
-    el.addEventListener(type, fn, false);
-  };
-} else if (typeof doc.attachEvent == 'function' || typeof doc.attachEvent == 'object') {
-
-  listener = function(el, type, fn) {
-    el.attachEvent('on' + type, fn);
-  };
-} else {
-  el['on' + type] = fn;
-
-}
-FM.addEvent = listener;
-
-// call addEvent on window load
-// redefine addEvent to call the function immediately if window is already loaded
-
-FM.addEvent(win, 'load', function() {
-
-  FM.windowLoaded = true;
-  var _listener = FM.addEvent;
-
-  FM.addEvent = function(el, type, fn) {
-    if (el == window && type === 'load') {
-      fn();
+      // args needs to be an array, even if we're only passing a single argument
+      args = meth || [];
+      meth = obj;
+      obj = FM;
     } else {
-      _listener(el, type, fn);
+      args = args || [];
+      ctx = ctx || FM;
     }
-  };
+
+    if (obj[meth]) {
+      return obj[meth].apply(ctx, args);
+    }
+    return false;
+  }
 });
 
-})(document, this);
+})(window, document);
+
+(function(window, doc) {
+  /** =generic addEventListener
+      makes for more reliable window.onload.
+  ************************************************************/
+  var listenerType, prefix = '';
+
+  if (typeof window.addEventListener === 'function') {
+    listenerType = 'addEventListener';
+  } else if (typeof doc.attachEvent == 'function' || typeof doc.attachEvent == 'object') {
+    listenerType = 'attachEvent';
+    prefix = 'on';
+  }
+
+  FM.addEvent = listenerType ? function(el, type, fn) {
+    el[ listenerType ](prefix + type, fn, false);
+  } : function() {};
+
+  // call addEvent on window load
+  // redefine addEvent to call the function immediately if window is already loaded
+  FM.addEvent(window, 'load', function() {
+    doc.body.className += ' js-loaded';
+    FM.windowLoaded = true;
+
+    if (FM.touch && typeof jQuery != 'undefined') {
+      jQuery.fx.off = FM.mobileFxOff;
+    }
+
+    var _listener = FM.addEvent;
+
+    FM.addEvent = function(el, type, fn) {
+      if (el == window && type === 'load') {
+        fn();
+      } else {
+        _listener(el, type, fn);
+      }
+    };
+  });
+
+  // Convert FM to FM() constructor function
+  var fm = function() {
+    if (!(this instanceof fm)) {
+      return new fm();
+    }
+    return this;
+  };
+
+  for (var e in FM) {
+    if (typeof FM[e] == 'function') {
+      fm.prototype[e] = FM[e];
+    }
+    fm[e] = FM[e];
+  }
+  FM = fm;
+
+})(window, document);
