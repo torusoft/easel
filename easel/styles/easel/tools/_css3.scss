@@ -169,19 +169,15 @@ $default-pie-for-ie9: false !default;
 */
 
 @mixin rgba(
-  $color, 
+  $color,
   $opacity,
-  $pie-for-ie6: $default-pie-for-ie6,
-  $pie-for-ie7: $default-pie-for-ie7,
-  $pie-for-ie8: $default-pie-for-ie8,
-  $pie-for-ie9: $default-pie-for-ie9) {
-    
-  @if $pie-for-ie6 { .ie6 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
-  @if $pie-for-ie7 { .ie7 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
-  @if $pie-for-ie8 { .ie8 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
-  @if $pie-for-ie9 { .ie9 & { @extend .pie; -pie-background: rgba($color, $opacity); } }
-  
-  background-color: $color;
+  $ie-filter: true) {
+  $rgba: rgba($color, $opacity);
+  @if $ie-filter and ($legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8) {
+    @include filter-gradient($rgba, $rgba);
+  } @else {
+    background-color: $color;
+  }
   background-color: rgba($color, $opacity);
 }
 
