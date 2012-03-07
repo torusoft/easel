@@ -184,7 +184,7 @@ $default-border-radius: 5px !default;
 //**********************************************************/
 
 
-@mixin rgba(
+@mixin rgba-background(
   $color,
   $opacity,
   $ie-filter: true
