@@ -6,11 +6,16 @@ var h = doc.getElementsByTagName('head')[0],
 
 // turn off jQuery animations on touch devices unless FM.fxOff == false
 if (FM.touch && typeof jQuery != 'undefined') {
-  jQuery.fx.off = mobileFxOff;
+  jQuery.fx.off = FM.mobileFxOff || false;
 }
 
 // a few utility functions
 FM.extend({
+
+  //=determine whether "arr" is a true array
+  isArray: function(arr) {
+    return typeof arr === 'object' && Object.prototype.toString.call(arr) === '[object Array]';
+  },
 
   //=determine whether item "el" is in array "arr"
   inArray: function(el, arr) {
@@ -33,12 +38,24 @@ FM.extend({
   },
 
   //=convert an object to a serialized string
-  serialize: function(obj) {
-    var serial = [];
-    for (var el in obj) {
-      serial.push( encodeURIComponent(el) + '=' + encodeURIComponent(obj[el]) );
+  serialize: function (obj) {
+    obj = obj || {};
+    var a = [],
+        s = '';
+    for (var key in obj) {
+      if ( obj.hasOwnProperty(key) ) {
+        if ( FM.isArray( obj[key] ) ) {
+          for (var i = 0, l = obj[key].length; i < l; i++) {
+            a.push(key + '=' + encodeURIComponent( obj[key][i]) );
+          }
+        } else {
+          a.push(key + '=' + encodeURIComponent( obj[key]) );
+        }
+      }
     }
-    return serial.join('&');
+    s = a.join('&');
+
+    return s;
   },
 
   //=convert a serialized string to an object
@@ -91,6 +108,19 @@ FM.extend({
     lnk = null;
 
   },
+
+  decrypt: function(str, salt) {
+    salt = salt ? salt : window.FM && FM.salt || '';
+    var desalt = new RegExp( salt );
+    str = typeof str == 'string' && str.replace(/^\s+|\s$/g, '').replace(desalt, '');
+
+    if (!str) { return ''; }
+
+    return str.replace(/[a-zA-Z]/g, function(c) {
+      return String.fromCharCode( (c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26 );
+    });
+  },
+
   callMethod: function(obj, meth, args, ctx) {
 
     // if the object is excluded, we'll assume that FM is the obj.
