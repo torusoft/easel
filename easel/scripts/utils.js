@@ -59,12 +59,14 @@ FM.extend({
   },
 
   //=convert a serialized string to an object
+  //=convert a serialized string to an object
   unserialize: function(string) {
     string = string || window.location.search;
     string = string.replace(/^\?/,'');
 
-    var key, val,
+    var key, keyParts, val,
         obj = {},
+        hasBrackets = /(.+)(\[\])$/,
         params = [],
         paramParts = [];
 
@@ -78,11 +80,22 @@ FM.extend({
       paramParts = params[i].split('=');
       key = decodeURIComponent( paramParts[0] );
       val = paramParts.length == 2 ? decodeURIComponent(paramParts[1]) : true;
-      obj[ key ] = val;
+
+      // if key ends with brackets, we're dealing with a checkbox Array
+      if ( hasBrackets.test( key ) ) {
+        // if this key isn't already a property, set its value to empty array
+        obj[ key ] = obj[ key ] || [];
+        // push the new value onto the array
+        obj[ key ].push( val );
+      // otherwise it's just a string
+      } else {
+        obj[ key ] = val;
+      }
     }
 
     return obj;
   },
+
   //=insert a CSS <link> element in the head.
   addLink: function(params) {
 
