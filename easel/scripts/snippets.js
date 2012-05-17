@@ -6,61 +6,40 @@
 *     (function($) {
 *       // code goes here
 *     })(jQuery);
+* BUT, you don't need to create a new ready/iife just for the snippet
 ************************************************************/
 
-
-/** =convert youtube links to fancyboxes
-* requires jquery.fancybox.js and jquery.fancybox.css
+/** =cachedAjax plugin
+* Requires utils.js ( for FM.serialize() )
 ************************************************************/
-
-// links to YouTube videos
-var $ytLinks = $('a[href*="youtube.com"]');
-if ($ytLinks.length) {
-  var $ytWrapper = $('<div class="ytwrapper"></div>').appendTo('body'),
-      ytIframes = '';
-
-
-  $ytLinks.each(function(index) {
-    var qsPart, qsParts,
-        $link = $(this),
-        id = getYoutubeId(this);
-
-    if (id) {
-      ytIframes += '<iframe id="' + id + '" width="560" height="349" src="http://www.youtube.com/embed/' + id + '?wmode=transparent" frameborder="0"></iframe>';
-      $link
-      .addClass('yt-link')
-      .attr('href', '#' + id)
-      .fancybox({width: 560, height: 349});;
-    }
-    if ( $link.find('img').length ) {
-      $link.prepend('<span class="play-icn"></span>');
-    }
-  });
-  $ytWrapper.append(ytIframes);
-
-}
-
-
-function getYoutubeId(link) {
-  var id = link.hash && link.hash.split('/').pop();
-  if (id) {
-    return id;
+$.cachedAjax = function( url, opts ) {
+  if ( $.isPlainObject( url) ) {
+    opts = url;
+    url = opts.url || location.pathname;
   }
-  var qsPart,
-      qsParts = link.search && link.search.slice(1).split(/&(?:amp;)?/);
+  opts = opts || {};
 
-  if (!qsParts.length) {
-    return '';
+  var nsCache = $.cachedAjax.caches[ url ] || {};
+  var thisRequest = 'request';
+
+  // if the request has data, we need to set cache key to url[data]
+  if (opts.data) {
+    thisRequest = $.isPlainObject(opts.data) ? FM.serialize(opts.data) : opts.data;
   }
-  for (var i = 0; i < qsParts.length; i++) {
-    qsPart = qsParts[i].split('=');
-    if (qsPart[0] == 'v') {
-      id = qsPart[1];
-      break;
-    }
+
+  if ( !nsCache[ thisRequest ] ) {
+    nsCache[ thisRequest ] = $.ajax( url, opts );
   }
-  return id || '';
-}
+
+  // reset the global cache
+  $.cachedAjax.caches[ url ] = nsCache;
+
+  return nsCache[ thisRequest ];
+};
+$.cachedAjax.caches = {};
+//~~~~~~~~~^^ cachedAjax plugin ^^~~~~~~~~~~~//
+
+
 
 // set text selection plugin
 $.fn.setSelection = function (startPos, endPos) {
