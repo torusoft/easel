@@ -4,9 +4,9 @@ var FM = FM || {};
   var docEl = document.documentElement,
       htmlClass = docEl.className;
 
-  if ( docEl.className.indexOf('no-js') !== -1 ) {
-    docEl.className = docEl.className.replace(/no-js/, 'js');
-  } else if ( (' ' + docEl.className + ' ').indexOf(' js ') === -1 ) {
+  if ( htmlClass.indexOf('no-js') !== -1 ) {
+    docEl.className = htmlClass.replace(/no-js/, 'js');
+  } else if ( (' ' + htmlClass + ' ').indexOf(' js ') === -1 ) {
     docEl.className += ' js';
   }
 
