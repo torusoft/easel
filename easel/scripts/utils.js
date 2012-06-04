@@ -179,7 +179,7 @@ FM.extend({
   // call addEvent on window load
   // redefine addEvent to call the function immediately if window is already loaded
   FM.addEvent(window, 'load', function() {
-    doc.body.className += ' js-loaded';
+    doc.documentElement.className += ' js-loaded';
     FM.windowLoaded = true;
 
     if (FM.touch && typeof jQuery != 'undefined') {

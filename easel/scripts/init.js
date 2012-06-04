@@ -1,6 +1,14 @@
 var FM = FM || {};
 
 (function(window, arrProto) {
+  var docEl = document.documentElement,
+      htmlClass = docEl.className;
+
+  if ( docEl.className.indexOf('no-js') !== -1 ) {
+    docEl.className = docEl.className.replace(/no-js/, 'js');
+  } else if ( (' ' + docEl.className + ' ').indexOf(' js ') === -1 ) {
+    docEl.className += ' js';
+  }
 
   /** =utility function to merge objects
   ************************************************************/
