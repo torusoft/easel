@@ -59,7 +59,6 @@ FM.extend({
   },
 
   //=convert a serialized string to an object
-  //=convert a serialized string to an object
   unserialize: function(string) {
     string = string || window.location.search;
     string = string.replace(/^\?/,'');
