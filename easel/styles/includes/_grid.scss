@@ -24,10 +24,13 @@ $container-width: $column-outer-width * $default-column-count - $default-column-
 @mixin container(
   $width: $container-width,
   $center: true,
-  $offset-x: 0
+  $offset-x: 0,
+  $clearfix: true
 ) {
   width: $width + $offset-x;
-  @include clearfix;
+  @if $clearfix {
+    @include clearfix;
+  }
   @if $center {
     margin: 0 auto;
   }
