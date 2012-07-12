@@ -21,7 +21,7 @@ repos = { "cycle" => "malsup",
           # "jqanalyze" => "mennovanslooten",
           # "jquery-dotimeout" => "cowboy",
           # "jquery-bbq" => "cowboy",
-          # "TransformJS" => "sproutcore",
+          # "jquery.transit" => "rstacruz", # CSS3 transitions using .transition() method (handle with care)
           "Modernizr" => "Modernizr",
           "JSON-js" => "douglascrockford",
           "mediaelement" => "johndyer",
