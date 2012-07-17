@@ -4,8 +4,13 @@
  * elements also need a z-index, so not position: static
  * use ie html classes to create a .pie class in your site stylesheet
  */
-@mixin pie {
-  behavior: url($easel-dir + 'tools/PIE.htc');
+
+ $use-pie: true !default;
+
+@mixin pie($pie: $use-pie) {
+  @if $pie {
+    behavior: url($easel-dir + 'tools/PIE.htc');
+  }
 }
 
 /**
@@ -34,7 +39,7 @@
   $spread: $base-box-shadow-spread,
   $color : $base-box-shadow-color,
   $inset: false,
-  $pie: true) {
+  $pie: $use-pie) {
   @if $pie {
     .ie7  & {
       @include pie;
@@ -80,7 +85,7 @@
   $tr: $base-border-radius,
   $br: $base-border-radius,
   $bl: $base-border-radius,
-  $pie: true) {
+  $pie: $use-pie) {
   @if $pie {
     .ie7  & {
         @include pie;
@@ -156,7 +161,7 @@
 /**
  * rgba backgrounds
  */
-@mixin rgba($color, $opacity, $pie: true) {
+@mixin rgba($color, $opacity, $pie: $use-pie) {
   background-color: $color;
   background-color: rgba($color, $opacity);
   @if $pie {
@@ -167,14 +172,14 @@
     .ie8 & {
       @include pie;
       -pie-background: rgba($color, $opacity);
-    }    
-  }  
+    }
+  }
 }
 
 /**
  * multiple backgrounds
  */
-@mixin multiple-backgrounds($value, $pie: true) {
+@mixin multiple-backgrounds($value, $pie: $use-pie) {
   background: unquote($value);
   @if $pie {
     .ie7  & {
@@ -183,15 +188,15 @@
     }
     .ie8 & {
       @include pie;
-       -pie-background: unquote($value); 
+       -pie-background: unquote($value);
     }
-  }  
+  }
 }
 
 /**
  * vertical gradient
  */
-@mixin vertical-gradient($start: #000, $end: #fff, $pie: true) {
+@mixin vertical-gradient($start: #000, $end: #fff, $pie: $use-pie) {
   background: $end;
   background: -moz-linear-gradient(center top, $start 0%, $end 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start), color-stop(1, $end) );
