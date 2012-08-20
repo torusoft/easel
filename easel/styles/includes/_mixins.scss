@@ -19,27 +19,30 @@
   }
 }
 
+// Commenting this out for now...not the right way to do this.
+// Defining sprite-maps here broke lots of things on existing sites.
+
 //** =sprite background for standard + high-res screens
 //**********************************************************/
 
-$sprites: sprite-map("images/png8/*.png") !default;
-$sprites-hd: sprite-map("images/png8-hd/*.png") !default;
+// $sprites: sprite-map("images/png8/*.png") !default;
+// $sprites-hd: sprite-map("images/png8-hd/*.png") !default;
 
-@mixin sprite-bg($name) {
-  $height: image-height(sprite-file($sprites, $name));
-  $width: image-width(sprite-file($sprites, $name));
-  background-image: sprite-url($sprites);
-  background-position: sprite-position($sprites, $name);
-  background-repeat: no-repeat;
-  display: block;
-  height: $height;
-  width: $width;
-  @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 2), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
-    @include background-size($width $height);
-    background-position: sprite-position($sprites-hd, $name);
-    background-image: sprite-url($sprites-hd);
-  }
-}
+// @mixin sprite-bg($name) {
+//   $height: image-height(sprite-file($sprites, $name));
+//   $width: image-width(sprite-file($sprites, $name));
+//   background-image: sprite-url($sprites);
+//   background-position: sprite-position($sprites, $name);
+//   background-repeat: no-repeat;
+//   display: block;
+//   height: $height;
+//   width: $width;
+//   @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 2), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
+//     @include background-size($width $height);
+//     background-position: sprite-position($sprites-hd, $name);
+//     background-image: sprite-url($sprites-hd);
+//   }
+// }
 
 //** =cross-browser inline-block
 //**********************************************************/
