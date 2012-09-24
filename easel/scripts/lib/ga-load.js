@@ -3,7 +3,7 @@
 
 var FM = FM || {};
 
-FM.siteId = FM.siteId || FM.googleAnalyticsKey || '';
+FM.siteId = FM.siteId || FM.googleAnalyticsId || '';
 FM.trackPageview = FM.trackPageview || ['_trackPageview'];
 
 if ( FM.trackPageview.length == 1 && (/page not found/i).test(document.title) ) {
@@ -62,7 +62,9 @@ if (FM.searchWords) {
       };
 
   if (!FM.siteId || FM.siteId == 'XXXXXX') {
-    FM.log && FM.log('Google Analytics account not set.');
+    if (FM.log) {
+      FM.log('Google Analytics account not set.');
+    }
     return;
   }
 
