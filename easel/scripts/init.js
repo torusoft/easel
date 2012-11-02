@@ -51,8 +51,7 @@ var FM = FM || {};
       min: '/tools/min/index.php?g=',
       script: '/assets/scripts/',
       lib: '/assets/scripts/lib/',
-      img: '/assets/styles/images/',
-      swf: '/assets/styles/swf/'
+      img: '/assets/styles/images/'
       }
   });
 
@@ -150,7 +149,8 @@ var FM = FM || {};
     //= Insert a <script> element asynchronously
     addScript: function(url, sid, callback) {
       var loadScript = doc.createElement('script'),
-          script0 = doc.getElementsByTagName('script')[0];
+          script0 = doc.getElementsByTagName('script')[0],
+          done = false;
 
       loadScript['async'] = 'async';
       loadScript.src = url;
@@ -161,23 +161,20 @@ var FM = FM || {};
         sid = null;
       }
 
-      // If there's a callback, call it after the script loads
+      // If there's a callback, set handler to call it after the script loads
       // NOTE: script may not be parsed by the time callback is called.
       if (callback) {
-        if (loadScript.addEventListener) {
-          // Newer browsers
-          loadScript.addEventListener('load', function(){
-            callback();
-          }, false);
-        } else {
-          // old IE
-          loadScript.onreadystatechange = function() {
-            if (loadScript.readyState in {loaded: 1, complete: 1}) {
-              loadScript.onreadystatechange = null;
-              callback();
-            }
-          };
-        }
+        loadScript.onload = loadScript.onreadystatechange = function() {
+          if ( !done && (!this.readyState ||
+               this.readyState == 'loaded' ||
+               this.readyState == 'complete')
+          ) {
+            done = true;
+            callback();
+            loadScript.onload = loadScript.onreadystatechange = null;
+            h.removeChild(loadScript);
+          }
+        };
       }
 
       if ( !sid || !doc.getElementById(sid) ) {
