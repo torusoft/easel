@@ -1,18 +1,16 @@
-/** =set up addthis configuration
-************************************************************/
+// Requires init.js >= 11-02-2012
 
-var FM = FM || {};
+FM.googleAnalyticsId = FM.googleAnalyticsId || FM.googleAnalyticsKey || FM.siteId;
 
-FM.siteId = FM.siteId || FM.googleAnalyticsId || '';
 FM.trackPageview = FM.trackPageview || ['_trackPageview'];
 
-if ( FM.trackPageview.length == 1 && (/page not found/i).test(document.title) ) {
+if ( FM.trackPageview.length === 1 && (/page not found/i).test(document.title) ) {
   FM.trackPageview.push('/404/' + window.location.pathname.replace(/^\//,'') );
 }
 
 // global _gaq array
 var _gaq = [
-  ['_setAccount', FM.siteId],
+  ['_setAccount', FM.googleAnalyticsId],
   // add site-specific parameters here.
   // ['_setDomainName', 'none'],
   // ['_setAllowLinker', true],
@@ -26,7 +24,8 @@ if (FM.searchWords) {
   _gaq.pop();
   _gaq.push(['_trackEvent', 'Search', FM.searchWords, FM.searchResults]);
 
-} else {
+}
+// else {
   // this is needed for addThis tracking:
 
   // var addthis_config = {
@@ -43,39 +42,14 @@ if (FM.searchWords) {
 
   // var pageTracker = {};
   // _gaq.push(function() {
-  //    pageTracker = _gat._getTracker(FM.siteId);
+  //    pageTracker = _gat._getTracker(FM.googleAnalyticsId);
   //    addthis_config.data_ga_tracker = pageTracker;
   // });
 
+// }
+
+// Load the Google Analytics script
+if ( FM.googleAnalyticsId && FM.googleAnalyticsId.indexOf('XXXXX') === -1 ) {
+  FM.addScript('//www.google-analytics.com/ga.js', 'loaded-ga');
 }
-
-(function(d, t, a) {
-
-  var gurl = '//www.google-analytics.com/ga.js',
-      appendGA = function() {
-        var g = d.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-
-        g[a] = a;
-        g.src = gurl;
-        s.parentNode.insertBefore(g, s);
-      };
-
-  if (!FM.siteId || FM.siteId == 'XXXXXX') {
-    if (FM.log) {
-      FM.log('Google Analytics account not set.');
-    }
-    return;
-  }
-
-
-  if (typeof $LAB != 'undefined') {
-    $LAB = $LAB.script(gurl);
-  } else {
-    appendGA();
-  }
-
-
-
-})(document, 'script', 'async');
 
