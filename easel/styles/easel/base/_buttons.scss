@@ -7,23 +7,23 @@
   $offset-y: -1px,
   $img: $easel-dir + 'ui/button-white.png',
   $text-align: center){
-	
-//  @media screen and (-webkit-min-device-pixel-ratio:0) { 
+
+//  @media screen and (-webkit-min-device-pixel-ratio:0) {
 //     span {
-//       margin-top: -1px; 
+//       margin-top: -1px;
 //     }
 //   }
-  
+
   @include inline-block;
   cursor: pointer;
   text-align: $text-align;
   position: relative;
-  padding: 0 $padding-x 0 0;    
+  padding: 0 $padding-x 0 0;
   zoom: 1; //ie
   width: auto; //ie
   overflow: visible; //ie
-   
-  // removes 1px border in FF   
+
+  // removes 1px border in FF
   &::-moz-focus-inner {
     border: none;
     padding: 0;
@@ -36,19 +36,22 @@
     height: $height;
     line-height: $height + $offset-y;
   }
-	
+
 	&,
 	& span {
 		background-image: url($img);
 	}
-	
+
 	& { background-position: 100% 0; }
 	span { background-position: 0 -100px; }
-	&:hover { background-position: 100% -200px; }
-	&:hover span { background-position: 0 -300px; }
-	&:active { background-position: 100% -400px; }
-	&:active span { background-position: 0 -500px; }
-	
+
+  &:not([disabled]) {
+    &:hover { background-position: 100% -200px; }
+    &:hover span { background-position: 0 -300px; }
+    &:active { background-position: 100% -400px; }
+    &:active span { background-position: 0 -500px; }
+  }
+
 	// reset inner spans
 	& span span {
 	  background: none;
