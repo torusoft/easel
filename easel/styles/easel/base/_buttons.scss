@@ -45,7 +45,7 @@
 	& { background-position: 100% 0; }
 	span { background-position: 0 -100px; }
 
-  &:not([disabled]) {
+  &:not([disabled], .disabled) {
     &:hover { background-position: 100% -200px; }
     &:hover span { background-position: 0 -300px; }
     &:active { background-position: 100% -400px; }
